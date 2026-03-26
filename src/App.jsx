@@ -1,23 +1,16 @@
-import Navbar from "./components/common/Navbar"
-import HeroCarousel from "./components/dashboard/Carrousel"
-import RescueTimeline from "./components/dashboard/RescueTimeline"
-import DonationSection from "./components/dashboard/Donation"
-import ScrollToTop from "./components/common/ScrollTop"
-import MythsVsReality from "./components/dashboard/MitoVsRealidad"
+import { useRoutes } from "react-router-dom";
+import { Suspense } from "react";
+import routes from "@/routes";
 
 function App() {
 
+  let element = useRoutes(routes);
+
   return (
-    <>
-      <Navbar />
-      <HeroCarousel />
-      <RescueTimeline />
-      <DonationSection />
-      <MythsVsReality />
-      
-      <ScrollToTop />
-    </>
-  )
+    <Suspense fallback={<div>Loading...</div>}>
+      {element}
+    </Suspense>
+  );
 }
 
-export default App
+export default App;

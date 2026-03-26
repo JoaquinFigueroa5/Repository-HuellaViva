@@ -46,8 +46,8 @@ const IMPACT_AMOUNTS = [
     color: "#2DA14F",
   },
   {
-    value: "Q 700",
-    impact: "Financia una esterilización completa",
+    value: "Lo que desees",
+    impact: "Cualquier cantidad es bienvenida y agradecida",
     emoji: <FaHeartbeat size={32} color="#FF8C42" />,
     color: "#FF8C42",
   },
@@ -189,7 +189,7 @@ const BankCard = memo(function BankCard({ account, index }) {
       setCopied(field);
       setTimeout(() => setCopied(null), 2000);
       toast.success(
-        `!${field === "number" ? "Número de cuenta" : "Nombre del titular"} copiado!`,
+        `¡${field === "number" ? "Número de cuenta" : "Nombre del titular"} copiado!`,
       );
     });
   }, []);
@@ -692,7 +692,7 @@ export default function DonationSection() {
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Después de tu depósito, envíanos el comprobante por WhatsApp
-                  para registrar tu donación. <FaPaw />
+                  para registrar tu donación.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

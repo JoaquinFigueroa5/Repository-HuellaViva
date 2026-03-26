@@ -14,7 +14,9 @@ import {
   FaHeart,
   FaAngleDoubleRight,
   FaAngleDoubleLeft,
-  FaRegSadCry
+  FaRegSadCry,
+  FaDog,
+  FaCat
 } from "react-icons/fa";
 
 
@@ -50,6 +52,7 @@ const RESCUES = [
     accentColor: "#2DA14F",
     duration: "6 semanas de recuperación",
     rescuedBy: "Equipo HuellaViva",
+    logo: <FaDog size={24} />
   },
   {
     id: 2,
@@ -82,6 +85,7 @@ const RESCUES = [
     accentColor: "#FF8C42",
     duration: "4 semanas de recuperación",
     rescuedBy: "Voluntaria Ana García",
+    logo: <FaDog size={24} />
   },
   {
     id: 3,
@@ -114,6 +118,7 @@ const RESCUES = [
     accentColor: "#D8F3DC",
     duration: "8 semanas de recuperación",
     rescuedBy: "Clínica VetAmigos",
+    logo: <FaCat size={24} />
   },
   {
     id: 4,
@@ -146,15 +151,14 @@ const RESCUES = [
     accentColor: "#FF8C42",
     duration: "10 semanas de recuperación",
     rescuedBy: "Dr. Mendoza & Equipo",
+    logo: <FaDog size={24} />
   },
 ];
 
-// ─── Sub-components ────────────────────────────────────────────────────────────
 
 function ImagePlaceholder({ gradient, label, tag, tagColor, moodIcon, mood }) {
   return (
     <div className={`relative w-full h-full ${gradient} flex flex-col items-center justify-center gap-3 overflow-hidden`}>
-      {/* Grain texture overlay */}
       <div className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
@@ -204,7 +208,6 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
       whileHover={{ y: -3, boxShadow: `0 8px 40px ${accent}15` }}
       style={{ boxShadow: isActive ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${accent}15` : "none" }}
     >
-      {/* Image area */}
       <div className="relative h-52 shrink-0">
         {
           data.image ? (
@@ -220,7 +223,6 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
             />
           )
         }
-        {/* Before/After label */}
         <div className="absolute top-3 left-3 z-10">
           <span
             className="text-xs font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full backdrop-blur-sm"
@@ -234,7 +236,6 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
             {isBefore ?  "Antes" : "Después"}
           </span>
         </div>
-        {/* Mood badge */}
         <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#212529]/70 backdrop-blur-sm">
           <span className="text-sm">{data.moodIcon}</span>
           <span className="text-[#D8F3DC]/70 text-[0.68rem] font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -243,7 +244,6 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
         </div>
       </div>
 
-      {/* Content */}
       <div className="p-5 flex flex-col gap-4 flex-1">
         <p
           className="text-[#D8F3DC]/75 text-sm leading-relaxed"
@@ -261,8 +261,6 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
     </m.div>
   );
 }
-
-// ─── Timeline Node ─────────────────────────────────────────────────────────────
 
 function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
   const ref = useRef(null);
@@ -285,7 +283,6 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
           outline: "none",
         }}
       >
-        {/* Node dot */}
         <div className="relative shrink-0">
           <m.div
             animate={{
@@ -304,12 +301,13 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             ) : (
-              <FaPaw size={14} color={isActive ? "#212529" : rescue.accentColor} />
+              <div style={{ color: isActive ? "#D8F3DC" : rescue.accentColor }}>
+                {rescue.logo}
+              </div>
             )}
           </m.div>
         </div>
 
-        {/* Text */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <span
@@ -336,7 +334,6 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
           </p>
         </div>
 
-        {/* Arrow */}
         <m.div
           animate={{ x: isActive ? 0 : -4, opacity: isActive ? 1 : 0 }}
           transition={{ type: "spring", stiffness: 300, damping: 24 }}
@@ -351,8 +348,6 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
   );
 }
 
-// ─── Main Component ────────────────────────────────────────────────────────────
-
 export default function RescueTimeline() {
   const [activeId, setActiveId] = useState(1);
   const prefersReduced = useReducedMotion();
@@ -366,7 +361,6 @@ export default function RescueTimeline() {
         <section className="w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden" id="historias">
           <div className="max-w-300 mx-auto">
 
-            {/* ── Section Header ── */}
             <m.div
               ref={headerRef}
               initial={{ opacity: 0, y: 32 }}
@@ -397,12 +391,11 @@ export default function RescueTimeline() {
               </p>
             </m.div>
 
-            {/* ── Main Grid ── */}
             <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 xl:gap-12 items-start">
 
-              {/* ── Left: Timeline sidebar ── */}
+              {/* primera columna */}
+
               <div className="lg:sticky lg:top-24">
-                {/* Counter */}
                 <div className="flex items-center gap-2 mb-5 px-1">
                   <span className="text-[#D8F3DC]/30 text-xs tracking-widest uppercase" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     {RESCUES.length} rescates
@@ -410,9 +403,7 @@ export default function RescueTimeline() {
                   <div className="flex-1 h-px bg-[#D8F3DC]/10" />
                 </div>
 
-                {/* Nodes with line */}
                 <div className="relative">
-                  {/* Vertical line */}
                   <div className="absolute left-9 top-5 bottom-5 w-px timeline-line" />
 
                   <div className="flex flex-col gap-1">
@@ -429,7 +420,6 @@ export default function RescueTimeline() {
                   </div>
                 </div>
 
-                {/* Progress indicator */}
                 <div className="mt-6 px-4">
                   <div className="flex justify-between text-[0.65rem] text-[#D8F3DC]/30 mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     <span>Progreso</span>
@@ -445,7 +435,6 @@ export default function RescueTimeline() {
                   </div>
                 </div>
 
-                {/* Nav buttons */}
                 <div className="mt-4 px-4 flex gap-2">
                   <m.button
                     whileHover={{ x: -2 }}
@@ -478,7 +467,8 @@ export default function RescueTimeline() {
                 </div>
               </div>
 
-              {/* ── Right: Detail panel ── */}
+              {/* segunda columna */}
+
               <AnimatePresence mode="wait">
                 <m.div
                   key={activeId}
@@ -489,7 +479,6 @@ export default function RescueTimeline() {
                   className="flex flex-col gap-6"
                 >
 
-                  {/* Animal header */}
                   <div
                     className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl border"
                     style={{
@@ -498,14 +487,15 @@ export default function RescueTimeline() {
                     }}
                   >
                     <div className="flex items-center gap-4">
-                      {/* Avatar circle */}
                       <m.div
                         animate={{ rotate: [0, 8, -4, 0] }}
                         transition={{ delay: 0.3, duration: 0.6, ease: "easeInOut" }}
                         className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl shrink-0"
                         style={{ backgroundColor: `${active.accentColor}20`, border: `2px solid ${active.accentColor}40` }}
                       >
-                        <FaPaw color={active.accentColor} />
+                        <div style={{ color: active.accentColor }}>
+                          {active.logo}
+                        </div>
                       </m.div>
                       <div>
                         <h3
@@ -531,7 +521,6 @@ export default function RescueTimeline() {
                       </div>
                     </div>
 
-                    {/* Meta chips */}
                     <div className="flex flex-wrap gap-2">
                       <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: "#D8F3DC", backgroundColor: "#D8F3DC15", border: "1px solid #D8F3DC20", fontFamily: "'DM Sans', sans-serif" }}>
                         <FaRegClock /> {active.duration}
@@ -542,7 +531,6 @@ export default function RescueTimeline() {
                     </div>
                   </div>
 
-                  {/* Before / After divider label */}
                   <div className="flex items-center gap-3">
                     <div className="flex-1 h-px bg-[#D8F3DC]/8" />
                     <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a1e22] border border-[#D8F3DC]/10">
@@ -557,7 +545,6 @@ export default function RescueTimeline() {
                     <div className="flex-1 h-px bg-[#D8F3DC]/8" />
                   </div>
 
-                  {/* Cards grid */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <BeforeAfterCard
                       side="before"
@@ -575,7 +562,6 @@ export default function RescueTimeline() {
                     />
                   </div>
 
-                  {/* Transformation arrow row */}
                   <m.div
                     initial={{ opacity: 0, scaleX: 0.6 }}
                     animate={{ opacity: 1, scaleX: 1 }}
@@ -615,7 +601,6 @@ export default function RescueTimeline() {
               </AnimatePresence>
             </div>
 
-            {/* ── Bottom CTA ── */}
             <m.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
