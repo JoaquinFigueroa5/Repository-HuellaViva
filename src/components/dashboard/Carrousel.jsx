@@ -243,15 +243,6 @@ export default function HeroCarousel() {
 
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
-      <style>{`
-        @keyframes liveDot { 0%,100%{opacity:1} 50%{opacity:.35} }
-        .live-dot { animation: liveDot 2s ease-in-out infinite; }
-      `}</style>
-
       <LazyMotion features={domMax} strict>
         <section
           className="relative w-full overflow-hidden bg-[#212529]"

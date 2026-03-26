@@ -13,7 +13,7 @@ import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "#inicio" },
-  { label: "El Problema", href: "#problema" },
+  { label: "Guia emergencia", href: "#problema" },
   { label: "Cómo Ayudar", href: "#ayudar" },
   { label: "Adopciones", href: "#adopciones" },
   { label: "Historias", href: "#historias" },
