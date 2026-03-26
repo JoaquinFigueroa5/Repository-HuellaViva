@@ -27,6 +27,7 @@ const SLIDES = [
     stat: { value: "3M+", label: "animales en situación de calle" },
     accent: "#2DA14F",
     cta: "Conoce el problema",
+    ref: "#mitos"
   },
   {
     id: 2,
@@ -37,7 +38,8 @@ const SLIDES = [
       "Adoptar a un animal rescatado no solo le da un hogar: transforma tu vida y la de toda una familia. El amor de un animal rescatado no tiene comparación.",
     stat: { value: "68%", label: "de adoptantes reportan mayor bienestar" },
     accent: "#FF8C42",
-    cta: "Ver animales en adopción",
+    cta: "Ver mitos y realidades",
+    ref: "#mitos"
   },
   {
     id: 3,
@@ -49,6 +51,7 @@ const SLIDES = [
     stat: { value: "1,200+", label: "animales rescatados este año" },
     accent: "#D8F3DC",
     cta: "Quiero ayudar",
+    ref: "#donaciones"
   },
   {
     id: 4,
@@ -60,6 +63,7 @@ const SLIDES = [
     stat: { value: "94%", label: "de rescates terminan en adopción exitosa" },
     accent: "#FF8C42",
     cta: "Leer historias",
+    ref: "#historias"
   },
 ];
 
@@ -389,6 +393,7 @@ export default function HeroCarousel() {
                         boxShadow: `0 2px 18px ${slide.accent}45`,
                         color: slide.accent === "#D8F3DC" ? "#212529" : "#fff",
                       }}
+                      onClick={() => document.location.href = slide.ref}
                     >
                       {slide.cta}
                       <m.span

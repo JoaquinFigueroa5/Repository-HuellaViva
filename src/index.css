@@ -131,6 +131,14 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #212529;
+}
+
 .timeline-line {
   background: linear-gradient(to bottom, transparent, #2DA14F55 20%, #2DA14F55 80%, transparent);
 }

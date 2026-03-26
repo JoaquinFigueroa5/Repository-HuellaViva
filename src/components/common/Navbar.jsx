@@ -138,6 +138,7 @@ export default function Navbar() {
               active:translate-y-0
             "
             style={{ fontFamily: "'DM Sans', sans-serif" }}
+            onClick={() => document.location.href = "#donaciones"}
           >
             <span style={{ animation: "hb 2s ease-in-out infinite" }}>
               <HeartIcon />

@@ -7,7 +7,15 @@ import {
   useInView,
   useReducedMotion,
 } from "framer-motion";
-import { FaPaw, FaRegClock, FaUser } from "react-icons/fa";
+import {
+  FaPaw,
+  FaRegClock,
+  FaUser,
+  FaHeart,
+  FaAngleDoubleRight,
+  FaAngleDoubleLeft,
+  FaRegSadCry
+} from "react-icons/fa";
 
 
 const RESCUES = [
@@ -24,7 +32,7 @@ const RESCUES = [
       summary: "Desnutrida y con heridas en las patas traseras, vivía bajo un puente sin que nadie la notara.",
       details: ["Desnutrición severa", "Heridas infectadas", "Miedo extremo al contacto", "3 meses en la calle"],
       mood: "Asustada",
-      moodIcon: "😔",
+      moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#2a1f1a] to-[#3d2b1f]",
       image: "https://images.unsplash.com/photo-1553434133-96822a8e94af"
     },
@@ -35,7 +43,7 @@ const RESCUES = [
       summary: "Hoy Luna vive con la familia Rodríguez en Zona 15. Juega en el jardín y duerme en una cama propia.",
       details: ["Peso saludable restaurado", "Sin heridas, pelaje brillante", "Juguetona y cariñosa", "Adoptada en 6 semanas"],
       mood: "Feliz",
-      moodIcon: "🐾",
+      moodIcon: <FaPaw color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0d2b17] to-[#1a4a2a]",
       image: "https://images.unsplash.com/photo-1534361960057-19889db9621e"
     },
@@ -56,7 +64,7 @@ const RESCUES = [
       summary: "Fue abandonado atado a un poste en plena carretera. Llevaba más de 48 horas sin agua ni comida.",
       details: ["Deshidratación aguda", "Collar incrustado en el cuello", "Trauma por abandono", "48 hrs sin agua"],
       mood: "Traumatizado",
-      moodIcon: "😢",
+      moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#1a1a2a] to-[#2a2a3d]",
       image: ""
     },
@@ -67,7 +75,7 @@ const RESCUES = [
       summary: "Max vive con Don Carlos, un adulto mayor que encontró en él el compañero de vida que necesitaba.",
       details: ["Salud recuperada al 100%", "Cicatriz del collar sanada", "Leal y protector", "Mejor amigo de su papá"],
       mood: "Amado",
-      moodIcon: "❤️",
+      moodIcon: <FaHeart color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0a2010] to-[#153520]",
       image: ""
     },
@@ -88,7 +96,7 @@ const RESCUES = [
       summary: "Vivía entre los puestos del mercado, con una infección ocular grave que le había dejado ciego el ojo derecho.",
       details: ["Infección ocular grave", "Parasitosis severa", "Pelaje en muy mal estado", "Anemia por desnutrición"],
       mood: "Sufriendo",
-      moodIcon: "😿",
+      moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#251a0a] to-[#3d2b10]",
       image: ""
     },
@@ -99,7 +107,7 @@ const RESCUES = [
       summary: "Aunque perdió la visión en un ojo, Michi es hoy la reina del hogar de la familia Pérez en Antigua.",
       details: ["Ojo tratado y estabilizado", "Pelaje suave y brillante", "Independiente y curiosa", "Dueña del sofá"],
       mood: "Reina",
-      moodIcon: "👑",
+      moodIcon: <FaHeart color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0d2b17] to-[#163d24]",
       image: ""
     },
@@ -120,7 +128,7 @@ const RESCUES = [
       summary: "Encontrado entre escombros de una demolición. Tenía una pata fracturada y múltiples cortes.",
       details: ["Fractura de pata delantera", "Múltiples laceraciones", "Sin microchip ni dueño", "Extremadamente delgado"],
       mood: "En dolor",
-      moodIcon: "🩹",
+      moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#1f1a10] to-[#332a18]",
       image: ""
     },
@@ -131,7 +139,7 @@ const RESCUES = [
       summary: "Tras una cirugía exitosa, Rocky corre sin problemas. Vive con una familia joven con dos niños.",
       details: ["Cirugía ortopédica exitosa", "Corre y salta con alegría", "Ama a los niños", "Guardián del hogar"],
       mood: "Guerrero",
-      moodIcon: "⭐",
+      moodIcon: <FaHeart color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0d2b17] to-[#1a4a2a]",
       image: ""
     },
@@ -193,6 +201,7 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
       animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ type: "spring", stiffness: 100, damping: 20, delay: isBefore ? 0 : 0.15 }}
       className="flex flex-col rounded-2xl overflow-hidden border border-[#D8F3DC]/8 bg-[#1a1e22]"
+      whileHover={{ y: -3, boxShadow: `0 8px 40px ${accent}15` }}
       style={{ boxShadow: isActive ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${accent}15` : "none" }}
     >
       {/* Image area */}
@@ -222,7 +231,7 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
-            {isBefore ? "◀ Antes" : "Después ▶"}
+            {isBefore ?  "Antes" : "Después"}
           </span>
         </div>
         {/* Mood badge */}
@@ -354,7 +363,7 @@ export default function RescueTimeline() {
   return (
     <>
       <LazyMotion features={domMax} strict>
-        <section className="w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden">
+        <section className="w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden" id="historias">
           <div className="max-w-300 mx-auto">
 
             {/* ── Section Header ── */}
@@ -524,10 +533,10 @@ export default function RescueTimeline() {
 
                     {/* Meta chips */}
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-[0.68rem] flex justify-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: "#D8F3DC", backgroundColor: "#D8F3DC15", border: "1px solid #D8F3DC20", fontFamily: "'DM Sans', sans-serif" }}>
+                      <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: "#D8F3DC", backgroundColor: "#D8F3DC15", border: "1px solid #D8F3DC20", fontFamily: "'DM Sans', sans-serif" }}>
                         <FaRegClock /> {active.duration}
                       </span>
-                      <span className="text-[0.68rem] flex justify-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: active.accentColor, backgroundColor: `${active.accentColor}15`, border: `1px solid ${active.accentColor}25`, fontFamily: "'DM Sans', sans-serif" }}>
+                      <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: active.accentColor, backgroundColor: `${active.accentColor}15`, border: `1px solid ${active.accentColor}25`, fontFamily: "'DM Sans', sans-serif" }}>
                         <FaUser /> {active.rescuedBy}
                       </span>
                     </div>
@@ -627,14 +636,14 @@ export default function RescueTimeline() {
                 </p>
               </div>
               <div className="flex gap-3 shrink-0">
-                <m.button
+                {/* <m.button
                   whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(255,140,66,0.45)" }}
                   whileTap={{ scale: 0.96 }}
                   className="px-5 py-2.75 rounded-xl text-sm font-semibold border-0 cursor-pointer text-white"
                   style={{ backgroundColor: "#FF8C42", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(255,140,66,0.35)" }}
                 >
                   Adoptar ahora
-                </m.button>
+                </m.button> */}
                 <m.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.96 }}
@@ -645,6 +654,7 @@ export default function RescueTimeline() {
                     border: "1px solid rgba(45,161,79,0.3)",
                     fontFamily: "'DM Sans', sans-serif",
                   }}
+                  onClick={() => document.location.href = "#donaciones"}
                 >
                   Donar
                 </m.button>

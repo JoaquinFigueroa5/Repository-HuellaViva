@@ -3,6 +3,7 @@ import HeroCarousel from "./components/dashboard/Carrousel"
 import RescueTimeline from "./components/dashboard/RescueTimeline"
 import DonationSection from "./components/dashboard/Donation"
 import ScrollToTop from "./components/common/ScrollTop"
+import MythsVsReality from "./components/dashboard/MitoVsRealidad"
 
 function App() {
 
@@ -12,6 +13,8 @@ function App() {
       <HeroCarousel />
       <RescueTimeline />
       <DonationSection />
+      <MythsVsReality />
+      
       <ScrollToTop />
     </>
   )
