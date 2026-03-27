@@ -17,7 +17,9 @@ import {
   FaNotesMedical,
   FaHouseUser,
   FaHeart,
-  FaInfoCircle
+  FaInfoCircle,
+  FaShareAlt,
+  FaRegPaperPlane
 } from "react-icons/fa";
 import {
   LazyMotion,
@@ -1048,7 +1050,7 @@ export default function EmergencyGuide() {
                 border: "1px solid rgba(45,161,79,0.25)",
               }}
             >
-              📋
+              <FaRegPaperPlane size={20} color="#2DA14F" />
             </div>
             <div className="text-center sm:text-left">
               <p
@@ -1066,7 +1068,7 @@ export default function EmergencyGuide() {
               </p>
             </div>
             <m.button
-              whileHover={{ y: -1 }}
+              whileHover={{ y: -1, backgroundColor: "rgba(216,243,220,0.15)", boxShadow: "0 8px 28px rgba(216,243,220,0.35)" }}
               whileTap={{ scale: 0.97 }}
               className="shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold cursor-pointer"
               style={{
@@ -1076,7 +1078,7 @@ export default function EmergencyGuide() {
                 fontFamily: "'DM Sans', sans-serif",
               }}
             >
-              📤 Compartir
+              <FaShareAlt size={20} color="#D8F3DC" /> Compartir
             </m.button>
           </m.div>
         </div>

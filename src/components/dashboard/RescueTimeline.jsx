@@ -22,69 +22,69 @@ import {
 const RESCUES = [
   {
     id: 1,
-    name: "Luna",
-    species: "Perrita",
-    date: "Marzo 2024",
-    location: "Zona 3, Ciudad de Guatemala",
+    name: "Toby",
+    species: "Perrito",
+    date: "-",
+    location: "-",
     before: {
       label: "Antes",
       tag: "Encontrada",
       tagColor: "#FF8C42",
-      summary: "Desnutrida y con heridas en las patas traseras, vivía bajo un puente sin que nadie la notara.",
-      details: ["Desnutrición severa", "Heridas infectadas", "Miedo extremo al contacto", "3 meses en la calle"],
-      mood: "Asustada",
+      summary: "Mi mami me adoptó cuando tenía 3 meses de Nacido soy una mezcla de chihuahua y alguna otra raza. Era muy delgado cuando llegue a ella.",
+      details: ["Desnutrición severa", "3 meses en la calle"],
+      mood: "Asustado",
       moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#2a1f1a] to-[#3d2b1f]",
-      image: "https://images.unsplash.com/photo-1553434133-96822a8e94af"
+      image: "/timeline/toby/tobyBefore.png"
     },
     after: {
       label: "Después",
       tag: "Adoptada",
       tagColor: "#2DA14F",
-      summary: "Hoy Luna vive con la familia Rodríguez en Zona 15. Juega en el jardín y duerme en una cama propia.",
-      details: ["Peso saludable restaurado", "Sin heridas, pelaje brillante", "Juguetona y cariñosa", "Adoptada en 6 semanas"],
+      summary: "Me considero un perro afortunado al llegar a la vida de mami, ella me ama , espero que mis hermanos perrunos tan bien  sean adoptados por una persona así.",
+      details: ["Peso saludable restaurado", "Juguetón y cariñoso"],
       mood: "Feliz",
       moodIcon: <FaPaw color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0d2b17] to-[#1a4a2a]",
-      image: "https://images.unsplash.com/photo-1534361960057-19889db9621e"
+      image: "/timeline/toby/tobyAfter.png"
     },
     accentColor: "#2DA14F",
-    duration: "6 semanas de recuperación",
+    duration: "Semanas de recuperación",
     rescuedBy: "Equipo HuellaViva",
     logo: <FaDog size={24} />
   },
   {
     id: 2,
-    name: "Max",
-    species: "Perro",
-    date: "Enero 2024",
-    location: "Carretera a El Salvador, km 22",
+    name: "Sisi",
+    species: "Gata",
+    date: "--",
+    location: "--",
     before: {
       label: "Antes",
       tag: "Abandonado",
       tagColor: "#FF8C42",
-      summary: "Fue abandonado atado a un poste en plena carretera. Llevaba más de 48 horas sin agua ni comida.",
-      details: ["Deshidratación aguda", "Collar incrustado en el cuello", "Trauma por abandono", "48 hrs sin agua"],
+      summary: "Hola soy Sisi, mis dueños pasaban por un basurero y se percataron que 2 adolescentes llevaban 2 gatitos, más adelante entre la basura me encontraron maullando.",
+      details: ["Deshidratación", "Sin desparasitar"],
       mood: "Traumatizado",
       moodIcon: <FaRegSadCry color="#FF8C42" />,
       imagePlaceholder: "bg-gradient-to-br from-[#1a1a2a] to-[#2a2a3d]",
-      image: ""
+      image: "/timeline/sisi/sisiBefore.png"
     },
     after: {
       label: "Después",
       tag: "En hogar",
       tagColor: "#2DA14F",
-      summary: "Max vive con Don Carlos, un adulto mayor que encontró en él el compañero de vida que necesitaba.",
-      details: ["Salud recuperada al 100%", "Cicatriz del collar sanada", "Leal y protector", "Mejor amigo de su papá"],
+      summary: "No me gustan las fotos, pero esta soy yo, los buenos cuidados se ven en mi pelaje el cual ahora brilla, y tengo una familia que me ama. ",
+      details: ["Salud recuperada al 100%", "Pelaje saludable"],
       mood: "Amado",
       moodIcon: <FaHeart color="#2DA14F" />,
       imagePlaceholder: "bg-gradient-to-br from-[#0a2010] to-[#153520]",
-      image: ""
+      image: "/timeline/sisi/sisiAfter.png"
     },
     accentColor: "#FF8C42",
-    duration: "4 semanas de recuperación",
-    rescuedBy: "Voluntaria Ana García",
-    logo: <FaDog size={24} />
+    duration: "Semanas de recuperación",
+    rescuedBy: "Equipo HuellaViva",
+    logo: <FaCat size={24} />
   },
   {
     id: 3,
@@ -210,7 +210,9 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
       <div className="relative h-52 shrink-0">
         {
           data.image ? (
-            <img src={data.image} alt="" />
+            <div className="relative w-full h-full flex flex-col items-center justify-center gap-3 overflow-hidden">
+              <img src={data.image} alt="Foto del antes o después" className="w-full h-full object-cover" />
+            </div>
           ) : (
             <ImagePlaceholder
               gradient={data.imagePlaceholder}

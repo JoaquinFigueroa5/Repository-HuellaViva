@@ -5,6 +5,7 @@ import DonationSection from "@/components/dashboard/Donation"
 import ScrollToTop from "@/components/common/ScrollTop"
 import MythsVsReality from "@/components/dashboard/MythsVsReality"
 import Footer from "@/components/common/Footer"
+import ReportAnimal from "@/components/reportAnimal/ReportAnimal"
 
 function Dashboard() {
 
@@ -15,6 +16,7 @@ function Dashboard() {
       <RescueTimeline />
       <DonationSection />
       <MythsVsReality />
+      <ReportAnimal />
       <Footer />
       <ScrollToTop />
     </>

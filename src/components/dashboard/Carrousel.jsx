@@ -27,7 +27,7 @@ const SLIDES = [
     stat: { value: "3M+", label: "animales en situación de calle" },
     accent: "#2DA14F",
     cta: "Guia para ayudar",
-    ref: "/emergency-guide"
+    ref: "/emergency"
   },
   {
     id: 2,
@@ -38,8 +38,8 @@ const SLIDES = [
       "Adoptar a un animal rescatado no solo le da un hogar: transforma tu vida y la de toda una familia. El amor de un animal rescatado no tiene comparación.",
     stat: { value: "68%", label: "de adoptantes reportan mayor bienestar" },
     accent: "#FF8C42",
-    cta: "Ver mitos y realidades",
-    ref: "#mitos"
+    cta: "Reportar animal callejero",
+    ref: "/report"
   },
   {
     id: 3,

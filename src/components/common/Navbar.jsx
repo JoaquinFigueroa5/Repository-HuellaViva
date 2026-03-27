@@ -6,8 +6,8 @@ import { useLocation } from "react-router-dom";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/" },
-  { label: "Guia emergencia", href: "/emergency-guide" },
-  { label: "Cómo Ayudar", href: "#mitos" },
+  { label: "Guia emergencia", href: "/emergency" },
+  { label: "Reportar animal", href: "/report" },
   { label: "Adopciones", href: "#donaciones" },
   { label: "Historias", href: "#historias" },
 ];

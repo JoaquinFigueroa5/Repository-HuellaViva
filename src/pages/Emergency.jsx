@@ -1,5 +1,5 @@
 import Navbar from "@/components/common/Navbar";
-import EmergencyGuide from "@/components/EmergencyGuide/EmergencyGuide";
+import EmergencyGuide from "@/components/emergencyGuide/EmergencyGuide";
 import ScrollToTop from "@/components/common/ScrollTop";
 import Footer from "@/components/common/Footer";
 
