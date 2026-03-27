@@ -8,14 +8,12 @@ const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Guia emergencia", href: "/emergency" },
   { label: "Reportar animal", href: "/report" },
-  { label: "Adopciones", href: "#donaciones" },
-  { label: "Historias", href: "#historias" },
+  { label: "Calculadora de huella", href: "/huella" }
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeLink, setActiveLink] = useState("Inicio");
   const location = useLocation();
 
   useEffect(() => {
@@ -37,10 +35,12 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8
           transition-all duration-500
+          bg-[#212529]/90 backdrop-blur-xl border-b border-[#D8F3DC]/8 shadow-[0_4px_32px_rgba(0,0,0,0.45)]
+          lg:bg-transparent lg:backdrop-blur-none lg:border-transparent lg:shadow-none
           ${
             scrolled
-              ? "bg-[#212529]/90 backdrop-blur-xl border-b border-[#D8F3DC]/8 shadow-[0_4px_32px_rgba(0,0,0,0.45)]"
-              : "bg-transparent"
+              ? "lg:bg-[#212529]/90 lg:backdrop-blur-xl lg:border-[#D8F3DC]/8 lg:shadow-[0_4px_32px_rgba(0,0,0,0.45)]"
+              : ""
           }`}
       >
         <div className="max-w-300 mx-auto h-17.5 flex items-center justify-between gap-6">
@@ -88,7 +88,7 @@ export default function Navbar() {
                 <a
                   key={label}
                   href={href}
-                  onClick={() => setActiveLink(label)}
+                  onClick={() => setIsOpen(false)}
                   className={`
                     group relative px-3.5 py-2 rounded-lg
                     text-sm font-medium tracking-wide no-underline
@@ -163,15 +163,14 @@ export default function Navbar() {
 
           <div className="flex flex-col gap-0.5 pt-2 pb-4 px-1">
             {NAV_LINKS.map(({ label, href }) => {
-              const active = activeLink === label;
+              const active =
+                location.pathname === href ||
+                (href.startsWith("#") && location.hash === href);
               return (
                 <a
                   key={label}
                   href={href}
-                  onClick={() => {
-                    setActiveLink(label);
-                    setIsOpen(false);
-                  }}
+                  onClick={() => setIsOpen(false)}
                   className={`
                     flex items-center gap-3 px-4 py-3 rounded-xl no-underline
                     text-[0.95rem] font-medium

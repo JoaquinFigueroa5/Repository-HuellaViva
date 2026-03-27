@@ -211,7 +211,29 @@ const StyledTextarea = memo(function StyledTextarea({
   );
 });
 
-function LeafletMap({ position, onPositionChange }) {
+async function reverseGeocode(lat, lng) {
+  try {
+    const res = await fetch(
+      `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1`,
+    );
+    const data = await res.json();
+    const a = data.address ?? {};
+    const parts = [
+      [a.road, a.house_number].filter(Boolean).join(" "),
+      a.neighbourhood || a.suburb || a.quarter || a.hamlet,
+      a.city_district,
+      a.city || a.town || a.village || a.municipality,
+      a.country,
+    ].filter(Boolean);
+    return parts.length > 0
+      ? parts.join(", ")
+      : `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  } catch {
+    return `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
+  }
+}
+
+function LeafletMap({ position, onPositionChange, onAddressChange }) {
   const mapRef = useRef(null);
   const leafletMap = useRef(null);
   const markerRef = useRef(null);
@@ -270,7 +292,9 @@ function LeafletMap({ position, onPositionChange }) {
           border:2px solid #D8F3DC;
           box-shadow:0 4px 16px rgba(45,161,79,0.5);
           display:flex;align-items:center;justify-content:center;
-        "><span style="transform:rotate(45deg);font-size:16px;line-height:1;">🐾</span></div>`,
+          "><span style="transform:rotate(45deg);font-size:16px;line-height:1;">
+            <FaPaw/>
+          </span></div>`,
         className: "",
         iconSize: [36, 36],
         iconAnchor: [18, 36],
@@ -280,14 +304,22 @@ function LeafletMap({ position, onPositionChange }) {
         icon: pawIcon,
         draggable: true,
       }).addTo(map);
-      marker.on("dragend", () => {
+      marker.on("dragend", async () => {
         const { lat: newLat, lng: newLng } = marker.getLatLng();
         onPositionChange({ lat: newLat, lng: newLng });
+        if (onAddressChange) {
+          const addr = await reverseGeocode(newLat, newLng);
+          onAddressChange(addr);
+        }
       });
 
-      map.on("click", (e) => {
+      map.on("click", async (e) => {
         marker.setLatLng(e.latlng);
         onPositionChange({ lat: e.latlng.lat, lng: e.latlng.lng });
+        if (onAddressChange) {
+          const addr = await reverseGeocode(e.latlng.lat, e.latlng.lng);
+          onAddressChange(addr);
+        }
       });
 
       leafletMap.current = map;
@@ -536,13 +568,8 @@ export default function ReportAnimal() {
         setPosition({ lat, lng });
         setGpsLoading(false);
         try {
-          const res = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
-          );
-          const data = await res.json();
-          setGpsAddress(
-            data.display_name ?? `${lat.toFixed(5)}, ${lng.toFixed(5)}`,
-          );
+          const addr = await reverseGeocode(lat, lng);
+          setGpsAddress(addr);
         } catch {
           setGpsAddress(`${lat.toFixed(5)}, ${lng.toFixed(5)}`);
         }
@@ -578,20 +605,53 @@ export default function ReportAnimal() {
         (position
           ? `${position.lat.toFixed(5)}, ${position.lng.toFixed(5)}`
           : "No disponible");
+
+    const speciesLabel =
+      SPECIES_OPTIONS.find((s) => s.value === form.species)?.label ??
+      "No indicada";
+    const conditionLabel =
+      CONDITION_OPTIONS.find((c) => c.value === form.condition)?.label ??
+      "No indicada";
+    const sizeLabel =
+      SIZE_OPTIONS.find((s) => s.value === form.size)?.label ?? "No indicado";
+
+    const coords = position
+      ? `${position.lat.toFixed(6)}, ${position.lng.toFixed(6)}`
+      : "—";
+
     const msg = encodeURIComponent(
-      `*REPORTE DE ANIMAL - HuellaViva*\n\n` +
-        `*Ubicación:* ${addr}\n` +
-        `*Hora:* ${time} del ${date}\n` +
-        `*Especie:* ${SPECIES_OPTIONS.find((s) => s.value === form.species)?.label ?? "No indicada"}\n` +
-        `*Tamaño:* ${SIZE_OPTIONS.find((s) => s.value === form.size)?.label ?? "No indicado"}\n` +
-        `*Condición:* ${CONDITION_OPTIONS.find((c) => c.value === form.condition)?.label ?? "No indicada"}\n` +
-        `*Color/marcas:* ${form.color || "No indicado"}\n` +
-        `*Descripción:* ${form.description || "Sin descripción"}\n` +
-        `*Reportado por:* ${form.name || "Anónimo"} · ${form.phone || "Sin teléfono"}\n` +
-        `*Notas:* ${form.notes || "—"}`,
+      `*REPORTE DE ANIMAL - HuellaViva*\n` +
+      `------------------------------\n` +
+      `\n` +
+      `*UBICACION*\n` +
+      `- Direccion: ${addr}\n` +
+      `- Coordenadas: ${coords}\n` +
+      `- Fecha y hora: ${date}  ${time}\n` +
+      `\n` +
+      `*INFORMACION DEL ANIMAL*\n` +
+      `- Especie: ${speciesLabel}\n` +
+      `- Condicion: ${conditionLabel}\n` +
+      `- Tamano: ${sizeLabel}\n` +
+      `- Color / marcas: ${form.color || "No indicado"}\n` +
+      `- Collar o placa: ${form.collarOrTag === true ? "Si" : form.collarOrTag === false ? "No" : "No indicado"}\n` +
+      `- Agresivo: ${form.aggressive ? "SI - tener precaucion" : "No"}\n` +
+      `- Descripcion: ${form.description || "Sin descripcion"}\n` +
+      `\n` +
+      `*FOTOS*\n` +
+      `- Fotos adjuntas: ${photos.length > 0 ? `${photos.length} foto(s) (se envian por separado)` : "Ninguna"}\n` +
+      `\n` +
+      `*DATOS DEL REPORTANTE*\n` +
+      `- Nombre: ${form.name || "Anonimo"}\n` +
+      `- Telefono / WA: ${form.phone || "No indicado"}\n` +
+      `- Correo: ${form.email || "No indicado"}\n` +
+      `- Disponibilidad: ${form.notes || "No indicado"}\n` +
+      `- ENVIAR FOTOS POR ESTE MEDIO` +
+      `\n` +
+      `------------------------------\n` +
+      `_Enviado desde HuellaViva_`,
     );
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
-  }, [form, position, gpsAddress, useManualAddr, manualAddr, time, date]);
+  }, [form, photos, position, gpsAddress, useManualAddr, manualAddr, time, date]);
 
   const STEPS = [
     { n: 1, label: "Animal", icon: "🐾" },
@@ -1252,6 +1312,7 @@ export default function ReportAnimal() {
                     <LeafletMap
                       position={position}
                       onPositionChange={setPosition}
+                      onAddressChange={setGpsAddress}
                     />
                     {position && (
                       <p
@@ -1541,71 +1602,59 @@ export default function ReportAnimal() {
                 )}
 
                 <div className="flex gap-2">
-                  {step === 3 && (
+                  {step < 3 ? (
+                    <m.button
+                      whileHover={
+                        canContinue[step]
+                          ? {
+                              y: -2,
+                              boxShadow: "0 8px 28px rgba(45,161,79,0.40)",
+                            }
+                          : {}
+                      }
+                      whileTap={canContinue[step] ? { scale: 0.97 } : {}}
+                      onClick={() => {
+                        if (!canContinue[step]) return;
+                        setStep(step + 1);
+                      }}
+                      disabled={!canContinue[step]}
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl border-0 cursor-pointer text-sm font-bold transition-all duration-200"
+                      style={{
+                        fontFamily: "'DM Sans', sans-serif",
+                        backgroundColor: canContinue[step]
+                          ? "#2DA14F"
+                          : "rgba(45,161,79,0.20)",
+                        color: canContinue[step]
+                          ? "#212529"
+                          : "rgba(45,161,79,0.40)",
+                        boxShadow: canContinue[step]
+                          ? "0 2px 16px rgba(45,161,79,0.30)"
+                          : "none",
+                        cursor: canContinue[step] ? "pointer" : "not-allowed",
+                      }}
+                    >
+                      Continuar →
+                    </m.button>
+                  ) : (
                     <m.button
                       whileHover={{
                         y: -2,
-                        boxShadow: "0 8px 24px rgba(37,211,102,0.35)",
+                        boxShadow: "0 8px 28px rgba(37,211,102,0.45)",
                       }}
                       whileTap={{ scale: 0.97 }}
                       onClick={handleWhatsApp}
-                      className="flex items-center gap-2 px-5 py-3 rounded-xl border-0 cursor-pointer text-sm font-semibold"
+                      className="flex items-center gap-2 px-6 py-3 rounded-xl border-0 cursor-pointer text-sm font-bold"
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
-                        backgroundColor: "rgba(37,211,102,0.14)",
-                        border: "1px solid rgba(37,211,102,0.35)",
-                        color: "#25D366",
+                        backgroundColor: "#25D366",
+                        color: "#fff",
+                        boxShadow: "0 2px 16px rgba(37,211,102,0.35)",
                       }}
                     >
-                      <FaWhatsapp size={14} />
+                      <FaWhatsapp size={15} />
                       Enviar por WA
                     </m.button>
                   )}
-
-                  <m.button
-                    whileHover={
-                      canContinue[step]
-                        ? {
-                            y: -2,
-                            boxShadow: "0 8px 28px rgba(45,161,79,0.40)",
-                          }
-                        : {}
-                    }
-                    whileTap={canContinue[step] ? { scale: 0.97 } : {}}
-                    onClick={() => {
-                      if (!canContinue[step]) return;
-                      if (step < 3) setStep(step + 1);
-                      else handleSubmit();
-                    }}
-                    disabled={!canContinue[step] || submitting}
-                    className="flex items-center gap-2 px-6 py-3 rounded-xl border-0 cursor-pointer text-sm font-bold transition-all duration-200"
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      backgroundColor: canContinue[step]
-                        ? "#2DA14F"
-                        : "rgba(45,161,79,0.20)",
-                      color: canContinue[step]
-                        ? "#212529"
-                        : "rgba(45,161,79,0.40)",
-                      boxShadow: canContinue[step]
-                        ? "0 2px 16px rgba(45,161,79,0.30)"
-                        : "none",
-                      cursor: canContinue[step] ? "pointer" : "not-allowed",
-                    }}
-                  >
-                    {submitting ? (
-                      <>
-                        <FaSpinner size={13} className="animate-spin" />{" "}
-                        Enviando...
-                      </>
-                    ) : step < 3 ? (
-                      <>Continuar →</>
-                    ) : (
-                      <>
-                        <FaCheck size={13} /> Enviar reporte
-                      </>
-                    )}
-                  </m.button>
                 </div>
               </div>
             </m.div>
