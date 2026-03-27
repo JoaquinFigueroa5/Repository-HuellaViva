@@ -26,8 +26,8 @@ const SLIDES = [
       "Cada año, miles de perros y gatos son abandonados en las calles de Guatemala. Solos, hambrientos y sin esperanza. Tú puedes ser su voz.",
     stat: { value: "3M+", label: "animales en situación de calle" },
     accent: "#2DA14F",
-    cta: "Conoce el problema",
-    ref: "#mitos"
+    cta: "Guia para ayudar",
+    ref: "/emergency-guide"
   },
   {
     id: 2,

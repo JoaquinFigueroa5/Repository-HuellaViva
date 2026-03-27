@@ -1,17 +1,3 @@
-/**
- * Footer.jsx — HuellaViva
- *
- * Diseño: Editorial orgánico con una llamada a la acción grande
- * como pieza central, seguido de una cuadrícula informativa limpia
- * y una franja de cierre con el copyright.
- *
- * Optimizaciones:
- *  - Variantes y datos fuera del componente
- *  - React.memo en sub-componentes
- *  - Animaciones solo en transform + opacity (GPU)
- *  - useReducedMotion aplicado
- */
-
 import { useRef, memo } from "react";
 import {
   FaPaw,
@@ -29,10 +15,6 @@ import {
   useInView,
   useReducedMotion,
 } from "framer-motion";
-
-// ─────────────────────────────────────────────────────────────────────────────
-// DATOS
-// ─────────────────────────────────────────────────────────────────────────────
 
 const NAV_COLUMNS = [
   {

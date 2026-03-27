@@ -15,7 +15,9 @@ import {
   FaSign,
   FaHands,
   FaNotesMedical,
-  FaHouseUser
+  FaHouseUser,
+  FaHeart,
+  FaInfoCircle
 } from "react-icons/fa";
 import {
   LazyMotion,
@@ -32,13 +34,21 @@ import {
 import {
   RiPlantLine
 } from "react-icons/ri";
-import { IoIosWarning } from "react-icons/io";
-import { MdDoNotDisturbOnTotalSilence } from "react-icons/md";
+import { 
+  IoIosWarning 
+} from "react-icons/io";
+import { 
+  MdDoNotDisturbOnTotalSilence, 
+  MdWbTwilight 
+} from "react-icons/md";
+import { 
+  IoWarning 
+} from "react-icons/io5";
 
 const EMERGENCY_CONTACTS = [
   {
     label: "HuellaViva",
-    number: "+502 1234-5678",
+    number: "+502 5869-4127",
     icon: <FaPaw />,
     type: "wa",
     color: "#25D366",
@@ -52,7 +62,7 @@ const EMERGENCY_CONTACTS = [
   },
   {
     label: "CONAP",
-    number: "+502 2422-6700",
+    number: "+502 2291-4600",
     icon: <RiPlantLine size={20} color="#2DA14F" />,
     type: "phone",
     color: "#2DA14F",
@@ -289,35 +299,35 @@ const SAFETY_LEVELS = {
     color: "#FF4444",
     bg: "rgba(255,68,68,0.10)",
     border: "rgba(255,68,68,0.30)",
-    icon: "🚨",
+    icon: <MdWbTwilight color="#FF4444" size={20} />,
     label: "Crítico",
   },
   warning: {
     color: "#FF8C42",
     bg: "rgba(255,140,66,0.10)",
     border: "rgba(255,140,66,0.30)",
-    icon: "⚠️",
+    icon: <IoWarning color="#FF8C42" size={20} />,
     label: "Precaución",
   },
   caution: {
     color: "#FFD166",
     bg: "rgba(255,209,102,0.10)",
     border: "rgba(255,209,102,0.30)",
-    icon: "💛",
+    icon: <FaHeart color="#FFD166" size={20} />,
     label: "Atención",
   },
   safe: {
     color: "#2DA14F",
     bg: "rgba(45,161,79,0.10)",
     border: "rgba(45,161,79,0.30)",
-    icon: "✅",
+    icon: <FaCheckCircle color="#2DA14F" size={20} />,
     label: "Seguro",
   },
   info: {
     color: "#D8F3DC",
     bg: "rgba(216,243,220,0.08)",
     border: "rgba(216,243,220,0.20)",
-    icon: "ℹ️",
+    icon: <FaInfoCircle color="#D8F3DC" size={20} />,
     label: "Info",
   },
 };

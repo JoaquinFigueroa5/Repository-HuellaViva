@@ -19,7 +19,6 @@ import {
   FaCat
 } from "react-icons/fa";
 
-
 const RESCUES = [
   {
     id: 1,

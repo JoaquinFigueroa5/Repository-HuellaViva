@@ -390,7 +390,7 @@ export default function DonationSection() {
               width: 600,
               height: 600,
               background: "#2DA14F",
-              top: "-10%",
+              top: "10%",
               left: "-10%",
             }}
           />
@@ -400,7 +400,7 @@ export default function DonationSection() {
               width: 400,
               height: 400,
               background: "#FF8C42",
-              bottom: "0%",
+              bottom: "10%",
               right: "5%",
             }}
           />

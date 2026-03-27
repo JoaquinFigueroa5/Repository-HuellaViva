@@ -35,6 +35,7 @@ import {
 import { TbReportMoney } from "react-icons/tb"; 
 import { HiOutlineEmojiSad } from "react-icons/hi"; 
 import { BiParty } from "react-icons/bi";
+import { AiFillThunderbolt } from "react-icons/ai";
 import {
   LazyMotion,
   domMax,
@@ -44,7 +45,6 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { toast } from "sonner";
-import { AiFillThunderbolt } from "react-icons/ai";
 
 const CATEGORIES = [
   { id: "all", label: "Todos", emoji: <FaPaw /> },
@@ -160,10 +160,6 @@ const MYTHS = [
     impact: "La vacunación masiva reduce rabia en 98%",
   },
 ];
-
-// ─────────────────────────────────────────────────────────────────────────────
-// VARIANTES — fuera del componente, estables entre renders
-// ─────────────────────────────────────────────────────────────────────────────
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -517,7 +513,7 @@ export default function MythsVsReality() {
               width: 500,
               height: 500,
               background: "#FF8C42",
-              top: "-5%",
+              top: "10%",
               right: "10%",
             }}
           />
