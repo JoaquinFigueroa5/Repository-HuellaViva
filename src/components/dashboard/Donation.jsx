@@ -378,7 +378,7 @@ export default function DonationSection() {
       <section
         ref={sectionRef}
         id="donaciones"
-        className="donation-section relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden"
+        className="donation-section relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"

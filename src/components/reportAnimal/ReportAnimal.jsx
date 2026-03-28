@@ -737,7 +737,7 @@ export default function ReportAnimal() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden mt-10"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"

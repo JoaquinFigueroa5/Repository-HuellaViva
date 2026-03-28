@@ -16,7 +16,7 @@ function Dashboard() {
       <RescueTimeline />
       <DonationSection />
       <MythsVsReality />
-      <ReportAnimal />
+      {/* <ReportAnimal /> */}
       <Footer />
       <ScrollToTop />
     </>

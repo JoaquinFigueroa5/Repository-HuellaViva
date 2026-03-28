@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Guia emergencia", href: "/emergency" },
   { label: "Reportar animal", href: "/report" },
-  { label: "Calculadora de huella", href: "/huella" }
+  { label: "Calculadora de huella", href: "/calculator" }
 ];
 
 export default function Navbar() {

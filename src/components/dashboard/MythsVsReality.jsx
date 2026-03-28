@@ -247,7 +247,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
           height: "100%",
         }}
       >
-        {/* ── CARA FRONTAL: Mito ── */}
         <div
           className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none"
           style={{
@@ -259,7 +258,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             minHeight: 260,
           }}
         >
-          {/* Header */}
           <div className="flex items-start justify-between gap-2">
             <span
               className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
@@ -275,7 +273,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             <span className="text-2xl shrink-0">{myth.mythIcon}</span>
           </div>
 
-          {/* Myth text */}
           <p
             className="text-[#D8F3DC]/85 leading-relaxed flex-1"
             style={{
@@ -287,7 +284,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             "{myth.myth}"
           </p>
 
-          {/* Impact badge */}
           <div
             className="flex items-center gap-2 px-3 py-2 rounded-xl mt-auto"
             style={{
@@ -304,7 +300,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             </span>
           </div>
 
-          {/* Tap hint */}
           <div className="flex items-center justify-center gap-1.5 mt-1">
             <m.span
               animate={{ x: [0, 4, 0] }}
@@ -335,7 +330,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
           </div>
         </div>
 
-        {/* ── CARA TRASERA: Realidad ── */}
         <div
           className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none"
           style={{
@@ -348,7 +342,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             minHeight: 260,
           }}
         >
-          {/* Header */}
           <div className="flex items-start justify-between gap-2">
             <span
               className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
@@ -364,7 +357,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             <span className="text-2xl shrink-0">{myth.realityIcon}</span>
           </div>
 
-          {/* Reality text */}
           <p
             className="text-[#D8F3DC]/80 leading-relaxed flex-1 text-sm"
             style={{ fontFamily: "'DM Sans', sans-serif", lineHeight: 1.65 }}
@@ -372,7 +364,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             {myth.reality}
           </p>
 
-          {/* Source */}
           <div className="flex items-center gap-2 mt-auto">
             <FaPaw size={9} color="#2DA14F" />
             <span
@@ -383,7 +374,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
             </span>
           </div>
 
-          {/* Tap hint back */}
           <div className="flex items-center justify-center gap-1.5">
             <span
               className="text-[#D8F3DC]/20 text-[0.6rem] tracking-widest uppercase"
@@ -398,7 +388,6 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
   );
 });
 
-/** Botón de filtro de categoría */
 const FilterButton = memo(function FilterButton({ cat, isActive, onClick }) {
   return (
     <m.button
@@ -427,10 +416,6 @@ const FilterButton = memo(function FilterButton({ cat, isActive, onClick }) {
   );
 });
 
-// ─────────────────────────────────────────────────────────────────────────────
-// COMPONENTE PRINCIPAL
-// ─────────────────────────────────────────────────────────────────────────────
-
 export default function MythsVsReality() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [revealed, setRevealed] = useState(new Set());
@@ -438,19 +423,16 @@ export default function MythsVsReality() {
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT_ONCE);
 
-  // Filtrado
   const filtered =
     activeCategory === "all"
       ? MYTHS
       : MYTHS.filter((m) => m.category === activeCategory);
 
-  // Métricas
   const totalRevealed = revealed.size;
   const totalMyths = MYTHS.length;
   const progressPct = Math.round((totalRevealed / totalMyths) * 100);
   const allCurrentShown = filtered.every((m) => revealed.has(m.id));
 
-  // Handlers
   const handleFlip = useCallback((id) => {
     setRevealed((prev) => {
       const next = new Set(prev);
@@ -500,9 +482,8 @@ export default function MythsVsReality() {
       <section
         ref={sectionRef}
         id="mitos"
-        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
       >
-        {/* Ambient glows */}
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
           aria-hidden="true"
@@ -530,7 +511,6 @@ export default function MythsVsReality() {
         </div>
 
         <div className="relative max-w-300 mx-auto">
-          {/* ── Header ── */}
           <m.div
             custom={0}
             variants={fadeUp}
@@ -573,7 +553,6 @@ export default function MythsVsReality() {
             </p>
           </m.div>
 
-          {/* ── Progress + contador ── */}
           <m.div
             custom={1}
             variants={fadeUp}
@@ -581,7 +560,6 @@ export default function MythsVsReality() {
             animate={sectionInView ? "visible" : "hidden"}
             className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 px-1"
           >
-            {/* Counter */}
             <div className="flex items-center gap-3">
               <div
                 className="flex items-center gap-2 px-4 py-2 rounded-xl"
@@ -622,7 +600,6 @@ export default function MythsVsReality() {
               )}
             </div>
 
-            {/* Global progress bar */}
             <div className="flex items-center gap-3 flex-1 max-w-xs">
               <div className="flex-1 h-1.5 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
                 <m.div
@@ -644,7 +621,6 @@ export default function MythsVsReality() {
             </div>
           </m.div>
 
-          {/* ── Filtros de categoría ── */}
           <m.div
             custom={2}
             variants={fadeUp}
@@ -661,10 +637,8 @@ export default function MythsVsReality() {
               />
             ))}
 
-            {/* Spacer */}
             <div className="flex-1 hidden sm:block" />
 
-            {/* Reveal all toggle */}
             <m.button
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.96 }}
@@ -693,7 +667,6 @@ export default function MythsVsReality() {
             </m.button>
           </m.div>
 
-          {/* ── Grid de tarjetas ── */}
           <AnimatePresence mode="wait">
             <m.div
               key={activeCategory}
@@ -715,7 +688,6 @@ export default function MythsVsReality() {
             </m.div>
           </AnimatePresence>
 
-          {/* ── CTA inferior ── */}
           <m.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}

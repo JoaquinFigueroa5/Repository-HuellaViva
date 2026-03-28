@@ -29,22 +29,22 @@ import {
   useInView,
   useReducedMotion,
 } from "framer-motion";
-import { 
+import {
   MdOutlineEmergency,
   MdFireTruck
 } from "react-icons/md";
 import {
   RiPlantLine
 } from "react-icons/ri";
-import { 
-  IoIosWarning 
+import {
+  IoIosWarning
 } from "react-icons/io";
-import { 
-  MdDoNotDisturbOnTotalSilence, 
-  MdWbTwilight 
+import {
+  MdDoNotDisturbOnTotalSilence,
+  MdWbTwilight
 } from "react-icons/md";
-import { 
-  IoWarning 
+import {
+  IoWarning
 } from "react-icons/io5";
 
 const EMERGENCY_CONTACTS = [
@@ -685,6 +685,28 @@ export default function EmergencyGuide() {
   const completedCount = completedSteps.size;
   const progressPct = Math.round((completedCount / STEPS.length) * 100);
 
+  const handleShare = async (myth) => {
+    const shareData = {
+      title: "Guia de emergencia: Informacion para salvar vidas",
+      text: `¡Acabo de leer esta guía de emergencia para animales callejeros y es súper útil! Si alguna vez encuentras un animal herido o perdido, esta guía paso a paso te muestra exactamente qué hacer para ayudarlo de forma segura. ¡Compártela para que más personas puedan salvar vidas!`,
+      url: window.location.href
+    };
+
+    try {
+      if (navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+      } else {
+        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+        toast.info("Enlace copiado al portapapeles");
+      }
+    } catch (e) {
+      if (e.name !== 'AbortError') {
+        console.error("Error al compartir", e);
+        toast.error("Error al compartir");
+      }
+    }
+  }
+
   return (
     <LazyMotion features={domMax} strict>
       <section
@@ -1028,6 +1050,7 @@ export default function EmergencyGuide() {
                   fontFamily: "'DM Sans', sans-serif",
                   boxShadow: "0 2px 16px rgba(45,161,79,0.30)",
                 }}
+                onClick={() => handleShare()}
               >
                 <FaPaw size={13} />
                 Compartir esta guía
@@ -1077,6 +1100,7 @@ export default function EmergencyGuide() {
                 border: "1px solid rgba(216,243,220,0.15)",
                 fontFamily: "'DM Sans', sans-serif",
               }}
+              onClick={() => handleShare()}
             >
               <FaShareAlt size={20} color="#D8F3DC" /> Compartir
             </m.button>
