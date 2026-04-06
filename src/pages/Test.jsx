@@ -1,17 +1,17 @@
-import ReportAnimal from "@/components/reportAnimal/ReportAnimal";
+import PersonalityTest from "@/components/test/Test";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import ScrollToTop from "@/components/common/ScrollTop";
 
-function Report() {
+function Test() {
   return (
     <>
       <Navbar />
-      <ReportAnimal />
+      <PersonalityTest />
       <Footer />
       <ScrollToTop />
     </>
   );
 }
 
-export default Report;
+export default Test;

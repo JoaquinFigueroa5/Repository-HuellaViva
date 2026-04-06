@@ -6,6 +6,7 @@ import ScrollToTop from "@/components/common/ScrollTop"
 import MythsVsReality from "@/components/dashboard/MythsVsReality"
 import Footer from "@/components/common/Footer"
 import ReportAnimal from "@/components/reportAnimal/ReportAnimal"
+import PosterGenerator from "@/components/dashboard/PosterGenerator"
 
 function Dashboard() {
 
@@ -17,6 +18,7 @@ function Dashboard() {
       <DonationSection />
       <MythsVsReality />
       {/* <ReportAnimal /> */}
+      <PosterGenerator />
       <Footer />
       <ScrollToTop />
     </>

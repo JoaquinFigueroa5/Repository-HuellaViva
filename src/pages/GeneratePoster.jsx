@@ -1,17 +1,15 @@
-import ReportAnimal from "@/components/reportAnimal/ReportAnimal";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
 import ScrollToTop from "@/components/common/ScrollTop";
+import PosterGenerator from "@/components/dashboard/PosterGenerator";
 
-function Report() {
+export default function GeneratePoster() {
   return (
     <>
       <Navbar />
-      <ReportAnimal />
+      <PosterGenerator />
       <Footer />
       <ScrollToTop />
     </>
   );
 }
-
-export default Report;

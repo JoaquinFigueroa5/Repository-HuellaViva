@@ -24,6 +24,7 @@ const NAV_COLUMNS = [
       { label: "Mitos vs Realidad", href: "#mitos"      },
       { label: "Guía de rescate",   href: "/emergency"       },
       { label: "Historias reales",  href: "#historias"  },
+      { label: "Calculadora de huella",  href: "/calculator"  },
     ],
   },
   {
