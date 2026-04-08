@@ -18,7 +18,7 @@ function Dashboard() {
       <DonationSection />
       <MythsVsReality />
       {/* <ReportAnimal /> */}
-      <PosterGenerator />
+      {/* <PosterGenerator /> */}
       <Footer />
       <ScrollToTop />
     </>

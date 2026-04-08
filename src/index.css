@@ -257,16 +257,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(216, 243, 220, 0.15);
+  background: linear-gradient(180deg, #ff8a4283 0%, #ff9a5700 100%);
   border-radius: 9999px;
 }
+
 
 ::selection {
   background-color: #2DA14F;
   color: #ffffff;
 }
 
-/* Para navegadores basados en Firefox antiguo (opcional pero recomendado) */
 ::-moz-selection {
   background-color: #2DA14F;
   color: #ffffff;
