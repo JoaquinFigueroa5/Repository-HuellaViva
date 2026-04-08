@@ -15,6 +15,7 @@ import {
   FaUser,
   FaStar,
   FaExclamationTriangle,
+  FaSpinner,
 } from "react-icons/fa";
 
 /* ─── Configuración ─────────────────────────────────────────────── */
@@ -155,8 +156,6 @@ function ChipGroup({ options, value, onChange, accent }) {
   );
 }
 
-/* ─── Vista previa del cartel ────────────────────────────────────── */
-
 function PosterPreview({ data, posterType }) {
   const pt = POSTER_TYPES.find((p) => p.id === posterType);
   const isAdopt = posterType === "adoptame";
@@ -174,6 +173,7 @@ function PosterPreview({ data, posterType }) {
         fontFamily: "'DM Sans', sans-serif",
         maxWidth: 420,
         margin: "0 auto",
+        padding: "2px"
       }}
       id="poster-preview"
     >
@@ -441,8 +441,6 @@ function PosterPreview({ data, posterType }) {
   );
 }
 
-/* ─── Componente principal ───────────────────────────────────────── */
-
 const INITIAL_DATA = {
   name: "",
   species: "perro",
@@ -463,6 +461,7 @@ export default function PosterGenerator() {
   const [data, setData] = useState(INITIAL_DATA);
   const [step, setStep] = useState(1);
   const [showPreview, setShowPreview] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const fileRef = useRef(null);
   const pt = POSTER_TYPES.find((p) => p.id === posterType);
   const accent = pt.accentColor;
@@ -475,7 +474,7 @@ export default function PosterGenerator() {
   const handlePhoto = (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    
+
     const objectUrl = URL.createObjectURL(file);
     setData((prev) => ({ ...prev, photo: objectUrl }));
   };
@@ -489,9 +488,47 @@ export default function PosterGenerator() {
 
   const isAdopt = posterType === "adoptame";
 
+  const handleDownloadPDF = async () => {
+    if (isDownloading) return;
+    setIsDownloading(true);
+
+    const element = document.getElementById("poster-preview");
+    if (!element) return;
+
+    try {
+      const { domToCanvas } = await import("modern-screenshot");
+      const { jsPDF } = await import("jspdf");
+
+      const canvas = await domToCanvas(element, {
+        scale: 3,
+        quality: 1,
+        filter: (node) => true,
+        features: {
+          copyStyles: true,
+        },
+        backgroundColor: "#000000",
+      });
+      const imgData = canvas.toDataURL("image/png");
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+
+      const pdf = new jsPDF({
+        orientation: imgHeight > imgWidth ? "portrait" : "landscape",
+        unit: "px",
+        format: [imgWidth, imgHeight],
+      });
+
+      pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
+      pdf.save(`huellaviva-${data.name || "animal"}.pdf`);
+    } catch (error) {
+      console.error("Error al generar el PDF con modern-screenshot:", error);
+    } finally {
+      setIsDownloading(false);
+    }
+  };
+
   return (
     <LazyMotion features={domMax} strict>
-
       <section
         className="w-full min-h-screen bg-[#212529] py-30 px-4 md:px-8"
         style={{
@@ -1152,10 +1189,19 @@ export default function PosterGenerator() {
                   color: accent,
                   border: `1px solid ${accent}30`,
                 }}
-                onClick={() => window.print()}
+                onClick={handleDownloadPDF}
               >
-                <FaDownload size={13} />
-                Imprimir / Guardar como PDF
+                {isDownloading ? (
+                  <>
+                    <FaSpinner size={13} className="animate-spin" />
+                    Generando...
+                  </>
+                ) : (
+                  <>
+                    <FaDownload size={13} />
+                    Imprimir / Guardar como PDF
+                  </>
+                )}
               </m.button>
             </div>
           </div>

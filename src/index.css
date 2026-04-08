@@ -265,6 +265,8 @@ body {
   background-color: #2DA14F;
   color: #ffffff;
 }
+
+/* Para navegadores basados en Firefox antiguo (opcional pero recomendado) */
 ::-moz-selection {
   background-color: #2DA14F;
   color: #ffffff;
