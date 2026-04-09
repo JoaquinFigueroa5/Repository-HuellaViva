@@ -137,6 +137,11 @@ html {
 
 body {
   background-color: #212529;
+  cursor: url(/huella.png), auto;
+}
+
+a:hover, button:hover, input:hover, textarea:hover {
+  cursor: url(/huellaPointer.png), auto;
 }
 
 .timeline-line {
