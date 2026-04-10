@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { FaRegHeart as HeartIcon, FaPaw as PawIcon } from "react-icons/fa";
 import { IoMenu as MenuIcon, IoClose as CloseIcon } from "react-icons/io5";
 import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { scrollToHash } from "@/utils/scrollToHash";
 
 const NAV_LINKS = [
   { label: "Inicio", href: "/" },
@@ -16,6 +17,19 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleDonationClick = () => {
+    if (location.pathname === "/") {
+      scrollToHash("donaciones");
+    } else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToHash("donaciones");
+      }, 1000);
+    }
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -129,7 +143,7 @@ export default function Navbar() {
               active:translate-y-0
             "
             style={{ fontFamily: "'DM Sans', sans-serif" }}
-            onClick={() => (document.location.href = "#donaciones")}
+            onClick={handleDonationClick}
           >
             <span style={{ animation: "hb 2s ease-in-out infinite" }}>
               <HeartIcon />
@@ -215,7 +229,7 @@ export default function Navbar() {
                   active:translate-y-0
                 "
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                onClick={() => (document.location.href = "#donaciones")}
+                onClick={handleDonationClick}
               >
                 <HeartIcon /> Quiero Ayudar
               </button>

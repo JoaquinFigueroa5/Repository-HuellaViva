@@ -15,6 +15,8 @@ import {
   useInView,
   useReducedMotion,
 } from "framer-motion";
+import { useLocation, useNavigate } from "react-router-dom";
+import { scrollToHash } from "@/utils/scrollToHash";
 
 const NAV_COLUMNS = [
   {
@@ -87,7 +89,7 @@ const SocialBtn = memo(function SocialBtn({ item }) {
   );
 });
 
-const NavColumn = memo(function NavColumn({ col, index }) {
+const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
   const ref    = useRef(null);
   const inView = useInView(ref, VIEWPORT);
 
@@ -110,9 +112,13 @@ const NavColumn = memo(function NavColumn({ col, index }) {
           <li key={link.label}>
             <m.a
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate(link.href);
+              }}
               whileHover={{ x: 4 }}
               transition={{ type: "spring", stiffness: 320, damping: 24 }}
-              className="group flex items-center gap-2 no-underline will-change-transform"
+              className="group flex items-center gap-2 no-underline will-change-transform cursor-pointer"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               <span
@@ -139,8 +145,26 @@ export default function Footer() {
   const prefersReduced = useReducedMotion();
   const ctaRef         = useRef(null);
   const ctaInView      = useInView(ctaRef, VIEWPORT);
+  const location       = useLocation();
+  const navigate       = useNavigate();
 
   const year = new Date().getFullYear();
+
+  const handleNavigation = (href) => {
+    if (href.startsWith("#")) {
+      const hashId = href.replace("#", "");
+      if (location.pathname === "/") {
+        scrollToHash(hashId);
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          scrollToHash(hashId);
+        }, 1000);
+      }
+    } else {
+      navigate(href);
+    }
+  };
 
   return (
     <LazyMotion features={domMax} strict>
@@ -158,7 +182,14 @@ export default function Footer() {
               viewport={VIEWPORT}
               className="flex flex-col gap-5"
             >
-              <a href="#inicio" className="group inline-flex items-center gap-3 no-underline w-fit">
+              <a 
+                href="#inicio" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavigation("#inicio");
+                }}
+                className="group inline-flex items-center gap-3 no-underline w-fit cursor-pointer"
+              >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:-rotate-6 group-hover:scale-110"
                   style={{
@@ -229,7 +260,7 @@ export default function Footer() {
             </m.div>
 
             {NAV_COLUMNS.map((col, i) => (
-              <NavColumn key={col.title} col={col} index={i + 1} />
+              <NavColumn key={col.title} col={col} index={i + 1} onNavigate={handleNavigation} />
             ))}
 
           </div>
