@@ -156,6 +156,7 @@ function ChipGroup({ options, value, onChange, accent }) {
   );
 }
 
+/* ─── Vista Previa (pantalla) ───────────────────────────────────── */
 function PosterPreview({ data, posterType }) {
   const pt = POSTER_TYPES.find((p) => p.id === posterType);
   const isAdopt = posterType === "adoptame";
@@ -173,7 +174,7 @@ function PosterPreview({ data, posterType }) {
         fontFamily: "'DM Sans', sans-serif",
         maxWidth: 420,
         margin: "0 auto",
-        padding: "2px"
+        padding: "2px",
       }}
       id="poster-preview"
     >
@@ -441,6 +442,450 @@ function PosterPreview({ data, posterType }) {
   );
 }
 
+/* ─── Versión para impresión/PDF (dimensiones fijas, sin clamp) ── */
+function PosterPrintVersion({ data, posterType }) {
+  const pt = POSTER_TYPES.find((p) => p.id === posterType);
+  const isAdopt = posterType === "adoptame";
+  const accent = pt.accentColor;
+  const noPhoto = !data.photo;
+
+  // Estilos de fuente fijos (sin clamp ni vw) para captura fidedigna
+  const fontBase = "'DM Sans', DM Sans, Arial, sans-serif";
+  const fontSerif = "'Fraunces', Fraunces, Georgia, serif";
+
+  return (
+    <div
+      id="poster-print"
+      style={{
+        position: "relative",
+        width: 420,
+        borderRadius: 16,
+        overflow: "hidden",
+        background: "#1a1e22",
+        border: `2px solid ${accent}40`,
+        fontFamily: fontBase,
+        padding: 2,
+        boxSizing: "border-box",
+      }}
+    >
+      {/* Header */}
+      <div
+        style={{
+          position: "relative",
+          padding: "24px 24px 32px",
+          background: pt.headerBg,
+        }}
+      >
+        {/* Logo */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: 16,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <div
+              style={{
+                width: 28,
+                height: 28,
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: `${accent}25`,
+                border: `1px solid ${accent}40`,
+              }}
+            >
+              <FaPaw size={13} color={accent} />
+            </div>
+            <span
+              style={{
+                fontFamily: fontSerif,
+                fontWeight: 700,
+                fontSize: 14,
+                color: "#D8F3DC",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Huella<span style={{ color: accent }}>Viva</span>
+            </span>
+          </div>
+          <span
+            style={{
+              fontSize: 9,
+              fontWeight: 700,
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              padding: "4px 10px",
+              borderRadius: 999,
+              color: pt.tagColor,
+              backgroundColor: pt.tagBg,
+              border: `1px solid ${pt.tagBorder}`,
+              whiteSpace: "nowrap",
+            }}
+          >
+            {pt.badgeText}
+          </span>
+        </div>
+
+        {/* Nombre */}
+        <h2
+          style={{
+            fontFamily: fontSerif,
+            fontSize: 44,
+            fontWeight: 700,
+            color: accent,
+            lineHeight: 1,
+            margin: 0,
+            marginBottom: 2,
+          }}
+        >
+          {data.name || (isAdopt ? "Nombre" : "¿Me viste?")}
+        </h2>
+        <p
+          style={{
+            color: "rgba(216,243,220,0.5)",
+            fontSize: 12,
+            marginBottom: 12,
+            fontFamily: fontBase,
+          }}
+        >
+          {[
+            data.species &&
+              data.species.charAt(0).toUpperCase() + data.species.slice(1),
+            data.breed,
+            data.age && `${data.age} años`,
+          ]
+            .filter(Boolean)
+            .join(" · ") || "Especie · Raza · Edad"}
+        </p>
+
+        {/* Badges género/tamaño */}
+        <div style={{ display: "flex", gap: 8, flexWrap: "nowrap" }}>
+          {data.gender && data.gender !== "Desconocido" && (
+            <span
+              style={{
+                fontSize: 9,
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "3px 8px",
+                borderRadius: 999,
+                color: "rgba(216,243,220,0.8)",
+                backgroundColor: "rgba(216,243,220,0.1)",
+                border: "1px solid rgba(216,243,220,0.15)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {data.gender}
+            </span>
+          )}
+          {data.size && (
+            <span
+              style={{
+                fontSize: 9,
+                fontWeight: 600,
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                padding: "3px 8px",
+                borderRadius: 999,
+                color: "rgba(216,243,220,0.8)",
+                backgroundColor: "rgba(216,243,220,0.1)",
+                border: "1px solid rgba(216,243,220,0.15)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Tamaño {data.size}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Foto */}
+      <div
+        style={{
+          position: "relative",
+          margin: "0 16px",
+          marginTop: -20,
+          marginBottom: 16,
+          borderRadius: 12,
+          overflow: "hidden",
+          height: 220,
+          border: `2px solid ${accent}30`,
+          backgroundColor: "#212529",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {noPhoto ? (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 12,
+              opacity: 0.3,
+            }}
+          >
+            <FaCamera size={36} color={accent} />
+            <span
+              style={{
+                fontSize: 12,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "#D8F3DC",
+                fontFamily: fontBase,
+              }}
+            >
+              Foto del animal
+            </span>
+          </div>
+        ) : (
+          <img
+            src={data.photo}
+            alt={data.name}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              display: "block",
+            }}
+          />
+        )}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            right: 0,
+            width: 64,
+            height: 64,
+            opacity: 0.1,
+            background: `radial-gradient(circle at bottom right, ${accent}, transparent 70%)`,
+          }}
+        />
+      </div>
+
+      {/* Descripción */}
+      {data.description && (
+        <div style={{ padding: "0 20px", marginBottom: 16 }}>
+          <p
+            style={{
+              color: "rgba(216,243,220,0.7)",
+              fontSize: 11.5,
+              lineHeight: 1.6,
+              padding: "12px 16px",
+              borderRadius: 12,
+              fontFamily: fontBase,
+              backgroundColor: `${accent}08`,
+              border: `1px solid ${accent}18`,
+            }}
+          >
+            {data.description}
+          </p>
+        </div>
+      )}
+
+      {/* Tags */}
+      {data.traits && data.traits.length > 0 && (
+        <div
+          style={{
+            padding: "0 20px",
+            marginBottom: 16,
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 6,
+          }}
+        >
+          {data.traits
+            .split(",")
+            .map((t) => t.trim())
+            .filter(Boolean)
+            .slice(0, 6)
+            .map((t, i) => (
+              <span
+                key={i}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  fontSize: 9.5,
+                  fontWeight: 500,
+                  padding: "3px 8px",
+                  borderRadius: 6,
+                  color: accent,
+                  backgroundColor: `${accent}12`,
+                  border: `1px solid ${accent}22`,
+                  fontFamily: fontBase,
+                }}
+              >
+                <span
+                  style={{
+                    width: 4,
+                    height: 4,
+                    borderRadius: "50%",
+                    background: accent,
+                    display: "inline-block",
+                  }}
+                />
+                {t}
+              </span>
+            ))}
+        </div>
+      )}
+
+      {/* Divider */}
+      <div
+        style={{
+          margin: "0 20px 16px",
+          height: 1,
+          backgroundColor: "rgba(216,243,220,0.07)",
+        }}
+      />
+
+      {/* Contacto */}
+      <div
+        style={{
+          padding: "0 20px 20px",
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
+        {data.location && (
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: `${accent}15`,
+                flexShrink: 0,
+              }}
+            >
+              <FaMapMarkerAlt size={10} color={accent} />
+            </div>
+            <span
+              style={{
+                fontSize: 11,
+                color: "rgba(216,243,220,0.6)",
+                fontFamily: fontBase,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {data.location}
+            </span>
+          </div>
+        )}
+        {data.phone && (
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(37,211,102,0.15)",
+                flexShrink: 0,
+              }}
+            >
+              <FaWhatsapp size={10} color="#25D366" />
+            </div>
+            <span
+              style={{
+                fontSize: 11,
+                color: "rgba(216,243,220,0.6)",
+                fontFamily: fontBase,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {data.phone}
+            </span>
+          </div>
+        )}
+        {data.contactName && (
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div
+              style={{
+                width: 24,
+                height: 24,
+                borderRadius: 8,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(216,243,220,0.08)",
+                flexShrink: 0,
+              }}
+            >
+              <FaUser size={10} color="rgba(216,243,220,0.5)" />
+            </div>
+            <span
+              style={{
+                fontSize: 11,
+                color: "rgba(216,243,220,0.6)",
+                fontFamily: fontBase,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {data.contactName}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div
+        style={{
+          padding: "12px 20px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderTop: `1px solid ${accent}15`,
+          backgroundColor: `${accent}06`,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+          {[0, 1, 2].map((i) => (
+            <FaPaw
+              key={i}
+              size={8}
+              color={`${accent}${i === 1 ? "CC" : "40"}`}
+            />
+          ))}
+        </div>
+        <span
+          style={{
+            fontSize: 9,
+            color: "rgba(216,243,220,0.25)",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            fontFamily: fontBase,
+          }}
+        >
+          huellaviva.gt
+        </span>
+        <span
+          style={{
+            fontSize: 9,
+            fontWeight: 600,
+            color: `${accent}60`,
+            fontFamily: fontBase,
+          }}
+        >
+          {isAdopt ? "¡Dale un hogar!" : "¡Ayúdanos a encontrarlo!"}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 const INITIAL_DATA = {
   name: "",
   species: "perro",
@@ -475,8 +920,13 @@ export default function PosterGenerator() {
     const file = e.target.files[0];
     if (!file) return;
 
-    const objectUrl = URL.createObjectURL(file);
-    setData((prev) => ({ ...prev, photo: objectUrl }));
+    // Convertir a base64 para que sea accesible desde el canvas
+    // (los blob: URLs no pueden ser leídos por modern-screenshot)
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      setData((prev) => ({ ...prev, photo: ev.target.result }));
+    };
+    reader.readAsDataURL(file);
   };
 
   const steps = [
@@ -492,36 +942,38 @@ export default function PosterGenerator() {
     if (isDownloading) return;
     setIsDownloading(true);
 
-    const element = document.getElementById("poster-preview");
-    if (!element) return;
-
     try {
+      // 1. Esperar a que todas las fuentes (Fraunces, DM Sans) estén cargadas
+      await document.fonts.ready;
+
+      // 2. Capturar el nodo de impresión (ya está renderizado con opacity:0 fuera del viewport)
+      const printEl = document.getElementById("poster-print");
+      if (!printEl) throw new Error("Elemento de impresión no encontrado");
+
       const { domToCanvas } = await import("modern-screenshot");
       const { jsPDF } = await import("jspdf");
 
-      const canvas = await domToCanvas(element, {
+      // 3. Capturar con escala 3x para calidad nítida
+      const canvas = await domToCanvas(printEl, {
         scale: 3,
         quality: 1,
-        filter: (node) => true,
-        features: {
-          copyStyles: true,
-        },
-        backgroundColor: "#000000",
+        backgroundColor: "#1a1e22",
       });
-      const imgData = canvas.toDataURL("image/png");
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
 
+      const imgData = canvas.toDataURL("image/png");
+
+      // 4. Crear PDF con las dimensiones exactas del canvas
       const pdf = new jsPDF({
-        orientation: imgHeight > imgWidth ? "portrait" : "landscape",
+        orientation: "portrait",
         unit: "px",
-        format: [imgWidth, imgHeight],
+        format: [canvas.width, canvas.height],
+        hotfixes: ["px_scaling"],
       });
 
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
       pdf.save(`huellaviva-${data.name || "animal"}.pdf`);
     } catch (error) {
-      console.error("Error al generar el PDF con modern-screenshot:", error);
+      console.error("Error al generar el PDF:", error);
     } finally {
       setIsDownloading(false);
     }
@@ -1240,6 +1692,30 @@ export default function PosterGenerator() {
                 style={{ backgroundColor: "rgba(216,243,220,0.15)" }}
               />
               <PosterPreview data={data} posterType={posterType} />
+              <m.button
+                whileHover={{ y: -2, boxShadow: `0 8px 28px ${accent}35` }}
+                whileTap={{ scale: 0.97 }}
+                className="w-full flex items-center justify-center gap-2 mt-5 py-3 rounded-xl text-sm font-bold cursor-pointer border-0"
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  backgroundColor: `${accent}15`,
+                  color: accent,
+                  border: `1px solid ${accent}30`,
+                }}
+                onClick={handleDownloadPDF}
+              >
+                {isDownloading ? (
+                  <>
+                    <FaSpinner size={13} className="animate-spin" />
+                    Generando...
+                  </>
+                ) : (
+                  <>
+                    <FaDownload size={13} />
+                    Imprimir / Guardar como PDF
+                  </>
+                )}
+              </m.button>
               <button
                 onClick={() => setShowPreview(false)}
                 className="w-full mt-5 py-3 rounded-xl text-sm font-semibold cursor-pointer border-0"
@@ -1256,6 +1732,21 @@ export default function PosterGenerator() {
           </m.div>
         )}
       </AnimatePresence>
+
+      {/* Versión oculta para captura PDF — fuera del viewport, sin clamp() */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          top: "-9999px",
+          left: "-9999px",
+          opacity: 0,
+          pointerEvents: "none",
+          zIndex: -1,
+        }}
+      >
+        <PosterPrintVersion data={data} posterType={posterType} />
+      </div>
     </LazyMotion>
   );
 }

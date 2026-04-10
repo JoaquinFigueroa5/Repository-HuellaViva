@@ -215,6 +215,7 @@ export default function Navbar() {
                   active:translate-y-0
                 "
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
+                onClick={() => (document.location.href = "#donaciones")}
               >
                 <HeartIcon /> Quiero Ayudar
               </button>
