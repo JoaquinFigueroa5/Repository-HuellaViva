@@ -6,21 +6,15 @@ import {
   useInView,
   LazyMotion,
   domMax,
-  AnimatePresence
+  AnimatePresence,
 } from "framer-motion";
-import { 
-  RiProhibitedLine 
-} from "react-icons/ri";
-import { 
-  IoStatsChart 
-} from "react-icons/io5";
-import { 
-  FaCheckCircle,
-  FaPaw, 
-  FaShare,
-  FaBookOpen
-} from "react-icons/fa";
+import { RiProhibitedLine } from "react-icons/ri";
+import { IoStatsChart } from "react-icons/io5";
+import { FaCheckCircle, FaPaw, FaShare, FaBookOpen } from "react-icons/fa";
+import { FaArrowsRotate } from "react-icons/fa6";
 import { AiFillThunderbolt } from "react-icons/ai";
+import { BiParty } from "react-icons/bi";
+import { LuSparkles } from "react-icons/lu";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -152,7 +146,9 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
               border: "1px solid rgba(255,140,66,0.18)",
             }}
           >
-            <span className="text-[#FF8C42]/60 text-[0.6rem]"><IoStatsChart size={16} /></span>
+            <span className="text-[#FF8C42]/60 text-[0.6rem]">
+              <IoStatsChart size={16} />
+            </span>
             <span
               className="text-[#FF8C42]/70 text-[0.62rem] leading-tight"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -280,6 +276,7 @@ const FilterButton = memo(function FilterButton({ cat, isActive, onClick }) {
 export default function MythsVsReality() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [revealed, setRevealed] = useState(new Set());
+  const [infoTooltip, setInfoTooltip] = useState(false);
 
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT_ONCE);
@@ -316,27 +313,29 @@ export default function MythsVsReality() {
     });
   }, [allCurrentShown, filtered]);
 
-  const handleShare = async(myth) => {
+  const handleShare = async (myth) => {
     const shareData = {
       title: "Mito vs realidad: Bienestar animal",
       text: `¡Sabías que es un mito que "${myth.mythShort}"? La realidad es: ${myth.reality}. Informate en: `,
-      url: window.location.href
+      url: window.location.href,
     };
 
     try {
-      if(navigator.canShare && navigator.canShare(shareData)) {
+      if (navigator.canShare && navigator.canShare(shareData)) {
         await navigator.share(shareData);
       } else {
-        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+        await navigator.clipboard.writeText(
+          `${shareData.text} ${shareData.url}`,
+        );
         toast.info("Enlace copiado al portapapeles");
       }
     } catch (e) {
-      if(e.name !== 'AbortError') {
+      if (e.name !== "AbortError") {
         console.error("Error al compartir", e);
         toast.error("Error al compartir");
       }
     }
-  }
+  };
 
   return (
     <LazyMotion features={domMax} strict>
@@ -591,26 +590,130 @@ export default function MythsVsReality() {
                   fontFamily: "'DM Sans', sans-serif",
                   boxShadow: "0 2px 14px rgba(45,161,79,0.35)",
                 }}
-                onClick={() => handleShare({
-                  mythShort: "Los perros callejeros son agresivos por naturaleza",
-                  reality: "La mayoría de los perros callejeros son dóciles y temerosos. Su agresividad suele ser una respuesta al miedo, el dolor o la defensa de su territorio.",
-                })}
+                onClick={() =>
+                  handleShare({
+                    mythShort:
+                      "Los perros callejeros son agresivos por naturaleza",
+                    reality:
+                      "La mayoría de los perros callejeros son dóciles y temerosos. Su agresividad suele ser una respuesta al miedo, el dolor o la defensa de su territorio.",
+                  })
+                }
               >
                 <FaShare /> Compartir datos
               </m.button>
-              <m.button
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                className="flex items-center gap-2 px-5 py-2.75 rounded-xl text-sm font-semibold cursor-pointer"
-                style={{
-                  color: "#FF8C42",
-                  backgroundColor: "rgba(255,140,66,0.10)",
-                  border: "1px solid rgba(255,140,66,0.30)",
-                  fontFamily: "'DM Sans', sans-serif",
-                }}
+              <div
+                className="relative"
+                onMouseEnter={() => setInfoTooltip(true)}
+                onMouseLeave={() => setInfoTooltip(false)}
               >
-                <FaBookOpen /> Más información
-              </m.button>
+                <m.button
+                  whileHover={{ y: -2, borderColor: "rgba(255,140,66,0.28)" }}
+                  className="flex items-center gap-2 px-5 py-2.75 rounded-xl text-sm font-semibold cursor-not-allowed"
+                  style={{
+                    color: "rgba(255,140,66,0.45)",
+                    backgroundColor: "rgba(255,140,66,0.05)",
+                    border: "1px solid rgba(255,140,66,0.14)",
+                    fontFamily: "'DM Sans', sans-serif",
+                  }}
+                >
+                  <FaBookOpen /> Más información
+                </m.button>
+
+                <AnimatePresence>
+                  {infoTooltip && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        bottom: "calc(100% + 12px)",
+                        left: "50%",
+                        translateX: "-50%",
+                        zIndex: 50,
+                        pointerEvents: "none",
+                        display: "flex",
+                        justifyContent: "center",
+                        transform: "translateX(-50%)",
+                      }}
+                    >
+                      <m.div
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.6 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 24,
+                          mass: 0.7,
+                        }}
+                        style={{
+                          transformOrigin: "bottom center",
+                          background:
+                            "linear-gradient(135deg, rgba(30,32,36,0.97) 0%, rgba(22,24,28,0.99) 100%)",
+                          border: "1px solid rgba(255,140,66,0.22)",
+                          borderRadius: "14px",
+                          padding: "12px 16px",
+                          boxShadow:
+                            "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,140,66,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+                          minWidth: 200,
+                          backdropFilter: "blur(16px)",
+                          WebkitBackdropFilter: "blur(16px)",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 10,
+                            marginBottom: 6,
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              width: 26,
+                              height: 26,
+                              borderRadius: "8px",
+                              background: "rgba(255,140,66,0.14)",
+                              border: "1px solid rgba(255,140,66,0.28)",
+                              color: "#FF8C42",
+                              flexShrink: 0,
+                            }}
+                          >
+                            <LuSparkles size={13} />
+                          </span>
+                          <span
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize: "0.78rem",
+                              fontWeight: 700,
+                              color: "#F0F0F0",
+                              letterSpacing: "-0.01em",
+                            }}
+                          >
+                            Próximamente
+                          </span>
+                        </div>
+                        <p
+                          style={{
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: "0.7rem",
+                            color: "rgba(216,243,220,0.45)",
+                            lineHeight: 1.5,
+                            margin: 0,
+                            paddingLeft: "2px",
+                            whiteSpace: "normal",
+                            maxWidth: 200,
+                          }}
+                        >
+                          Estamos preparando recursos y guías detalladas para ti.
+                        </p>
+                      </m.div>
+                    </div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </m.div>
         </div>

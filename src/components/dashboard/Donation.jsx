@@ -737,28 +737,6 @@ export default function DonationSection() {
                   rescatado a más de 1,200 animales este año. Cada quetzal
                   cuenta."
                 </p>
-                <div className="flex items-center gap-3 pl-3">
-                  <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
-                    style={{ backgroundColor: "#FF8C4230", color: "#FF8C42" }}
-                  >
-                    DR
-                  </div>
-                  <div>
-                    <p
-                      className="text-[#D8F3DC]/70 text-xs font-semibold"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      Dra. Ramírez
-                    </p>
-                    <p
-                      className="text-[#D8F3DC]/30 text-[0.65rem]"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      Directora, HuellaViva
-                    </p>
-                  </div>
-                </div>
               </m.div>
 
               <m.a
