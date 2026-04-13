@@ -1,59 +1,18 @@
 import { useRef, memo } from "react";
-import {
-  FaPaw,
-  FaWhatsapp,
-  FaFacebook,
-  FaInstagram,
-  FaTiktok,
+import { NAV_COLUMNS, SOCIAL_LINKS } from "@/data/navigationData";
+import { motion as m, useInView, LazyMotion, domMax, useReducedMotion } from "framer-motion";
+import { FaPaw, 
+  FaPhone, 
+  FaEnvelope, 
+  FaMapMarkerAlt, 
+  FaFacebookF, 
+  FaInstagram, 
+  FaTiktok, 
   FaHeart,
-  FaArrowRight,
+  FaWhatsapp
 } from "react-icons/fa";
-import {
-  LazyMotion,
-  domMax,
-  m,
-  useInView,
-  useReducedMotion,
-} from "framer-motion";
-import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToHash } from "@/utils/scrollToHash";
-
-const NAV_COLUMNS = [
-  {
-    title: "Conoce la causa",
-    links: [
-      { label: "Donar",       href: "#donaciones"   },
-      { label: "Mitos vs Realidad", href: "#mitos"      },
-      { label: "Guía de rescate",   href: "/emergency"       },
-      { label: "Historias reales",  href: "#historias"  },
-      { label: "Calculadora de huella",  href: "/calculator"  },
-    ],
-  },
-  {
-    title: "Cómo ayudar",
-    links: [
-      { label: "Adoptar",           href: "#adopciones" },
-      { label: "Donar",             href: "#donaciones" },
-      { label: "Ser voluntario",    href: "#voluntariado"},
-      { label: "Hogar temporal",    href: "#temporal"   },
-    ],
-  },
-  {
-    title: "Organización",
-    links: [
-      { label: "Quiénes somos",     href: "#nosotros"   },
-      { label: "Nuestro equipo",    href: "#equipo"     },
-      { label: "Transparencia",     href: "#fondos"     },
-      { label: "Contacto",          href: "#contacto"   },
-    ],
-  },
-];
-
-const SOCIAL_LINKS = [
-  { icon: FaInstagram, href: "#", label: "Instagram", color: "#E1306C", hoverBg: "rgba(225,48,108,0.15)" },
-  { icon: FaFacebook, href: "#", label: "Facebook", color: "#1877F2", hoverBg: "rgba(24,119,242,0.15)" },
-  { icon: FaTiktok, href: "#", label: "TikTok", color: "#D8F3DC", hoverBg: "rgba(216,243,220,0.10)" },
-];
+import { useLocation, useNavigate } from "react-router-dom";
 
 const fadeUp = {
   hidden:  { opacity: 0, y: 22 },

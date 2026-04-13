@@ -5,13 +5,8 @@ import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToHash } from "@/utils/scrollToHash";
 
-const NAV_LINKS = [
-  { label: "Inicio", href: "/" },
-  { label: "Guia emergencia", href: "/emergency" },
-  { label: "Reportar animal", href: "/report" },
-  { label: "Test de personalidad", href: "/test" },
-  { label: "Carteles", href: "/poster" },
-];
+import { NAV_LINKS } from "@/data/navigationData";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

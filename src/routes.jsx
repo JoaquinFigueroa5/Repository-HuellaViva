@@ -21,3 +21,5 @@ const routes = [
 ];
 
 export default routes;
+
+// run qwen --resume ab7d9369-aaee-4073-8a2c-efd9c49d254c
