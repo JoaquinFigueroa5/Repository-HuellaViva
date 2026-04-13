@@ -1,7 +1,7 @@
 export const SLIDES = [
   {
     id: 1,
-    image: "/public/carousel/perro1.jpg",
+    image: "/carousel/perro1.jpg",
     badge: "El abandono es una crisis",
     title: "Millones de animales buscan un hogar",
     description:
@@ -13,7 +13,7 @@ export const SLIDES = [
   },
   {
     id: 2,
-    image: "/public/carousel/perro2.jpg",
+    image: "/carousel/perro2.jpg",
     badge: "Adopta, no compres",
     title: "Un acto de amor que transforma vidas",
     description:
@@ -25,7 +25,7 @@ export const SLIDES = [
   },
   {
     id: 3,
-    image: "/public/carousel/perroYgato.jpg",
+    image: "/carousel/perroYgato.jpg",
     badge: "Juntos podemos más",
     title: "Tu apoyo marca la diferencia",
     description:
@@ -37,7 +37,7 @@ export const SLIDES = [
   },
   {
     id: 4,
-    image: "/public/carousel/gato1.jpg",
+    image: "/carousel/gato1.jpg",
     badge: "Historias reales",
     title: "Cada rescate tiene nombre propio",
     description:
