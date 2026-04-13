@@ -8,6 +8,8 @@ const Report = lazy(() => import("@/pages/Report"));
 const Calculator = lazy(() => import("@/pages/Calculator"));
 const Test = lazy(() => import("@/pages/Test"));
 const Poster = lazy(() => import("@/pages/GeneratePoster"));
+const Privacy = lazy(() => import("@/pages/Privacy"));
+const Terms = lazy(() => import("@/pages/Terms"));
 
 const routes = [
     { path: '/', element: <Dashboard /> },
@@ -17,6 +19,8 @@ const routes = [
     { path: '/test', element: <Test /> },
     { path: '/calculator', element: <Calculator /> },
     { path: '/poster', element: <Poster /> },
+    { path: '/privacy', element: <Privacy /> },
+    { path: '/terms', element: <Terms /> },
     { path: '*', element: <Navigate to="/" replace /> }
 ];
 

@@ -16,7 +16,6 @@ export const NAV_COLUMNS = [
   {
     title: "Conoce la causa",
     links: [
-      { label: "Donar",       href: "#donaciones"   },
       { label: "Mitos vs Realidad", href: "#mitos"      },
       { label: "Guía de rescate",   href: "/emergency"       },
       { label: "Historias reales",  href: "#historias"  },
@@ -26,21 +25,21 @@ export const NAV_COLUMNS = [
   {
     title: "Cómo ayudar",
     links: [
-      { label: "Adoptar",           href: "#adopciones" },
+      // { label: "Adoptar",           href: "#adopciones" },
       { label: "Donar",             href: "#donaciones" },
-      { label: "Ser voluntario",    href: "#voluntariado"},
-      { label: "Hogar temporal",    href: "#temporal"   },
+      // { label: "Ser voluntario",    href: "#voluntariado"},
+      // { label: "Hogar temporal",    href: "#temporal"   },
     ],
   },
-  {
-    title: "Organización",
-    links: [
-      { label: "Quiénes somos",     href: "#nosotros"   },
-      { label: "Nuestro equipo",    href: "#equipo"     },
-      { label: "Transparencia",     href: "#fondos"     },
-      { label: "Contacto",          href: "#contacto"   },
-    ],
-  },
+  // {
+  //   title: "Organización",
+  //   links: [
+  //     { label: "Quiénes somos",     href: "#nosotros"   },
+  //     { label: "Nuestro equipo",    href: "#equipo"     },
+  //     { label: "Transparencia",     href: "#fondos"     },
+  //     { label: "Contacto",          href: "#contacto"   },
+  //   ],
+  // },
 ];
 
 export const SOCIAL_LINKS = [

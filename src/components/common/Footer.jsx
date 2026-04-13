@@ -260,10 +260,13 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-4">
-              {["Privacidad", "Términos"].map((label) => (
+              {[
+                { label: "Privacidad", href: "/privacy" },
+                { label: "Términos", href: "/terms" },
+              ].map((item) => (
                 <m.a
-                  key={label}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
                   whileHover={{ color: "#D8F3DC" }}
                   className="no-underline transition-colors duration-200"
                   style={{
@@ -272,7 +275,7 @@ export default function Footer() {
                     color: "rgba(216,243,220,0.22)",
                   }}
                 >
-                  {label}
+                  {item.label}
                 </m.a>
               ))}
             </div>
