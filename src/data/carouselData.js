@@ -1,7 +1,7 @@
 export const SLIDES = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=1600&q=80",
+    image: "/public/carousel/perro1.jpg",
     badge: "El abandono es una crisis",
     title: "Millones de animales buscan un hogar",
     description:
@@ -13,7 +13,7 @@ export const SLIDES = [
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1600&q=80",
+    image: "/public/carousel/perro2.jpg",
     badge: "Adopta, no compres",
     title: "Un acto de amor que transforma vidas",
     description:
@@ -25,7 +25,7 @@ export const SLIDES = [
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=1600&q=80",
+    image: "/public/carousel/perroYgato.jpg",
     badge: "Juntos podemos más",
     title: "Tu apoyo marca la diferencia",
     description:
@@ -37,7 +37,7 @@ export const SLIDES = [
   },
   {
     id: 4,
-    image: "https://images.unsplash.com/photo-1472491235688-bdc81a63246e?w=1600&q=80",
+    image: "/public/carousel/gato1.jpg",
     badge: "Historias reales",
     title: "Cada rescate tiene nombre propio",
     description:
