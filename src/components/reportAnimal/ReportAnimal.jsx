@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef, useCallback, memo } from "react";
+import { useState, useEffect, useRef, useCallback, memo, useMemo } from "react";
 import {
   LazyMotion,
-  domMax,
+  domAnimation,
   m,
   AnimatePresence,
   useInView,
   useReducedMotion,
+  domMax
 } from "framer-motion";
 import {
   FaPaw,
@@ -18,24 +19,9 @@ import {
   FaLocationArrow,
   FaUpload,
   FaSpinner,
-  FaDove,
-  FaDog,
-  FaCat,
-  FaVirus,
-  FaQuestionCircle,
   FaShieldAlt,
-  FaEye,
-  FaEyeSlash,
-  FaHandHoldingMedical,
-  FaHeartBroken,
-  FaHome,
-  FaHeart,
-  FaNewspaper
 } from "react-icons/fa";
-import { GiStickingPlaster } from "react-icons/gi";
-import { MdWbTwilight } from "react-icons/md";
 import { IoWarning } from "react-icons/io5";
-import { PiProhibitBold } from "react-icons/pi";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // DATOS COMPARTIDOS
@@ -141,27 +127,15 @@ const StyledInput = memo(function StyledInput({
   style = {},
   ...props
 }) {
-  const [focused, setFocused] = useState(false);
   return (
     <input
       {...props}
-      onFocus={(e) => {
-        setFocused(true);
-        props.onFocus?.(e);
-      }}
-      onBlur={(e) => {
-        setFocused(false);
-        props.onBlur?.(e);
-      }}
-      className={`w-full px-4 py-3 rounded-xl text-sm border-0 outline-none transition-all duration-200 ${className}`}
+      className={`w-full px-4 py-3 rounded-xl text-sm border outline-none transition-all duration-200 focus:bg-white/10 focus:border-[#2DA14F]/50 focus:shadow-[0_0_0_3px_rgba(45,161,79,0.12)] ${className}`}
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: focused
-          ? "rgba(255,255,255,0.06)"
-          : "rgba(255,255,255,0.03)",
-        border: `1px solid ${focused ? "rgba(45,161,79,0.50)" : "rgba(216,243,220,0.10)"}`,
+        backgroundColor: "rgba(255,255,255,0.03)",
+        borderColor: "rgba(216,243,220,0.10)",
         color: "#D8F3DC",
-        boxShadow: focused ? "0 0 0 3px rgba(45,161,79,0.12)" : "none",
         ...style,
       }}
     />
@@ -173,27 +147,15 @@ const StyledTextarea = memo(function StyledTextarea({
   style = {},
   ...props
 }) {
-  const [focused, setFocused] = useState(false);
   return (
     <textarea
       {...props}
-      onFocus={(e) => {
-        setFocused(true);
-        props.onFocus?.(e);
-      }}
-      onBlur={(e) => {
-        setFocused(false);
-        props.onBlur?.(e);
-      }}
-      className={`w-full px-4 py-3 rounded-xl text-sm border-0 outline-none resize-none transition-all duration-200 ${className}`}
+      className={`w-full px-4 py-3 rounded-xl text-sm border outline-none resize-none transition-all duration-200 focus:bg-white/10 focus:border-[#2DA14F]/50 focus:shadow-[0_0_0_3px_rgba(45,161,79,0.12)] ${className}`}
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: focused
-          ? "rgba(255,255,255,0.06)"
-          : "rgba(255,255,255,0.03)",
-        border: `1px solid ${focused ? "rgba(45,161,79,0.50)" : "rgba(216,243,220,0.10)"}`,
+        backgroundColor: "rgba(255,255,255,0.03)",
+        borderColor: "rgba(216,243,220,0.10)",
         color: "#D8F3DC",
-        boxShadow: focused ? "0 0 0 3px rgba(45,161,79,0.12)" : "none",
         ...style,
       }}
     />
@@ -483,6 +445,8 @@ function useGps() {
   const [gpsLoading, setGpsLoading] = useState(false);
   const [gpsError, setGpsError] = useState(null);
   const [gpsAddress, setGpsAddress] = useState("");
+  const [useManualAddr, setUseManualAddr] = useState(false);
+  const [manualAddr, setManualAddr] = useState("");
 
   const requestGps = useCallback(() => {
     if (!navigator.geolocation) {
@@ -511,7 +475,7 @@ function useGps() {
     );
   }, []);
 
-  return {
+  return useMemo(() => ({
     position,
     setPosition,
     gpsLoading,
@@ -519,7 +483,11 @@ function useGps() {
     gpsAddress,
     setGpsAddress,
     requestGps,
-  };
+    useManualAddr,
+    setUseManualAddr,
+    manualAddr,
+    setManualAddr
+  }), [position, gpsLoading, gpsError, gpsAddress, requestGps, useManualAddr, manualAddr]);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -535,15 +503,11 @@ function LocationBlock({ gps, accentColor = "#2DA14F" }) {
     gpsAddress,
     setGpsAddress,
     requestGps,
+    useManualAddr,
+    setUseManualAddr,
+    manualAddr,
+    setManualAddr
   } = gps;
-  const [useManualAddr, setUseManualAddr] = useState(false);
-  const [manualAddr, setManualAddr] = useState("");
-
-  // Expose manual addr state upward via gps object
-  useEffect(() => {
-    gps._manualAddr = manualAddr;
-    gps._useManualAddr = useManualAddr;
-  });
 
   return (
     <div className="flex flex-col gap-3">
@@ -743,8 +707,8 @@ function StreetAnimalForm() {
   );
 
   const handleWhatsApp = useCallback(() => {
-    const addr = gps._useManualAddr
-      ? gps._manualAddr
+    const addr = gps.useManualAddr
+      ? gps.manualAddr
       : gps.gpsAddress ||
         (gps.position
           ? `${gps.position.lat.toFixed(5)}, ${gps.position.lng.toFixed(5)}`
@@ -758,16 +722,17 @@ function StreetAnimalForm() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
   }, [form, photos, gps, time, date]);
 
-  const canContinue = {
+  const canContinue = useMemo(() => ({
     1: form.species && form.condition,
-    2: gps.position || gps._manualAddr,
+    2: gps.position || gps.manualAddr,
     3: true,
-  };
-  const STEPS = [
+  }), [form.species, form.condition, gps.position, gps.manualAddr]);
+
+  const STEPS = useMemo(() => [
     { n: 1, label: "Animal", icon: "🐾" },
     { n: 2, label: "Ubicación", icon: "📍" },
     { n: 3, label: "Contacto", icon: "📞" },
-  ];
+  ], []);
 
   if (submitted)
     return (
@@ -908,10 +873,11 @@ function StreetAnimalForm() {
           className="rounded-3xl p-6 md:p-8 flex flex-col gap-7"
           style={{
             background:
-              "linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
-            backdropFilter: "blur(12px)",
+              "linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)",
+            backgroundColor: "#262b2f",
             border: "1px solid rgba(216,243,220,0.08)",
             boxShadow: "0 8px 48px rgba(0,0,0,0.30)",
+            willChange: "transform, opacity",
           }}
         >
           {/* ── PASO 1 ── */}
@@ -1539,8 +1505,8 @@ function AbuseReportForm() {
   );
 
   const handleWhatsApp = useCallback(() => {
-    const addr = gps._useManualAddr
-      ? gps._manualAddr
+    const addr = gps.useManualAddr
+      ? gps.manualAddr
       : gps.gpsAddress ||
         (gps.position
           ? `${gps.position.lat.toFixed(5)}, ${gps.position.lng.toFixed(5)}`
@@ -1554,16 +1520,17 @@ function AbuseReportForm() {
     window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, "_blank");
   }, [form, photos, gps, time, date]);
 
-  const STEPS = [
+  const STEPS = useMemo(() => [
     { n: 1, label: "Maltrato", icon: "🛡️" },
     { n: 2, label: "Ubicación", icon: "📍" },
     { n: 3, label: "Evidencia", icon: "📷" },
-  ];
-  const canContinue = {
+  ], []);
+
+  const canContinue = useMemo(() => ({
     1: form.abuseType && form.urgency,
-    2: gps.position || gps._manualAddr,
+    2: gps.position || gps.manualAddr,
     3: true,
-  };
+  }), [form.abuseType, form.urgency, gps.position, gps.manualAddr]);
 
   if (submitted)
     return (
@@ -1730,10 +1697,11 @@ function AbuseReportForm() {
           className="rounded-3xl p-6 md:p-8 flex flex-col gap-7"
           style={{
             background:
-              "linear-gradient(145deg, rgba(255,68,68,0.05) 0%, rgba(255,255,255,0.01) 100%)",
-            backdropFilter: "blur(12px)",
+              "linear-gradient(145deg, rgba(255,68,68,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+            backgroundColor: "#2c2424",
             border: "1px solid rgba(255,68,68,0.12)",
             boxShadow: "0 8px 48px rgba(0,0,0,0.30)",
+            willChange: "transform, opacity",
           }}
         >
           {/* ── PASO 1: Tipo de maltrato + urgencia ── */}
@@ -2367,7 +2335,7 @@ export default function ReportSection() {
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT);
 
-  const tabs = [
+  const tabs = useMemo(() => [
     {
       id: "street",
       label: "Animal en la calle",
@@ -2382,10 +2350,11 @@ export default function ReportSection() {
       accent: "#FF4444",
       desc: "Denuncia un caso de maltrato o crueldad animal",
     },
-  ];
+  ], []);
 
-  const activeAccent =
-    tabs.find((t) => t.id === activeTab)?.accent ?? "#2DA14F";
+  const activeAccent = useMemo(() => 
+    tabs.find((t) => t.id === activeTab)?.accent ?? "#2DA14F"
+  , [activeTab, tabs]);
 
   return (
     <LazyMotion features={domMax} strict>
@@ -2393,30 +2362,6 @@ export default function ReportSection() {
         ref={sectionRef}
         className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden mt-10"
       >
-        {/* Ambient glows */}
-        <div
-          className="absolute inset-0 pointer-events-none overflow-hidden"
-          aria-hidden="true"
-        >
-          <m.div
-            className="absolute rounded-full blur-[140px]"
-            animate={{
-              background: activeTab === "street" ? "#2DA14F" : "#FF4444",
-              opacity: 0.06,
-            }}
-            transition={{ duration: 0.8 }}
-            style={{ width: 500, height: 500, top: "-5%", left: "-10%" }}
-          />
-          <m.div
-            className="absolute rounded-full blur-[120px]"
-            animate={{
-              background: activeTab === "street" ? "#FF8C42" : "#FF8C42",
-              opacity: 0.05,
-            }}
-            transition={{ duration: 0.8 }}
-            style={{ width: 400, height: 400, bottom: "0%", right: "-5%" }}
-          />
-        </div>
 
         <div className="relative max-w-215 mx-auto">
           {/* ── Header ── */}
