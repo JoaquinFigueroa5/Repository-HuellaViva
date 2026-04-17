@@ -212,6 +212,16 @@ body {
   animation: waPulse 2.2s ease-out infinite;
 }
 
+@keyframes mythArrowBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.myth-arrow-bounce {
+  animation: mythArrowBounce 2s ease-in-out infinite;
+  will-change: transform;
+}
+
 .glass-card {
   background: linear-gradient(
     135deg,

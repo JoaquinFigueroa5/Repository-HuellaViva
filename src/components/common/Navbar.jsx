@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { FaRegHeart as HeartIcon, FaPaw as PawIcon } from "react-icons/fa";
+import { FaRegHeart as HeartIcon, FaPaw as PawIcon, FaArrowDown as ArrowDownIcon } from "react-icons/fa";
 import { IoMenu as MenuIcon, IoClose as CloseIcon } from "react-icons/io5";
+
 import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToHash } from "@/utils/scrollToHash";
@@ -25,6 +26,15 @@ export default function Navbar() {
     }
     setIsOpen(false);
   };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+    setIsOpen(false);
+  };
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -125,26 +135,40 @@ export default function Navbar() {
             })}
           </nav>
 
-          <button
-            className="
-              hidden lg:flex items-center gap-2 shrink-0
-              bg-[#FF8C42] text-white text-sm font-semibold
-              px-5 py-2.25 rounded-xl border-0 cursor-pointer
-              shadow-[0_2px_18px_rgba(255,140,66,0.42)]
-              transition-all duration-200
-              hover:-translate-y-0.5
-              hover:shadow-[0_6px_28px_rgba(255,140,66,0.55)]
-              hover:bg-[#ff9a57]
-              active:translate-y-0
-            "
-            style={{ fontFamily: "'DM Sans', sans-serif" }}
-            onClick={handleDonationClick}
-          >
-            <span style={{ animation: "hb 2s ease-in-out infinite" }}>
-              <HeartIcon />
-            </span>
-            Quiero Ayudar
-          </button>
+          <div className="hidden lg:flex items-center gap-3">
+            <button
+              onClick={scrollToBottom}
+              className="
+                flex items-center justify-center w-10 h-10 rounded-xl cursor-pointer
+                bg-[#D8F3DC]/6 border border-[#D8F3DC]/12
+                text-[#D8F3DC]/60 hover:text-[#D8F3DC] hover:bg-[#D8F3DC]/10
+                transition-all duration-200 hover:-translate-y-0.5
+              "
+              title="Ir al final"
+            >
+              <ArrowDownIcon size={14} />
+            </button>
+            <button
+              className="
+                flex items-center gap-2 shrink-0
+                bg-[#FF8C42] text-white text-sm font-semibold
+                px-5 py-2.25 rounded-xl border-0 cursor-pointer
+                shadow-[0_2px_18px_rgba(255,140,66,0.42)]
+                transition-all duration-200
+                hover:-translate-y-0.5
+                hover:shadow-[0_6px_28px_rgba(255,140,66,0.55)]
+                hover:bg-[#ff9a57]
+                active:translate-y-0
+              "
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+              onClick={handleDonationClick}
+            >
+              <span style={{ animation: "hb 2s ease-in-out infinite" }}>
+                <HeartIcon />
+              </span>
+              Quiero Ayudar
+            </button>
+          </div>
 
           <button
             onClick={() => setIsOpen((v) => !v)}
@@ -212,7 +236,7 @@ export default function Navbar() {
               );
             })}
 
-            <div className="mt-2 pt-3 border-t border-[#D8F3DC]/8 px-1">
+            <div className="mt-2 pt-3 border-t border-[#D8F3DC]/8 px-1 flex flex-col gap-2.5">
               <button
                 className="
                   w-full flex items-center justify-center gap-2
@@ -228,7 +252,22 @@ export default function Navbar() {
               >
                 <HeartIcon /> Quiero Ayudar
               </button>
+
+              <button
+                className="
+                  w-full flex items-center justify-center gap-2
+                  bg-[#D8F3DC]/6 text-[#D8F3DC]/70 text-[0.9rem] font-medium
+                  py-3 rounded-xl border border-[#D8F3DC]/12 cursor-pointer
+                  transition-all duration-200
+                  hover:bg-[#D8F3DC]/10 hover:text-[#D8F3DC]
+                "
+                style={{ fontFamily: "'DM Sans', sans-serif" }}
+                onClick={scrollToBottom}
+              >
+                <ArrowDownIcon size={14} /> Ir al final
+              </button>
             </div>
+
           </div>
         </div>
       </header>

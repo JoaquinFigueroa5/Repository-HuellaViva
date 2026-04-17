@@ -1,16 +1,44 @@
-# React + Vite
+# HuellaViva Guatemala 🐾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Plataforma digital dedicada al rescate, rehabilitación y bienestar animal en Guatemala.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologías
+- **Frontend:** React + Vite + Tailwind CSS / Vanilla CSS
+- **Animaciones:** Framer Motion
+- **Iconografía:** React Icons
+- **Enrutamiento:** React Router DOM (v6)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📁 Estructura del Proyecto
+- `src/assets`: Recursos estáticos (imágenes, iconos).
+- `src/components`: Componentes reutilizables organizados por funcionalidad.
+  - `common`: Navbar, Footer, Loading, etc.
+  - `dashboard`: Secciones principales del inicio.
+  - `emergencyGuide`: Guía de rescate paso a paso.
+  - `reportAnimal`: Formulario de reporte de animales en abandono.
+  - `generatePoster`: Herramienta para crear carteles de animales perdidos.
+- `src/data`: Información estática y configuraciones de navegación.
+- `src/pages`: Vistas principales de la aplicación.
+- `src/routes.jsx`: Configuración centralizada de rutas.
+- `src/utils`: Funciones de utilidad.
 
-## React Compiler
+## 🛣️ Rutas Activas
+- `/`: Dashboard / Inicio
+- `/emergency`: Guía de emergencia
+- `/report`: Reportar animal
+- `/calculator`: Calculadora de huella
+- `/test`: Test de personalidad de mascota
+- `/poster`: Generador de carteles
+- `/privacy`: Políticas de privacidad
+- `/terms`: Términos y condiciones
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Modificaciones Recientes
+### Footer Enhancement (Abril 2026)
+- Rediseño completo para una estética más "llena" y profesional.
+- Añadida sección de contacto directo (Email, Teléfono, Ubicación).
+- Implementado mockup de Newsletter para suscripciones.
+- Optimización de navegación y limpieza de enlaces (solo rutas existentes).
+- Fondos decorativos con gradientes radiales para un aspecto premium.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Navbar Updates (Abril 2026)
+- Añadido botón de "Ir al final" para acceso rápido al footer y contacto.
+- Mejorada la consistencia visual en menús móviles.

@@ -1,0 +1,7 @@
+{
+  "agent": {
+    "rules_path": ".antigravity/RULES.md",
+    "skills_directory": ".agents/",
+    "auto_load": true
+  }
+}

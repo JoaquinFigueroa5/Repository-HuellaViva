@@ -1,5 +1,5 @@
-import { useState, useCallback, useRef, memo } from "react";
-import { CATEGORIES, MYTHS } from "@/data/mythsData";
+import { useState, useCallback, useRef, useMemo, memo, cloneElement } from "react";
+import { CATEGORIES, MYTHS, CARD_THEMES } from "@/data/mythsData";
 import {
   motion as m,
   useReducedMotion,
@@ -30,20 +30,6 @@ const fadeUp = {
   }),
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 130,
-      damping: 20,
-      delay: i * 0.06,
-    },
-  }),
-};
-
 const cardListVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
@@ -61,31 +47,168 @@ const cardItemVariants = {
 };
 
 const VIEWPORT_ONCE = { once: true, margin: "-60px" };
+const CardIcon = memo(function CardIcon({ icon, color, size = 26 }) {
+  return (
+    <span className="shrink-0 flex items-center justify-center">
+      {cloneElement(icon, { color, size })}
+    </span>
+  );
+});
 
-const mythBg =
-  "linear-gradient(135deg, rgba(255,140,66,0.14) 0%, rgba(255,80,50,0.10) 100%)";
-const realityBg =
-  "linear-gradient(135deg, rgba(45,161,79,0.14) 0%, rgba(30,120,60,0.10) 100%)";
+const MythCardFront = memo(function MythCardFront({ myth, theme }) {
+  return (
+    <div
+      className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none overflow-hidden"
+      style={{
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
+        background: `${theme.bg}, radial-gradient(circle at 85% 10%, ${theme.primary}25 0%, transparent 60%)`,
+        borderColor: theme.border,
+        boxShadow: `0 4px 20px ${theme.shadow}`,
+        minHeight: 280,
+        willChange: "transform",
+      }}
+    >
+      <div className="flex items-start justify-between gap-2 relative z-10">
+        <span
+          className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
+          style={{
+            backgroundColor: theme.badge,
+            color: theme.primary,
+            border: `1px solid ${theme.border}`,
+            fontFamily: "'DM Sans', sans-serif",
+          }}
+        >
+          <RiProhibitedLine /> Mito
+        </span>
+        <CardIcon icon={myth.mythIcon} color={theme.primary} />
+      </div>
 
-const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
+      <p
+        className="text-[#D8F3DC]/85 leading-relaxed flex-1 relative z-10"
+        style={{
+          fontFamily: "'Fraunces', serif",
+          fontSize: "clamp(0.9rem, 1.8vw, 1rem)",
+          fontWeight: 500,
+        }}
+      >
+        "{myth.myth}"
+      </p>
+
+      <div
+        className="flex items-center gap-2 px-3 py-2 rounded-xl mt-auto relative z-10"
+        style={{
+          backgroundColor: theme.footerBg,
+          border: `1px solid ${theme.border}`,
+        }}
+      >
+        <span className="text-white/60 shrink-0" style={{ color: theme.primary }}>
+          <IoStatsChart size={14} />
+        </span>
+        <span
+          className="text-white/70 text-[0.62rem] leading-tight"
+          style={{ fontFamily: "'DM Sans', sans-serif", color: `${theme.primary}CC` }}
+        >
+          {myth.impact}
+        </span>
+      </div>
+
+      <div className="flex items-center justify-center gap-1.5 mt-2 relative z-10 w-full px-1">
+        <span
+          className="shrink-0 myth-arrow-bounce"
+          style={{ color: `${theme.primary}66` }}
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </span>
+        <span
+          className="text-[#D8F3DC]/25 text-[0.58rem] tracking-[0.05em] uppercase text-center leading-none"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
+        >
+          Toca para ver la realidad
+        </span>
+      </div>
+    </div>
+  );
+});
+
+const MythCardBack = memo(function MythCardBack({ myth, theme }) {
+  return (
+    <div
+      className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none overflow-hidden"
+      style={{
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
+        transform: "rotateY(180deg)",
+        background: `${theme.bg}, radial-gradient(circle at 85% 10%, ${theme.primary}25 0%, transparent 60%)`,
+        borderColor: theme.border,
+        boxShadow: `0 4px 20px ${theme.shadow}`,
+        minHeight: 280,
+        willChange: "transform",
+      }}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <span
+          className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
+          style={{
+            backgroundColor: theme.badge,
+            color: theme.primary,
+            border: `1px solid ${theme.border}`,
+            fontFamily: "'DM Sans', sans-serif",
+          }}
+        >
+          <FaCheckCircle /> Realidad
+        </span>
+        <CardIcon icon={myth.realityIcon} color={theme.primary} />
+      </div>
+
+      <p
+        className="text-[#D8F3DC]/80 leading-relaxed flex-1 text-sm"
+        style={{ fontFamily: "'DM Sans', sans-serif", lineHeight: 1.65 }}
+      >
+        {myth.reality}
+      </p>
+
+      <div className="flex items-center gap-2 mt-auto">
+        <FaPaw size={9} style={{ color: theme.primary }} />
+        <span
+          className="text-[0.6rem]"
+          style={{ fontFamily: "'DM Sans', sans-serif", color: `${theme.primary}99` }}
+        >
+          Fuente: {myth.source}
+        </span>
+      </div>
+
+      <div className="flex items-center justify-center gap-1.5">
+        <span
+          className="text-[#D8F3DC]/20 text-[0.6rem] tracking-widest uppercase"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
+        >
+          Toca para volver
+        </span>
+      </div>
+    </div>
+  );
+});
+
+const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip, theme }) {
   const prefersReduced = useReducedMotion();
 
   return (
     <m.div
       variants={cardItemVariants}
       className="relative cursor-pointer"
-      style={{ perspective: 1000, minHeight: 260 }}
-      onClick={onFlip}
+      style={{ perspective: 1000, minHeight: 280 }}
+      onClick={() => onFlip(myth.id)}
       role="button"
       aria-pressed={isRevealed}
       aria-label={
-        isRevealed
-          ? `Realidad: ${myth.realityShort}`
-          : `Mito: ${myth.mythShort}`
+        isRevealed ? `Realidad: ${myth.realityShort}` : `Mito: ${myth.mythShort}`
       }
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") onFlip();
+        if (e.key === "Enter" || e.key === " ") onFlip(myth.id);
       }}
     >
       <m.div
@@ -93,7 +216,7 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
         transition={
           prefersReduced
             ? { duration: 0 }
-            : { type: "spring", stiffness: 160, damping: 26 }
+            : { type: "spring", stiffness: 180, damping: 28, mass: 0.8 }
         }
         style={{
           transformStyle: "preserve-3d",
@@ -102,146 +225,65 @@ const MythCard = memo(function MythCard({ myth, index, isRevealed, onFlip }) {
           height: "100%",
         }}
       >
-        <div
-          className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            background: mythBg,
-            borderColor: "rgba(255,140,66,0.30)",
-            boxShadow: "0 4px 24px rgba(255,140,66,0.10)",
-            minHeight: 260,
-          }}
-        >
-          <div className="flex items-start justify-between gap-2">
-            <span
-              className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
-              style={{
-                backgroundColor: "rgba(255,140,66,0.18)",
-                color: "#FF8C42",
-                border: "1px solid rgba(255,140,66,0.35)",
-                fontFamily: "'DM Sans', sans-serif",
-              }}
-            >
-              <RiProhibitedLine /> Mito
-            </span>
-            <span className="text-2xl shrink-0">{myth.mythIcon}</span>
-          </div>
-
-          <p
-            className="text-[#D8F3DC]/85 leading-relaxed flex-1"
-            style={{
-              fontFamily: "'Fraunces', serif",
-              fontSize: "clamp(0.9rem, 1.8vw, 1rem)",
-              fontWeight: 600,
-            }}
-          >
-            "{myth.myth}"
-          </p>
-
-          <div
-            className="flex items-center gap-2 px-3 py-2 rounded-xl mt-auto"
-            style={{
-              backgroundColor: "rgba(255,140,66,0.08)",
-              border: "1px solid rgba(255,140,66,0.18)",
-            }}
-          >
-            <span className="text-[#FF8C42]/60 text-[0.6rem]">
-              <IoStatsChart size={16} />
-            </span>
-            <span
-              className="text-[#FF8C42]/70 text-[0.62rem] leading-tight"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              {myth.impact}
-            </span>
-          </div>
-
-          <div className="flex items-center justify-center gap-1.5 mt-1">
-            <m.span
-              animate={{ x: [0, 4, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 1.4,
-                ease: "easeInOut",
-              }}
-              className="text-[#FF8C42]/40"
-            >
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-            </m.span>
-            <span
-              className="text-[#D8F3DC]/25 text-[0.6rem] tracking-widest uppercase"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Toca para ver la realidad
-            </span>
-          </div>
-        </div>
-
-        <div
-          className="absolute inset-0 rounded-2xl border p-5 flex flex-col gap-3 select-none"
-          style={{
-            backfaceVisibility: "hidden",
-            WebkitBackfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-            background: realityBg,
-            borderColor: "rgba(45,161,79,0.35)",
-            boxShadow: "0 4px 24px rgba(45,161,79,0.15)",
-            minHeight: 260,
-          }}
-        >
-          <div className="flex items-start justify-between gap-2">
-            <span
-              className="text-[0.6rem] font-bold tracking-[0.14em] uppercase px-2.5 py-1 rounded-full shrink-0 flex items-center gap-2"
-              style={{
-                backgroundColor: "rgba(45,161,79,0.18)",
-                color: "#2DA14F",
-                border: "1px solid rgba(45,161,79,0.35)",
-                fontFamily: "'DM Sans', sans-serif",
-              }}
-            >
-              <FaCheckCircle /> Realidad
-            </span>
-            <span className="text-2xl shrink-0">{myth.realityIcon}</span>
-          </div>
-
-          <p
-            className="text-[#D8F3DC]/80 leading-relaxed flex-1 text-sm"
-            style={{ fontFamily: "'DM Sans', sans-serif", lineHeight: 1.65 }}
-          >
-            {myth.reality}
-          </p>
-
-          <div className="flex items-center gap-2 mt-auto">
-            <FaPaw size={9} color="#2DA14F" />
-            <span
-              className="text-[#2DA14F]/60 text-[0.6rem]"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Fuente: {myth.source}
-            </span>
-          </div>
-
-          <div className="flex items-center justify-center gap-1.5">
-            <span
-              className="text-[#D8F3DC]/20 text-[0.6rem] tracking-widest uppercase"
-              style={{ fontFamily: "'DM Sans', sans-serif" }}
-            >
-              Toca para volver
-            </span>
-          </div>
-        </div>
+        <MythCardFront myth={myth} theme={theme.myth} />
+        <MythCardBack myth={myth} theme={theme.reality} />
       </m.div>
     </m.div>
+  );
+});
+
+const StatsBar = memo(function StatsBar({ totalRevealed, totalMyths, progressPct }) {
+  return (
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 px-1">
+      <div className="flex items-center gap-3">
+        <div
+          className="flex items-center gap-2 px-4 py-2 rounded-xl"
+          style={{
+            backgroundColor: "rgba(45,161,79,0.10)",
+            border: "1px solid rgba(45,161,79,0.25)",
+          }}
+        >
+          <FaPaw size={12} color="#2DA14F" />
+          <span className="text-[#D8F3DC]/70 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[#2DA14F] font-bold text-sm">{totalRevealed}</span>
+            <span className="text-[#D8F3DC]/40"> / {totalMyths} mitos revelados</span>
+          </span>
+        </div>
+
+        {totalRevealed === totalMyths && (
+          <m.span
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-2"
+            style={{
+              backgroundColor: "#2DA14F20",
+              color: "#2DA14F",
+              border: "1px solid #2DA14F40",
+              fontFamily: "'DM Sans', sans-serif",
+            }}
+          >
+            <BiParty /> ¡Completado!
+          </m.span>
+        )}
+      </div>
+
+      <div className="flex items-center gap-3 flex-1 max-w-xs">
+        <div className="flex-1 h-1.5 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
+          <m.div
+            className="h-full rounded-full"
+            style={{
+              background: "linear-gradient(90deg, #2DA14F, #52c97a)",
+              boxShadow: "0 0 8px rgba(45,161,79,0.5)",
+            }}
+            animate={{ width: `${progressPct}%` }}
+            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+          />
+        </div>
+        <span className="text-[#2DA14F] text-xs font-semibold tabular-nums w-8 text-right" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          {progressPct}%
+        </span>
+      </div>
+    </div>
   );
 });
 
@@ -281,15 +323,20 @@ export default function MythsVsReality() {
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT_ONCE);
 
-  const filtered =
-    activeCategory === "all"
+  const filtered = useMemo(
+    () => activeCategory === "all"
       ? MYTHS
-      : MYTHS.filter((m) => m.category === activeCategory);
+      : MYTHS.filter((m) => m.category === activeCategory),
+    [activeCategory]
+  );
 
   const totalRevealed = revealed.size;
   const totalMyths = MYTHS.length;
   const progressPct = Math.round((totalRevealed / totalMyths) * 100);
-  const allCurrentShown = filtered.every((m) => revealed.has(m.id));
+  const allCurrentShown = useMemo(
+    () => filtered.every((m) => revealed.has(m.id)),
+    [filtered, revealed]
+  );
 
   const handleFlip = useCallback((id) => {
     setRevealed((prev) => {
@@ -349,21 +396,21 @@ export default function MythsVsReality() {
           aria-hidden="true"
         >
           <div
-            className="absolute rounded-full blur-[140px] opacity-[0.06]"
+            className="absolute rounded-full opacity-[0.06]"
             style={{
               width: 500,
               height: 500,
-              background: "#FF8C42",
+              background: "radial-gradient(circle, #FF8C42 0%, transparent 70%)",
               top: "10%",
               right: "10%",
             }}
           />
           <div
-            className="absolute rounded-full blur-[120px] opacity-[0.05]"
+            className="absolute rounded-full opacity-[0.05]"
             style={{
               width: 400,
               height: 400,
-              background: "#2DA14F",
+              background: "radial-gradient(circle, #2DA14F 0%, transparent 70%)",
               bottom: "10%",
               left: "5%",
             }}
@@ -413,73 +460,11 @@ export default function MythsVsReality() {
             </p>
           </m.div>
 
-          <m.div
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={sectionInView ? "visible" : "hidden"}
-            className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 px-1"
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="flex items-center gap-2 px-4 py-2 rounded-xl"
-                style={{
-                  backgroundColor: "rgba(45,161,79,0.10)",
-                  border: "1px solid rgba(45,161,79,0.25)",
-                }}
-              >
-                <FaPaw size={12} color="#2DA14F" />
-                <span
-                  className="text-[#D8F3DC]/70 text-xs"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  <span className="text-[#2DA14F] font-bold text-sm">
-                    {totalRevealed}
-                  </span>
-                  <span className="text-[#D8F3DC]/40">
-                    {" "}
-                    / {totalMyths} mitos revelados
-                  </span>
-                </span>
-              </div>
-
-              {totalRevealed === totalMyths && (
-                <m.span
-                  initial={{ opacity: 0, scale: 0.7 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-2"
-                  style={{
-                    backgroundColor: "#2DA14F20",
-                    color: "#2DA14F",
-                    border: "1px solid #2DA14F40",
-                    fontFamily: "'DM Sans', sans-serif",
-                  }}
-                >
-                  <BiParty /> ¡Completado!
-                </m.span>
-              )}
-            </div>
-
-            <div className="flex items-center gap-3 flex-1 max-w-xs">
-              <div className="flex-1 h-1.5 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
-                <m.div
-                  className="h-full rounded-full"
-                  style={{
-                    background: "linear-gradient(90deg, #2DA14F, #52c97a)",
-                    boxShadow: "0 0 8px rgba(45,161,79,0.5)",
-                  }}
-                  animate={{ width: `${progressPct}%` }}
-                  transition={{ type: "spring", stiffness: 80, damping: 20 }}
-                />
-              </div>
-              <span
-                className="text-[#2DA14F] text-xs font-semibold tabular-nums w-8 text-right"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                {progressPct}%
-              </span>
-            </div>
-          </m.div>
+          <StatsBar 
+            totalRevealed={totalRevealed} 
+            totalMyths={totalMyths} 
+            progressPct={progressPct} 
+          />
 
           <m.div
             custom={2}
@@ -527,13 +512,14 @@ export default function MythsVsReality() {
             </m.button>
           </m.div>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout" initial={false}>
             <m.div
+              layout
               key={activeCategory}
               variants={cardListVariants}
               initial="hidden"
               animate="visible"
-              exit={{ opacity: 0, transition: { duration: 0.15 } }}
+              exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.15 } }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
             >
               {filtered.map((myth, i) => (
@@ -542,7 +528,8 @@ export default function MythsVsReality() {
                   myth={myth}
                   index={i}
                   isRevealed={revealed.has(myth.id)}
-                  onFlip={() => handleFlip(myth.id)}
+                  onFlip={handleFlip}
+                  theme={CARD_THEMES[i % CARD_THEMES.length]}
                 />
               ))}
             </m.div>
