@@ -121,7 +121,7 @@ export default function Footer() {
 
   return (
     <LazyMotion features={domMax} strict>
-      <footer className="relative w-full bg-[#111315] pt-20 pb-10 overflow-hidden border-t border-white/[0.03]">
+      <footer className="relative w-full bg-[#111315] pt-20 pb-10 overflow-hidden border-t border-white/3">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
           <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[60%] blur-[120px] rounded-full" style={{ background: "radial-gradient(circle, rgba(45,161,79,0.1) 0%, transparent 70%)" }} />
@@ -143,7 +143,7 @@ export default function Footer() {
                 className="group flex items-center gap-3.5 no-underline w-fit cursor-pointer"
               >
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[360deg] group-hover:scale-110"
+                  className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-360 group-hover:scale-110"
                   style={{
                     background: "linear-gradient(135deg, #2DA14F 0%, #1a7a35 100%)",
                     color: "#D8F3DC",
@@ -194,45 +194,26 @@ export default function Footer() {
               initial="hidden" whileInView="visible" viewport={VIEWPORT}
               className="flex flex-col gap-8"
             >
-              <div className="flex flex-col gap-5">
-                <p
-                  className="text-[0.65rem] font-bold tracking-[0.2em] uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}
-                >
-                  Suscríbete
-                </p>
-                <p className="text-[0.8rem] leading-snug" style={{ color: "rgba(216,243,220,0.4)" }}>Recibe actualizaciones sobre rescates y eventos importantes.</p>
-                
-                <div className="relative group">
-                  <input 
-                    type="email" 
-                    placeholder="Tu correo electrónico"
-                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl py-3.5 px-4 text-[0.85rem] text-[#D8F3DC] focus:outline-none focus:border-[#2DA14F]/50 transition-all duration-300 placeholder:opacity-20"
-                  />
-                  <button 
-                    className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded-lg bg-[#2DA14F] text-[#D8F3DC] hover:bg-[#258a43] transition-all duration-300 shadow-lg shadow-green-900/20"
-                    aria-label="Suscribirse"
-                  >
-                    <FaPaperPlane size={14} />
-                  </button>
-                </div>
-              </div>
 
                 <div className="flex flex-col gap-4 mt-2">
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
                     <FaEnvelope size={12} />
                   </div>
-                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>{CONTACT_INFO.email}</span>
+                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>
+                    <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
                     <FaPhone size={12} />
                   </div>
-                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>{CONTACT_INFO.phone}</span>
+                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>
+                    <a href={`tel:${CONTACT_INFO.phone}`}>{CONTACT_INFO.phone}</a>
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/[0.03] flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
                     <FaMapMarkerAlt size={12} />
                   </div>
                   <span className="text-[0.8rem]" style={{ color: "rgba(216,243,220,0.5)" }}>{CONTACT_INFO.address}</span>
@@ -245,7 +226,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-20 border-t border-white/[0.05]">
+        <div className="mt-20 border-t border-white/5">
           <div className="max-w-300 mx-auto px-6 md:px-12 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
@@ -255,14 +236,14 @@ export default function Footer() {
                 >
                   © {year} HuellaViva Guatemala. Todos los derechos reservados.
                 </p>
-                <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/[0.05]" />
+                <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/5" />
                 <div className="flex items-center gap-4">
                   <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNavigation("/privacy"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Privacidad</a>
                   <a href="/terms" onClick={(e) => { e.preventDefault(); handleNavigation("/terms"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Términos</a>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.02] border border-white/[0.05]">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/2 border border-white/5">
                 <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>Hecho con</span>
                 <m.span
                   animate={{ scale: [1, 1.25, 1] }}
