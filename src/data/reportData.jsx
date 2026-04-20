@@ -132,4 +132,4 @@ export const URGENCY_LEVELS = [
   },
 ];
 
-export const WA_NUMBER = "50258694127";
+export const WA_NUMBER = "50252491439";

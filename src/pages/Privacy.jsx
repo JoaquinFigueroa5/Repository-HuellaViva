@@ -91,7 +91,7 @@ export default function Privacy() {
           >
             Si tienes preguntas sobre nuestra política de privacidad, no dudes en{" "}
             <a
-              href="https://wa.me/50258694127"
+              href="https://wa.me/50252491439"
               className="underline"
               style={{ color: "#2DA14F" }}
             >

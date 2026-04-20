@@ -782,7 +782,7 @@ export default function PetCostCalculator() {
             </div>
             <div className="flex gap-3 shrink-0 flex-wrap justify-center">
               <m.a
-                href={`https://wa.me/50258694127?text=${encodeURIComponent(`¡Hola! Calculé que puedo gastar Q${monthlyTotal}/mes en una mascota. ¿Me orientan en el proceso de adopción?`)}`}
+                href={`https://wa.me/50252491439?text=${encodeURIComponent(`¡Hola! Calculé que puedo gastar Q${monthlyTotal}/mes en una mascota. ¿Me orientan en el proceso de adopción?`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ y: -2, boxShadow: "0 8px 24px rgba(37,211,102,0.35)" }}

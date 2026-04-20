@@ -90,6 +90,6 @@ export const FUND_BREAKDOWN = [
   { label: "Admin & comunicación", pct: 9, color: "#D8F3DC55", icon: <FaBullhorn size={16} color="#D8F3DC55" /> },
 ];
 
-export const WA_NUMBER = "50258694127";
+export const WA_NUMBER = "50252491439";
 export const WA_MESSAGE = "¡Hola! Me gustaría hacer una donación a HuellaViva. ¿Me pueden orientar sobre el proceso? 🐾";
 export const WA_LINK = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`;

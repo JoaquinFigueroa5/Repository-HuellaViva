@@ -23,7 +23,7 @@ import {
 export const EMERGENCY_CONTACTS = [
   {
     label: "HuellaViva",
-    number: "+502 5869-4127",
+    number: "+502 5249-1439",
     icon: <FaPaw />,
     type: "wa",
     color: "#25D366",

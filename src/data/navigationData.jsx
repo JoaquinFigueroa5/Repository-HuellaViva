@@ -43,10 +43,10 @@ export const NAV_COLUMNS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "+502 5869-4127",
+  phone: "+502 5249-1439",
   email: "info@huellaviva.gt",
   address: "Guatemala City, GT",
-  whatsapp: "https://wa.me/50258694127",
+  whatsapp: "https://wa.me/50252491439",
 };
 
 export const SOCIAL_LINKS = [

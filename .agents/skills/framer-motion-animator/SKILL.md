@@ -5,7 +5,7 @@ description: Creates smooth animations and micro-interactions using Framer Motio
 
 # Framer Motion Animator
 
-Build delightful animations and interactions with Framer Motion's declarative API.
+Build delightful animations and interactions with Framer Motion's declarative API in JSX/React.
 
 ## Core Workflow
 
@@ -26,11 +26,10 @@ npm install framer-motion
 
 ### Simple Animation
 
-```tsx
+```jsx
 import { motion } from 'framer-motion';
 
-// Animate on mount
-export function FadeIn({ children }: { children: React.ReactNode }) {
+export function FadeIn({ children }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -42,8 +41,7 @@ export function FadeIn({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Animate on hover
-export function ScaleOnHover({ children }: { children: React.ReactNode }) {
+export function ScaleOnHover({ children }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -58,15 +56,14 @@ export function ScaleOnHover({ children }: { children: React.ReactNode }) {
 
 ### Exit Animations with AnimatePresence
 
-```tsx
+```jsx
 import { motion, AnimatePresence } from 'framer-motion';
 
-export function Modal({ isOpen, onClose, children }: ModalProps) {
+export function Modal({ isOpen, onClose, children }) {
   return (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -74,8 +71,6 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
             onClick={onClose}
             className="fixed inset-0 bg-black/50 z-40"
           />
-
-          {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -98,7 +93,9 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
 
 ### Staggered Children
 
-```tsx
+```jsx
+import { motion } from 'framer-motion';
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -119,13 +116,9 @@ const itemVariants = {
   },
 };
 
-export function StaggeredList({ items }: { items: string[] }) {
+export function StaggeredList({ items }) {
   return (
-    <motion.ul
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.ul variants={containerVariants} initial="hidden" animate="visible">
       {items.map((item, index) => (
         <motion.li key={index} variants={itemVariants}>
           {item}
@@ -138,7 +131,9 @@ export function StaggeredList({ items }: { items: string[] }) {
 
 ### Interactive Variants
 
-```tsx
+```jsx
+import { motion } from 'framer-motion';
+
 const buttonVariants = {
   initial: { scale: 1 },
   hover: { scale: 1.05 },
@@ -146,11 +141,7 @@ const buttonVariants = {
   disabled: { opacity: 0.5, scale: 1 },
 };
 
-export function AnimatedButton({
-  children,
-  disabled,
-  onClick,
-}: ButtonProps) {
+export function AnimatedButton({ children, disabled, onClick }) {
   return (
     <motion.button
       variants={buttonVariants}
@@ -172,13 +163,11 @@ export function AnimatedButton({
 
 ### Next.js App Router
 
-```tsx
-// app/template.tsx
+```jsx
 'use client';
-
 import { motion } from 'framer-motion';
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function Template({ children }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -194,10 +183,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
 ### Shared Layout Animations
 
-```tsx
+```jsx
 import { motion, LayoutGroup } from 'framer-motion';
 
-export function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
+export function Tabs({ tabs, activeTab, onTabChange }) {
   return (
     <LayoutGroup>
       <div className="flex gap-2">
@@ -227,7 +216,9 @@ export function Tabs({ tabs, activeTab, onTabChange }: TabsProps) {
 
 ### Drag
 
-```tsx
+```jsx
+import { motion } from 'framer-motion';
+
 export function DraggableCard() {
   return (
     <motion.div
@@ -244,16 +235,16 @@ export function DraggableCard() {
 
 ### Swipe to Dismiss
 
-```tsx
-export function SwipeToDelete({ onDelete, children }: SwipeProps) {
+```jsx
+import { motion } from 'framer-motion';
+
+export function SwipeToDelete({ onDelete, children }) {
   return (
     <motion.div
       drag="x"
       dragConstraints={{ left: 0, right: 0 }}
       onDragEnd={(_, info) => {
-        if (info.offset.x < -100) {
-          onDelete();
-        }
+        if (info.offset.x < -100) onDelete();
       }}
       className="relative"
     >
@@ -274,11 +265,11 @@ export function SwipeToDelete({ onDelete, children }: SwipeProps) {
 
 ### Scroll-Triggered
 
-```tsx
+```jsx
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 
-export function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
+export function FadeInWhenVisible({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
@@ -297,7 +288,7 @@ export function FadeInWhenVisible({ children }: { children: React.ReactNode }) {
 
 ### Scroll Progress
 
-```tsx
+```jsx
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 export function ParallaxHero() {
@@ -317,7 +308,6 @@ export function ParallaxHero() {
 
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
-
   return (
     <motion.div
       style={{ scaleX: scrollYProgress }}
@@ -329,25 +319,18 @@ export function ScrollProgress() {
 
 ## Animation Hooks
 
-### useAnimate (Imperative)
+### useAnimate (Imperativo)
 
-```tsx
+```jsx
 import { useAnimate } from 'framer-motion';
 
 export function SubmitButton() {
   const [scope, animate] = useAnimate();
 
   const handleClick = async () => {
-    // Sequence of animations
     await animate(scope.current, { scale: 0.95 }, { duration: 0.1 });
     await animate(scope.current, { scale: 1 }, { type: 'spring' });
-
-    // Success animation
-    await animate(
-      scope.current,
-      { backgroundColor: '#22c55e' },
-      { duration: 0.2 }
-    );
+    await animate(scope.current, { backgroundColor: '#22c55e' }, { duration: 0.2 });
   };
 
   return (
@@ -360,7 +343,7 @@ export function SubmitButton() {
 
 ### useMotionValue & useTransform
 
-```tsx
+```jsx
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 export function RotatingCard() {
@@ -373,21 +356,20 @@ export function RotatingCard() {
       drag="x"
       dragConstraints={{ left: -200, right: 200 }}
       style={{ x, rotateY, opacity }}
-      className="w-64 h-96 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl"
+      className="w-64 h-96 bg-linear-to-br from-purple-500 to-pink-500 rounded-xl"
     />
   );
 }
 ```
 
-## Reusable Animation Components
+## Componentes Reutilizables
 
 ### AnimatedContainer
 
-```tsx
-// components/AnimatedContainer.tsx
-import { motion, Variants } from 'framer-motion';
+```jsx
+import { motion } from 'framer-motion';
 
-const animations: Record<string, Variants> = {
+const animations = {
   fadeIn: {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
@@ -414,21 +396,13 @@ const animations: Record<string, Variants> = {
   },
 };
 
-interface AnimatedContainerProps {
-  children: React.ReactNode;
-  animation?: keyof typeof animations;
-  delay?: number;
-  duration?: number;
-  className?: string;
-}
-
 export function AnimatedContainer({
   children,
   animation = 'fadeInUp',
   delay = 0,
   duration = 0.5,
   className,
-}: AnimatedContainerProps) {
+}) {
   return (
     <motion.div
       variants={animations[animation]}
@@ -445,17 +419,14 @@ export function AnimatedContainer({
 
 ### AnimatedList
 
-```tsx
-// components/AnimatedList.tsx
+```jsx
 import { motion } from 'framer-motion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-    },
+    transition: { staggerChildren: 0.05 },
   },
 };
 
@@ -464,19 +435,7 @@ const itemVariants = {
   visible: { opacity: 1, x: 0 },
 };
 
-interface AnimatedListProps<T> {
-  items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
-  keyExtractor: (item: T, index: number) => string;
-  className?: string;
-}
-
-export function AnimatedList<T>({
-  items,
-  renderItem,
-  keyExtractor,
-  className,
-}: AnimatedListProps<T>) {
+export function AnimatedList({ items, renderItem, keyExtractor, className }) {
   return (
     <motion.ul
       variants={containerVariants}
@@ -496,46 +455,25 @@ export function AnimatedList<T>({
 
 ## Transition Presets
 
-```tsx
-// lib/transitions.ts
+```jsx
+// lib/transitions.js
 export const transitions = {
-  spring: {
-    type: 'spring',
-    stiffness: 300,
-    damping: 24,
-  },
-  springBouncy: {
-    type: 'spring',
-    stiffness: 500,
-    damping: 15,
-  },
-  springStiff: {
-    type: 'spring',
-    stiffness: 700,
-    damping: 30,
-  },
-  smooth: {
-    type: 'tween',
-    duration: 0.3,
-    ease: 'easeInOut',
-  },
-  snappy: {
-    type: 'tween',
-    duration: 0.15,
-    ease: [0.25, 0.1, 0.25, 1],
-  },
-} as const;
+  spring: { type: 'spring', stiffness: 300, damping: 24 },
+  springBouncy: { type: 'spring', stiffness: 500, damping: 15 },
+  springStiff: { type: 'spring', stiffness: 700, damping: 30 },
+  smooth: { type: 'tween', duration: 0.3, ease: 'easeInOut' },
+  snappy: { type: 'tween', duration: 0.15, ease: [0.25, 0.1, 0.25, 1] },
+};
 
-// Usage
-<motion.div transition={transitions.spring} />
+// Uso: <motion.div transition={transitions.spring} />
 ```
 
-## Reduced Motion Support
+## Soporte para Reduced Motion
 
-```tsx
+```jsx
 import { useReducedMotion } from 'framer-motion';
 
-export function AccessibleAnimation({ children }: { children: React.ReactNode }) {
+export function AccessibleAnimation({ children }) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -552,24 +490,22 @@ export function AccessibleAnimation({ children }: { children: React.ReactNode })
 
 ## Best Practices
 
-1. **Use GPU-accelerated properties**: `opacity`, `transform` (not `width`, `height`)
-2. **Add `layout` for smooth resizing**: Automatic layout animations
-3. **Use `AnimatePresence`**: For exit animations
-4. **Prefer springs**: More natural than tween for UI
-5. **Respect reduced motion**: Use `useReducedMotion` hook
-6. **Avoid animating layout thrashing**: Don't animate `top`, `left`, `width`
-7. **Use `layoutId`**: For shared element transitions
-8. **Stagger children**: For list animations
+1. **Propiedades GPU-aceleradas**: `opacity`, `transform` (evitar `width`, `height`)
+2. **`layout` para redimensionado suave**: Animaciones de layout automáticas
+3. **`AnimatePresence`**: Siempre para animaciones de salida
+4. **Preferir springs**: Más naturales que tweens para UI
+5. **Respetar reduced motion**: Usar el hook `useReducedMotion`
+6. **No animar layout thrashing**: Evitar `top`, `left`, `width`
+7. **`layoutId`**: Para transiciones de elementos compartidos
+8. **Stagger children**: Para animaciones de listas
 
 ## Output Checklist
 
-Every animation implementation should include:
-
-- [ ] Appropriate animation type (simple, variants, gestures)
-- [ ] Smooth transitions with proper easing
-- [ ] Exit animations with AnimatePresence
-- [ ] Reduced motion support
-- [ ] GPU-accelerated properties only
-- [ ] Spring physics for natural feel
-- [ ] Staggered children for lists
-- [ ] Performance tested on low-end devices
+- [ ] Tipo de animación apropiado (simple, variants, gestures)
+- [ ] Transiciones suaves con easing correcto
+- [ ] Exit animations con AnimatePresence
+- [ ] Soporte para reduced motion
+- [ ] Solo propiedades GPU-aceleradas
+- [ ] Spring physics para sensación natural
+- [ ] Staggered children en listas
+- [ ] Probado en dispositivos de gama baja
