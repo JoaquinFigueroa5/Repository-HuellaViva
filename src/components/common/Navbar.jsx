@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { FaRegHeart as HeartIcon, FaPaw as PawIcon, FaArrowDown as ArrowDownIcon } from "react-icons/fa";
 import { IoMenu as MenuIcon, IoClose as CloseIcon } from "react-icons/io5";
-
 import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToHash } from "@/utils/scrollToHash";
-
 import { NAV_LINKS } from "@/data/navigationData";
+import LanguageSelector from "./LanguageSelector";
 
 
 export default function Navbar() {
@@ -136,7 +135,8 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <button
+            <LanguageSelector />
+            {/* <button
               onClick={scrollToBottom}
               className="
                 flex items-center justify-center w-10 h-10 rounded-xl cursor-pointer
@@ -147,7 +147,7 @@ export default function Navbar() {
               title="Ir al final"
             >
               <ArrowDownIcon size={14} />
-            </button>
+            </button> */}
             <button
               className="
                 flex items-center gap-2 shrink-0
@@ -237,6 +237,9 @@ export default function Navbar() {
             })}
 
             <div className="mt-2 pt-3 border-t border-[#D8F3DC]/8 px-1 flex flex-col gap-2.5">
+              <div className="px-3">
+                <LanguageSelector />
+              </div>
               <button
                 className="
                   w-full flex items-center justify-center gap-2
@@ -253,7 +256,7 @@ export default function Navbar() {
                 <HeartIcon /> Quiero Ayudar
               </button>
 
-              <button
+              {/* <button
                 className="
                   w-full flex items-center justify-center gap-2
                   bg-[#D8F3DC]/6 text-[#D8F3DC]/70 text-[0.9rem] font-medium
@@ -265,7 +268,7 @@ export default function Navbar() {
                 onClick={scrollToBottom}
               >
                 <ArrowDownIcon size={14} /> Ir al final
-              </button>
+              </button> */}
             </div>
 
           </div>

@@ -1,0 +1,153 @@
+{
+  "test": {
+    "subtitle": "8 questions. 5 possible profiles. Discover what type of rescued animal fits your personality and lifestyle.",
+    "discover": "Discover your ideal companion",
+    "title": "Which pet goes with you?",
+    "question": "Question",
+    "next": "Next →",
+    "previous": "← Previous",
+    "seeResult": "See my result 🐾",
+    "yourProfile": "Your profile",
+    "recommended": "We recommend:",
+    "whyThisProfile": "Why this profile?",
+    "whyRescued": "Why a rescued animal?",
+    "implications": "What it implies",
+    "monthlyCost": "Est. monthly cost",
+    "dailyTime": "Daily time",
+    "idealSpace": "Ideal space",
+    "scoreByProfile": "Your score by profile",
+    "pts": "pts",
+    "adoptBtn": "I want to adopt my",
+    "whatsappBtn": "Consult via WhatsApp",
+    "retryBtn": "Repeat test",
+    "questions": {
+      "q1": "How would you describe your daily physical activity level?",
+      "q1_a1": "High — I exercise or go for walks every day",
+      "q1_a2": "Moderate — I go out, but I'm not into intense routines",
+      "q1_a3": "Low — I prefer quiet activities at home",
+      "q1_a4": "Variable — sometimes a lot, sometimes a little",
+      "q2": "How many hours are you away from home on an average day?",
+      "q2_a1": "Less than 4 hours — I'm almost always at home",
+      "q2_a2": "4–8 hours — normal work day",
+      "q2_a3": "More than 8 hours — I work long hours away",
+      "q2_a4": "Varies greatly each day",
+      "q3": "What type of space do you have at home?",
+      "q3_a1": "Spacious house with garden or yard",
+      "q3_a2": "House without garden but with good interior space",
+      "q3_a3": "Spacious apartment",
+      "q3_a4": "Small apartment or room",
+      "q4": "What type of bond are you looking for with your pet?",
+      "q4_a1": "An inseparable companion who's always with me",
+      "q4_a2": "Close presence but that respects my space",
+      "q4_a3": "Someone playful and entertaining that makes me laugh",
+      "q4_a4": "A whole animal family — the more the better",
+      "q5": "Do you have previous experience with pets?",
+      "q5_a1": "Yes, I grew up with dogs and know how to care for them well",
+      "q5_a2": "Yes, but mainly with cats",
+      "q5_a3": "Little experience, I'm a beginner",
+      "q5_a4": "Lots of experience with multiple types of animals",
+      "q6": "Are there young children or elderly people in your home?",
+      "q6_a1": "Yes, children under 10 years old",
+      "q6_a2": "Yes, elderly adults",
+      "q6_a3": "Only young or middle-aged adults",
+      "q6_a4": "I live alone or with a partner without children",
+      "q7": "What monthly budget could you allocate to your pet?",
+      "q7_a1": "Q 100–200 — tight budget",
+      "q7_a2": "Q 200–400 — moderate budget",
+      "q7_a3": "Q 400–700 — comfortable budget",
+      "q7_a4": "Q 700+ — no major restrictions",
+      "q8": "Which of these words best describes you?",
+      "q8_a1": "Adventurous — I love exploring and moving around",
+      "q8_a2": "Calm — I value peace and routine",
+      "q8_a3": "Independent — I need my own space",
+      "q8_a4": "Empathic — I have a lot of love to give"
+    },
+    "profiles": {
+      "active_dog": {
+        "title": "The Adventurous Companion",
+        "pet": "Medium or large dog",
+        "tagline": "You are energetic, social, and need a companion that keeps up with your pace.",
+        "traits": ["Active", "Social", "Outdoors", "Adventurous"],
+        "suggestedBreeds": ["Labrador Retriever", "Golden Retriever", "Border Collie", "German Shepherd", "Large mixed breeds"],
+        "description": "Your dynamic lifestyle and love for physical activity make you the ideal companion for a medium or large dog. You need a pet that shares your energy, enjoys long walks, and motivates you to go out every day.",
+        "whyRescued": "Adult rescue dogs have already passed the destructive puppy stage. They are loyal, grateful, and adapt quickly to an active home.",
+        "monthlyEst": "Q 350–600",
+        "timeDay": "1–2 hours of activity",
+        "space": "House with yard or near park",
+        "tips": [
+          "Look for breeds or mixes with high energy: border collie, labrador, active mixed breeds.",
+          "An adult dog (2–5 years) already has their character defined — you'll know exactly who you're living with."
+        ]
+      },
+      "calm_dog": {
+        "title": "The Calm Friend",
+        "pet": "Small or medium dog",
+        "tagline": "You value close companionship, routine, and quiet moments at home.",
+        "traits": ["Homebody", "Routine", "Affectionate", "Calm"],
+        "suggestedBreeds": ["Shih Tzu", "Pug", "Cavalier King Charles", "Poodle", "Small mixes or Senior"],
+        "description": "You prefer a pet that shares your moments of calm, is a constant companion at home, and doesn't require two hours of intense exercise daily.",
+        "whyRescued": "Many small dogs in shelters were simply abandoned due to their owners' life changes. They are completely domesticated and are looking for exactly what you offer: a stable home.",
+        "monthlyEst": "Q 200–400",
+        "timeDay": "30–45 minutes of walks",
+        "space": "Apartment or small house",
+        "tips": [
+          "Look for adult dogs with calm temperament at shelters.",
+          "Senior dogs (7+ years) are especially calm and often the most difficult to adopt."
+        ]
+      },
+      "independent_cat": {
+        "title": "The Independent Soul",
+        "pet": "Adult cat",
+        "tagline": "You respect autonomy, have a busy life, and want companionship without dependence.",
+        "traits": ["Independent", "Busy", "Analytical", "Respectful"],
+        "suggestedBreeds": ["Russian Blue", "British Shorthair", "European Common Cat (Adult)", "Persian"],
+        "description": "Your busy lifestyle and appreciation for personal space make the adult cat your ideal companion.",
+        "whyRescued": "Adult cats in shelters are the most difficult to adopt. They are completely independent, have already passed the scratching stage, and deeply appreciate whoever gives them a second chance.",
+        "monthlyEst": "Q 150–280",
+        "timeDay": "15–30 minutes of active play",
+        "space": "Apartment or house, indoors",
+        "tips": [
+          "An adult cat (2–7 years) already has their character defined.",
+          "Two cats keep each other company if you work long hours."
+        ]
+      },
+      "playful_cat": {
+        "title": "The Playful Spirit",
+        "pet": "Young cat or two cats",
+        "tagline": "You are creative, curious, and want a pet with personality and character.",
+        "traits": ["Creative", "Curious", "Playful", "Fun"],
+        "suggestedBreeds": ["Siamese", "Bengal (or mixes)", "Young mixed breed kittens", "Abyssinian"],
+        "description": "You like interaction, enjoy spontaneous moments, and value a pet with lots of personality.",
+        "whyRescued": "Young cats in shelters often come in pairs or groups. Adopting two at once is more economical in terms of mutual entertainment and emotional well-being of both.",
+        "monthlyEst": "Q 200–380",
+        "timeDay": "20–40 minutes of play",
+        "space": "Apartment with environmental enrichment",
+        "tips": [
+          "Consider adopting two kittens together — they keep each other company and calm each other.",
+          "Environmental enrichment (scratching posts, towers, toys) is key for active cats."
+        ]
+      },
+      "multi_pet": {
+        "title": "The Generous Heart",
+        "pet": "More than one pet",
+        "tagline": "You have space, time, and enough love for more than one animal.",
+        "traits": ["Generous", "Organized", "Empathic", "Committed"],
+        "suggestedBreeds": ["Sibling pairs", "Senior dog + Calm cat", "Sociable cats", "Rescued mixed breed groups"],
+        "description": "You have the emotional capacity, space, and stability to give a home to more than one pet.",
+        "whyRescued": "In shelters there are many animals that came together and suffer when separated. Adopting a pair or an already coexisting group is one of the most significant acts of animal welfare.",
+        "monthlyEst": "Q 500–1,000+",
+        "timeDay": "2–3 combined hours",
+        "space": "House with ample space",
+        "tips": [
+          "Talk to the shelter about pairs or groups that already live together.",
+          "Make sure you have veterinary resources for multiple pets before adopting."
+        ]
+      }
+    }
+  },
+  "common": {
+    "language": "Language",
+    "spanish": "Español",
+    "english": "English"
+  }
+}

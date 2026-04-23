@@ -1,0 +1,153 @@
+{
+  "test": {
+    "subtitle": "8 preguntas. 5 perfiles posibles. Descubre qué tipo de animal rescatado encaja con tu personalidad y estilo de vida.",
+    "discover": "Descubre tu compañero ideal",
+    "title": "¿Qué mascota va contigo?",
+    "question": "Pregunta",
+    "next": "Siguiente →",
+    "previous": "← Anterior",
+    "seeResult": "Ver mi resultado 🐾",
+    "yourProfile": "Tu perfil",
+    "recommended": "Te recomendamos:",
+    "whyThisProfile": "¿Por qué este perfil?",
+    "whyRescued": "¿Por qué un animal rescatado?",
+    "implications": "Lo que implica",
+    "monthlyCost": "Gasto mensual est.",
+    "dailyTime": "Tiempo diario",
+    "idealSpace": "Espacio ideal",
+    "scoreByProfile": "Tu puntuación por perfil",
+    "pts": "pts",
+    "adoptBtn": "Quiero adoptar mi",
+    "whatsappBtn": "Consultar por WhatsApp",
+    "retryBtn": "Repetir test",
+    "questions": {
+      "q1": "¿Cómo describirías tu nivel de actividad física diaria?",
+      "q1_a1": "Alta — hago ejercicio o salgo a caminar todos los días",
+      "q1_a2": "Moderada — salgo, pero no soy de rutinas intensas",
+      "q1_a3": "Baja — prefiero actividades tranquilas en casa",
+      "q1_a4": "Variable — a veces mucho, a veces poco",
+      "q2": "¿Cuántas horas estás fuera de casa en un día promedio?",
+      "q2_a1": "Menos de 4 horas — casi siempre estoy en casa",
+      "q2_a2": "4–8 horas — jornada laboral normal",
+      "q2_a3": "Más de 8 horas — trabajo mucho tiempo fuera",
+      "q2_a4": "Varía mucho cada día",
+      "q3": "¿Qué tipo de espacio tienes en casa?",
+      "q3_a1": "Casa amplia con jardín o patio",
+      "q3_a2": "Casa sin jardín pero con buen espacio interior",
+      "q3_a3": "Apartamento amplio",
+      "q3_a4": "Apartamento pequeño o habitación",
+      "q4": "¿Qué tipo de vínculo buscas con tu mascota?",
+      "q4_a1": "Un compañero inseparable que esté siempre conmigo",
+      "q4_a2": "Presencia cercana pero que respete mi espacio",
+      "q4_a3": "Alguien juguetón y entretenido que me haga reír",
+      "q4_a4": "Una familia animal completa — cuantos más mejor",
+      "q5": "¿Tienes experiencia previa con mascotas?",
+      "q5_a1": "Sí, crecí con perros y sé cuidarlos bien",
+      "q5_a2": "Sí, pero con gatos principalmente",
+      "q5_a3": "Poca experiencia, soy principiante",
+      "q5_a4": "Mucha experiencia con múltiples tipos de animales",
+      "q6": "¿Hay niños pequeños o personas mayores en tu hogar?",
+      "q6_a1": "Sí, niños menores de 10 años",
+      "q6_a2": "Sí, adultos mayores",
+      "q6_a3": "Solo adultos jóvenes o de mediana edad",
+      "q6_a4": "Vivo solo o con pareja sin hijos",
+      "q7": "¿Cuánto presupuesto mensual podrías destinar a tu mascota?",
+      "q7_a1": "Q 100–200 — presupuesto ajustado",
+      "q7_a2": "Q 200–400 — presupuesto moderado",
+      "q7_a3": "Q 400–700 — presupuesto cómodo",
+      "q7_a4": "Q 700+ — sin restricciones mayores",
+      "q8": "¿Cuál de estas palabras te describe mejor?",
+      "q8_a1": "Aventurero — me encanta explorar y moverme",
+      "q8_a2": "Tranquilo — valoro la paz y la rutina",
+      "q8_a3": "Independiente — necesito mi propio espacio",
+      "q8_a4": "Empático — tengo mucho amor para dar"
+    },
+    "profiles": {
+      "active_dog": {
+        "title": "El Compañero Aventurero",
+        "pet": "Perro mediano o grande",
+        "tagline": "Eres energético, social y necesitas un compañero que siga tu ritmo.",
+        "traits": ["Activo", "Social", "Al aire libre", "Aventurero"],
+        "suggestedBreeds": ["Labrador Retriever", "Golden Retriever", "Border Collie", "Pastor Alemán", "Mestizos de talla grande"],
+        "description": "Tu estilo de vida dinámico y tu amor por la actividad física hacen de ti el compañero ideal para un perro mediano o grande. Necesitas una mascota que comparta tu energía, disfrute las caminatas largas y te motive a salir cada día.",
+        "whyRescued": "Los perros adultos rescatados ya superaron la etapa destructiva del cachorro. Son leales, agradecidos y se adaptan rápidamente a un hogar activo.",
+        "monthlyEst": "Q 350–600",
+        "timeDay": "1–2 horas de actividad",
+        "space": "Casa con patio o cerca de parque",
+        "tips": [
+          "Busca razas o cruces con alta energía: border collie, labrador, mestizos activos.",
+          "Un perro adulto (2–5 años) ya tiene su carácter definido — sabrás exactamente con quién convives."
+        ]
+      },
+      "calm_dog": {
+        "title": "El Amigo Tranquilo",
+        "pet": "Perro pequeño o mediano",
+        "tagline": "Valoras la compañía cercana, la rutina y los momentos tranquilos en casa.",
+        "traits": ["Hogareño", "Rutinario", "Afectuoso", "Tranquilo"],
+        "suggestedBreeds": ["Shih Tzu", "Pug", "Cavalier King Charles", "Poodle", "Mestizos pequeños o Senior"],
+        "description": "Prefieres una mascota que comparta tus momentos de calma, sea un compañero constante en casa y no requiera dos horas diarias de ejercicio intenso.",
+        "whyRescued": "Muchos perros pequeños en refugios fueron abandonados simplemente por cambios de vida de sus dueños. Son completamente domesticados y buscan exactamente lo que tú ofreces: un hogar estable.",
+        "monthlyEst": "Q 200–400",
+        "timeDay": "30–45 minutos de paseos",
+        "space": "Apartamento o casa pequeña",
+        "tips": [
+          "Busca perros adultos de temperamento calmado en los refugios.",
+          "Los perros senior (7+ años) son especialmente tranquilos y a menudo los más difíciles de adoptar."
+        ]
+      },
+      "independent_cat": {
+        "title": "El Alma Independiente",
+        "pet": "Gato adulto",
+        "tagline": "Respetas la autonomía, tienes una vida ocupada y quieres compañía sin dependencia.",
+        "traits": ["Independiente", "Ocupado", "Analítico", "Respetuoso"],
+        "suggestedBreeds": ["Azul Ruso", "British Shorthair", "Gato Común Europeo (Adulto)", "Persa"],
+        "description": "Tu ritmo de vida ocupado y tu apreciación por el espacio personal hacen del gato adulto tu compañero ideal.",
+        "whyRescued": "Los gatos adultos en refugios son los más difíciles de adoptar. Son completamente independientes, ya pasaron la etapa de arañar todo, y agradecen profundamente a quien les da una segunda oportunidad.",
+        "monthlyEst": "Q 150–280",
+        "timeDay": "15–30 minutos de juego activo",
+        "space": "Apartamento o casa, interior",
+        "tips": [
+          "Un gato adulto (2–7 años) ya tiene su carácter definido.",
+          "Dos gatos se hacen compañía mutuamente si trabajas largas horas."
+        ]
+      },
+      "playful_cat": {
+        "title": "El Espíritu Juguetón",
+        "pet": "Gato joven o dos gatos",
+        "tagline": "Eres creativo, curioso y buscas una mascota con personalidad y carácter propio.",
+        "traits": ["Creativo", "Curioso", "Juguetón", "Divertido"],
+        "suggestedBreeds": ["Siamés", "Bengala (o cruces)", "Gatitos jóvenes mestizos", "Abisinio"],
+        "description": "Te gusta la interacción, disfrutas de los momentos espontáneos y valoras una mascota con mucha personalidad.",
+        "whyRescued": "Los gatos jóvenes en refugios suelen entrar en parejas o grupos. Adoptar dos a la vez es más económico en términos de entretenimiento mutuo y bienestar emocional de ambos.",
+        "monthlyEst": "Q 200–380",
+        "timeDay": "20–40 minutos de juego",
+        "space": "Apartamento con enriquecimiento ambiental",
+        "tips": [
+          "Considera adoptar dos gatitos juntos — se hacen compañía y se calman mutuamente.",
+          "El enriquecimiento ambiental (rascadores, torres, juguetes) es clave para gatos activos."
+        ]
+      },
+      "multi_pet": {
+        "title": "El Corazón Generoso",
+        "pet": "Más de una mascota",
+        "tagline": "Tienes espacio, tiempo y amor suficiente para más de un animal.",
+        "traits": ["Generoso", "Organizado", "Empático", "Comprometido"],
+        "suggestedBreeds": ["Parejas de hermanos", "Perro senior + Gato tranquilo", "Gatos sociables", "Mestizos rescatados en grupo"],
+        "description": "Tienes la capacidad emocional, el espacio y la estabilidad para dar hogar a más de una mascota.",
+        "whyRescued": "En los refugios hay muchos animales que llegaron juntos y sufren al ser separados. Adoptar una pareja o un grupo ya conviviente es uno de los actos más significativos de bienestar animal.",
+        "monthlyEst": "Q 500–1,000+",
+        "timeDay": "2–3 horas combinadas",
+        "space": "Casa con espacio amplio",
+        "tips": [
+          "Habla con el refugio sobre pares o grupos que ya conviven.",
+          "Asegúrate de tener recursos veterinarios para múltiples mascotas antes de adoptar."
+        ]
+      }
+    }
+  },
+  "common": {
+    "language": "Idioma",
+    "spanish": "Español",
+    "english": "English"
+  }
+}

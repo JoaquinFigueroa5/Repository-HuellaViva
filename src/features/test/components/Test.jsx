@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useMemo, memo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   LazyMotion,
   domMax,
@@ -179,186 +180,90 @@ const PROFILES = {
 const QUESTIONS = [
   {
     id: 1,
-    question: "¿Cómo describirías tu nivel de actividad física diaria?",
+    questionKey: "test.questions.q1",
     icon: <FaRunning className="text-white" size={30} />,
     options: [
-      {
-        label: "Alta — hago ejercicio o salgo a caminar todos los días",
-        scores: { active_dog: 3 },
-      },
-      {
-        label: "Moderada — salgo, pero no soy de rutinas intensas",
-        scores: { calm_dog: 3, playful_cat: 1 },
-      },
-      {
-        label: "Baja — prefiero actividades tranquilas en casa",
-        scores: { independent_cat: 3, calm_dog: 1 },
-      },
-      {
-        label: "Variable — a veces mucho, a veces poco",
-        scores: { playful_cat: 2, calm_dog: 1 },
-      },
+      { labelKey: "test.questions.q1_a1", scores: { active_dog: 3 } },
+      { labelKey: "test.questions.q1_a2", scores: { calm_dog: 3, playful_cat: 1 } },
+      { labelKey: "test.questions.q1_a3", scores: { independent_cat: 3, calm_dog: 1 } },
+      { labelKey: "test.questions.q1_a4", scores: { playful_cat: 2, calm_dog: 1 } },
     ],
   },
   {
     id: 2,
-    question: "¿Cuántas horas estás fuera de casa en un día promedio?",
+    questionKey: "test.questions.q2",
     icon: <FaRegClock className="text-white" size={30} />,
     options: [
-      {
-        label: "Menos de 4 horas — casi siempre estoy en casa",
-        scores: { calm_dog: 3, active_dog: 1 },
-      },
-      {
-        label: "4–8 horas — jornada laboral normal",
-        scores: { independent_cat: 2, playful_cat: 2 },
-      },
-      {
-        label: "Más de 8 horas — trabajo mucho tiempo fuera",
-        scores: { independent_cat: 3 },
-      },
-      {
-        label: "Varía mucho cada día",
-        scores: { independent_cat: 2, playful_cat: 1 },
-      },
+      { labelKey: "test.questions.q2_a1", scores: { calm_dog: 3, active_dog: 1 } },
+      { labelKey: "test.questions.q2_a2", scores: { independent_cat: 2, playful_cat: 2 } },
+      { labelKey: "test.questions.q2_a3", scores: { independent_cat: 3 } },
+      { labelKey: "test.questions.q2_a4", scores: { independent_cat: 2, playful_cat: 1 } },
     ],
   },
   {
     id: 3,
-    question: "¿Qué tipo de espacio tienes en casa?",
+    questionKey: "test.questions.q3",
     icon: <FaHome className="text-white" size={30} />,
     options: [
-      {
-        label: "Casa amplia con jardín o patio",
-        scores: { active_dog: 3, multi_pet: 2 },
-      },
-      {
-        label: "Casa sin jardín pero con buen espacio interior",
-        scores: { calm_dog: 2, playful_cat: 2 },
-      },
-      {
-        label: "Apartamento amplio",
-        scores: { calm_dog: 2, independent_cat: 2 },
-      },
-      {
-        label: "Apartamento pequeño o habitación",
-        scores: { independent_cat: 3, playful_cat: 1 },
-      },
+      { labelKey: "test.questions.q3_a1", scores: { active_dog: 3, multi_pet: 2 } },
+      { labelKey: "test.questions.q3_a2", scores: { calm_dog: 2, playful_cat: 2 } },
+      { labelKey: "test.questions.q3_a3", scores: { calm_dog: 2, independent_cat: 2 } },
+      { labelKey: "test.questions.q3_a4", scores: { independent_cat: 3, playful_cat: 1 } },
     ],
   },
   {
     id: 4,
-    question: "¿Qué tipo de vínculo buscas con tu mascota?",
+    questionKey: "test.questions.q4",
     icon: <FaHeart className="text-white" size={30} />,
     options: [
-      {
-        label: "Un compañero inseparable que esté siempre conmigo",
-        scores: { active_dog: 2, calm_dog: 3 },
-      },
-      {
-        label: "Presencia cercana pero que respete mi espacio",
-        scores: { independent_cat: 3 },
-      },
-      {
-        label: "Alguien juguetón y entretenido que me haga reír",
-        scores: { playful_cat: 3, active_dog: 1 },
-      },
-      {
-        label: "Una familia animal completa — cuantos más mejor",
-        scores: { multi_pet: 4 },
-      },
+      { labelKey: "test.questions.q4_a1", scores: { active_dog: 2, calm_dog: 3 } },
+      { labelKey: "test.questions.q4_a2", scores: { independent_cat: 3 } },
+      { labelKey: "test.questions.q4_a3", scores: { playful_cat: 3, active_dog: 1 } },
+      { labelKey: "test.questions.q4_a4", scores: { multi_pet: 4 } },
     ],
   },
   {
     id: 5,
-    question: "¿Tienes experiencia previa con mascotas?",
+    questionKey: "test.questions.q5",
     icon: <FaGraduationCap className="text-white" size={30} />,
     options: [
-      {
-        label: "Sí, crecí con perros y sé cuidarlos bien",
-        scores: { active_dog: 2, calm_dog: 2 },
-      },
-      {
-        label: "Sí, pero con gatos principalmente",
-        scores: { independent_cat: 2, playful_cat: 2 },
-      },
-      {
-        label: "Poca experiencia, soy principiante",
-        scores: { independent_cat: 2, calm_dog: 1 },
-      },
-      {
-        label: "Mucha experiencia con múltiples tipos de animales",
-        scores: { multi_pet: 3, active_dog: 1 },
-      },
+      { labelKey: "test.questions.q5_a1", scores: { active_dog: 2, calm_dog: 2 } },
+      { labelKey: "test.questions.q5_a2", scores: { independent_cat: 2, playful_cat: 2 } },
+      { labelKey: "test.questions.q5_a3", scores: { independent_cat: 2, calm_dog: 1 } },
+      { labelKey: "test.questions.q5_a4", scores: { multi_pet: 3, active_dog: 1 } },
     ],
   },
   {
     id: 6,
-    question: "¿Hay niños pequeños o personas mayores en tu hogar?",
+    questionKey: "test.questions.q6",
     icon: <FaUsers className="text-white" size={30} />,
     options: [
-      {
-        label: "Sí, niños menores de 10 años",
-        scores: { calm_dog: 2, playful_cat: 2 },
-      },
-      {
-        label: "Sí, adultos mayores",
-        scores: { calm_dog: 3, independent_cat: 1 },
-      },
-      {
-        label: "Solo adultos jóvenes o de mediana edad",
-        scores: { active_dog: 2, multi_pet: 2 },
-      },
-      {
-        label: "Vivo solo o con pareja sin hijos",
-        scores: { independent_cat: 2, active_dog: 1, playful_cat: 1 },
-      },
+      { labelKey: "test.questions.q6_a1", scores: { calm_dog: 2, playful_cat: 2 } },
+      { labelKey: "test.questions.q6_a2", scores: { calm_dog: 3, independent_cat: 1 } },
+      { labelKey: "test.questions.q6_a3", scores: { active_dog: 2, multi_pet: 2 } },
+      { labelKey: "test.questions.q6_a4", scores: { independent_cat: 2, active_dog: 1, playful_cat: 1 } },
     ],
   },
   {
     id: 7,
-    question: "¿Cuánto presupuesto mensual podrías destinar a tu mascota?",
+    questionKey: "test.questions.q7",
     icon: <FaWallet className="text-white" size={30} />,
     options: [
-      {
-        label: "Q 100–200 — presupuesto ajustado",
-        scores: { independent_cat: 3 },
-      },
-      {
-        label: "Q 200–400 — presupuesto moderado",
-        scores: { calm_dog: 2, playful_cat: 2, independent_cat: 1 },
-      },
-      {
-        label: "Q 400–700 — presupuesto cómodo",
-        scores: { active_dog: 2, calm_dog: 1, multi_pet: 1 },
-      },
-      {
-        label: "Q 700+ — sin restricciones mayores",
-        scores: { multi_pet: 3, active_dog: 2 },
-      },
+      { labelKey: "test.questions.q7_a1", scores: { independent_cat: 3 } },
+      { labelKey: "test.questions.q7_a2", scores: { calm_dog: 2, playful_cat: 2, independent_cat: 1 } },
+      { labelKey: "test.questions.q7_a3", scores: { active_dog: 2, calm_dog: 1, multi_pet: 1 } },
+      { labelKey: "test.questions.q7_a4", scores: { multi_pet: 3, active_dog: 2 } },
     ],
   },
   {
     id: 8,
-    question: "¿Cuál de estas palabras te describe mejor?",
+    questionKey: "test.questions.q8",
     icon: <FaRegUser className="text-white" size={30} />,
     options: [
-      {
-        label: "Aventurero — me encanta explorar y moverme",
-        scores: { active_dog: 4 },
-      },
-      {
-        label: "Tranquilo — valoro la paz y la rutina",
-        scores: { calm_dog: 3, independent_cat: 1 },
-      },
-      {
-        label: "Independiente — necesito mi propio espacio",
-        scores: { independent_cat: 4 },
-      },
-      {
-        label: "Empático — tengo mucho amor para dar",
-        scores: { multi_pet: 3, calm_dog: 1 },
-      },
+      { labelKey: "test.questions.q8_a1", scores: { active_dog: 4 } },
+      { labelKey: "test.questions.q8_a2", scores: { calm_dog: 3, independent_cat: 1 } },
+      { labelKey: "test.questions.q8_a3", scores: { independent_cat: 4 } },
+      { labelKey: "test.questions.q8_a4", scores: { multi_pet: 3, calm_dog: 1 } },
     ],
   },
 ];
@@ -489,7 +394,7 @@ const AnswerOption = memo(function AnswerOption({
   );
 });
 
-const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
+const ResultCard = memo(function ResultCard({ profile, scores, onRetry, t }) {
   const topScores = useMemo(() => {
     return Object.entries(scores)
       .sort((a, b) => b[1] - a[1])
@@ -547,7 +452,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             }}
           >
             <FaPaw size={9} />
-            Tu perfil
+            {t('test.yourProfile')}
           </div>
           <h3
             className="text-[#D8F3DC] leading-tight mb-1"
@@ -568,7 +473,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
               fontStyle: "italic",
             }}
           >
-            Te recomendamos: {profile.pet}
+            {t('test.recommended')} {profile.pet}
           </p>
           <p
             className="text-[#D8F3DC]/65 text-sm leading-relaxed"
@@ -612,7 +517,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                 color: "rgba(216,243,220,0.30)",
               }}
             >
-              ¿Por qué este perfil?
+              {t('test.whyThisProfile')}
             </p>
             <p
               className="text-[#D8F3DC]/70 text-sm leading-relaxed"
@@ -636,7 +541,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                 color: profile.accent,
               }}
             >
-              🐾 ¿Por qué un animal rescatado?
+              🐾 {t('test.whyRescued')}
             </p>
             <p
               className="text-[#D8F3DC]/60 text-xs leading-relaxed"
@@ -681,16 +586,16 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                 color: "rgba(216,243,220,0.28)",
               }}
             >
-              Lo que implica
+              {t('test.implications')}
             </p>
             {[
               {
                 icon: "💰",
-                label: "Gasto mensual est.",
+                label: t('test.monthlyCost'),
                 value: profile.monthlyEst,
               },
-              { icon: "⏰", label: "Tiempo diario", value: profile.timeDay },
-              { icon: "🏠", label: "Espacio ideal", value: profile.space },
+              { icon: "⏰", label: t('test.dailyTime'), value: profile.timeDay },
+              { icon: "🏠", label: t('test.idealSpace'), value: profile.space },
             ].map((item) => (
               <div
                 key={item.label}
@@ -729,7 +634,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                 color: "rgba(216,243,220,0.28)",
               }}
             >
-              Tu puntuación por perfil
+              {t('test.scoreByProfile')}
             </p>
             {topScores.map(({ profile: p, score }) => (
               <div key={p.id} className="flex flex-col gap-1">
@@ -753,7 +658,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                       fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
-                    {score} pts
+                    {score} {t('test.pts')}
                   </span>
                 </div>
                 <div
@@ -795,7 +700,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           }}
         >
           <FaPaw size={14} />
-          Quiero adoptar mi {profile.pet.split(" ")[0].toLowerCase()}
+          {t('test.adoptBtn')} {profile.pet.split(" ")[0].toLowerCase()}
           <FaArrowRight size={12} />
         </m.a>
 
@@ -814,7 +719,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           }}
         >
           <FaWhatsapp size={14} />
-          Consultar por WhatsApp
+          {t('test.whatsappBtn')}
         </m.a>
 
         <m.button
@@ -830,7 +735,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           }}
         >
           <FaRedo size={11} />
-          Repetir test
+          {t('test.retryBtn')}
         </m.button>
       </div>
     </m.div>
@@ -838,6 +743,27 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
 });
 
 export default function PersonalityTest() {
+  const { t } = useTranslation();
+  
+  const getProfileData = (profileId) => {
+    const profile = PROFILES[profileId];
+    const tProfile = t(`test.profiles.${profileId}`, { returnObjects: true });
+    return {
+      ...profile,
+      title: tProfile.title || profile.title,
+      pet: tProfile.pet || profile.pet,
+      tagline: tProfile.tagline || profile.tagline,
+      traits: tProfile.traits || profile.traits,
+      suggestedBreeds: tProfile.suggestedBreeds || profile.suggestedBreeds,
+      description: tProfile.description || profile.description,
+      whyRescued: tProfile.whyRescued || profile.whyRescued,
+      monthlyEst: tProfile.monthlyEst || profile.monthlyEst,
+      timeDay: tProfile.timeDay || profile.timeDay,
+      space: tProfile.space || profile.space,
+      tips: tProfile.tips || profile.tips,
+    };
+  };
+  
   const prefersReduced = useReducedMotion();
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT);
@@ -865,8 +791,9 @@ export default function PersonalityTest() {
       });
     });
     const winner = Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
-    return { profile: PROFILES[winner], scores };
-  }, []);
+    const translatedProfile = getProfileData(winner);
+    return { profile: translatedProfile, scores };
+  }, [t]);
 
   const handleAnswer = useCallback(
     (optIndex) => {
@@ -956,7 +883,7 @@ export default function PersonalityTest() {
                   color: "#FF8C42",
                 }}
               >
-                Descubre tu compañero ideal
+                {t('test.discover')}
               </span>
             </div>
 
@@ -968,8 +895,7 @@ export default function PersonalityTest() {
                 fontWeight: 700,
               }}
             >
-              ¿Qué mascota va{" "}
-              <em className="not-italic text-[#FF8C42]">contigo?</em>
+              {t('test.title')}
             </h2>
             <p
               className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
@@ -978,8 +904,7 @@ export default function PersonalityTest() {
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
               }}
             >
-              8 preguntas. 5 perfiles posibles. Descubre qué tipo de animal
-              rescatado encaja con tu personalidad y estilo de vida.
+              {t('test.subtitle')}
             </p>
           </m.div>
 
@@ -1083,7 +1008,7 @@ export default function PersonalityTest() {
                                 color: "rgba(216,243,220,0.28)",
                               }}
                             >
-                              Pregunta {currentQ + 1}
+                              {t('test.question')} {currentQ + 1}
                             </p>
                             <h3
                               className="text-[#D8F3DC] leading-snug"
@@ -1093,7 +1018,7 @@ export default function PersonalityTest() {
                                 fontWeight: 700,
                               }}
                             >
-                              {question.question}
+                              {t(question.questionKey)}
                             </h3>
                           </div>
                         </div>
@@ -1114,7 +1039,7 @@ export default function PersonalityTest() {
                         {question.options.map((opt, i) => (
                           <AnswerOption
                             key={i}
-                            option={opt}
+                            option={{ label: t(opt.labelKey) }}
                             index={i}
                             isSelected={selected === i}
                             onSelect={() => handleAnswer(i)}
@@ -1143,7 +1068,7 @@ export default function PersonalityTest() {
                         cursor: currentQ === 0 ? "not-allowed" : "pointer",
                       }}
                     >
-                      ← Anterior
+                      {t('test.previous')}
                     </m.button>
 
                     <m.button
@@ -1172,8 +1097,8 @@ export default function PersonalityTest() {
                       }}
                     >
                       {currentQ < totalQ - 1
-                        ? "Siguiente →"
-                        : "Ver mi resultado 🐾"}
+                        ? t('test.next')
+                        : t('test.seeResult')}
                     </m.button>
                   </div>
                 </div>
@@ -1190,6 +1115,7 @@ export default function PersonalityTest() {
                     profile={result.profile}
                     scores={result.scores}
                     onRetry={handleRetry}
+                    t={t}
                   />
                 )}
               </m.div>

@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import App from '@/App.jsx'
+import '@/i18n.js'
 import '@/index.css'
 
 createRoot(document.getElementById('root')).render(
