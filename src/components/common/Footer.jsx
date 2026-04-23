@@ -1,4 +1,5 @@
 import { useRef, memo } from "react";
+import { useTranslation } from "react-i18next";
 import { NAV_COLUMNS, SOCIAL_LINKS, CONTACT_INFO } from "@/data/navigationData";
 import { motion as m, useInView, LazyMotion, domMax, useReducedMotion } from "framer-motion";
 import { FaPaw, 
@@ -47,6 +48,7 @@ const SocialBtn = memo(function SocialBtn({ item }) {
 });
 
 const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
+  const { t } = useTranslation();
   const ref    = useRef(null);
   const inView = useInView(ref, VIEWPORT);
 
@@ -63,11 +65,11 @@ const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
         className="text-[0.65rem] font-bold tracking-[0.2em] uppercase"
         style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}
       >
-        {col.title}
+        {t(col.titleKey)}
       </p>
       <ul className="flex flex-col gap-3 list-none p-0 m-0">
         {col.links.map((link) => (
-          <li key={link.label}>
+          <li key={link.labelKey}>
             <m.a
               href={link.href}
               onClick={(e) => {
@@ -89,7 +91,7 @@ const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#D8F3DC"; e.currentTarget.previousSibling.style.backgroundColor = "#2DA14F"; e.currentTarget.previousSibling.style.boxShadow = "0 0 8px #2DA14F"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(216,243,220,0.45)"; e.currentTarget.previousSibling.style.backgroundColor = "rgba(216,243,220,0.15)"; e.currentTarget.previousSibling.style.boxShadow = "none"; }}
               >
-                {link.label}
+                {t(link.labelKey)}
               </span>
             </m.a>
           </li>
@@ -100,6 +102,7 @@ const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
 });
 
 export default function Footer() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const year     = new Date().getFullYear();
@@ -163,7 +166,7 @@ export default function Footer() {
                     className="text-[0.6rem] font-bold tracking-[0.2em] uppercase mt-0.5"
                     style={{ fontFamily: "'DM Sans', sans-serif", color: "#2DA14F" }}
                   >
-                    Por los que no tienen voz
+                    {t('footer.tagline')}
                   </span>
                 </div>
               </a>
@@ -176,7 +179,7 @@ export default function Footer() {
               </p>
 
               <div className="mt-2">
-                <p className="text-[0.6rem] font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(216,243,220,0.3)" }}>Conecta con nosotros</p>
+                <p className="text-[0.6rem] font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(216,243,220,0.3)" }}>{t('footer.connectWithUs')}</p>
                 <div className="flex gap-2.5">
                   {SOCIAL_LINKS.map((s) => <SocialBtn key={s.label} item={s} />)}
                 </div>
@@ -234,24 +237,24 @@ export default function Footer() {
                   className="text-[0.7rem]"
                   style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.25)" }}
                 >
-                  © {year} HuellaViva Guatemala. Todos los derechos reservados.
+                  © {year} HuellaViva Guatemala. {t('footer.allRights')}
                 </p>
                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/5" />
                 <div className="flex items-center gap-4">
-                  <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNavigation("/privacy"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Privacidad</a>
-                  <a href="/terms" onClick={(e) => { e.preventDefault(); handleNavigation("/terms"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Términos</a>
+                  <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNavigation("/privacy"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>{t('footer.privacy')}</a>
+                  <a href="/terms" onClick={(e) => { e.preventDefault(); handleNavigation("/terms"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>{t('footer.terms')}</a>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/2 border border-white/5">
-                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>Hecho con</span>
+                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>{t('footer.madeWith')}</span>
                 <m.span
                   animate={{ scale: [1, 1.25, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <FaHeart size={10} className="text-[#FF8C42]" />
                 </m.span>
-                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>por los animales de Guatemala</span>
+                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>{t('footer.byAnimals')}</span>
               </div>
 
             </div>

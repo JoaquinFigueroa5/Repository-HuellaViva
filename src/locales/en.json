@@ -74,10 +74,7 @@
         "monthlyEst": "Q 350–600",
         "timeDay": "1–2 hours of activity",
         "space": "House with yard or near park",
-        "tips": [
-          "Look for breeds or mixes with high energy: border collie, labrador, active mixed breeds.",
-          "An adult dog (2–5 years) already has their character defined — you'll know exactly who you're living with."
-        ]
+        "tips": ["Look for breeds or mixes with high energy: border collie, labrador, active mixed breeds.", "An adult dog (2–5 years) already has their character defined — you'll know exactly who you're living with."]
       },
       "calm_dog": {
         "title": "The Calm Friend",
@@ -90,10 +87,7 @@
         "monthlyEst": "Q 200–400",
         "timeDay": "30–45 minutes of walks",
         "space": "Apartment or small house",
-        "tips": [
-          "Look for adult dogs with calm temperament at shelters.",
-          "Senior dogs (7+ years) are especially calm and often the most difficult to adopt."
-        ]
+        "tips": ["Look for adult dogs with calm temperament at shelters.", "Senior dogs (7+ years) are especially calm and often the most difficult to adopt."]
       },
       "independent_cat": {
         "title": "The Independent Soul",
@@ -106,10 +100,7 @@
         "monthlyEst": "Q 150–280",
         "timeDay": "15–30 minutes of active play",
         "space": "Apartment or house, indoors",
-        "tips": [
-          "An adult cat (2–7 years) already has their character defined.",
-          "Two cats keep each other company if you work long hours."
-        ]
+        "tips": ["An adult cat (2–7 years) already has their character defined.", "Two cats keep each other company if you work long hours."]
       },
       "playful_cat": {
         "title": "The Playful Spirit",
@@ -122,10 +113,7 @@
         "monthlyEst": "Q 200–380",
         "timeDay": "20–40 minutes of play",
         "space": "Apartment with environmental enrichment",
-        "tips": [
-          "Consider adopting two kittens together — they keep each other company and calm each other.",
-          "Environmental enrichment (scratching posts, towers, toys) is key for active cats."
-        ]
+        "tips": ["Consider adopting two kittens together — they keep each other company and calm each other.", "Environmental enrichment (scratching posts, towers, toys) is key for active cats."]
       },
       "multi_pet": {
         "title": "The Generous Heart",
@@ -138,16 +126,369 @@
         "monthlyEst": "Q 500–1,000+",
         "timeDay": "2–3 combined hours",
         "space": "House with ample space",
-        "tips": [
-          "Talk to the shelter about pairs or groups that already live together.",
-          "Make sure you have veterinary resources for multiple pets before adopting."
-        ]
+        "tips": ["Talk to the shelter about pairs or groups that already live together.", "Make sure you have veterinary resources for multiple pets before adopting."]
       }
     }
   },
   "common": {
     "language": "Language",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "home": "Home",
+    "emergencyGuide": "Emergency guide",
+    "reportAnimal": "Report animal",
+    "testPet": "Pet test",
+    "posters": "Posters",
+    "knowCause": "Know the cause",
+    "quickActions": "Quick actions",
+    "institutional": "Institutional",
+    "mythsVsReality": "Myths vs Reality",
+    "rescueGuide": "Rescue guide",
+    "realStories": "Real stories",
+    "footprintCalculator": "Footprint calculator",
+    "createPoster": "Create poster",
+    "donations": "Donations",
+    "whoWeAre": "Who we are",
+    "ourWork": "Our work",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "goToEnd": "Go to end",
+    "iWantToHelp": "I want to help",
+    "openMenu": "Open menu",
+    "copyNumber": "Copy number",
+    "copyHolder": "Copy name"
+  },
+  "navbar": {
+    "subtitle": "For those who have no voice"
+  },
+  "footer": {
+    "tagline": "For those who have no voice",
+    "newsletter": "Join our cause",
+    "newsletterDesc": "Receive rescue stories and ways to help.",
+    "emailPlaceholder": "Your email",
+    "subscribe": "Subscribe",
+    "allRights": "All rights reserved.",
+    "madeWith": "Made with",
+    "connectWithUs": "Connect with us",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "byAnimals": "for the animals of Guatemala"
+  },
+  "dashboard": {
+    "hero": {
+      "subtitle": "8 questions. 5 profiles. Discover what type of rescued animal",
+      "subtitle2": "fits your personality and lifestyle.",
+      "cta": "Take the test",
+      "stats": {
+        "rescued": "Animals rescued",
+        "adoptions": "Successful adoptions",
+        "volunteers": "Active volunteers"
+      }
+    },
+    "carousel": {
+      "title": "They found a home",
+      "subtitle": "Every adoption story is proof that love can change lives."
+    }
+  },
+  "donation": {
+    "title": "Every quetzal saves a life",
+    "subtitle": "Your donation goes directly to food, medicine and shelter for the animals we rescue every day.",
+    "makeDiff": "Make a difference today",
+    "step1": "Choose how much you want to contribute",
+    "step2a": "Contact us via WhatsApp",
+    "step2b": "Deposit or transfer directly",
+    "popular": "Most popular",
+    "writeUs": "Write to us now",
+    "writeUsDesc": "We guide you through the process, confirm your donation and send you the receipt.",
+    "available": "Available every day · Response in minutes",
+    "afterDeposit": "After your deposit, send us the receipt via WhatsApp to register your donation.",
+    "monthlyGoal": "Monthly goal",
+    "whereGoes": "Where does your donation go?",
+    "questions": "Questions? Write to us",
+    "amounts": {
+      "50": "Feeds a rescued animal for 1 week",
+      "150": "Covers essential vaccines",
+      "300": "Pays for a veterinary consultation",
+      "custom": "Any amount is welcome and appreciated"
+    },
+    "breakdown": {
+      "food": "Food and water",
+      "medicine": "Medicine and surgeries",
+      "shelter": "Shelter and transport",
+      "admin": "Admin & communication"
+    },
+    "quote": "\"Thanks to our community's donations, we've rescued over 1,200 animals this year. Every quetzal counts.\""
+  },
+  "myths": {
+    "title": "Myths that cost lives",
+    "subtitle": "Touch each card to reveal the truth behind the most common beliefs about abandonment and responsible pet ownership.",
+    "breaking": "Breaking barriers",
+    "myth": "Myth",
+    "reality": "Reality",
+    "tapToReveal": "Touch to see the reality",
+    "tapToReturn": "Touch to return",
+    "source": "Source:",
+    "revealed": "myths revealed",
+    "completed": "Completed!",
+    "revealAll": "Reveal all",
+    "hideAll": "Hide all",
+    "shareTruth": "Want to share the truth?",
+    "shareTruthDesc": "Share this data with people you know. Education is the first step for change.",
+    "shareData": "Share data",
+    "moreInfo": "More information",
+    "comingSoon": "Coming soon",
+    "comingSoonDesc": "We are preparing detailed resources and guides for you.",
+    "categories": {
+      "all": "All",
+      "adoption": "Adoption",
+      "health": "Health",
+      "conduct": "Conduct",
+      "society": "Society"
+    }
+  },
+  "rescue": {
+    "title": "Rescue stories",
+    "subtitle": "Meet some of the animals we've helped and the families who've given them love.",
+    "before": "Before",
+    "after": "After",
+    "recovery": "weeks of recovery",
+    "rescuedBy": "Rescued by",
+    "tags": {
+      "found": "Found",
+      "abandoned": "Abandoned",
+      "rescued": "Rescued",
+      "adopted": "Adopted",
+      "inHome": "In home"
+    }
+  },
+  "emergency": {
+    "title": "Emergency guide",
+    "subtitle": "Learn how to safely help animals in risky situations.",
+    "contactUs": "Contact us",
+    "steps": {
+      "1": {
+        "phase": "Assess from afar",
+        "tag": "Safety first",
+        "safetyNote": "DO NOT approach immediately. A scared or injured animal may bite or scratch out of survival instinct, even if they are normally tame.",
+        "tipTitle": "How to read body language?",
+        "tipContent": "Low tail + curled body = fear. High tail + raised fur = alert/aggression. Lying still = possible serious injury. Growling or barking as you approach = don't get close."
+      },
+      "2": {
+        "phase": "Secure the area",
+        "tag": "Prevent further harm",
+        "safetyNote": "If the animal is on the road, signal the area to avoid accidents. Your road safety matters too.",
+        "tipTitle": "Emergency signaling",
+        "tipContent": "Use cones, bright colored clothes or any visible object to mark the area. A call to 1551 (Municipalidad) can send support to control traffic."
+      },
+      "3": {
+        "phase": "First contact",
+        "tag": "Calmly and methodically",
+        "safetyNote": "If the animal seems calm, you can attempt first contact. Never do it face-on or abruptly.",
+        "tipTitle": "Never do this",
+        "tipContent": "Don't shout its name or make loud noises. Don't chase it if it runs. Don't lift it from the ground suddenly. Don't look directly into its eyes if it's scared.",
+        "tipWarning": true
+      },
+      "4": {
+        "phase": "Safe handling",
+        "tag": "If you decide to move it",
+        "safetyNote": "Use gloves if you have them. If not, use thick clothing, a towel or any fabric to protect yourself.",
+        "tipTitle": "Improvising safe transport",
+        "tipContent": "A cardboard box with holes, a shopping basket, or the back seat of a car with someone holding it are valid options. The important thing is to keep it calm and safe."
+      },
+      "5": {
+        "phase": "Veterinary care",
+        "tag": "Crucial step",
+        "safetyNote": "Even if the animal seems fine, a veterinary check is essential. Internal wounds, fractures or infections may not be visible.",
+        "tipTitle": "Can't take it yourself?",
+        "tipContent": "That's okay! Contact HuellaViva with the GPS location of the animal. Our team can coordinate the rescue. Your call may be enough to save its life."
+      },
+      "6": {
+        "phase": "What's next?",
+        "tag": "Post-rescue options",
+        "safetyNote": "Rescuing doesn't necessarily mean adopting it. There are many ways to help without taking it home.",
+        "tipTitle": "The greatest gift",
+        "tipContent": "Finding a temporary home for a few weeks can be the difference between life and death for a rescued animal. You don't need to adopt it to save it."
+      }
+    },
+    "actions": {
+      "distance": "Keep at least 3–4 meters of initial distance",
+      "posture": "Observe its posture: ears back, low or raised tail indicate fear or aggression",
+      "wounds": "Check for visible wounds, difficulty moving or signs of illness",
+      "location": "Note the exact location with GPS or street reference",
+      "hazardLights": "If on a highway, turn on your vehicle's hazard lights",
+      "traffic": "Ask someone to direct traffic if necessary",
+      "fracture": "Don't move the animal if you suspect spinal fracture (fall from height, hit by car)",
+      "children": "Keep children and uninvolved people away from the immediate area",
+      "crouch": "Crouch to its level — it seems less threatening than standing",
+      "eyeContact": "Avoid sustained direct eye contact — it can be interpreted as a threat",
+      "backOfHand": "Extend the back of your hand (never the palm) about 30 cm and wait for it to approach",
+      "tone": "Speak in a low, calm tone, without sudden movements",
+      "food": "If you have food, place it on the ground at a short distance, don't offer it in your hand",
+      "gloves": "Use work gloves, kitchen gloves or wrap your hands with thick clothing",
+      "leash": "For dogs: slide an improvised leash (rope, belt) with a soft loop around the neck",
+      "towel": "For cats: wrap it in a towel or jacket, covering the head first",
+      "hold": "Hold the animal close to your body so it feels contained and safe",
+      "box": "Place it in a box, basket or vehicle in a quiet, ventilated area",
+      "callAhead": "Call HuellaViva or a veterinary clinic before arriving so they can prepare",
+      "bite": "Report if the animal bit or scratched someone — it may require rabies protocol",
+      "meds": "Don't give human medications (ibuprofen, acetaminophen are toxic to animals)",
+      "immobilize": "If it can't move, try not to flex or twist its body — keep it flat",
+      "photos": "Take photos of the animal's condition and the location where you found it",
+      "foster": "Temporary home: provide shelter while finding a permanent adopter",
+      "social": "Post it on social networks with photos and location to find owner or adopter",
+      "donate": "Donate to a shelter like HuellaViva if you can't care for it",
+      "vetCosts": "Support veterinary costs even if you can't adopt it",
+      "volunteer": "Become a volunteer for future cases"
+    },
+    "safetyLevels": {
+      "critical": "Critical",
+      "warning": "Warning",
+      "caution": "Caution",
+      "safe": "Safe",
+      "info": "Info"
+    }
+  },
+  "report": {
+    "title": "Report animal",
+    "subtitle": "Help us find those who need it most. Every report can save a life.",
+    "whatHappened": "What happened?",
+    "animalType": "What type of animal?",
+    "condition": "What condition is it in?",
+    "size": "What size is it?",
+    "abuse": "Type of abuse (optional)",
+    "urgency": "How urgent is it?",
+    "location": "Where did you see it?",
+    "moreInfo": "Additional information",
+    "yourContact": "Your contact (optional)",
+    "submit": "Submit report",
+    "options": {
+      "dog": "Dog",
+      "cat": "Cat",
+      "bird": "Bird",
+      "other": "Other",
+      "healthy": "Apparently healthy",
+      "injured": "Injured or hurt",
+      "sick": "Seems sick",
+      "critical": "Critical condition",
+      "unknown": "Couldn't evaluate",
+      "small": "Small (< 10 kg)",
+      "medium": "Medium (10–25 kg)",
+      "large": "Large (> 25 kg)"
+    },
+    "abuseTypes": {
+      "physical": "Physical abuse",
+      "abandonment": "Abandonment at risk",
+      "neglect": "Severe neglect",
+      "hoarding": "Animal hoarding",
+      "other": "Other type of abuse"
+    },
+    "urgency2": {
+      "immediate": "Immediate — life in danger",
+      "urgent": "Urgent — needs attention today",
+      "moderate": "Moderate — stable situation",
+      "low": "Low — recurring but stable"
+    },
+    "success": "Report sent! We'll contact you soon.",
+    "copyNumber": "Copy number"
+  },
+  "calculator": {
+    "title": "Footprint calculator",
+    "subtitle": "Discover how much space, time and resources your future pet needs.",
+    "selectPet": "Select pet type",
+    "dog": "Dog",
+    "cat": "Cat",
+    "result": {
+      "space": "Space needed",
+      "time": "Daily time",
+      "cost": "Estimated monthly cost",
+      "lifespan": "Years of life",
+      "exercise": "Daily exercise",
+      "social": "Social need",
+      "independence": "Independence",
+      "kids": "Compatible with children",
+      "otherPets": "Compatible with other pets"
+    },
+    "space": {
+      "apartment": "Small apartment",
+      "house": "House with garden",
+      "large": "Large house with yard"
+    },
+    "time": {
+      "low": "1-2 hours",
+      "medium": "2-3 hours",
+      "high": "3+ hours"
+    },
+    "lifespan": {
+      "short": "10-12 years",
+      "medium": "12-15 years",
+      "long": "15-20 years"
+    },
+    "levels": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    }
+  },
+  "poster": {
+    "title": "Create your poster",
+    "subtitle": "Generate a poster to share on social networks and help find lost pets or promote adoption.",
+    "type": "Poster type",
+    "lost": "Lost pet",
+    "adoption": "For adoption",
+    "name": "Name",
+    "description": "Description",
+    "contact": "Contact",
+    "location": "Location",
+    "features": "Features",
+    "generate": "Generate poster",
+    "download": "Download",
+    "share": "Share",
+    "edit": "Edit"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdate": "Last updated",
+    "intro": "At HuellaViva Guatemala, we are committed to protecting your privacy. This policy describes how we collect, use and protect your personal information.",
+    "sections": {
+      "collect": {
+        "title": "Information we collect",
+        "content": "We collect information you voluntarily provide when contacting us for donations, animal reports, or subscribing to our newsletter."
+      },
+      "use": {
+        "title": "How we use your information",
+        "content": "We use your information to respond to your inquiries, process donations, coordinate animal rescues and send updates about our work."
+      },
+      "protect": {
+        "title": "Data protection",
+        "content": "We implement adequate security measures to protect your personal information against unauthorized access, alteration or disclosure."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "If you have questions about this privacy policy, contact us at info@huellaviva.gt"
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms and Conditions",
+    "lastUpdate": "Last updated",
+    "intro": "Welcome to HuellaViva Guatemala. By using our website, you accept the following terms and conditions.",
+    "sections": {
+      "use": {
+        "title": "Use of the site",
+        "content": "The content of this site is solely informational and educational. We do not guarantee the accuracy or completeness of the content."
+      },
+      "donations": {
+        "title": "Donations",
+        "content": "Donations made to HuellaViva are final and non-refundable, except under exceptional circumstances at our discretion."
+      },
+      "liability": {
+        "title": "Liability",
+        "content": "HuellaViva is not responsible for any damages resulting from the use of information on this site or from interactions with rescued animals."
+      },
+      "contact": {
+        "title": "Contact",
+        "content": "For questions about these terms, contact us at info@huellaviva.gt"
+      }
+    }
   }
 }

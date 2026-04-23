@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef, useMemo, memo, cloneElement } from "react";
+import { useTranslation } from "react-i18next";
 import { CATEGORIES, MYTHS, CARD_THEMES } from "@/data/mythsData";
 import {
   motion as m,
@@ -316,6 +317,7 @@ const FilterButton = memo(function FilterButton({ cat, isActive, onClick }) {
 });
 
 export default function MythsVsReality() {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState("all");
   const [revealed, setRevealed] = useState(new Set());
   const [infoTooltip, setInfoTooltip] = useState(false);
@@ -431,7 +433,7 @@ export default function MythsVsReality() {
                 className="text-[#FF8C42] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
-                Derribando barreras
+                {t('myths.breaking')}
               </span>
             </div>
 
@@ -443,8 +445,7 @@ export default function MythsVsReality() {
                 fontWeight: 700,
               }}
             >
-              Mitos que{" "}
-              <em className="not-italic text-[#FF8C42]">cuestan vidas</em>
+              {t('myths.title')}
             </h2>
 
             <p
@@ -454,9 +455,7 @@ export default function MythsVsReality() {
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
               }}
             >
-              Toca cada tarjeta para revelar la verdad detrás de las creencias
-              más comunes sobre el abandono y la tenencia responsable de
-              animales.
+{t('myths.subtitle')}
             </p>
           </m.div>
 

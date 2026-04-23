@@ -5,39 +5,39 @@ import {
 } from "react-icons/fa";
 
 export const NAV_LINKS = [
-  { label: "Inicio", href: "/" },
-  { label: "Guia emergencia", href: "/emergency" },
-  { label: "Reportar animal", href: "/report" },
-  { label: "Test de mascota", href: "/test" },
-  { label: "Carteles", href: "/poster" },
+  { labelKey: "common.home", href: "/" },
+  { labelKey: "common.emergencyGuide", href: "/emergency" },
+  { labelKey: "common.reportAnimal", href: "/report" },
+  { labelKey: "common.testPet", href: "/test" },
+  { labelKey: "common.posters", href: "/poster" },
 ];
 
 export const NAV_COLUMNS = [
   {
-    title: "Conoce la causa",
+    titleKey: "common.knowCause",
     links: [
-      { label: "Mitos vs Realidad", href: "#mitos"      },
-      { label: "Guía de rescate",   href: "/emergency"  },
-      { label: "Historias reales",  href: "#historias"  },
-      { label: "Calculadora de huella",  href: "/calculator"  },
+      { labelKey: "common.mythsVsReality", href: "#mitos"      },
+      { labelKey: "common.rescueGuide",   href: "/emergency"  },
+      { labelKey: "common.realStories",  href: "#historias"  },
+      { labelKey: "common.footprintCalculator",  href: "/calculator"  },
     ],
   },
   {
-    title: "Acciones rápidas",
+    titleKey: "common.quickActions",
     links: [
-      { label: "Reportar animal",   href: "/report"     },
-      { label: "Crear cartel",      href: "/poster"     },
-      { label: "Test de mascota",   href: "/test"       },
-      { label: "Donaciones",        href: "#donaciones" },
+      { labelKey: "common.reportAnimal",   href: "/report"     },
+      { labelKey: "common.createPoster",   href: "/poster"     },
+      { labelKey: "common.testPet",        href: "/test"       },
+      { labelKey: "common.donations",      href: "#donaciones" },
     ],
   },
   {
-    title: "Institucional",
+    titleKey: "common.institutional",
     links: [
-      { label: "Quiénes somos",     href: "#inicio"     },
-      { label: "Nuestra labor",     href: "#donaciones" },
-      { label: "Privacidad",        href: "/privacy"    },
-      { label: "Condiciones",       href: "/terms"      },
+      { labelKey: "common.whoWeAre",       href: "#inicio"     },
+      { labelKey: "common.ourWork",        href: "#donaciones" },
+      { labelKey: "common.privacy",        href: "/privacy"    },
+      { labelKey: "common.terms",          href: "/terms"      },
     ],
   },
 ];

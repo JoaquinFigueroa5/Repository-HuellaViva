@@ -40,7 +40,7 @@
       "q4_a1": "Un compañero inseparable que esté siempre conmigo",
       "q4_a2": "Presencia cercana pero que respete mi espacio",
       "q4_a3": "Alguien juguetón y entretenido que me haga reír",
-      "q4_a4": "Una familia animal completa — cuantos más mejor",
+      "q4_a4": "Una familia animal completa — cuanto más mejor",
       "q5": "¿Tienes experiencia previa con mascotas?",
       "q5_a1": "Sí, crecí con perros y sé cuidarlos bien",
       "q5_a2": "Sí, pero con gatos principalmente",
@@ -74,10 +74,7 @@
         "monthlyEst": "Q 350–600",
         "timeDay": "1–2 horas de actividad",
         "space": "Casa con patio o cerca de parque",
-        "tips": [
-          "Busca razas o cruces con alta energía: border collie, labrador, mestizos activos.",
-          "Un perro adulto (2–5 años) ya tiene su carácter definido — sabrás exactamente con quién convives."
-        ]
+        "tips": ["Busca razas o cruces con alta energía: border collie, labrador, mestizos activos.", "Un perro adulto (2–5 años) ya tiene su carácter definido — sabrás exactamente con quién convives."]
       },
       "calm_dog": {
         "title": "El Amigo Tranquilo",
@@ -90,10 +87,7 @@
         "monthlyEst": "Q 200–400",
         "timeDay": "30–45 minutos de paseos",
         "space": "Apartamento o casa pequeña",
-        "tips": [
-          "Busca perros adultos de temperamento calmado en los refugios.",
-          "Los perros senior (7+ años) son especialmente tranquilos y a menudo los más difíciles de adoptar."
-        ]
+        "tips": ["Busca perros adultos de temperamento calmado en los refugios.", "Los perros senior (7+ años) son especialmente tranquilos y a menudo los más difíciles de adoptar."]
       },
       "independent_cat": {
         "title": "El Alma Independiente",
@@ -106,10 +100,7 @@
         "monthlyEst": "Q 150–280",
         "timeDay": "15–30 minutos de juego activo",
         "space": "Apartamento o casa, interior",
-        "tips": [
-          "Un gato adulto (2–7 años) ya tiene su carácter definido.",
-          "Dos gatos se hacen compañía mutuamente si trabajas largas horas."
-        ]
+        "tips": ["Un gato adulto (2–7 años) ya tiene su carácter definido.", "Dos gatos se hacen compañía mutuamente si trabajas largas horas."]
       },
       "playful_cat": {
         "title": "El Espíritu Juguetón",
@@ -122,10 +113,7 @@
         "monthlyEst": "Q 200–380",
         "timeDay": "20–40 minutos de juego",
         "space": "Apartamento con enriquecimiento ambiental",
-        "tips": [
-          "Considera adoptar dos gatitos juntos — se hacen compañía y se calman mutuamente.",
-          "El enriquecimiento ambiental (rascadores, torres, juguetes) es clave para gatos activos."
-        ]
+        "tips": ["Considera adoptar dos gatitos juntos — se hacen compañía y se calman mutuamente.", "El enriquecimiento ambiental (rascadores, torres, juguetes) es clave para gatos activos."]
       },
       "multi_pet": {
         "title": "El Corazón Generoso",
@@ -138,16 +126,369 @@
         "monthlyEst": "Q 500–1,000+",
         "timeDay": "2–3 horas combinadas",
         "space": "Casa con espacio amplio",
-        "tips": [
-          "Habla con el refugio sobre pares o grupos que ya conviven.",
-          "Asegúrate de tener recursos veterinarios para múltiples mascotas antes de adoptar."
-        ]
+        "tips": ["Habla con el refugio sobre pares o grupos que ya conviven.", "Asegúrate de tener recursos veterinarios para múltiples mascotas antes de adoptar."]
       }
     }
   },
   "common": {
     "language": "Idioma",
     "spanish": "Español",
-    "english": "English"
+    "english": "English",
+    "home": "Inicio",
+    "emergencyGuide": "Guía emergencia",
+    "reportAnimal": "Reportar animal",
+    "testPet": "Test de mascota",
+    "posters": "Carteles",
+    "knowCause": "Conoce la causa",
+    "quickActions": "Acciones rápidas",
+    "institutional": "Institucional",
+    "mythsVsReality": "Mitos vs Realidad",
+    "rescueGuide": "Guía de rescate",
+    "realStories": "Historias reales",
+    "footprintCalculator": "Calculadora de huella",
+    "createPoster": "Crear cartel",
+    "donations": "Donaciones",
+    "whoWeAre": "Quiénes somos",
+    "ourWork": "Nuestra labor",
+    "privacy": "Privacidad",
+    "terms": "Condiciones",
+    "goToEnd": "Ir al final",
+    "iWantToHelp": "Quiero Ayudar",
+    "openMenu": "Abrir menú",
+    "copyNumber": "Copiar número",
+    "copyHolder": "Copiar nombre"
+  },
+  "navbar": {
+    "subtitle": "Por los que no tienen voz"
+  },
+  "footer": {
+    "tagline": "Por los que no tienen voz",
+    "newsletter": "Únete a nuestra causa",
+    "newsletterDesc": "Recibe historias de rescates y formas de ayudar.",
+    "emailPlaceholder": "Tu correo electrónico",
+    "subscribe": "Suscribirse",
+    "allRights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "connectWithUs": "Conecta con nosotros",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "byAnimals": "por los animales de Guatemala"
+  },
+  "dashboard": {
+    "hero": {
+      "subtitle": "8 preguntas. 5 perfiles posibles. Descubre qué tipo de animal",
+      "subtitle2": "rescatado encaja con tu personalidad y estilo de vida.",
+      "cta": "Hacer el test",
+      "stats": {
+        "rescued": "Animales rescatados",
+        "adoptions": "Adopciones exitosas",
+        "volunteers": "Voluntarios activos"
+      }
+    },
+    "carousel": {
+      "title": "Ellos encontraron un hogar",
+      "subtitle": "Cada historia de adopción es una prueba de que el amor puede cambiar vidas."
+    }
+  },
+  "donation": {
+    "title": "salva una vida",
+    "subtitle": "Tu donación va directamente a alimentación, medicina y refugio para los animales que rescatamos cada día.",
+    "makeDiff": "Haz la diferencia hoy",
+    "step1": "Elige cuánto quieres aportar",
+    "step2a": "Contáctanos por WhatsApp",
+    "step2b": "Deposita o transfiere directamente",
+    "popular": "Más popular",
+    "writeUs": "Escríbenos ahora",
+    "writeUsDesc": "Te orientamos en el proceso, confirmamos tu donación y te enviamos el comprobante.",
+    "available": "Disponible todos los días · Respuesta en minutos",
+    "afterDeposit": "Después de tu depósito, envíanos el comprobante por WhatsApp para registrar tu donación.",
+    "monthlyGoal": "Meta mensual",
+    "whereGoes": "¿A dónde va tu donación?",
+    "questions": "¿Dudas? Escríbenos",
+    "amounts": {
+      "50": "Alimenta a un rescatado por 1 semana",
+      "150": "Cubre vacunas esenciales",
+      "300": "Paga una consulta veterinaria",
+      "custom": "Cualquier cantidad es bienvenida y agradecida"
+    },
+    "breakdown": {
+      "food": "Alimentación y agua",
+      "medicine": "Medicina y cirugías",
+      "shelter": "Refugio y transporte",
+      "admin": "Admin & comunicación"
+    },
+    "quote": "\"Gracias a las donaciones de nuestra comunidad, hemos rescatado a más de 1,200 animales este año. Cada quetzal cuenta.\""
+  },
+  "myths": {
+    "title": "Mitos que cuestan vidas",
+    "subtitle": "Toca cada tarjeta para revelar la verdad detrás de las creencias más comunes sobre el abandono y la tenencia responsable de animales.",
+    "breaking": "Derribando barreras",
+    "myth": "Mito",
+    "reality": "Realidad",
+    "tapToReveal": "Toca para ver la realidad",
+    "tapToReturn": "Toca para volver",
+    "source": "Fuente:",
+    "revealed": "mitos revelados",
+    "completed": "¡Completado!",
+    "revealAll": "Revelar todos",
+    "hideAll": "Ocultar todos",
+    "shareTruth": "¿Quieres compartir la verdad?",
+    "shareTruthDesc": "Comparte estos datos con quienes conoces. La educación es el primer paso para el cambio.",
+    "shareData": "Compartir datos",
+    "moreInfo": "Más información",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "Estamos preparando recursos y guías detalladas para ti.",
+    "categories": {
+      "all": "Todos",
+      "adoption": "Adopción",
+      "health": "Salud",
+      "conduct": "Conducta",
+      "society": "Sociedad"
+    }
+  },
+  "rescue": {
+    "title": "Historias de rescates",
+    "subtitle": "Conoce a algunos de los animales que hemos ayudado y las familias que les han dado amor.",
+    "before": "Antes",
+    "after": "Después",
+    "recovery": "semanas de recuperación",
+    "rescuedBy": "Rescatado por",
+    "tags": {
+      "found": "Encontrado",
+      "abandoned": "Abandonado",
+      "rescued": "Rescatado",
+      "adopted": "Adoptado",
+      "inHome": "En hogar"
+    }
+  },
+  "emergency": {
+    "title": "Guía de emergencia",
+    "subtitle": "Aprende a ayudar de forma segura a animales en situación de riesgo.",
+    "contactUs": "Contáctanos",
+    "steps": {
+      "1": {
+        "phase": "Evalúa desde lejos",
+        "tag": "Seguridad primero",
+        "safetyNote": "NO te acerques de inmediato. Un animal asustado o herido puede morder o arañar por instinto de supervivencia, incluso si normalmente es dócil.",
+        "tipTitle": "¿Cómo leer el lenguaje corporal?",
+        "tipContent": "Cola baja + cuerpo encogido = miedo. Cola alta + pelo erizado = alerta/agresión. Tumbado sin moverse = posible herida grave. Gruñidos o ladridos al acercarte = no te aproximes solo."
+      },
+      "2": {
+        "phase": "Asegura el área",
+        "tag": "Prevenir más daño",
+        "safetyNote": "Si el animal está en la vía, señaliza el área para evitar accidentes. Tu seguridad vial también importa.",
+        "tipTitle": "Señalización de emergencia",
+        "tipContent": "Usa cones, ropa de colores brillantes o cualquier objeto visible para marcar el área. Una llamada al 1551 (Municipalidad) puede enviar apoyo para controlar el tráfico."
+      },
+      "3": {
+        "phase": "Primer contacto",
+        "tag": "Con calma y método",
+        "safetyNote": "Si el animal parece calmado, puedes intentar el primer contacto. Nunca lo hagas de frente ni de forma brusca.",
+        "tipTitle": "Nunca hagas esto",
+        "tipContent": "No grites su nombre ni hagas ruidos fuertes. No lo persigas si huye. No lo levantes del suelo de forma repentina. No mires directamente a sus ojos si está asustado.",
+        "tipWarning": true
+      },
+      "4": {
+        "phase": "Manejo seguro",
+        "tag": "Si decides moverlo",
+        "safetyNote": "Usa guantes si los tienes. Si no, usa ropa gruesa, una toalla o cualquier tela para protegerte.",
+        "tipTitle": "Improvisando un transporte seguro",
+        "tipContent": "Una caja de cartón con agujeros, una canasta de compras, o el asiento trasero de un auto con alguien que lo sostenga son opciones válidas. Lo importante es mantenerlo calmado y seguro."
+      },
+      "5": {
+        "phase": "Atención veterinaria",
+        "tag": "Paso crucial",
+        "safetyNote": "Aunque el animal parezca bien, una revisión veterinaria es indispensable. Heridas internas, fracturas o infecciones pueden no ser visibles.",
+        "tipTitle": "¿No puedes llevarlo tú?",
+        "tipContent": "¡Está bien! Contacta a HuellaViva con la ubicación GPS del animal. Nuestro equipo puede coordinar el rescate. Tu llamada puede ser suficiente para salvar su vida."
+      },
+      "6": {
+        "phase": "¿Qué sigue?",
+        "tag": "Opciones post-rescate",
+        "safetyNote": "Rescatar no significa necesariamente adoptarlo. Hay muchas formas de ayudar sin llevártelo a casa.",
+        "tipTitle": "El mayor regalo",
+        "tipContent": "Encontrar un hogar temporal por unas semanas puede ser la diferencia entre la vida y la muerte para un animal rescatado. No hace falta adoptarlo para salvarlo."
+      }
+    },
+    "actions": {
+      "distance": "Mantén al menos 3–4 metros de distancia inicial",
+      "posture": "Observa su postura: orejas hacia atrás, cola baja o erizada indican miedo o agresión",
+      "wounds": "Verifica si tiene heridas visibles, dificultad para moverse o signos de enfermedad",
+      "location": "Anota la ubicación exacta con GPS o referencia de calle",
+      "hazardLights": "Si está en carretera, activa las luces de emergencia de tu vehículo",
+      "traffic": "Pide a alguien que dirija el tráfico si es necesario",
+      "fracture": "No muevas al animal si sospechas fractura de columna (caída de altura, atropellamiento)",
+      "children": "Aleja a niños y personas no involucradas del área inmediata",
+      "crouch": "Agáchate a su nivel — parece menos amenazante que estar de pie",
+      "eyeContact": "Evita el contacto visual directo sostenido — puede interpretarse como amenaza",
+      "backOfHand": "Extiende el dorso de la mano (nunca la palma) a unos 30 cm y espera que él se acerque",
+      "tone": "Habla en tono bajo y tranquilo, sin movimientos bruscos",
+      "food": "Si tienes comida, colócala en el suelo a poca distancia, no la ofrezcas en la mano",
+      "gloves": "Usa guantes de trabajo, guantes de cocina o envuelve tus manos con una prenda gruesa",
+      "leash": "Para perros: desliza una correa improvisada (cuerda, cinturón) con un lazo suave alrededor del cuello",
+      "towel": "Para gatos: envuélvelo en una toalla o chamarra, cubriendo la cabeza primero",
+      "hold": "Sostén al animal cerca de tu cuerpo para que se sienta contenido y seguro",
+      "box": "Colócalo en una caja, canasta o vehículo en zona tranquila y ventilada",
+      "callAhead": "Llama a HuellaViva o una clínica veterinaria antes de llegar para que se preparen",
+      "bite": "Informa si el animal mordió o arañó a alguien — puede requerir protocolo antirrábico",
+      "meds": "No le des medicamentos humanos (ibuprofeno, acetaminofén son tóxicos para animales)",
+      "immobilize": "Si no puede moverse, intenta no flexionar ni girar su cuerpo — mantenerlo plano",
+      "photos": "Toma fotos del estado del animal y la ubicación donde lo encontraste",
+      "foster": "Hogar temporal: brindar refugio mientras se encuentra adoptante permanente",
+      "social": "Publicarlo en redes con fotos y ubicación para encontrar dueño o adoptante",
+      "donate": "Donarlo a un refugio como HuellaViva si no puedes cuidarlo",
+      "vetCosts": "Apoyar los costos veterinarios aunque no puedas adoptarlo",
+      "volunteer": "Convertirte en voluntario para casos futuros"
+    },
+    "safetyLevels": {
+      "critical": "Crítico",
+      "warning": "Precaución",
+      "caution": "Atención",
+      "safe": "Seguro",
+      "info": "Info"
+    }
+  },
+  "report": {
+    "title": "Reportar animal",
+    "subtitle": "Ayúdanos a encontrar a los que más lo necesitan. Cada reporte puede salvar una vida.",
+    "whatHappened": "¿Qué pasó?",
+    "animalType": "¿Qué tipo de animal?",
+    "condition": "¿En qué condición está?",
+    "size": "¿Qué tamaño tiene?",
+    "abuse": "Tipo de maltrato (opcional)",
+    "urgency": "¿Qué tan urgente es?",
+    "location": "¿Dónde lo viste?",
+    "moreInfo": "Información adicional",
+    "yourContact": "Tu contacto (opcional)",
+    "submit": "Enviar reporte",
+    "options": {
+      "dog": "Perro",
+      "cat": "Gato",
+      "bird": "Ave",
+      "other": "Otro",
+      "healthy": "Aparentemente sano",
+      "injured": "Herido o lastimado",
+      "sick": "Parece enfermo",
+      "critical": "Estado crítico",
+      "unknown": "No lo pude evaluar",
+      "small": "Pequeño (< 10 kg)",
+      "medium": "Mediano (10–25 kg)",
+      "large": "Grande (> 25 kg)"
+    },
+    "abuseTypes": {
+      "physical": "Maltrato físico",
+      "abandonment": "Abandono con riesgo",
+      "neglect": "Negligencia grave",
+      "hoarding": "Acumulación de animales",
+      "other": "Otro tipo de maltrato"
+    },
+    "urgency2": {
+      "immediate": "Inmediata — vida en peligro",
+      "urgent": "Urgente — requiere atención hoy",
+      "moderate": "Moderada — situación estable",
+      "low": "Baja — es recurrente pero estable"
+    },
+    "success": "¡Reporte enviado! Nos pondremos en contacto pronto.",
+    "copyNumber": "Copiar número"
+  },
+  "calculator": {
+    "title": "Calculadora de huella",
+    "subtitle": "Descubre cuánto espacio, tiempo y recursos necesita tu futura mascota.",
+    "selectPet": "Selecciona el tipo de mascota",
+    "dog": "Perro",
+    "cat": "Gato",
+    "result": {
+      "space": "Espacio necesario",
+      "time": "Tiempo diario",
+      "cost": "Costo mensual estimado",
+      "lifespan": "Años de vida",
+      "exercise": "Ejercicio diario",
+      "social": "Necesidad social",
+      "independence": "Independencia",
+      "kids": "Compatible con niños",
+      "otherPets": "Compatible con otras mascotas"
+    },
+    "space": {
+      "apartment": "Apartamento pequeño",
+      "house": "Casa con jardín",
+      "large": "Casa grande con patio"
+    },
+    "time": {
+      "low": "1-2 horas",
+      "medium": "2-3 horas",
+      "high": "3+ horas"
+    },
+    "lifespan": {
+      "short": "10-12 años",
+      "medium": "12-15 años",
+      "long": "15-20 años"
+    },
+    "levels": {
+      "low": "Bajo",
+      "medium": "Medio",
+      "high": "Alto"
+    }
+  },
+  "poster": {
+    "title": "Crea tu cartel",
+    "subtitle": "Genera un cartel para compartir en redes y ayudar a encontrar a mascotas perdidas o promote la adopción.",
+    "type": "Tipo de cartel",
+    "lost": "Mascota perdida",
+    "adoption": "En adopción",
+    "name": "Nombre",
+    "description": "Descripción",
+    "contact": "Contacto",
+    "location": "Ubicación",
+    "features": "Características",
+    "generate": "Generar cartel",
+    "download": "Descargar",
+    "share": "Compartir",
+    "edit": "Editar"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdate": "Última actualización",
+    "intro": "En HuellaViva Guatemala, nos comprometemos a proteger tu privacidad. Esta política describe cómo recopilamos, usamos y protegemos tu información personal.",
+    "sections": {
+      "collect": {
+        "title": "Información que recopilamos",
+        "content": "Recopilamos información que nos proporcionas voluntariamente al contactarnos para donaciones, reportes de animales, o suscripciones a nuestro boletín."
+      },
+      "use": {
+        "title": "Cómo usamos tu información",
+        "content": "Usamos tu información para responder a tus consultas, procesar donaciones, coordinar rescates de animales y enviar actualizaciones sobre nuestra labor."
+      },
+      "protect": {
+        "title": "Protección de datos",
+        "content": "Implementamos medidas de seguridad adecuadas para proteger tu información personal contra accesos no autorizados, alterations o divulgaciones."
+      },
+      "contact": {
+        "title": "Contacto",
+        "content": "Si tienes preguntas sobre esta política de privacidad, contáctanos en info@huellaviva.gt"
+      }
+    }
+  },
+  "terms": {
+    "title": "Términos y Condiciones",
+    "lastUpdate": "Última actualización",
+    "intro": "Bienvenido a HuellaViva Guatemala. Al usar nuestro sitio web, aceptas los siguientes términos y condiciones.",
+    "sections": {
+      "use": {
+        "title": "Uso del sitio",
+        "content": "El contenido de este sitio es únicamente informativo y educativo. No garantizamos la exactitud o completitud del contenido."
+      },
+      "donations": {
+        "title": "Donaciones",
+        "content": "Las donaciones realizadas a HuellaViva son definitivas y no reembolsables, excepto en circunstancias excepcionales a nuestra discreción."
+      },
+      "liability": {
+        "title": "Responsabilidad",
+        "content": "HuellaViva no se hace responsable de ningún daño resultante del uso de la información en este sitio o de las interacciones con animales rescued."
+      },
+      "contact": {
+        "title": "Contacto",
+        "content": "Para preguntas sobre estos términos, contáctanos en info@huellaviva.gt"
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, memo } from "react";
+import { useTranslation } from "react-i18next";
 import {
   FaPaw,
   FaHeart,
@@ -291,6 +292,7 @@ const BankCard = memo(function BankCard({ account, index }) {
 });
 
 export default function DonationSection() {
+  const { t } = useTranslation();
   const prefersReduced = useReducedMotion();
   const sectionRef = useRef(null);
   const sectionInView = useInView(sectionRef, VIEWPORT_ONCE_80);
@@ -345,7 +347,7 @@ export default function DonationSection() {
                 className="text-[#FF8C42] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
-                Haz la diferencia hoy
+                {t('donation.makeDiff')}
               </span>
             </div>
 
@@ -358,7 +360,7 @@ export default function DonationSection() {
               }}
             >
               Cada quetzal{" "}
-              <em className="not-italic text-[#FF8C42]">salva una vida</em>
+              <em className="not-italic text-[#FF8C42]">{t('donation.title')}</em>
             </h2>
 
             <p
@@ -368,8 +370,7 @@ export default function DonationSection() {
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
               }}
             >
-              Tu donación va directamente a alimentación, medicina y refugio
-              para los animales que rescatamos cada día.
+              {t('donation.subtitle')}
             </p>
 
             {/* Avatares de donantes */}
@@ -438,7 +439,7 @@ export default function DonationSection() {
                     className="text-[#D8F3DC] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
-                    Elige cuánto quieres aportar
+                    {t('donation.step1')}
                   </h3>
                 </div>
 
@@ -466,7 +467,7 @@ export default function DonationSection() {
                           className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[0.55rem] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full whitespace-nowrap"
                           style={{ backgroundColor: a.color, color: "#212529" }}
                         >
-                          Más popular
+                          {t('donation.popular')}
                         </span>
                       )}
                       <span className="text-2xl">{a.emoji}</span>
@@ -517,9 +518,9 @@ export default function DonationSection() {
                   <h3
                     className="text-[#D8F3DC] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    Contáctanos por WhatsApp
-                  </h3>
+>
+                  {t('donation.step2a')}
+                </h3>
                 </div>
 
                 <m.a
@@ -553,15 +554,14 @@ export default function DonationSection() {
                     <p
                       className="font-bold text-[#D8F3DC] text-base mb-1 leading-none"
                       style={{ fontFamily: "'Fraunces', serif" }}
-                    >
-                      Escríbenos ahora
-                    </p>
+>
+                  {t('donation.writeUs')}
+                </p>
                     <p
                       className="text-[#D8F3DC]/50 text-xs leading-relaxed"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}
                     >
-                      Te orientamos en el proceso, confirmamos tu donación y te
-                      enviamos el comprobante.
+                      {t('donation.writeUsDesc')}
                     </p>
                     <div className="flex items-center gap-1.5 mt-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] pulse-dot" />
@@ -569,7 +569,7 @@ export default function DonationSection() {
                         className="text-[#25D366] text-[0.65rem] font-semibold"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
-                        Disponible todos los días · Respuesta en minutos
+                        {t('donation.available')}
                       </span>
                     </div>
                   </div>
@@ -613,8 +613,7 @@ export default function DonationSection() {
                   className="text-[#D8F3DC]/40 text-xs mb-4 leading-relaxed flex items-center gap-2"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  Después de tu depósito, envíanos el comprobante por WhatsApp
-                  para registrar tu donación.
+                  {t('donation.afterDeposit')}
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -642,18 +641,18 @@ export default function DonationSection() {
                       className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-1"
                       style={{ fontFamily: "'DM Sans', sans-serif" }}
                     >
-                      Meta mensual
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'Fraunces', serif",
-                        fontSize: "1.5rem",
-                        fontWeight: 700,
-                        color: "#D8F3DC",
-                      }}
-                    >
-                      Q 15,000
-                    </p>
+{t('donation.monthlyGoal')}
+                      </p>
+                      <p
+                        style={{
+                          fontFamily: "'Fraunces', serif",
+                          fontSize: "1.5rem",
+                          fontWeight: 700,
+                          color: "#D8F3DC",
+                        }}
+                      >
+                        Q 15,000
+                      </p>
                   </div>
                   <div
                     className="w-12 h-12 rounded-2xl flex items-center justify-center"
@@ -672,7 +671,7 @@ export default function DonationSection() {
                   className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  ¿A dónde va tu donación?
+                  {t('donation.whereGoes')}
                 </p>
 
                 {FUND_BREAKDOWN.map((item, i) => (
@@ -733,9 +732,7 @@ export default function DonationSection() {
                   className="text-[#D8F3DC]/65 text-sm leading-relaxed mb-3 pl-3"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  "Gracias a las donaciones de nuestra comunidad, hemos
-                  rescatado a más de 1,200 animales este año. Cada quetzal
-                  cuenta."
+                  {t('donation.quote')}
                 </p>
               </m.div>
 
@@ -757,7 +754,7 @@ export default function DonationSection() {
                 }}
               >
                 <FaWhatsapp size={16} />
-                ¿Dudas? Escríbenos
+                {t('donation.questions')}
               </m.a>
             </m.div>
           </div>

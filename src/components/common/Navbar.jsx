@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { FaRegHeart as HeartIcon, FaPaw as PawIcon, FaArrowDown as ArrowDownIcon } from "react-icons/fa";
 import { IoMenu as MenuIcon, IoClose as CloseIcon } from "react-icons/io5";
 import { IoIosArrowForward as ArrowIcon } from "react-icons/io";
@@ -9,6 +10,7 @@ import LanguageSelector from "./LanguageSelector";
 
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -99,13 +101,13 @@ export default function Navbar() {
           </a>
 
           <nav className="hidden lg:flex items-center gap-0.5">
-            {NAV_LINKS.map(({ label, href }) => {
+            {NAV_LINKS.map(({ labelKey, href }) => {
               const active =
                 location.pathname === href ||
                 (href.startsWith("#") && location.hash === href);
               return (
                 <a
-                  key={label}
+                  key={labelKey}
                   href={href}
                   onClick={() => setIsOpen(false)}
                   className={`
@@ -120,7 +122,7 @@ export default function Navbar() {
                   `}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  {label}
+                  {t(labelKey)}
                   <span
                     className={`
                     absolute bottom-1.25 left-1/2 -translate-x-1/2
@@ -166,7 +168,7 @@ export default function Navbar() {
               <span style={{ animation: "hb 2s ease-in-out infinite" }}>
                 <HeartIcon />
               </span>
-              Quiero Ayudar
+              {t('common.iWantToHelp')}
             </button>
           </div>
 
@@ -196,13 +198,13 @@ export default function Navbar() {
           <div className="h-px bg-[#D8F3DC]/8 mx-2" />
 
           <div className="flex flex-col gap-0.5 pt-2 pb-4 px-1">
-            {NAV_LINKS.map(({ label, href }) => {
+            {NAV_LINKS.map(({ labelKey, href }) => {
               const active =
                 location.pathname === href ||
                 (href.startsWith("#") && location.hash === href);
               return (
                 <a
-                  key={label}
+                  key={labelKey}
                   href={href}
                   onClick={() => setIsOpen(false)}
                   className={`
@@ -225,7 +227,7 @@ export default function Navbar() {
                   `}
                   />
 
-                  <span className="flex-1">{label}</span>
+                  <span className="flex-1">{t(labelKey)}</span>
 
                   {active && (
                     <span className="text-[#2DA14F]/50 ml-auto">
@@ -253,7 +255,7 @@ export default function Navbar() {
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                 onClick={handleDonationClick}
               >
-                <HeartIcon /> Quiero Ayudar
+                <HeartIcon /> {t('common.iWantToHelp')}
               </button>
 
               {/* <button
