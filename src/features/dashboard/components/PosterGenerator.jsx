@@ -18,41 +18,12 @@ import {
   FaSpinner,
 } from "react-icons/fa";
 
-/* ─── Configuración ─────────────────────────────────────────────── */
-
-const POSTER_TYPES = [
-  {
-    id: "adoptame",
-    label: "Adóptame",
-    icon: <FaHeart size={16} />,
-    accentColor: "#2DA14F",
-    tagColor: "#2DA14F",
-    tagBg: "rgba(45,161,79,0.18)",
-    tagBorder: "rgba(45,161,79,0.35)",
-    headerBg: "linear-gradient(135deg, #0d2b17 0%, #1a4a2a 100%)",
-    badgeText: "EN ADOPCIÓN",
-  },
-  {
-    id: "sebusca",
-    label: "Se Busca",
-    icon: <FaExclamationTriangle size={16} />,
-    accentColor: "#FF8C42",
-    tagColor: "#FF8C42",
-    tagBg: "rgba(255,140,66,0.18)",
-    tagBorder: "rgba(255,140,66,0.35)",
-    headerBg: "linear-gradient(135deg, #2a1500 0%, #4a2400 100%)",
-    badgeText: "¡SE BUSCA!",
-  },
-];
-
-const SPECIES_OPTIONS = [
-  { value: "perro", label: "Perro", icon: <FaDog /> },
-  { value: "gato", label: "Gato", icon: <FaCat /> },
-  { value: "otro", label: "Otro", icon: <FaPaw /> },
-];
-
-const SIZE_OPTIONS = ["Pequeño", "Mediano", "Grande"];
-const GENDER_OPTIONS = ["Macho", "Hembra", "Desconocido"];
+import {
+  POSTER_TYPES,
+  SPECIES_OPTIONS,
+  SIZE_OPTIONS,
+  GENDER_OPTIONS,
+} from "@/data/posterData";
 
 /* ─── Sub-componentes ────────────────────────────────────────────── */
 
