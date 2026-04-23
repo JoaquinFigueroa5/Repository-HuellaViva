@@ -1,28 +1,21 @@
-import Navbar from "@/components/common/Navbar"
-import HeroCarousel from "@/components/dashboard/Carrousel"
-import RescueTimeline from "@/components/dashboard/RescueTimeline"
-import DonationSection from "@/components/dashboard/Donation"
-import ScrollToTop from "@/components/common/ScrollTop"
-import MythsVsReality from "@/components/dashboard/MythsVsReality"
-import Footer from "@/components/common/Footer"
-import ReportAnimal from "@/components/reportAnimal/ReportAnimal"
-import PosterGenerator from "@/components/dashboard/PosterGenerator"
+import HeroCarousel from "@/features/dashboard/components/Carrousel"
+import RescueTimeline from "@/features/dashboard/components/RescueTimeline"
+import DonationSection from "@/features/dashboard/components/Donation"
+import MythsVsReality from "@/features/dashboard/components/MythsVsReality"
+import PosterGenerator from "@/features/dashboard/components/PosterGenerator"
 
 function Dashboard() {
 
   return (
     <>
-      <Navbar />
       <HeroCarousel />
       <RescueTimeline />
       <DonationSection />
       <MythsVsReality />
-      {/* <ReportAnimal /> */}
       {/* <PosterGenerator /> */}
-      <Footer />
-      <ScrollToTop />
     </>
   )
 }
+
 
 export default Dashboard

@@ -1,17 +1,12 @@
-import ReportAnimal from "@/components/reportAnimal/ReportAnimal";
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
-import ScrollToTop from "@/components/common/ScrollTop";
+import ReportAnimal from "@/features/reportAnimal/components/ReportAnimal";
 
 function Report() {
   return (
     <>
-      <Navbar />
       <ReportAnimal />
-      <Footer />
-      <ScrollToTop />
     </>
   );
 }
+
 
 export default Report;

@@ -1,0 +1,71 @@
+# Mejoramiento de la Arquitectura del Proyecto (Refactoring)
+
+El proyecto actual posee una arquitectura aceptable, pero a medida que crezca, la carpeta `components` se volverá un "monolito" difícil de mantener, ya que actualmente mezcla componentes globales de UI con lógicas específicas de módulos (ej. `dashboard`, `emergencyGuide`). Además, la estructura de páginas actualmente repite código (como instanciar `Navbar` y `Footer` en cada una).
+
+La meta es transicionar a un estándar altamente escalable (inspirado en **Feature-Driven Architecture** y "Bulletproof React").
+
+## Cambios Propuestos
+
+### 1. Migración a Arquitectura Basada en Features (`src/features/`)
+Crear una nueva carpeta `src/features/` para encapsular toda la lógica y componentes que pertenecen a un dominio o pantalla específica. Esto dejará la carpeta `components/` exclusivamente para elementos genéricos y reutilizables.
+- Mover `src/components/dashboard` -> `src/features/dashboard/components`
+- Mover `src/components/emergencyGuide` -> `src/features/emergencyGuide/components`
+- Mover `src/components/petCalculator` -> `src/features/petCalculator/components`
+- Mover `src/components/reportAnimal` -> `src/features/reportAnimal/components`
+- Mover `src/components/generatePoster` -> `src/features/generatePoster/components`
+
+*Esto mantiene el código altamente cohesivo. Si un feature necesita sus propios hooks o utilidades en el futuro, vivirán dentro de su respectiva carpeta.*
+
+### 2. Capa de Layouts (`src/layouts/`)
+Actualmente las páginas como `Dashboard.jsx` importan manualmente el `Navbar`, `Footer` y `ScrollToTop`. 
+Se propone crear un `MainLayout.jsx` estandarizado que utilice el `<Outlet />` de `react-router-dom` para inyectar las páginas en el medio, evitando repetición en la carpeta `pages`.
+
+### 3. Limpieza de `src/components/`
+La carpeta `src/components/` debe quedar exclusivamente para:
+- `ui/`: Componentes base reutilizables (Botones, Tarjetas, Inputs, componentes de shadcn).
+- `common/`: Componentes globales algo más complejos pero compartidos (Navbar, Footer, Loaders globales).
+
+### 4. Organización de Hooks y Utils
+Si existen Hooks personalizados, deben ir en una carpeta nueva en la raíz: `src/hooks/`.
+Archivos misceláneos de ayuda como `scrollToHash.js` se mantienen bien en `src/utils/`.
+Los archivos como `utils.js` (probablemente para clases Tailwind, típico de *shadcn*) ya están bien posicionados en `src/lib/`.
+
+### 5. Reflexión sobre `src/data/`
+Actualmente hay archivos como `mythsData.jsx` que combinan datos puros (strings, ids) con componentes de React (iconos JSX). Aunque es funcional, a futuro esto acopla fuertemente la lógica de presentación con los datos. Para un código aún más limpio, se podrían separar los datos a `.json`/`.js` y mapear los iconos visualmente en los components.
+
+## Resumen Visual de la Nueva Estructura Propuesta
+
+```text
+src/
+├── assets/          # Imágenes estáticas y SVGs globales
+├── components/      # SOLO componentes genéricos
+│   ├── common/      # Navbar, Footer, etc.
+│   └── ui/          # Elementos atómicos (Botones, Inputs)
+├── data/            # Mock data o constantes globales
+├── features/        # ✨ Módulos por dominio
+│   ├── dashboard/ 
+│   ├── emergencyGuide/
+│   ├── generatePoster/
+│   ├── petCalculator/
+│   └── reportAnimal/
+├── hooks/           # Todos los hooks globales compartidos
+├── layouts/         # ✨ MainLayout.jsx (para no repetir Navbar/Footer)
+├── lib/             # Configuraciones externas (utils de twMerge)
+├── pages/           # Vistas mapeadas directamente en el Router
+├── router/          # Configuración de las rutas (opcional, si hay muchas)
+├── utils/           # Funciones helper (scrollToHash)
+├── App.jsx
+└── main.jsx
+```
+
+## User Review Required
+
+> [!IMPORTANT]
+> ¿Estás de acuerdo con aplicar esta refactorización? 
+> Esto implicará:
+> 1. Crear las nuevas carpetas (`features`, `layouts`).
+> 2. Mover los módulos específicos desde `components/` hacia `features/`.
+> 3. Crear el componente `MainLayout`.
+> 4. Re-actualizar decenas de rutas de importación (`import ... from ...`) en los archivos del proyecto.
+>
+> La funcionalidad será exactamente la misma, pero el código quedará listo para un escalamiento profesional sin convertirse en código espagueti.

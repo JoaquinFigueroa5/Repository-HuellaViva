@@ -1,15 +1,10 @@
-import Navbar from "@/components/common/Navbar";
-import Footer from "@/components/common/Footer";
-import ScrollToTop from "@/components/common/ScrollTop";
-import PosterGenerator from "@/components/dashboard/PosterGenerator";
+import PosterGenerator from "@/features/dashboard/components/PosterGenerator";
 
 export default function GeneratePoster() {
   return (
     <>
-      <Navbar />
       <PosterGenerator />
-      <Footer />
-      <ScrollToTop />
     </>
   );
 }
+

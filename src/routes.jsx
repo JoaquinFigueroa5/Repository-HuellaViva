@@ -10,20 +10,26 @@ const Test = lazy(() => import("@/pages/Test"));
 const Poster = lazy(() => import("@/pages/GeneratePoster"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
 const Terms = lazy(() => import("@/pages/Terms"));
+const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 
 const routes = [
-    { path: '/', element: <Dashboard /> },
-    { path: '/emergency', element: <EmergencyGuide /> },
-    { path: '/loading', element: <Loader /> },
-    { path: '/report', element: <Report /> },
-    { path: '/test', element: <Test /> },
-    { path: '/calculator', element: <Calculator /> },
-    { path: '/poster', element: <Poster /> },
-    { path: '/privacy', element: <Privacy /> },
-    { path: '/terms', element: <Terms /> },
-    { path: '*', element: <Navigate to="/" replace /> }
+    {
+        path: "/",
+        element: <MainLayout />,
+        children: [
+            { path: "/", element: <Dashboard /> },
+            { path: "/emergency", element: <EmergencyGuide /> },
+            { path: "/report", element: <Report /> },
+            { path: "/test", element: <Test /> },
+            { path: "/calculator", element: <Calculator /> },
+            { path: "/poster", element: <Poster /> },
+            { path: "/privacy", element: <Privacy /> },
+            { path: "/terms", element: <Terms /> },
+        ],
+    },
+    { path: "/loading", element: <Loader /> },
+    { path: "*", element: <Navigate to="/" replace /> },
 ];
 
-export default routes;
 
-// run qwen --resume ab7d9369-aaee-4073-8a2c-efd9c49d254c
+export default routes;
