@@ -35,6 +35,19 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
+  const handleDashboard = () => {
+    if(location.pathname === '/') {
+      scrollToHash("dashboard");
+    }
+    else {
+      navigate("/");
+      setTimeout(() => {
+        scrollToHash("dashboard");
+      }, 1000);
+    }
+    setIsOpen(false);
+  }
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -64,9 +77,9 @@ export default function Navbar() {
           }`}
       >
         <div className="max-w-300 mx-auto h-17.5 flex items-center justify-between gap-6">
-          <a
-            href="#inicio"
-            className="group flex items-center gap-3 no-underline"
+          <button
+            onClick={handleDashboard}
+            className="group flex items-center gap-3 no-underline cursor-pointer"
           >
             <div
               className="
@@ -97,7 +110,7 @@ export default function Navbar() {
                 Por los que no tienen voz
               </span>
             </div>
-          </a>
+          </button>
 
           <nav className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map(({ label, href }) => {

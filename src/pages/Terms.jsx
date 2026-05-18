@@ -59,7 +59,7 @@ export default function Terms() {
           >
             Si tienes dudas sobre estos términos,{" "}
             <a
-              href="https://wa.me/50252491439"
+              href="https://wa.me/50230603492"
               className="underline"
               style={{ color: "#2DA14F" }}
             >

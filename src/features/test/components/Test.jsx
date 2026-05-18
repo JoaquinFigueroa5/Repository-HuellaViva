@@ -442,7 +442,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
 
       <div className="flex flex-col sm:flex-row gap-3">
         <m.a
-          href={`https://wa.me/50252491439?text=${waMessage}`}
+          href={`https://wa.me/50230603492?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ y: -3, boxShadow: `0 10px 32px ${profile.accent}45` }}
@@ -461,7 +461,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
         </m.a>
 
         <m.a
-          href="https://wa.me/50252491439"
+          href="https://wa.me/50230603492"
           target="_blank"
           rel="noopener noreferrer"
           whileHover={{ y: -2 }}

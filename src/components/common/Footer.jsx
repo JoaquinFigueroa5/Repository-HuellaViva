@@ -119,6 +119,8 @@ export default function Footer() {
     }
   };
 
+  //
+
   return (
     <LazyMotion features={domMax} strict>
       <footer className="relative w-full bg-[#111315] pt-20 pb-10 overflow-hidden border-t border-white/3">

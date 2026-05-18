@@ -223,7 +223,7 @@ export default function RescueTimeline() {
   return (
     <>
       <LazyMotion features={domMax} strict>
-        <section className="w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden" id="historias">
+        <section className="w-full bg-[#212529] py-5 px-4 md:px-8 overflow-hidden" id="historias">
           <div className="max-w-300 mx-auto">
 
             <m.div
