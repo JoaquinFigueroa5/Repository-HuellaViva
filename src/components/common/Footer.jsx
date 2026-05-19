@@ -145,14 +145,13 @@ export default function Footer() {
                 className="group flex items-center gap-3.5 no-underline w-fit cursor-pointer"
               >
                 <div
-                  className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-360 group-hover:scale-110"
+                  className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 group-hover:rotate-360 group-hover:scale-110"
                   style={{
-                    background: "linear-gradient(135deg, var(--color-hv-primary) 0%, var(--color-hv-primary-dark) 100%)",
                     color: "var(--color-hv-text-primary)",
                     boxShadow: "0 8px 24px rgba(0,184,204,0.25)",
                   }}
                 >
-                  <FaPaw size={22} />
+                  <img src="/logo.png" alt="Logo Armonia Animal" />
                 </div>
                 <div className="flex flex-col">
                   <span

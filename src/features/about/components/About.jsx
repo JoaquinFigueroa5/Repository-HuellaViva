@@ -1,4 +1,4 @@
-import { useRef, memo } from "react";
+import { useRef, useState, memo } from "react";
 import {
   FaArrowLeft,
   FaBroadcastTower,
@@ -14,6 +14,7 @@ import {
   LazyMotion,
   domMax,
   m,
+  AnimatePresence,
   useInView,
 } from "framer-motion";
 
@@ -169,6 +170,7 @@ const SegmentCard = memo(function SegmentCard({ segment, index }) {
 // ─── ScheduleCard ─────────────────────────────────────────────────────────────
 
 const ScheduleCard = memo(function ScheduleCard({ data, index }) {
+  const [showTooltip, setShowTooltip] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, VIEWPORT);
   const isRadio = data.title.includes("Sónica");
@@ -252,23 +254,51 @@ const ScheduleCard = memo(function ScheduleCard({ data, index }) {
         </div>
 
         {/* CTA */}
-        <m.a
-          href={data.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ y: -2, boxShadow: `0 8px 28px ${data.color}35` }}
-          whileTap={{ scale: 0.97 }}
-          className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl no-underline font-semibold text-sm border-0 will-change-transform"
-          style={{
-            backgroundColor: `${data.color}18`,
-            color: data.color,
-            border: `1px solid ${data.color}40`,
-            fontFamily: "'DM Sans', sans-serif",
-          }}
+        <div
+          className="relative inline-block text-center"
+          style={{ color: "rgba(10, 10, 10, 1)" }}
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
         >
-          {isRadio ? "Escuchar en vivo" : "Ver en vivo"}
-          <FaExternalLinkAlt size={10} />
-        </m.a>
+          <m.a
+            href={data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -2, boxShadow: `0 8px 28px ${data.color}35` }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl no-underline font-semibold text-sm border-0 will-change-transform text-center"
+            style={{
+              backgroundColor: `${data.color}18`,
+              color: data.color,
+              border: `1px solid ${data.color}40`,
+              fontFamily: "'DM Sans', sans-serif",
+              textAlign: "center",
+            }}
+          >
+            {isRadio ? "Escuchar en vivo" : "Ver en vivo"}
+            <FaExternalLinkAlt size={10} />
+          </m.a>
+
+          <AnimatePresence>
+            {showTooltip && data.detail && (
+              <m.div
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 6 }}
+                transition={{ duration: 0.15, ease: "easeOut" }}
+                className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1.5 rounded-lg whitespace-nowrap text-[0.6rem] z-20 pointer-events-none"
+                style={{
+                  backgroundColor: "rgba(13,31,34,0.95)",
+                  border: "1px solid rgba(232,251,253,0.12)",
+                  color: "rgba(232,251,253,0.75)",
+                  fontFamily: "'DM Sans', sans-serif",
+                }}
+              >
+                📺 Sintoniza {data.detail}
+              </m.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </m.div>
   );

@@ -40,7 +40,7 @@ export const PROGRAM = {
     radio: {
       title: "Radio Sónica 106.9 FM",
       time: "Viernes 13:30 hrs",
-      url: "#",
+      url: "https://sonica.gt/",
       color: "var(--color-hv-primary)",
     },
     tv: {
