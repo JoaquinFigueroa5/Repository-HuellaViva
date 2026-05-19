@@ -127,7 +127,7 @@ export default function Footer() {
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
           <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[60%] blur-[120px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,184,204,0.1) 0%, transparent 70%)" }} />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[35%] h-[50%] blur-[100px] rounded-full" style={{ background: "radial-gradient(circle, rgba(255,107,91,0.05) 0%, transparent 70%)" }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[35%] h-[50%] blur-[100px] rounded-full" style={{ background: "radial-gradient(circle, rgba(52,211,153,0.05) 0%, transparent 70%)" }} />
         </div>
 
         <div className="max-w-300 mx-auto px-6 md:px-12 relative z-10">
@@ -159,13 +159,13 @@ export default function Footer() {
                     className="text-[var(--color-hv-text-primary)] text-[1.25rem] font-bold tracking-tight"
                     style={{ fontFamily: "'Fraunces', serif" }}
                   >
-                    ArmoniaAnimal
+                    Armonia Animal
                   </span>
                   <span
                     className="text-[0.6rem] font-bold tracking-[0.2em] uppercase mt-0.5"
                     style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--color-hv-primary)" }}
                   >
-                    Por los que no tienen voz
+                    Programa de radio y TV
                   </span>
                 </div>
               </a>
@@ -236,7 +236,7 @@ export default function Footer() {
                   className="text-[0.7rem]"
                   style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.25)" }}
                 >
-                  © {year} Armonia Animal Guatemala. Todos los derechos reservados.
+                  © {year} Armonia Animal Programa de Radio y TV Guatemala. Todos los derechos reservados.
                 </p>
                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/5" />
                 <div className="flex items-center gap-4">
@@ -251,7 +251,7 @@ export default function Footer() {
                   animate={{ scale: [1, 1.25, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <FaHeart size={10} className="text-[var(--color-hv-accent-coral)]" />
+                  <FaHeart size={10} className="text-[var(--color-hv-accent-emerald)]" />
                 </m.span>
                 <span className="text-[0.7rem]" style={{ color: "rgba(232,251,253,0.3)" }}>por los animales de Guatemala</span>
               </div>

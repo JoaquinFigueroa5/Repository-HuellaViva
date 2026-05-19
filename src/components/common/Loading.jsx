@@ -15,7 +15,7 @@ const Loader = () => {
           50% { transform: scale(0); }
         }
         @keyframes outline-keys {
-          0% { transform: scale(0); outline: solid 20px var(--color-hv-accent-coral); opacity: 1; }
+          0% { transform: scale(0); outline: solid 20px var(--color-hv-accent-emerald); opacity: 1; }
           100% { transform: scale(1); outline: solid 0 transparent; outline-offset: 20px; opacity: 0; }
         }
         .animate-circle-custom { animation: circle-keys 2s ease-in-out infinite; }

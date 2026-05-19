@@ -33,7 +33,7 @@ function FieldLabel({ children, required }) {
       style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--color-hv-text-primary)60" }}
     >
       {children}
-      {required && <span className="text-[var(--color-hv-accent-coral)] ml-1">*</span>}
+      {required && <span className="text-[var(--color-hv-accent-emerald)] ml-1">*</span>}
     </label>
   );
 }
@@ -466,7 +466,7 @@ export default function PosterGenerator() {
         className="w-full min-h-screen bg-[var(--color-hv-base)] py-16 px-4 md:px-8"
         style={{
           "--accent": accent,
-          "--accent-dark": isAdopt ? "var(--color-hv-primary-dark)" : "var(--color-hv-accent-coral-dark)",
+          "--accent-dark": isAdopt ? "var(--color-hv-primary-dark)" : "var(--color-hv-accent-emerald-dark)",
         }}
       >
         <div className="max-w-6xl mx-auto">

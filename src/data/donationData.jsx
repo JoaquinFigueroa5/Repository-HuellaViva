@@ -26,8 +26,8 @@ export const MEDICATIONS = [
     id: "antiparasitarios-int",
     title: "Antiparasitarios Internos",
     description: "Desparasitantes intestinales",
-    icon: <FaSyringe size={24} color="#FF6B5B" />,
-    color: "#FF6B5B",
+    icon: <FaSyringe size={24} color="#34D399" />,
+    color: "#34D399",
     items: [
       { name: "Desparasitante oral tabletas", brand: "Drontal, Caniverm, Endogard", use: "Desparasitación trimestral" },
       { name: "Suspensión líquida", brand: "Strongid, Nemex", use: "Para cachorros y animales pequeños" },
@@ -51,8 +51,8 @@ export const MEDICATIONS = [
     id: "vitaminas",
     title: "Vitaminas y Suplementos",
     description: "Nutrición y recuperación",
-    icon: <FaHeart size={24} color="#FF6B5B" />,
-    color: "#FF6B5B",
+    icon: <FaHeart size={24} color="#34D399" />,
+    color: "#34D399",
     items: [
       { name: "Complejo B inyectable", brand: "Catosal, B12", use: "Recuperación y apetito" },
       { name: "Hierro", brand: "Iron Dextran", use: "Tratamiento de anemia" },
@@ -77,8 +77,8 @@ export const MEDICATIONS = [
     id: "antisepticos",
     title: "Antisépticos Tópicos",
     description: "Limpieza y desinfección de heridas",
-    icon: <FaFlask size={24} color="#FF6B5B" />,
-    color: "#FF6B5B",
+    icon: <FaFlask size={24} color="#34D399" />,
+    color: "#34D399",
     items: [
       { name: "Clorhexidina solución", brand: "Hibiscrub, Clorexyl", use: "Antiséptico de amplio espectro" },
       { name: "Povidona yodada", brand: "Isodine", use: "Desinfección pre-quirúrgica" },
@@ -106,8 +106,8 @@ export const HYGIENE_PRODUCTS = [
     id: "curacion",
     title: "Material de Curación",
     description: "Vendaje y protección de heridas",
-    icon: <FaBandAid size={24} color="#FF6B5B" />,
-    color: "#FF6B5B",
+    icon: <FaBandAid size={24} color="#34D399" />,
+    color: "#34D399",
     items: [
       { name: "Gasas estériles", use: "Limpieza y cobertura de heridas" },
       { name: "Vendas elásticas", use: "Compresión y soporte" },

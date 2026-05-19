@@ -49,7 +49,7 @@ export const MYTHS = [
     realityShort: "Son sanos y revisados",
     realityIcon: <FaCheckCircle />,
     source: "WSPA Guatemala, 2023",
-    impact: "Este mito reduce las adopciones en un 40%",
+    impact: "Este mito reduce las adopciones en un gran porcentaje",
   },
   {
     id: 2,
@@ -62,7 +62,7 @@ export const MYTHS = [
     realityShort: "Se adaptan rápido y aman más",
     realityIcon: <FaHeart />,
     source: "American Humane Society",
-    impact: "Los adultos tienen 3x más dificultad para ser adoptados",
+    impact: "Los adultos tienen más dificultad para ser adoptados",
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ export const MYTHS = [
     realityShort: "Afecta directamente a las personas",
     realityIcon: <RiPlantLine />,
     source: "OPS / OMS, 2022",
-    impact: "3M+ animales en calle solo en Centroamérica",
+    impact: "Muchos animales en calle solo en Centroamérica",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ export const MYTHS = [
     realityShort: "Adoptar salva y no financia maltrato",
     realityIcon: <FaHeart />,
     source: "Red de Bienestar Animal GT",
-    impact: "80% de criaderos operan sin regulación en GT",
+    impact: "Muchos criaderos operan sin regulación en GT",
   },
   {
     id: 5,
@@ -101,7 +101,7 @@ export const MYTHS = [
     realityShort: "Alarga vida y mejora salud",
     realityIcon: <FaStethoscope />,
     source: "Colegio de Médicos Veterinarios GT",
-    impact: "Reduce el 90% de la sobrepoblación callejera",
+    impact: "Reduce gran porcentaje de la sobrepoblación callejera",
   },
   {
     id: 6,
@@ -127,7 +127,7 @@ export const MYTHS = [
     realityShort: "Es un problema estructural y educativo",
     realityIcon: <FaHandsHelping />,
     source: "CONAP Guatemala, 2023",
-    impact: "El 65% de abandonos tienen causa socioeconómica",
+    impact: "Gran porcentaje de abandonos tienen causa socioeconómica",
   },
   {
     id: 8,
@@ -140,7 +140,7 @@ export const MYTHS = [
     realityShort: "Con manejo correcto el riesgo es mínimo",
     realityIcon: <FaShieldAlt />,
     source: "Ministerio de Salud Pública GT",
-    impact: "La vacunación masiva reduce rabia en 98%",
+    impact: "La vacunación masiva reduce rabia en gran porcentaje",
   },
 ];
 

@@ -35,8 +35,8 @@ export const NAV_COLUMNS = [
   {
     title: "Institucional",
     links: [
-      { label: "Quiénes somos",     href: "#inicio"     },
-      { label: "Nuestra labor",     href: "#donaciones" },
+      { label: "Quiénes somos",     href: "/about"     },
+      { label: "Nuestra labor",     href: "/about" },
       { label: "Privacidad",        href: "/privacy"    },
       { label: "Condiciones",       href: "/terms"      },
     ],

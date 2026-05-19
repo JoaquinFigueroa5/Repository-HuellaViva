@@ -31,9 +31,9 @@ export const EMERGENCY_CONTACTS = [
   {
     label: "Bomberos",
     number: "122",
-    icon: <MdFireTruck size={20} color="#FF6B5B" />,
+    icon: <MdFireTruck size={20} color="#34D399" />,
     type: "phone",
-    color: "#FF6B5B",
+    color: "#34D399",
   },
   {
     label: "CONAP",
@@ -60,9 +60,9 @@ export const STEPS = [
     id: 1,
     phase: "Evalúa desde lejos",
     phaseTag: "Seguridad primero",
-    tagColor: "#FF6B5B",
-    icon: <FaEye size={20} color="#FF6B5B" />,
-    accentColor: "#FF6B5B",
+    tagColor: "#34D399",
+    icon: <FaEye size={20} color="#34D399" />,
+    accentColor: "#34D399",
     safetyLevel: "critical",
     safetyNote:
       "NO te acerques de inmediato. Un animal asustado o herido puede morder o arañar por instinto de supervivencia, incluso si normalmente es dócil.",
@@ -91,9 +91,9 @@ export const STEPS = [
     id: 2,
     phase: "Asegura el área",
     phaseTag: "Prevenir más daño",
-    tagColor: "#FF6B5B",
-    icon: <FaSign size={20} color="#FF6B5B" />,
-    accentColor: "#FF6B5B",
+    tagColor: "#34D399",
+    icon: <FaSign size={20} color="#34D399" />,
+    accentColor: "#34D399",
     safetyLevel: "warning",
     safetyNote:
       "Si el animal está en la vía, señaliza el área para evitar accidentes. Tu seguridad vial también importa.",
@@ -283,10 +283,10 @@ export const SAFETY_LEVELS = {
     label: "Crítico",
   },
   warning: {
-    color: "#FF6B5B",
-    bg: "rgba(255,107,91,0.10)",
-    border: "rgba(255,107,91,0.30)",
-    icon: <IoWarning color="#FF6B5B" size={20} />,
+    color: "#34D399",
+    bg: "rgba(52,211,153,0.10)",
+    border: "rgba(52,211,153,0.30)",
+    icon: <IoWarning color="#34D399" size={20} />,
     label: "Precaución",
   },
   caution: {

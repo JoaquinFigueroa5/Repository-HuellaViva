@@ -577,7 +577,7 @@ export default function PersonalityTest() {
             style={{
               width: 550,
               height: 550,
-              background: "var(--color-hv-accent-coral)",
+              background: "var(--color-hv-accent-emerald)",
               top: "-10%",
               right: "-10%",
             }}
@@ -605,16 +605,16 @@ export default function PersonalityTest() {
             <div
               className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border"
               style={{
-                backgroundColor: "rgba(255,107,91,0.10)",
-                borderColor: "rgba(255,107,91,0.28)",
+                backgroundColor: "rgba(52,211,153,0.10)",
+                borderColor: "rgba(52,211,153,0.28)",
               }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-coral)] pulse-dot" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-emerald)] pulse-dot" />
               <span
                 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  color: "var(--color-hv-accent-coral)",
+                  color: "var(--color-hv-accent-emerald)",
                 }}
               >
                 Descubre tu compañero ideal
@@ -630,7 +630,7 @@ export default function PersonalityTest() {
               }}
             >
               ¿Qué mascota va{" "}
-              <em className="not-italic text-[var(--color-hv-accent-coral)]">contigo?</em>
+              <em className="not-italic text-[var(--color-hv-accent-emerald)]">contigo?</em>
             </h2>
             <p
               className="text-[var(--color-hv-text-primary)]/50 max-w-md leading-relaxed"
@@ -661,8 +661,8 @@ export default function PersonalityTest() {
                     <m.div
                       className="h-full rounded-full"
                       style={{
-                        background: "linear-gradient(90deg, var(--color-hv-accent-coral), var(--color-hv-accent-coral-light))",
-                        boxShadow: "0 0 8px rgba(255,107,91,0.5)",
+                        background: "linear-gradient(90deg, var(--color-hv-accent-emerald), var(--color-hv-accent-emerald-light))",
+                        boxShadow: "0 0 8px rgba(52,211,153,0.5)",
                       }}
                       animate={{ width: `${progressPct}%` }}
                       transition={{
@@ -693,7 +693,7 @@ export default function PersonalityTest() {
                           i < currentQ
                             ? "var(--color-hv-primary)"
                             : i === currentQ
-                              ? "var(--color-hv-accent-coral)"
+                              ? "var(--color-hv-accent-emerald)"
                               : "rgba(232,251,253,0.15)",
                       }}
                       transition={{
@@ -730,8 +730,8 @@ export default function PersonalityTest() {
                           <span
                             className="text-2xl w-12 h-12 flex items-center justify-center rounded-2xl shrink-0"
                             style={{
-                              backgroundColor: "rgba(255,107,91,0.12)",
-                              border: "1px solid rgba(255,107,91,0.25)",
+                              backgroundColor: "rgba(52,211,153,0.12)",
+                              border: "1px solid rgba(52,211,153,0.25)",
                             }}
                           >
                             {question.icon}
@@ -779,7 +779,7 @@ export default function PersonalityTest() {
                             index={i}
                             isSelected={selected === i}
                             onSelect={() => handleAnswer(i)}
-                            accent="var(--color-hv-accent-coral)"
+                            accent="var(--color-hv-accent-emerald)"
                           />
                         ))}
                       </m.div>
@@ -812,7 +812,7 @@ export default function PersonalityTest() {
                         canAdvance
                           ? {
                               x: 2,
-                              boxShadow: "0 6px 24px rgba(255,107,91,0.40)",
+                              boxShadow: "0 6px 24px rgba(52,211,153,0.40)",
                             }
                           : {}
                       }
@@ -823,12 +823,12 @@ export default function PersonalityTest() {
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
                         backgroundColor: canAdvance
-                          ? "var(--color-hv-accent-coral)"
-                          : "rgba(255,107,91,0.15)",
-                        color: canAdvance ? "#fff" : "rgba(255,107,91,0.35)",
+                          ? "var(--color-hv-accent-emerald)"
+                          : "rgba(52,211,153,0.15)",
+                        color: canAdvance ? "#fff" : "rgba(52,211,153,0.35)",
                         cursor: canAdvance ? "pointer" : "not-allowed",
                         boxShadow: canAdvance
-                          ? "0 2px 16px rgba(255,107,91,0.35)"
+                          ? "0 2px 16px rgba(52,211,153,0.35)"
                           : "none",
                       }}
                     >

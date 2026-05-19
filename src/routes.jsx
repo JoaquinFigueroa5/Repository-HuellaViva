@@ -9,6 +9,7 @@ const Calculator = lazy(() => import("@/pages/Calculator"));
 const Test = lazy(() => import("@/pages/Test"));
 const Poster = lazy(() => import("@/pages/GeneratePoster"));
 const Privacy = lazy(() => import("@/pages/Privacy"));
+const About = lazy(() => import("@/pages/About"));
 const Terms = lazy(() => import("@/pages/Terms"));
 const MainLayout = lazy(() => import("@/layouts/MainLayout"));
 
@@ -23,6 +24,7 @@ const routes = [
             { path: "/test", element: <Test /> },
             { path: "/calculator", element: <Calculator /> },
             { path: "/poster", element: <Poster /> },
+            { path: "/about", element: <About /> },
             { path: "/privacy", element: <Privacy /> },
             { path: "/terms", element: <Terms /> },
         ],

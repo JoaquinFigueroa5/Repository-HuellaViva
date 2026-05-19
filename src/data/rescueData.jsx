@@ -16,11 +16,11 @@ export const RESCUES = [
     before: {
       label: "Antes",
       tag: "Encontrado",
-      tagColor: "#FF6B5B",
+      tagColor: "#34D399",
       summary: "Mi mami me adoptó cuando tenía 3 meses de Nacido soy una mezcla de chihuahua y alguna otra raza. Era muy delgado cuando llegue a ella.",
       details: ["Desnutrición severa", "3 meses en la calle"],
       mood: "Asustado",
-      moodIcon: <FaRegSadCry color="#FF6B5B" />,
+      moodIcon: <FaRegSadCry color="#34D399" />,
       imagePlaceholder: "bg-gradient-to-br from-[#2a1f1a] to-[#3d2b1f]",
       image: "/timeline/toby/tobyBefore.png"
     },
@@ -49,11 +49,11 @@ export const RESCUES = [
     before: {
       label: "Antes",
       tag: "Abandonado",
-      tagColor: "#FF6B5B",
+      tagColor: "#34D399",
       summary: "Hola soy Sisi, mis dueños pasaban por un basurero y se percataron que 2 adolescentes llevaban 2 gatitos, más adelante entre la basura me encontraron maullando.",
       details: ["Deshidratación", "Sin desparasitar"],
       mood: "Traumatizado",
-      moodIcon: <FaRegSadCry color="#FF6B5B" />,
+      moodIcon: <FaRegSadCry color="#34D399" />,
       imagePlaceholder: "bg-gradient-to-br from-[#1a1a2a] to-[#2a2a3d]",
       image: "/timeline/sisi/sisiBefore.png"
     },
@@ -68,7 +68,7 @@ export const RESCUES = [
       imagePlaceholder: "bg-gradient-to-br from-[#0a2010] to-[#153520]",
       image: "/timeline/sisi/sisiAfter.png"
     },
-    accentColor: "#FF6B5B",
+    accentColor: "#34D399",
     duration: "Semanas de recuperación",
     rescuedBy: "Equipo Armonia Animal",
     logo: <FaCat size={24} />
@@ -82,11 +82,11 @@ export const RESCUES = [
     before: {
       label: "Antes",
       tag: "Rescatada",
-      tagColor: "#FF6B5B",
+      tagColor: "#34D399",
       summary: "Vivía entre los puestos del mercado, con una infección ocular grave que le había dejado ciego el ojo derecho.",
       details: ["Infección ocular grave", "Parasitosis severa", "Pelaje en muy mal estado", "Anemia por desnutrición"],
       mood: "Sufriendo",
-      moodIcon: <FaRegSadCry color="#FF6B5B" />,
+      moodIcon: <FaRegSadCry color="#34D399" />,
       imagePlaceholder: "bg-gradient-to-br from-[#251a0a] to-[#3d2b10]",
       image: ""
     },
@@ -115,11 +115,11 @@ export const RESCUES = [
     before: {
       label: "Antes",
       tag: "Encontrado",
-      tagColor: "#FF6B5B",
+      tagColor: "#34D399",
       summary: "Encontrado entre escombros de una demolición. Tenía una pata fracturada y múltiples cortes.",
       details: ["Fractura de pata delantera", "Múltiples laceraciones", "Sin microchip ni dueño", "Extremadamente delgado"],
       mood: "En dolor",
-      moodIcon: <FaRegSadCry color="#FF6B5B" />,
+      moodIcon: <FaRegSadCry color="#34D399" />,
       imagePlaceholder: "bg-gradient-to-br from-[#1f1a10] to-[#332a18]",
       image: ""
     },
@@ -134,7 +134,7 @@ export const RESCUES = [
       imagePlaceholder: "bg-gradient-to-br from-[#0d2b17] to-[#1a4a2a]",
       image: ""
     },
-    accentColor: "#FF6B5B",
+    accentColor: "#34D399",
     duration: "10 semanas de recuperación",
     rescuedBy: "Dr. Mendoza & Equipo",
     logo: <FaDog size={24} />

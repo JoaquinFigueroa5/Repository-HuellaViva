@@ -83,17 +83,16 @@ export default function Navbar() {
           >
             <div
               className="
-              w-10 h-10 rounded-xl flex items-center justify-center shrink-0
-              bg-[var(--color-hv-primary)] text-[var(--color-hv-text-primary)]
+              w-10 h-10 rounded-full flex items-center justify-center shrink-0
+              text-(--color-hv-text-primary)
               shadow-[0_2px_16px_rgba(0,184,204,0.4)]
               transition-all duration-300
-              group-hover:bg-[var(--color-hv-accent-coral)]
               group-hover:-rotate-6
               group-hover:scale-110
-              group-hover:shadow-[0_4px_24px_rgba(255,107,91,0.5)]
+              group-hover:shadow-[0_4px_24px_rgba(52,211,153,0.5)]
             "
             >
-              <PawIcon />
+              <img src="/logo.png" alt="Logo de Armonia Animal" />
             </div>
 
             <div className="flex flex-col leading-none">
@@ -101,13 +100,13 @@ export default function Navbar() {
                 className="text-[var(--color-hv-text-primary)] text-[1.15rem] font-bold tracking-tight"
                 style={{ fontFamily: "'Fraunces', serif" }}
               >
-                ArmoniaAnimal
+                Armonia Animal
               </span>
               <span
                 className="text-[var(--color-hv-primary)] text-[0.6rem] font-semibold tracking-[0.13em] uppercase mt-0.75"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
-                Por los que no tienen voz
+                Programa de radio y TV
               </span>
             </div>
           </button>
@@ -138,7 +137,7 @@ export default function Navbar() {
                   <span
                     className={`
                     absolute bottom-1.25 left-1/2 -translate-x-1/2
-                    h-0.5 rounded-full bg-[var(--color-hv-accent-coral)]
+                    h-0.5 rounded-full bg-[var(--color-hv-accent-emerald)]
                     transition-all duration-300
                     ${active ? "w-[58%]" : "w-0 group-hover:w-[58%]"}
                   `}
@@ -164,13 +163,13 @@ export default function Navbar() {
             <button
               className="
                 flex items-center gap-2 shrink-0
-                bg-[var(--color-hv-accent-coral)] text-white text-sm font-semibold
+                bg-[var(--color-hv-accent-emerald)] text-white text-sm font-semibold
                 px-5 py-2.25 rounded-xl border-0 cursor-pointer
-                shadow-[0_2px_18px_rgba(255,107,91,0.42)]
+                shadow-[0_2px_18px_rgba(52,211,153,0.42)]
                 transition-all duration-200
                 hover:-translate-y-0.5
-                hover:shadow-[0_6px_28px_rgba(255,107,91,0.55)]
-                hover:bg-[var(--color-hv-accent-coral-light)]
+                hover:shadow-[0_6px_28px_rgba(52,211,153,0.55)]
+                hover:bg-[var(--color-hv-accent-emerald-light)]
                 active:translate-y-0
               "
               style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -253,11 +252,11 @@ export default function Navbar() {
               <button
                 className="
                   w-full flex items-center justify-center gap-2
-                  bg-[var(--color-hv-accent-coral)] text-white text-[0.95rem] font-semibold
+                  bg-[var(--color-hv-accent-emerald)] text-white text-[0.95rem] font-semibold
                   py-3.25 rounded-xl border-0 cursor-pointer
-                  shadow-[0_2px_18px_rgba(255,107,91,0.35)]
+                  shadow-[0_2px_18px_rgba(52,211,153,0.35)]
                   transition-all duration-200
-                  hover:bg-[var(--color-hv-accent-coral-light)] hover:-translate-y-px
+                  hover:bg-[var(--color-hv-accent-emerald-light)] hover:-translate-y-px
                   active:translate-y-0
                 "
                 style={{ fontFamily: "'DM Sans', sans-serif" }}

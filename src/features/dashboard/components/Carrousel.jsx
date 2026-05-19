@@ -343,7 +343,7 @@ export default function HeroCarousel() {
                         fontFamily: "'DM Sans', sans-serif",
                         backgroundColor: slide.accent,
                         boxShadow: `0 2px 18px ${slide.accent}45`,
-                        color: slide.accent === "var(--color-hv-text-primary)" ? "var(--color-hv-base)" : "#fff",
+                        color: slide.id === 3 ? "#000" : slide.accent === "var(--color-hv-text-primary)" ? "var(--color-hv-base)" : "#fff",
                       }}
                       onClick={() => document.location.href = slide.ref}
                     >

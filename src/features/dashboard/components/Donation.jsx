@@ -320,7 +320,7 @@ export default function DonationSection() {
             style={{
               width: 400,
               height: 400,
-              background: "var(--color-hv-accent-coral)",
+              background: "var(--color-hv-accent-emerald)",
               bottom: "10%",
               right: "5%",
             }}
@@ -357,7 +357,7 @@ export default function DonationSection() {
               }}
             >
               Dona medicamentos{" "}
-              <em className="not-italic text-[var(--color-hv-accent-coral)]">e insumos</em>
+              <em className="not-italic text-[var(--color-hv-accent-emerald)]">e insumos</em>
             </h2>
 
             <p
@@ -424,9 +424,9 @@ export default function DonationSection() {
                   <div
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                     style={{
-                      backgroundColor: "var(--color-hv-accent-coral)20",
-                      border: "1px solid var(--color-hv-accent-coral)50",
-                      color: "var(--color-hv-accent-coral)",
+                      backgroundColor: "var(--color-hv-accent-emerald)20",
+                      border: "1px solid var(--color-hv-accent-emerald)50",
+                      color: "var(--color-hv-accent-emerald)",
                       fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
@@ -463,15 +463,15 @@ export default function DonationSection() {
               <div
                 className="rounded-2xl border p-4"
                 style={{
-                  borderColor: "rgba(255,107,91,0.2)",
-                  backgroundColor: "rgba(255,107,91,0.05)",
+                  borderColor: "rgba(52,211,153,0.2)",
+                  backgroundColor: "rgba(52,211,153,0.05)",
                 }}
               >
                 <p
-                  className="text-[0.72rem] text-[var(--color-hv-accent-coral)]/70 leading-relaxed"
+                  className="text-[0.72rem] text-[var(--color-hv-accent-emerald)]/70 leading-relaxed"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  <span className="font-semibold text-[var(--color-hv-accent-coral)]">
+                  <span className="font-semibold text-[var(--color-hv-accent-emerald)]">
                     Requisito:
                   </span>{" "}
                   {DELIVERY_INFO.requirementNote}
@@ -507,7 +507,7 @@ export default function DonationSection() {
                 <div className="flex flex-col gap-4">
                   {[
                     { icon: <FaSyringe size={16} color="var(--color-hv-primary)" />, step: "Medicamento donado", desc: "Se aplica directamente a animales rescatados" },
-                    { icon: <FaHeart size={16} color="var(--color-hv-accent-coral)" />, step: "Tratamiento completo", desc: "Cubrimos desparasitación, curación y recuperación" },
+                    { icon: <FaHeart size={16} color="var(--color-hv-accent-emerald)" />, step: "Tratamiento completo", desc: "Cubrimos desparasitación, curación y recuperación" },
                     { icon: <FaDog size={16} color="var(--color-hv-primary)" />, step: "Animal sano y adoptable", desc: "Cada insumo ayuda a prepararlos para su adopción" },
                   ].map((item, i) => (
                     <div
@@ -517,8 +517,8 @@ export default function DonationSection() {
                       <div
                         className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
                         style={{
-                          backgroundColor: i % 2 === 0 ? "var(--color-hv-primary)15" : "var(--color-hv-accent-coral)15",
-                          border: `1px solid ${i % 2 === 0 ? "var(--color-hv-primary)30" : "var(--color-hv-accent-coral)30"}`,
+                          backgroundColor: i % 2 === 0 ? "var(--color-hv-primary)15" : "var(--color-hv-accent-emerald)15",
+                          border: `1px solid ${i % 2 === 0 ? "var(--color-hv-primary)30" : "var(--color-hv-accent-emerald)30"}`,
                         }}
                       >
                         {item.icon}
@@ -552,7 +552,7 @@ export default function DonationSection() {
               >
                 <div
                   className="absolute top-0 left-0 w-1 h-full rounded-l-2xl"
-                  style={{ backgroundColor: "var(--color-hv-accent-coral)" }}
+                  style={{ backgroundColor: "var(--color-hv-accent-emerald)" }}
                 />
                 <p
                   className="text-[var(--color-hv-text-primary)]/65 text-sm leading-relaxed mb-3 pl-3"
@@ -560,7 +560,7 @@ export default function DonationSection() {
                 >
                   "Gracias a la donación de medicamentos e insumos de nuestra
                   comunidad, hemos logrado tratar a cientos de animales
-                  rescatados este año. Cada producto cuenta."
+                  rescatados. Cada producto cuenta."
                 </p>
               </m.div>
 

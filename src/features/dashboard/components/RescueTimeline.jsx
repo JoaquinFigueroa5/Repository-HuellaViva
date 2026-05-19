@@ -92,9 +92,9 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
           <span
             className="text-xs font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full backdrop-blur-sm"
             style={{
-              color: isBefore ? "var(--color-hv-accent-coral)" : "var(--color-hv-primary)",
-              backgroundColor: isBefore ? "rgba(255,107,91,0.18)" : "rgba(0,184,204,0.18)",
-              border: `1px solid ${isBefore ? "rgba(255,107,91,0.35)" : "rgba(0,184,204,0.35)"}`,
+              color: isBefore ? "var(--color-hv-accent-emerald)" : "var(--color-hv-primary)",
+              backgroundColor: isBefore ? "rgba(52,211,153,0.18)" : "rgba(0,184,204,0.18)",
+              border: `1px solid ${isBefore ? "rgba(52,211,153,0.35)" : "rgba(0,184,204,0.35)"}`,
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
@@ -242,7 +242,7 @@ export default function RescueTimeline() {
                 }}
               >
                 Su historia en{" "}
-                <em className="not-italic text-[var(--color-hv-accent-coral)]">dos momentos</em>
+                <em className="not-italic text-[var(--color-hv-accent-emerald)]">dos momentos</em>
               </h2>
 
               <p
@@ -399,7 +399,7 @@ export default function RescueTimeline() {
                   <div className="flex items-center gap-3">
                     <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
                     <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-hv-surface)] border border-[var(--color-hv-text-primary)]/10">
-                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[var(--color-hv-accent-coral)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antes</span>
+                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[var(--color-hv-accent-emerald)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antes</span>
                       <div className="flex gap-0.75">
                         {[0, 1, 2].map((i) => (
                           <span key={i} className="w-0.75 h-0.75 rounded-full" style={{ backgroundColor: i === 1 ? active.accentColor : "var(--color-hv-text-primary)30" }} />
@@ -487,10 +487,10 @@ export default function RescueTimeline() {
               </div>
               <div className="flex gap-3 shrink-0">
                 <m.button
-                  whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(255,107,91,0.45)" }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(52,211,153,0.45)" }}
                   whileTap={{ scale: 0.96 }}
                   className="px-5 py-2.75 rounded-xl text-sm font-semibold border-0 cursor-pointer text-white"
-                  style={{ backgroundColor: "var(--color-hv-accent-coral)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(255,107,91,0.35)" }}
+                  style={{ backgroundColor: "var(--color-hv-accent-emerald)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(52,211,153,0.35)" }}
                 >
                   Adoptar ahora
                 </m.button>

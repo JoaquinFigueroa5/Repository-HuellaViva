@@ -400,7 +400,7 @@ export default function MythsVsReality() {
             style={{
               width: 500,
               height: 500,
-              background: "radial-gradient(circle, var(--color-hv-accent-coral) 0%, transparent 70%)",
+              background: "radial-gradient(circle, var(--color-hv-accent-emerald) 0%, transparent 70%)",
               top: "10%",
               right: "10%",
             }}
@@ -425,10 +425,10 @@ export default function MythsVsReality() {
             animate={sectionInView ? "visible" : "hidden"}
             className="flex flex-col items-center text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[var(--color-hv-accent-coral)]/12 border border-[var(--color-hv-accent-coral)]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-coral)] pulse-dot" />
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[var(--color-hv-accent-emerald)]/12 border border-[var(--color-hv-accent-emerald)]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-emerald)] pulse-dot" />
               <span
-                className="text-[var(--color-hv-accent-coral)] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+                className="text-[var(--color-hv-accent-emerald)] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Derribando barreras
@@ -444,7 +444,7 @@ export default function MythsVsReality() {
               }}
             >
               Mitos que{" "}
-              <em className="not-italic text-[var(--color-hv-accent-coral)]">cuestan vidas</em>
+              <em className="not-italic text-[var(--color-hv-accent-emerald)]">cuestan vidas</em>
             </h2>
 
             <p
@@ -492,12 +492,12 @@ export default function MythsVsReality() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 borderColor: allCurrentShown
-                  ? "rgba(255,107,91,0.35)"
+                  ? "rgba(52,211,153,0.35)"
                   : "rgba(232,251,253,0.15)",
                 backgroundColor: allCurrentShown
-                  ? "rgba(255,107,91,0.08)"
+                  ? "rgba(52,211,153,0.08)"
                   : "rgba(232,251,253,0.04)",
-                color: allCurrentShown ? "var(--color-hv-accent-coral)" : "rgba(232,251,253,0.45)",
+                color: allCurrentShown ? "var(--color-hv-accent-emerald)" : "rgba(232,251,253,0.45)",
               }}
             >
               {allCurrentShown ? (
@@ -594,12 +594,12 @@ export default function MythsVsReality() {
                 onMouseLeave={() => setInfoTooltip(false)}
               >
                 <m.button
-                  whileHover={{ y: -2, borderColor: "rgba(255,107,91,0.28)" }}
+                  whileHover={{ y: -2, borderColor: "rgba(52,211,153,0.28)" }}
                   className="flex items-center gap-2 px-5 py-2.75 rounded-xl text-sm font-semibold cursor-not-allowed"
                   style={{
-                    color: "rgba(255,107,91,0.45)",
-                    backgroundColor: "rgba(255,107,91,0.05)",
-                    border: "1px solid rgba(255,107,91,0.14)",
+                    color: "rgba(52,211,153,0.45)",
+                    backgroundColor: "rgba(52,211,153,0.05)",
+                    border: "1px solid rgba(52,211,153,0.14)",
                     fontFamily: "'DM Sans', sans-serif",
                   }}
                 >
@@ -635,11 +635,11 @@ export default function MythsVsReality() {
                           transformOrigin: "bottom center",
                           background:
                             "linear-gradient(135deg, rgba(30,32,36,0.97) 0%, rgba(22,24,28,0.99) 100%)",
-                          border: "1px solid rgba(255,107,91,0.22)",
+                          border: "1px solid rgba(52,211,153,0.22)",
                           borderRadius: "14px",
                           padding: "12px 16px",
                           boxShadow:
-                            "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,107,91,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+                            "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(52,211,153,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
                           minWidth: 200,
                           backdropFilter: "blur(16px)",
                           WebkitBackdropFilter: "blur(16px)",
@@ -662,9 +662,9 @@ export default function MythsVsReality() {
                               width: 26,
                               height: 26,
                               borderRadius: "8px",
-                              background: "rgba(255,107,91,0.14)",
-                              border: "1px solid rgba(255,107,91,0.28)",
-                              color: "var(--color-hv-accent-coral)",
+                              background: "rgba(52,211,153,0.14)",
+                              border: "1px solid rgba(52,211,153,0.28)",
+                              color: "var(--color-hv-accent-emerald)",
                               flexShrink: 0,
                             }}
                           >

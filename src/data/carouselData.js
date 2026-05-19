@@ -19,7 +19,7 @@ export const SLIDES = [
     description:
       "Adoptar a un animal rescatado no solo le da un hogar: transforma tu vida y la de toda una familia. El amor de un animal rescatado no tiene comparación.",
     // stat: { value: "68%", label: "de adoptantes reportan mayor bienestar" },
-    accent: "#FF6B5B",
+    accent: "#34D399",
     cta: "Reportar animal callejero",
     ref: "/report"
   },
@@ -43,7 +43,7 @@ export const SLIDES = [
     description:
       "Detrás de cada animal hay una historia de sufrimiento convertida en esperanza. Conoce a quienes encontraron su segunda oportunidad gracias a personas como tú.",
     // stat: { value: "94%", label: "de rescates terminan en adopción exitosa" },
-    accent: "#FF6B5B",
+    accent: "#34D399",
     cta: "Leer historias",
     ref: "#historias"
   },

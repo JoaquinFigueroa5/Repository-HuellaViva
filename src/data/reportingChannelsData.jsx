@@ -30,7 +30,7 @@ export const CHANNELS = [
         value: "1557 (extensiones 7070 o 7299) • 2413-7070",
         href: "tel:1557",
         icon: <FaPhone size={16} />,
-        color: "#FF6B5B",
+        color: "#34D399",
       },
       {
         label: "Oficinas centrales",
@@ -68,7 +68,7 @@ export const CHANNELS = [
     id: "municipalidades",
     title: "Municipalidades",
     subtitle: "Gobiernos Locales",
-    accentColor: "#FF6B5B",
+    accentColor: "#34D399",
     icon: <FaBuilding size={28} />,
     description:
       "Según la ley, las municipalidades tienen la obligación de actuar en conjunto con la UBA para la protección y bienestar animal.",
@@ -77,13 +77,13 @@ export const CHANNELS = [
         label: "Oficina municipal",
         value: "Acude a la oficina municipal de tu localidad",
         icon: <FaBuilding size={16} />,
-        color: "#FF6B5B",
+        color: "#34D399",
       },
       {
         label: "Policía Municipal",
         value: "También puedes acudir al Juzgado de Asuntos Municipales",
         icon: <FaShieldAlt size={16} />,
-        color: "#FF6B5B",
+        color: "#34D399",
       },
     ],
     schedule: "Horario variable según cada municipalidad",

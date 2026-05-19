@@ -73,7 +73,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <h3
-              className="text-[var(--color-hv-text-primary)] font-bold truncate"
+              className="text-(--color-hv-text-primary) font-bold truncate"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(1rem, 2vw, 1.15rem)",
@@ -284,7 +284,7 @@ export default function ReportSection() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[var(--color-hv-base)] py-20 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-(--color-hv-base) py-20 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -305,14 +305,14 @@ export default function ReportSection() {
             style={{
               width: 400,
               height: 400,
-              background: "var(--color-hv-accent-coral)",
+              background: "var(--color-hv-accent-emerald)",
               bottom: "-10%",
               right: "-5%",
             }}
           />
         </div>
 
-        <div className="relative max-w-215 mx-auto">
+        <div className="relative max-w-215 mx-auto mt-10">
           <m.div
             custom={0}
             variants={fadeUp}
@@ -340,7 +340,7 @@ export default function ReportSection() {
             </div>
 
             <h2
-              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-(--color-hv-text-primary) leading-[1.1] tracking-[-0.03em] mb-4"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.2rem)",
@@ -348,11 +348,11 @@ export default function ReportSection() {
               }}
             >
               ¿Cómo reportar{" "}
-              <em className="not-italic text-[var(--color-hv-accent-coral)]">maltrato animal</em> en
+              <em className="not-italic text-(--color-hv-accent-emerald)">maltrato animal</em> en
               Guatemala?
             </h2>
             <p
-              className="text-[var(--color-hv-text-primary)]/50 max-w-lg leading-relaxed"
+              className="text-hv-text-primary/50 max-w-lg leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -383,26 +383,26 @@ export default function ReportSection() {
             animate={sectionInView ? "visible" : "hidden"}
             className="rounded-2xl p-6 border"
             style={{
-              backgroundColor: "rgba(255,107,91,0.05)",
-              borderColor: "rgba(255,107,91,0.18)",
+              backgroundColor: "rgba(52,211,153,0.05)",
+              borderColor: "rgba(52,211,153,0.18)",
             }}
           >
             <div className="flex items-start gap-3 mb-3">
               <div
                 className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
                 style={{
-                  backgroundColor: "rgba(255,107,91,0.15)",
-                  border: "1px solid rgba(255,107,91,0.30)",
+                  backgroundColor: "rgba(52,211,153,0.15)",
+                  border: "1px solid rgba(52,211,153,0.30)",
                 }}
               >
-                <FaExclamationTriangle size={14} color="var(--color-hv-accent-coral)" />
+                <FaExclamationTriangle size={14} color="var(--color-hv-accent-emerald)" />
               </div>
               <div>
                 <h3
                   className="font-bold text-sm mb-1"
                   style={{
                     fontFamily: "'Fraunces', serif",
-                    color: "var(--color-hv-accent-coral)",
+                    color: "var(--color-hv-accent-emerald)",
                   }}
                 >
                   {LEGAL_CONTEXT.title}
@@ -421,7 +421,7 @@ export default function ReportSection() {
             <div
               className="mt-3 pt-3 flex items-start gap-3"
               style={{
-                borderTop: "1px solid rgba(255,107,91,0.12)",
+                borderTop: "1px solid rgba(52,211,153,0.12)",
               }}
             >
               <FaInfoCircle

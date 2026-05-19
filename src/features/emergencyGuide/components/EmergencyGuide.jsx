@@ -417,7 +417,7 @@ export default function EmergencyGuide() {
             style={{
               width: 500,
               height: 500,
-              background: "var(--color-hv-accent-coral)",
+              background: "var(--color-hv-accent-emerald)",
               top: "5%",
               right: "-5%",
             }}
@@ -468,7 +468,7 @@ export default function EmergencyGuide() {
               }}
             >
               Encontré un animal,{" "}
-              <em className="not-italic text-[var(--color-hv-accent-coral)]">¿qué hago?</em>
+              <em className="not-italic text-[var(--color-hv-accent-emerald)]">¿qué hago?</em>
             </h2>
 
             <p
@@ -527,7 +527,7 @@ export default function EmergencyGuide() {
                   <m.div
                     className="h-full rounded-full"
                     style={{
-                      background: "linear-gradient(90deg, var(--color-hv-accent-coral), var(--color-hv-primary))",
+                      background: "linear-gradient(90deg, var(--color-hv-accent-emerald), var(--color-hv-primary))",
                       boxShadow:
                         progressPct > 0
                           ? "0 0 8px rgba(0,184,204,0.5)"
@@ -574,7 +574,7 @@ export default function EmergencyGuide() {
                 className="p-5 rounded-2xl relative overflow-hidden"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(255,68,68,0.15) 0%, rgba(255,107,91,0.10) 100%)",
+                    "linear-gradient(135deg, rgba(255,68,68,0.15) 0%, rgba(52,211,153,0.10) 100%)",
                   border: "1px solid rgba(255,68,68,0.30)",
                   boxShadow: "0 4px 24px rgba(255,68,68,0.12)",
                 }}
@@ -672,8 +672,8 @@ export default function EmergencyGuide() {
                     },
                     {
                       rule: "Nunca toques sin protección en las manos",
-                      icon: <FaHandSparkles size={12} color="var(--color-hv-accent-coral)" />,
-                      accent: "var(--color-hv-accent-coral)",
+                      icon: <FaHandSparkles size={12} color="var(--color-hv-accent-emerald)" />,
+                      accent: "var(--color-hv-accent-emerald)",
                     },
                     {
                       rule: "Un animal asustado puede atacar sin querer",

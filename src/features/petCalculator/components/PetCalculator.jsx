@@ -315,7 +315,7 @@ export default function PetCostCalculator() {
   // Segmentos del donut
   const donutSegments = useMemo(() => {
     const keys   = Object.keys(expenses);
-    const colors = ["var(--color-hv-primary)", "var(--color-hv-accent-coral)", "var(--color-hv-text-primary)", "var(--color-hv-primary-light)", "var(--color-hv-accent-coral-light)"];
+    const colors = ["var(--color-hv-primary)", "var(--color-hv-accent-emerald)", "var(--color-hv-text-primary)", "var(--color-hv-primary-light)", "var(--color-hv-accent-emerald-light)"];
     return keys.map((k, i) => ({
       key:   k,
       value: expenses[k],
@@ -327,8 +327,8 @@ export default function PetCostCalculator() {
   const affordability = useMemo(() => {
     if (monthlyTotal < 300) return { label: "Muy accesible",   color: "var(--color-hv-primary)", emoji: "✅", desc: "Este nivel de gasto es alcanzable para la mayoría de familias guatemaltecas." };
     if (monthlyTotal < 500) return { label: "Accesible",       color: "var(--color-hv-primary)", emoji: "👍", desc: "Un gasto manejable con planificación mensual." };
-    if (monthlyTotal < 800) return { label: "Moderado",        color: "var(--color-hv-accent-coral)", emoji: "💛", desc: "Considera los consejos de ahorro para optimizar este presupuesto." };
-    return                         { label: "Presupuesto alto", color: "var(--color-hv-accent-coral)", emoji: "⚠️", desc: "Ajusta los sliders o revisa los tips para reducir costos sin sacrificar bienestar." };
+    if (monthlyTotal < 800) return { label: "Moderado",        color: "var(--color-hv-accent-emerald)", emoji: "💛", desc: "Considera los consejos de ahorro para optimizar este presupuesto." };
+    return                         { label: "Presupuesto alto", color: "var(--color-hv-accent-emerald)", emoji: "⚠️", desc: "Ajusta los sliders o revisa los tips para reducir costos sin sacrificar bienestar." };
   }, [monthlyTotal]);
 
   const baseCosts = BASE_COSTS[species][size];
@@ -344,7 +344,7 @@ export default function PetCostCalculator() {
           <div className="absolute rounded-full blur-[150px] opacity-[0.06]"
             style={{ width: 600, height: 600, background: "var(--color-hv-primary)", top: "-10%", left: "-15%" }} />
           <div className="absolute rounded-full blur-[120px] opacity-[0.05]"
-            style={{ width: 400, height: 400, background: "var(--color-hv-accent-coral)", bottom: "5%", right: "-5%" }} />
+            style={{ width: 400, height: 400, background: "var(--color-hv-accent-emerald)", bottom: "5%", right: "-5%" }} />
           {/* Grid pattern */}
           <div className="absolute inset-0 opacity-[0.018]"
             style={{
@@ -423,7 +423,7 @@ export default function PetCostCalculator() {
                     option={sz}
                     isSelected={size === sz.id}
                     onClick={() => handleSize(sz.id)}
-                    accentColor="var(--color-hv-accent-coral)"
+                    accentColor="var(--color-hv-accent-emerald)"
                   />
                 ))}
               </div>
@@ -559,7 +559,7 @@ export default function PetCostCalculator() {
                     {[
                       { label: "Al día",    value: fmt(dailyCost),        accent: "var(--color-hv-text-primary)", sub: "" },
                       { label: "Al mes",    value: fmt(monthlyTotal),     accent: "var(--color-hv-primary)", sub: "" },
-                      { label: "Al año",    value: fmt(monthlyTotal * 12),accent: "var(--color-hv-accent-coral)", sub: "gastos recurrentes" },
+                      { label: "Al año",    value: fmt(monthlyTotal * 12),accent: "var(--color-hv-accent-emerald)", sub: "gastos recurrentes" },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center justify-between">
                         <span className="text-[0.65rem] text-[var(--color-hv-text-primary)]/40" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -616,9 +616,9 @@ export default function PetCostCalculator() {
                   {/* Total primer año */}
                   <div
                     className="flex items-center justify-between p-3 rounded-xl"
-                    style={{ backgroundColor: "rgba(255,107,91,0.08)", border: "1px solid rgba(255,107,91,0.22)" }}
+                    style={{ backgroundColor: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.22)" }}
                   >
-                    <span className="text-xs font-semibold text-[var(--color-hv-accent-coral)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-xs font-semibold text-[var(--color-hv-accent-emerald)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       🗓️ Total primer año estimado
                     </span>
                     <m.span
@@ -627,7 +627,7 @@ export default function PetCostCalculator() {
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
                       className="font-bold tabular-nums"
-                      style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", color: "var(--color-hv-accent-coral)" }}
+                      style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", color: "var(--color-hv-accent-emerald)" }}
                     >
                       {fmt(annualTotal)}
                     </m.span>
@@ -702,7 +702,7 @@ export default function PetCostCalculator() {
                     <span className="text-xs font-bold text-[var(--color-hv-text-primary)]/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       Total
                     </span>
-                    <span className="text-sm font-bold" style={{ fontFamily: "'Fraunces', serif", color: "var(--color-hv-accent-coral)" }}>
+                    <span className="text-sm font-bold" style={{ fontFamily: "'Fraunces', serif", color: "var(--color-hv-accent-emerald)" }}>
                       {fmt(oneTimeTotal)}
                     </span>
                   </div>
