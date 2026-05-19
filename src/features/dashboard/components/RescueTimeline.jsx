@@ -166,7 +166,7 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             ) : (
-              <div style={{ color: isActive ? "var(--color-hv-text-primary)" : rescue.accentColor }}>
+              <div style={{ color: isActive ? "var(--color-hv-base)" : rescue.accentColor }}>
                 {rescue.logo}
               </div>
             )}
