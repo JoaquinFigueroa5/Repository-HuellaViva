@@ -37,7 +37,7 @@ export const RESCUES = [
     },
     accentColor: "#2DA14F",
     duration: "Semanas de recuperación",
-    rescuedBy: "Equipo HuellaViva",
+    rescuedBy: "Equipo Armonia Animal",
     logo: <FaDog size={24} />
   },
   {
@@ -70,7 +70,7 @@ export const RESCUES = [
     },
     accentColor: "#FF8C42",
     duration: "Semanas de recuperación",
-    rescuedBy: "Equipo HuellaViva",
+    rescuedBy: "Equipo Armonia Animal",
     logo: <FaCat size={24} />
   },
   {

@@ -308,7 +308,7 @@ export default function HeroCarousel() {
                   </m.p>
 
                   <m.div variants={statVariants} className="flex flex-wrap items-center gap-4 md:gap-6">
-
+{/* 
                     <div
                       className="flex items-center gap-3 px-4 py-3 rounded-2xl border"
                       style={{
@@ -332,7 +332,7 @@ export default function HeroCarousel() {
                       >
                         {slide.stat.label}
                       </span>
-                    </div>
+                    </div> */}
 
                     <m.button
                       whileHover={{ y: -3, boxShadow: `0 10px 32px ${slide.accent}55` }}

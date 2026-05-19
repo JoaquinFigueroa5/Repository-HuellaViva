@@ -101,7 +101,7 @@ export default function Navbar() {
                 className="text-[#D8F3DC] text-[1.15rem] font-bold tracking-tight"
                 style={{ fontFamily: "'Fraunces', serif" }}
               >
-                HuellaViva
+                ArmoniaAnimal
               </span>
               <span
                 className="text-[#2DA14F] text-[0.6rem] font-semibold tracking-[0.13em] uppercase mt-0.75"

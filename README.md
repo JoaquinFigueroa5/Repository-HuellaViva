@@ -1,4 +1,4 @@
-# HuellaViva Guatemala 🐾
+# Armonia Animal Guatemala 🐾
 
 Plataforma digital dedicada al rescate, rehabilitación y bienestar animal en Guatemala.
 

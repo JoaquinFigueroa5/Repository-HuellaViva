@@ -2,7 +2,7 @@ export const sections = [
   {
     title: "1. Información que recopilamos",
     content:
-      "HuellaViva recopila información personal básica cuando te registras, reportas un animal o te contactas con nosotros. Esto incluye tu nombre, correo electrónico y número de teléfono. No recopilamos datos sensibles sin tu consentimiento explícito.",
+      "ArmoniaAnimal recopila información personal básica cuando te registras, reportas un animal o te contactas con nosotros. Esto incluye tu nombre, correo electrónico y número de teléfono. No recopilamos datos sensibles sin tu consentimiento explícito.",
   },
   {
     title: "2. Uso de la información",

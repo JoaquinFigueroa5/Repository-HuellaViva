@@ -1,20 +1,17 @@
-import { useState, useRef, useCallback, memo } from "react";
+import { useState, useRef, memo } from "react";
 import {
-  FaPaw,
   FaHeart,
   FaWhatsapp,
-  FaCopy,
-  FaCheck,
-  FaUniversity,
   FaArrowRight,
+  FaChevronDown,
   FaDog,
   FaSyringe,
-  FaStethoscope,
-  FaHeartbeat,
-  FaHome,
-  FaBullhorn
+  FaPills,
+  FaFlask,
+  FaEye,
+  FaShieldAlt,
+  FaBandAid,
 } from "react-icons/fa";
-import { LuHandPlatter } from "react-icons/lu";
 import {
   LazyMotion,
   domMax,
@@ -23,17 +20,13 @@ import {
   useInView,
   useReducedMotion,
 } from "framer-motion";
-import { toast } from "sonner";
 
 import {
-  IMPACT_AMOUNTS,
-  BANK_ACCOUNTS,
-  IMPACT_STATS,
-  DONORS,
-  FUND_BREAKDOWN,
-  WA_LINK
+  MEDICATIONS,
+  HYGIENE_PRODUCTS,
+  DELIVERY_INFO,
+  WA_LINK,
 } from "@/data/donationData";
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -66,7 +59,8 @@ const scaleIn = {
 const VIEWPORT_ONCE = { once: true, margin: "-40px" };
 const VIEWPORT_ONCE_80 = { once: true, margin: "-80px" };
 
-const StatPill = memo(function StatPill({ value, label, accent, index }) {
+const CategoryCard = memo(function CategoryCard({ category, index }) {
+  const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, VIEWPORT_ONCE);
 
@@ -77,216 +71,221 @@ const StatPill = memo(function StatPill({ value, label, accent, index }) {
       variants={scaleIn}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="flex flex-col items-center gap-1 px-5 py-4 rounded-2xl"
+      className="rounded-2xl border overflow-hidden will-change-transform cursor-pointer"
       style={{
-        backgroundColor: `${accent}10`,
-        border: `1px solid ${accent}25`,
+        borderColor: `${category.color}28`,
+        backgroundColor: "rgba(255,255,255,0.025)",
+        backdropFilter: "blur(10px)",
       }}
+      onClick={() => setOpen((prev) => !prev)}
     >
-      <span
-        className="font-bold leading-none"
-        style={{
-          fontFamily: "'Fraunces', serif",
-          fontSize: "clamp(1.4rem, 2.5vw, 1.8rem)",
-          color: accent,
-        }}
-      >
-        {value}
-      </span>
-      <span
-        className="text-[#D8F3DC]/50 text-[0.68rem] text-center leading-tight"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
-      >
-        {label}
-      </span>
+      <div className="p-4">
+        <div className="flex items-center gap-4">
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+            style={{
+              backgroundColor: `${category.color}15`,
+              border: `1px solid ${category.color}30`,
+            }}
+          >
+            {category.icon}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p
+              className="font-bold text-sm leading-snug mb-0.5"
+              style={{ fontFamily: "'Fraunces', serif", color: "#D8F3DC" }}
+            >
+              {category.title}
+            </p>
+            <p
+              className="text-[0.65rem] text-[#D8F3DC]/50"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {category.description}
+            </p>
+          </div>
+          <m.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            style={{ color: `${category.color}60` }}
+          >
+            <FaChevronDown size={14} />
+          </m.div>
+        </div>
+
+        <AnimatePresence initial={false}>
+          {open && (
+            <m.div
+              key="items"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="h-px bg-[#D8F3DC]/6 my-3" />
+              <div className="flex flex-col gap-2">
+                {category.items.map((item) => (
+                  <div
+                    key={item.name}
+                    className="flex items-start gap-3 px-3 py-2.5 rounded-xl"
+                    style={{
+                      backgroundColor: `${category.color}06`,
+                      border: `1px solid ${category.color}12`,
+                    }}
+                  >
+                    <div
+                      className="w-2 h-2 rounded-full mt-1.5 shrink-0"
+                      style={{ backgroundColor: category.color }}
+                    />
+                    <div className="min-w-0">
+                      <p
+                        className="text-[0.82rem] font-semibold text-[#D8F3DC] leading-snug mb-0.5"
+                        style={{ fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {item.name}
+                      </p>
+                      {item.brand && (
+                        <p
+                          className="text-[0.65rem] text-[#D8F3DC]/40 mb-0.5"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {item.brand}
+                        </p>
+                      )}
+                      <p
+                        className="text-[0.6rem] text-[#D8F3DC]/30 italic"
+                        style={{ fontFamily: "'DM Sans', sans-serif" }}
+                      >
+                        {item.use}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </m.div>
+          )}
+        </AnimatePresence>
+      </div>
     </m.div>
   );
 });
 
-const BankCard = memo(function BankCard({ account, index }) {
-  const [copied, setCopied] = useState(null);
-
-  const copy = useCallback((text, field) => {
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(field);
-      setTimeout(() => setCopied(null), 2000);
-      toast.success(
-        `¡${field === "number" ? "Número de cuenta" : "Nombre del titular"} copiado!`,
-      );
-    });
-  }, []);
+const DeliverySteps = memo(function DeliverySteps() {
+  const steps = [
+    { num: "1", title: "Revisa la lista", desc: "Elige los productos que puedas donar de las categorías disponibles arriba." },
+    { num: "2", title: "Coordina por WhatsApp", desc: "Escríbenos para acordar el día y punto de entrega más cercano." },
+    { num: "3", title: "Entrega tus insumos", desc: "Cada producto donado se convierte en tratamiento directo para un animal rescatado." },
+  ];
 
   return (
-    <m.div
-      custom={index}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={VIEWPORT_ONCE}
-      whileHover={{ y: -3, boxShadow: `0 12px 40px ${account.color}18` }}
-      className="relative rounded-2xl border overflow-hidden cursor-default will-change-transform"
+    <div className="flex flex-col gap-4">
+      {steps.map((step, i) => (
+        <m.div
+          key={step.num}
+          custom={i}
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VIEWPORT_ONCE}
+          className="flex items-center gap-4 px-4 py-3.5 rounded-2xl border"
+          style={{
+            borderColor: "rgba(216,243,220,0.08)",
+            backgroundColor: "rgba(255,255,255,0.02)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <div
+            className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-base shrink-0"
+            style={{
+              backgroundColor: "#2DA14F20",
+              border: "1px solid #2DA14F50",
+              color: "#2DA14F",
+              fontFamily: "'Fraunces', serif",
+            }}
+          >
+            {step.num}
+          </div>
+          <div className="min-w-0">
+            <p
+              className="font-semibold text-sm text-[#D8F3DC] leading-snug"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {step.title}
+            </p>
+            <p
+              className="text-[0.7rem] text-[#D8F3DC]/50 leading-tight mt-0.5"
+              style={{ fontFamily: "'DM Sans', sans-serif" }}
+            >
+              {step.desc}
+            </p>
+          </div>
+        </m.div>
+      ))}
+    </div>
+  );
+});
+
+const WhatsAppCard = memo(function WhatsAppCard() {
+  return (
+    <m.a
+      href={WA_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ y: -3, boxShadow: "0 12px 40px rgba(37,211,102,0.35)" }}
+      whileTap={{ scale: 0.98 }}
+      className="flex items-center gap-5 p-5 rounded-2xl border no-underline group will-change-transform"
       style={{
-        borderColor: `${account.color}28`,
-        backgroundColor: "rgba(255,255,255,0.025)",
-        backdropFilter: "blur(10px)",
+        borderColor: "rgba(37,211,102,0.3)",
+        background:
+          "linear-gradient(135deg, rgba(37,211,102,0.10) 0%, rgba(37,211,102,0.04) 100%)",
+        boxShadow: "0 4px 24px rgba(37,211,102,0.12)",
       }}
     >
-      <div className="p-5">
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0"
-              style={{
-                backgroundColor: `${account.color}15`,
-                border: `1px solid ${account.color}30`,
-              }}
-            >
-              {account.logo}
-            </div>
-            <div>
-              <p
-                className="font-bold text-sm leading-none mb-0.75"
-                style={{ fontFamily: "'Fraunces', serif", color: "#D8F3DC" }}
-              >
-                {account.bank}
-              </p>
-              <p
-                className="text-[0.65rem] font-medium"
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  color: `${account.color}CC`,
-                }}
-              >
-                {account.accountType} · {account.currency}
-              </p>
-            </div>
-          </div>
-          <FaUniversity size={14} color={`${account.color}50`} />
-        </div>
-
-        <div className="h-px bg-[#D8F3DC]/6 mb-4" />
-
-        <div className="flex flex-col gap-3">
-          <div
-            className="flex items-center justify-between px-3 py-2.5 rounded-xl"
-            style={{
-              backgroundColor: `${account.color}08`,
-              border: `1px solid ${account.color}18`,
-            }}
+      <div
+        className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110"
+        style={{
+          backgroundColor: "#25D36620",
+          border: "2px solid #25D36645",
+        }}
+      >
+        <FaWhatsapp size={26} color="#25D366" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <p
+          className="font-bold text-[#D8F3DC] text-base mb-1 leading-none"
+          style={{ fontFamily: "'Fraunces', serif" }}
+        >
+          Escríbenos ahora
+        </p>
+        <p
+          className="text-[#D8F3DC]/50 text-xs leading-relaxed"
+          style={{ fontFamily: "'DM Sans', sans-serif" }}
+        >
+          Coordinamos la entrega de tus insumos y resolvemos cualquier duda.
+        </p>
+        <div className="flex items-center gap-1.5 mt-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] pulse-dot" />
+          <span
+            className="text-[#25D366] text-[0.65rem] font-semibold"
+            style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
-            <div>
-              <p
-                className="text-[0.6rem] text-[#D8F3DC]/30 uppercase tracking-widest mb-0.5"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                No. de cuenta
-              </p>
-              <p
-                className="font-semibold text-sm tracking-wider text-[#D8F3DC]"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                {account.accountNumber}
-              </p>
-            </div>
-            <m.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.92 }}
-              onClick={() => copy(account.accountNumber, "number")}
-              className="w-8 h-8 rounded-lg flex items-center justify-center border-0 cursor-pointer transition-colors duration-200"
-              style={{
-                backgroundColor:
-                  copied === "number"
-                    ? `${account.color}25`
-                    : `${account.color}10`,
-                color: copied === "number" ? account.color : "#D8F3DC40",
-              }}
-              title="Copiar número"
-            >
-              <AnimatePresence mode="wait">
-                {copied === "number" ? (
-                  <m.span
-                    key="check"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                  >
-                    <FaCheck size={11} />
-                  </m.span>
-                ) : (
-                  <m.span
-                    key="copy"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                  >
-                    <FaCopy size={11} />
-                  </m.span>
-                )}
-              </AnimatePresence>
-            </m.button>
-          </div>
-
-          <div
-            className="flex items-center justify-between px-3 py-2.5 rounded-xl"
-            style={{
-              backgroundColor: "rgba(216,243,220,0.03)",
-              border: "1px solid rgba(216,243,220,0.07)",
-            }}
-          >
-            <div>
-              <p
-                className="text-[0.6rem] text-[#D8F3DC]/30 uppercase tracking-widest mb-0.5"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                A nombre de
-              </p>
-              <p
-                className="font-medium text-sm text-[#D8F3DC]/75"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
-                {account.accountHolder}
-              </p>
-            </div>
-            <m.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.92 }}
-              onClick={() => copy(account.accountHolder, "holder")}
-              className="w-8 h-8 rounded-lg flex items-center justify-center border-0 cursor-pointer transition-colors duration-200"
-              style={{
-                backgroundColor:
-                  copied === "holder"
-                    ? "rgba(216,243,220,0.12)"
-                    : "rgba(216,243,220,0.05)",
-                color: copied === "holder" ? "#D8F3DC" : "#D8F3DC30",
-              }}
-              title="Copiar nombre"
-            >
-              <AnimatePresence mode="wait">
-                {copied === "holder" ? (
-                  <m.span
-                    key="check"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                  >
-                    <FaCheck size={11} />
-                  </m.span>
-                ) : (
-                  <m.span
-                    key="copy"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                  >
-                    <FaCopy size={11} />
-                  </m.span>
-                )}
-              </AnimatePresence>
-            </m.button>
-          </div>
+            Respuesta rápida · Todos los días
+          </span>
         </div>
       </div>
-    </m.div>
+      <m.div
+        animate={{ x: [0, 5, 0] }}
+        transition={{
+          repeat: Infinity,
+          duration: 1.6,
+          ease: "easeInOut",
+        }}
+        className="shrink-0 text-[#25D366]/50 group-hover:text-[#25D366] transition-colors duration-200"
+      >
+        <FaArrowRight />
+      </m.div>
+    </m.a>
   );
 });
 
@@ -300,7 +299,7 @@ export default function DonationSection() {
       <section
         ref={sectionRef}
         id="donaciones"
-        className="donation-section relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -334,18 +333,18 @@ export default function DonationSection() {
             variants={fadeUp}
             initial="hidden"
             animate={sectionInView ? "visible" : "hidden"}
-            className="flex flex-col items-center text-center mb-5"
+            className="flex flex-col items-center text-center mb-10"
           >
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#FF8C42]/12 border border-[#FF8C42]/30">
-              <span className="pulse-dot w-1.5 h-1.5 rounded-full bg-[#FF8C42]" />
-              <span className="heart-beat inline-block">
-                <FaHeart size={10} color="#FF8C42" />
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#2DA14F]/12 border border-[#2DA14F]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2DA14F]" />
+              <span>
+                <FaSyringe size={10} color="#2DA14F" />
               </span>
               <span
-                className="text-[#FF8C42] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+                className="text-[#2DA14F] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
-                Haz la diferencia hoy
+                Ayuda con insumos
               </span>
             </div>
 
@@ -357,65 +356,25 @@ export default function DonationSection() {
                 fontWeight: 700,
               }}
             >
-              Cada quetzal{" "}
-              <em className="not-italic text-[#FF8C42]">salva una vida</em>
+              Dona medicamentos{" "}
+              <em className="not-italic text-[#FF8C42]">e insumos</em>
             </h2>
 
             <p
-              className="text-[#D8F3DC]/50 max-w-md leading-relaxed mb-8"
+              className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
               }}
             >
-              Tu donación va directamente a alimentación, medicina y refugio
-              para los animales que rescatamos cada día.
+              Cada producto donado se convierte en tratamiento directo para un
+              animal rescatado.
             </p>
-
-            {/* Avatares de donantes */}
-            {/* <div className="flex items-center gap-3">
-              <div className="flex -space-x-2">
-                {DONORS.map((d, i) => (
-                  <m.div
-                    key={i}
-                    custom={i}
-                    variants={scaleIn}
-                    initial="hidden"
-                    animate={sectionInView ? "visible" : "hidden"}
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-[0.6rem] font-bold border-2 border-[#212529]"
-                    style={{ backgroundColor: d.color, color: "#212529", zIndex: DONORS.length - i }}
-                  >
-                    {d.initials}
-                  </m.div>
-                ))}
-              </div>
-              <p className="text-[#D8F3DC]/40 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-                <span className="text-[#D8F3DC]/70 font-semibold">+248 personas</span> donaron este mes
-              </p>
-            </div> */}
           </m.div>
-
-          {/* <m.div
-            custom={1}
-            variants={fadeUp}
-            initial="hidden"
-            animate={sectionInView ? "visible" : "hidden"}
-            className="grid grid-cols-3 gap-3 mb-12 max-w-xl mx-auto"
-          >
-            {IMPACT_STATS.map((s, i) => (
-              <StatPill
-                key={s.label}
-                value={s.value}
-                label={s.label}
-                accent={s.accent}
-                index={i}
-              />
-            ))}
-          </m.div> */}
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-8 xl:gap-12 items-start">
             <m.div
-              custom={2}
+              custom={1}
               variants={fadeUp}
               initial="hidden"
               animate={sectionInView ? "visible" : "hidden"}
@@ -438,54 +397,13 @@ export default function DonationSection() {
                     className="text-[#D8F3DC] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
-                    Elige cuánto quieres aportar
+                    Medicamentos veterinarios
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {IMPACT_AMOUNTS.map((a, i) => (
-                    <m.div
-                      key={a.value}
-                      custom={i}
-                      variants={scaleIn}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={VIEWPORT_ONCE}
-                      whileHover={{
-                        y: -4,
-                        boxShadow: `0 8px 28px ${a.color}25`,
-                      }}
-                      className="relative flex flex-col items-center gap-2 p-4 rounded-2xl border text-center cursor-default will-change-transform"
-                      style={{
-                        borderColor: `${a.color}30`,
-                        backgroundColor: `${a.color}08`,
-                      }}
-                    >
-                      {a.popular && (
-                        <span
-                          className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-[0.55rem] font-bold tracking-wider uppercase px-2 py-0.5 rounded-full whitespace-nowrap"
-                          style={{ backgroundColor: a.color, color: "#212529" }}
-                        >
-                          Más popular
-                        </span>
-                      )}
-                      <span className="text-2xl">{a.emoji}</span>
-                      <span
-                        className="font-bold text-base"
-                        style={{
-                          fontFamily: "'Fraunces', serif",
-                          color: a.color,
-                        }}
-                      >
-                        {a.value}
-                      </span>
-                      <span
-                        className="text-[0.65rem] leading-tight text-[#D8F3DC]/50"
-                        style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      >
-                        {a.impact}
-                      </span>
-                    </m.div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {MEDICATIONS.map((cat, i) => (
+                    <CategoryCard key={cat.id} category={cat} index={i} />
                   ))}
                 </div>
               </div>
@@ -496,96 +414,9 @@ export default function DonationSection() {
                   className="text-[#D8F3DC]/20 text-[0.65rem] uppercase tracking-widest"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  elige cómo donar
+                  también necesitamos
                 </span>
                 <div className="flex-1 h-px bg-[#D8F3DC]/8" />
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                    style={{
-                      backgroundColor: "#25D36620",
-                      border: "1px solid #25D36650",
-                      color: "#25D366",
-                      fontFamily: "'DM Sans', sans-serif",
-                    }}
-                  >
-                    2A
-                  </div>
-                  <h3
-                    className="text-[#D8F3DC] font-semibold text-base"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    Contáctanos por WhatsApp
-                  </h3>
-                </div>
-
-                <m.a
-                  href={WA_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{
-                    y: -3,
-                    boxShadow: "0 12px 40px rgba(37,211,102,0.35)",
-                  }}
-                  whileTap={{ scale: 0.98 }}
-                  className="wa-pulse flex items-center gap-5 p-5 rounded-2xl border no-underline group will-change-transform"
-                  style={{
-                    borderColor: "rgba(37,211,102,0.3)",
-                    background:
-                      "linear-gradient(135deg, rgba(37,211,102,0.10) 0%, rgba(37,211,102,0.04) 100%)",
-                    boxShadow: "0 4px 24px rgba(37,211,102,0.12)",
-                  }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-110"
-                    style={{
-                      backgroundColor: "#25D36620",
-                      border: "2px solid #25D36645",
-                    }}
-                  >
-                    <FaWhatsapp size={26} color="#25D366" />
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <p
-                      className="font-bold text-[#D8F3DC] text-base mb-1 leading-none"
-                      style={{ fontFamily: "'Fraunces', serif" }}
-                    >
-                      Escríbenos ahora
-                    </p>
-                    <p
-                      className="text-[#D8F3DC]/50 text-xs leading-relaxed"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      Te orientamos en el proceso, confirmamos tu donación y te
-                      enviamos el comprobante.
-                    </p>
-                    <div className="flex items-center gap-1.5 mt-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] pulse-dot" />
-                      <span
-                        className="text-[#25D366] text-[0.65rem] font-semibold"
-                        style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      >
-                        Disponible todos los días · Respuesta en minutos
-                      </span>
-                    </div>
-                  </div>
-
-                  <m.div
-                    animate={{ x: [0, 5, 0] }}
-                    transition={{
-                      repeat: Infinity,
-                      duration: 1.6,
-                      ease: "easeInOut",
-                    }}
-                    className="shrink-0 text-[#25D366]/50 group-hover:text-[#25D366] transition-colors duration-200"
-                  >
-                    <FaArrowRight />
-                  </m.div>
-                </m.a>
               </div>
 
               <div>
@@ -599,131 +430,125 @@ export default function DonationSection() {
                       fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
-                    2B
+                    2
                   </div>
                   <h3
                     className="text-[#D8F3DC] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
-                    Deposita o transfiere directamente
+                    Productos de higiene medicados
                   </h3>
                 </div>
 
-                <p
-                  className="text-[#D8F3DC]/40 text-xs mb-4 leading-relaxed flex items-center gap-2"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Después de tu depósito, envíanos el comprobante por WhatsApp
-                  para registrar tu donación.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {BANK_ACCOUNTS.map((acc, i) => (
-                    <BankCard key={acc.id} account={acc} index={i} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {HYGIENE_PRODUCTS.map((cat, i) => (
+                    <CategoryCard key={cat.id} category={cat} index={i} />
                   ))}
                 </div>
               </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                <span
+                  className="text-[#D8F3DC]/20 text-[0.65rem] uppercase tracking-widest"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  ¿cómo entregar?
+                </span>
+                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+              </div>
+
+              <DeliverySteps />
+
+              <div
+                className="rounded-2xl border p-4"
+                style={{
+                  borderColor: "rgba(255,140,66,0.2)",
+                  backgroundColor: "rgba(255,140,66,0.05)",
+                }}
+              >
+                <p
+                  className="text-[0.72rem] text-[#FF8C42]/70 leading-relaxed"
+                  style={{ fontFamily: "'DM Sans', sans-serif" }}
+                >
+                  <span className="font-semibold text-[#FF8C42]">
+                    Requisito:
+                  </span>{" "}
+                  {DELIVERY_INFO.requirementNote}
+                </p>
+              </div>
+
+              <WhatsAppCard />
             </m.div>
 
             <m.div
-              custom={3}
+              custom={2}
               variants={fadeUp}
               initial="hidden"
               animate={sectionInView ? "visible" : "hidden"}
               className="flex flex-col gap-5 lg:sticky lg:top-24"
             >
               <div
-                className="glass-card p-6 rounded-3xl border border-[#2DA14F]/20"
-                style={{ boxShadow: "0 4px 32px rgba(45,161,79,0.10)" }}
+                className="p-6 rounded-3xl border"
+                style={{
+                  borderColor: "#2DA14F20",
+                  backgroundColor: "rgba(255,255,255,0.025)",
+                  backdropFilter: "blur(10px)",
+                  boxShadow: "0 4px 32px rgba(45,161,79,0.10)",
+                }}
               >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p
-                      className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-1"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      Meta mensual
-                    </p>
-                    <p
-                      style={{
-                        fontFamily: "'Fraunces', serif",
-                        fontSize: "1.5rem",
-                        fontWeight: 700,
-                        color: "#D8F3DC",
-                      }}
-                    >
-                      Q 15,000
-                    </p>
-                  </div>
-                  <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center"
-                    style={{
-                      backgroundColor: "#2DA14F20",
-                      border: "1px solid #2DA14F40",
-                    }}
-                  >
-                    <FaHeart size={18} color="#2DA14F" />
-                  </div>
-                </div>
-              </div>
-
-              <div className="glass-card p-5 rounded-2xl border border-[#D8F3DC]/8">
                 <p
                   className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  ¿A dónde va tu donación?
+                  Así ayudan tus donaciones
                 </p>
 
-                {FUND_BREAKDOWN.map((item, i) => (
-                  <div key={item.label} className="mb-3 last:mb-0">
-                    <div className="flex items-center justify-between mb-1">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm">{item.icon}</span>
-                        <span
-                          className="text-[0.7rem]"
-                          style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            color: "#D8F3DC70",
-                          }}
-                        >
-                          {item.label}
-                        </span>
-                      </div>
-                      <span
-                        className="text-[0.68rem] font-semibold"
+                <div className="flex flex-col gap-4">
+                  {[
+                    { icon: <FaSyringe size={16} color="#2DA14F" />, step: "Medicamento donado", desc: "Se aplica directamente a animales rescatados" },
+                    { icon: <FaHeart size={16} color="#FF8C42" />, step: "Tratamiento completo", desc: "Cubrimos desparasitación, curación y recuperación" },
+                    { icon: <FaDog size={16} color="#2DA14F" />, step: "Animal sano y adoptable", desc: "Cada insumo ayuda a prepararlos para su adopción" },
+                  ].map((item, i) => (
+                    <div
+                      key={item.step}
+                      className="flex items-start gap-3"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
                         style={{
-                          color: item.color,
-                          fontFamily: "'DM Sans', sans-serif",
+                          backgroundColor: i % 2 === 0 ? "#2DA14F15" : "#FF8C4215",
+                          border: `1px solid ${i % 2 === 0 ? "#2DA14F30" : "#FF8C4230"}`,
                         }}
                       >
-                        {item.pct}%
-                      </span>
+                        {item.icon}
+                      </div>
+                      <div className="min-w-0">
+                        <p
+                          className="text-[0.78rem] font-semibold text-[#D8F3DC] leading-snug"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {item.step}
+                        </p>
+                        <p
+                          className="text-[0.65rem] text-[#D8F3DC]/40 leading-tight"
+                          style={{ fontFamily: "'DM Sans', sans-serif" }}
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
-                    <div className="h-1 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
-                      <m.div
-                        className="h-full rounded-full"
-                        style={{ backgroundColor: item.color }}
-                        initial={{ width: "0%" }}
-                        animate={
-                          sectionInView
-                            ? { width: `${item.pct}%` }
-                            : { width: "0%" }
-                        }
-                        transition={{
-                          delay: 0.7 + i * 0.12,
-                          duration: 1,
-                          ease: "easeOut",
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               <m.div
                 whileHover={{ y: -2 }}
-                className="glass-card p-5 rounded-2xl border border-[#D8F3DC]/8 relative overflow-hidden cursor-default will-change-transform"
+                className="p-5 rounded-2xl border border-[#D8F3DC]/8 relative overflow-hidden cursor-default will-change-transform"
+                style={{
+                  backgroundColor: "rgba(255,255,255,0.02)",
+                  backdropFilter: "blur(10px)",
+                }}
               >
                 <div
                   className="absolute top-0 left-0 w-1 h-full rounded-l-2xl"
@@ -733,9 +558,9 @@ export default function DonationSection() {
                   className="text-[#D8F3DC]/65 text-sm leading-relaxed mb-3 pl-3"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  "Gracias a las donaciones de nuestra comunidad, hemos
-                  rescatado a más de 1,200 animales este año. Cada quetzal
-                  cuenta."
+                  "Gracias a la donación de medicamentos e insumos de nuestra
+                  comunidad, hemos logrado tratar a cientos de animales
+                  rescatados este año. Cada producto cuenta."
                 </p>
               </m.div>
 

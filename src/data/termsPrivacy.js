@@ -2,7 +2,7 @@ export const sections = [
   {
     title: "1. Aceptación de los términos",
     content:
-      "Al acceder y utilizar el sitio web de HuellaViva, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguna parte, te pedimos que no utilices nuestros servicios.",
+      "Al acceder y utilizar el sitio web de ArmoniaAnimal, aceptas cumplir con estos términos y condiciones. Si no estás de acuerdo con alguna parte, te pedimos que no utilices nuestros servicios.",
   },
   {
     title: "2. Uso del sitio web",
@@ -22,17 +22,17 @@ export const sections = [
   {
     title: "5. Donaciones",
     content:
-      "Todas las donaciones son voluntarias y no reembolsables. Los fondos se destinan exclusivamente al rescate, rehabilitación y cuidado de animales. Emitimos comprobantes de donación cuando es solicitado.",
+      "Todas las donaciones de insumos y productos son voluntarias y no reembolsables. Los productos se destinan exclusivamente al tratamiento, rehabilitación y cuidado de animales rescatados. Emitimos recibos de donación cuando es solicitado.",
   },
   {
     title: "6. Limitación de responsabilidad",
     content:
-      "HuellaViva no se hace responsable por daños directos o indirectos derivados del uso de este sitio web o de la información proporcionada en el mismo. Nuestro compromiso es brindar información precisa y actualizada.",
+      "ArmoniaAnimal no se hace responsable por daños directos o indirectos derivados del uso de este sitio web o de la información proporcionada en el mismo. Nuestro compromiso es brindar información precisa y actualizada.",
   },
   {
     title: "7. Propiedad intelectual",
     content:
-      "Todo el contenido del sitio, incluyendo textos, imágenes, logotipos y diseño, es propiedad de HuellaViva y está protegido por las leyes de propiedad intelectual vigentes en Guatemala.",
+      "Todo el contenido del sitio, incluyendo textos, imágenes, logotipos y diseño, es propiedad de ArmoniaAnimal y está protegido por las leyes de propiedad intelectual vigentes en Guatemala.",
   },
   {
     title: "8. Modificaciones",

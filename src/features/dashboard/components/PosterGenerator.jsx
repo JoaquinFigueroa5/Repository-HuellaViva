@@ -154,7 +154,7 @@ function PosterPreview({ data, posterType }) {
         className="relative px-6 pt-6 pb-8"
         style={{ background: pt.headerBg }}
       >
-        {/* Logo HuellaViva */}
+        {/* Logo ArmoniaAnimal */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div
@@ -170,7 +170,7 @@ function PosterPreview({ data, posterType }) {
               className="font-bold text-sm tracking-tight"
               style={{ fontFamily: "'Fraunces', serif", color: "#D8F3DC" }}
             >
-              Huella<span style={{ color: accent }}>Viva</span>
+              Armonia<span style={{ color: accent }}>Animal</span>
             </span>
           </div>
           <span
@@ -400,7 +400,7 @@ function PosterPreview({ data, posterType }) {
           className="text-[0.55rem] text-[#D8F3DC]/25 tracking-wider uppercase"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
-          huellaviva.gt
+          armoniaanimal.gt
         </span>
         <span
           className="text-[0.55rem] font-semibold"
@@ -480,7 +480,7 @@ function PosterPrintVersion({ data, posterType }) {
                 letterSpacing: "-0.02em",
               }}
             >
-              Huella<span style={{ color: accent }}>Viva</span>
+              Armonia<span style={{ color: accent }}>Animal</span>
             </span>
           </div>
           <span
@@ -840,7 +840,7 @@ function PosterPrintVersion({ data, posterType }) {
             fontFamily: fontBase,
           }}
         >
-          huellaviva.gt
+          armoniaanimal.gt
         </span>
         <span
           style={{
@@ -942,7 +942,7 @@ export default function PosterGenerator() {
       });
 
       pdf.addImage(imgData, "PNG", 0, 0, canvas.width, canvas.height);
-      pdf.save(`huellaviva-${data.name || "animal"}.pdf`);
+      pdf.save(`armoniaanimal-${data.name || "animal"}.pdf`);
     } catch (error) {
       console.error("Error al generar el PDF:", error);
     } finally {
@@ -1009,7 +1009,7 @@ export default function PosterGenerator() {
               }}
             >
               Diseña carteles profesionales de adopción o búsqueda para los
-              animales de HuellaViva.
+              animales de ArmoniaAnimal.
             </p>
           </m.div>
 
@@ -1440,7 +1440,7 @@ export default function PosterGenerator() {
                           <Input
                             value={data.contactName}
                             onChange={set("contactName")}
-                            placeholder="Ej: Ana García / HuellaViva"
+                            placeholder="Ej: Ana García / ArmoniaAnimal"
                             maxLength={40}
                           />
                         </div>

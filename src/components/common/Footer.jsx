@@ -159,7 +159,7 @@ export default function Footer() {
                     className="text-[#D8F3DC] text-[1.25rem] font-bold tracking-tight"
                     style={{ fontFamily: "'Fraunces', serif" }}
                   >
-                    HuellaViva
+                    ArmoniaAnimal
                   </span>
                   <span
                     className="text-[0.6rem] font-bold tracking-[0.2em] uppercase mt-0.5"
@@ -236,7 +236,7 @@ export default function Footer() {
                   className="text-[0.7rem]"
                   style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.25)" }}
                 >
-                  © {year} HuellaViva Guatemala. Todos los derechos reservados.
+                  © {year} Armonia Animal Guatemala. Todos los derechos reservados.
                 </p>
                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/5" />
                 <div className="flex items-center gap-4">

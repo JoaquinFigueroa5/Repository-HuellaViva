@@ -466,7 +466,7 @@ export default function RescueTimeline() {
               </AnimatePresence>
             </div>
 
-            <m.div
+            {/* <m.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -486,14 +486,14 @@ export default function RescueTimeline() {
                 </p>
               </div>
               <div className="flex gap-3 shrink-0">
-                {/* <m.button
+                <m.button
                   whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(255,140,66,0.45)" }}
                   whileTap={{ scale: 0.96 }}
                   className="px-5 py-2.75 rounded-xl text-sm font-semibold border-0 cursor-pointer text-white"
                   style={{ backgroundColor: "#FF8C42", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(255,140,66,0.35)" }}
                 >
                   Adoptar ahora
-                </m.button> */}
+                </m.button>
                 <m.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.96 }}
@@ -509,7 +509,7 @@ export default function RescueTimeline() {
                   Donar
                 </m.button>
               </div>
-            </m.div>
+            </m.div> */}
 
           </div>
         </section>

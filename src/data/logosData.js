@@ -22,9 +22,9 @@ export const LOGOS = [
   },
   {
     id: 4,
-    name: "Huella Viva",
+    name: "Armonia Animal",
     logo: "/favicon.svg",
-    alt: "Logo Huella Viva",
+    alt: "Logo Armonia Animal",
     url: "#",
   },
 ]

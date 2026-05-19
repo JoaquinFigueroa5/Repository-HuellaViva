@@ -7,7 +7,7 @@ import {
 export const NAV_LINKS = [
   { label: "Inicio", href: "/" },
   { label: "Guia emergencia", href: "/emergency" },
-  { label: "Reportar animal", href: "/report" },
+  { label: "Formas de reportar", href: "/report" },
   { label: "Test de mascota", href: "/test" },
   { label: "Carteles", href: "/poster" },
   { label: "Nosotros", href: "/about" },
@@ -26,7 +26,7 @@ export const NAV_COLUMNS = [
   {
     title: "Acciones rápidas",
     links: [
-      { label: "Reportar animal",   href: "/report"     },
+      { label: "Formas de reportar",   href: "/report"  },
       { label: "Crear cartel",      href: "/poster"     },
       { label: "Test de mascota",   href: "/test"       },
       { label: "Donaciones",        href: "#donaciones" },

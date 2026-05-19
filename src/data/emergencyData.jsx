@@ -22,7 +22,7 @@ import {
 
 export const EMERGENCY_CONTACTS = [
   {
-    label: "HuellaViva",
+    label: "ArmoniaAnimal",
     number: "+502 3060-3492",
     icon: <FaPaw />,
     type: "wa",
@@ -211,7 +211,7 @@ export const STEPS = [
       "Aunque el animal parezca bien, una revisión veterinaria es indispensable. Heridas internas, fracturas o infecciones pueden no ser visibles.",
     actions: [
       {
-        text: "Llama a HuellaViva o una clínica veterinaria antes de llegar para que se preparen",
+        text: "Llama a ArmoniaAnimal o una clínica veterinaria antes de llegar para que se preparen",
         icon: "📞",
       },
       {
@@ -234,7 +234,7 @@ export const STEPS = [
     tip: {
       title: "¿No puedes llevarlo tú?",
       content:
-        "¡Está bien! Contacta a HuellaViva con la ubicación GPS del animal. Nuestro equipo puede coordinar el rescate. Tu llamada puede ser suficiente para salvar su vida.",
+        "¡Está bien! Contacta a ArmoniaAnimal con la ubicación GPS del animal. Nuestro equipo puede coordinar el rescate. Tu llamada puede ser suficiente para salvar su vida.",
     },
   },
   {
@@ -257,7 +257,7 @@ export const STEPS = [
         icon: "📱",
       },
       {
-        text: "Donarlo a un refugio como HuellaViva si no puedes cuidarlo",
+        text: "Donarlo a un refugio como ArmoniaAnimal si no puedes cuidarlo",
         icon: "❤️",
       },
       {

@@ -160,7 +160,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
 
   const maxScore = topScores[0]?.score || 1;
   const waMessage = encodeURIComponent(
-    `¡Hola! Hice el test de personalidad en HuellaViva y me recomendaron: "${profile.pet}". Me gustaría conocer más sobre el proceso de adopción.`,
+    `¡Hola! Hice el test de personalidad en ArmoniaAnimal y me recomendaron: "${profile.pet}". Me gustaría conocer más sobre el proceso de adopción.`,
   );
 
   return (
