@@ -35,7 +35,7 @@ function ImagePlaceholder({ gradient, label, tag, tagColor, moodIcon, mood }) {
         >
           {tag}
         </span>
-        <span className="text-[#D8F3DC]/30 text-[0.65rem] tracking-[0.2em] uppercase mt-1">
+        <span className="text-[var(--color-hv-text-primary)]/30 text-[0.65rem] tracking-[0.2em] uppercase mt-1">
           Foto próximamente
         </span>
       </div>
@@ -67,7 +67,7 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
       transition={{ type: "spring", stiffness: 100, damping: 20, delay: isBefore ? 0 : 0.15 }}
-      className="flex flex-col rounded-2xl overflow-hidden border border-[#D8F3DC]/8 bg-[#1a1e22]"
+      className="flex flex-col rounded-2xl overflow-hidden border border-[var(--color-hv-text-primary)]/8 bg-[var(--color-hv-surface)]"
       whileHover={{ y: -3, boxShadow: `0 8px 40px ${accent}15` }}
       style={{ boxShadow: isActive ? `0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px ${accent}15` : "none" }}
     >
@@ -92,18 +92,18 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
           <span
             className="text-xs font-bold tracking-[0.12em] uppercase px-3 py-1 rounded-full backdrop-blur-sm"
             style={{
-              color: isBefore ? "#FF8C42" : "#2DA14F",
-              backgroundColor: isBefore ? "rgba(255,140,66,0.18)" : "rgba(45,161,79,0.18)",
-              border: `1px solid ${isBefore ? "rgba(255,140,66,0.35)" : "rgba(45,161,79,0.35)"}`,
+              color: isBefore ? "var(--color-hv-accent-coral)" : "var(--color-hv-primary)",
+              backgroundColor: isBefore ? "rgba(255,107,91,0.18)" : "rgba(0,184,204,0.18)",
+              border: `1px solid ${isBefore ? "rgba(255,107,91,0.35)" : "rgba(0,184,204,0.35)"}`,
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
             {isBefore ?  "Antes" : "Después"}
           </span>
         </div>
-        <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#212529]/70 backdrop-blur-sm">
+        <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--color-hv-base)]/70 backdrop-blur-sm">
           <span className="text-sm">{data.moodIcon}</span>
-          <span className="text-[#D8F3DC]/70 text-[0.68rem] font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="text-[var(--color-hv-text-primary)]/70 text-[0.68rem] font-medium" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {data.mood}
           </span>
         </div>
@@ -111,7 +111,7 @@ function BeforeAfterCard({ side, data, accent, isActive, index }) {
 
       <div className="p-5 flex flex-col gap-4 flex-1">
         <p
-          className="text-[#D8F3DC]/75 text-sm leading-relaxed"
+          className="text-[var(--color-hv-text-primary)]/75 text-sm leading-relaxed"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {data.summary}
@@ -157,8 +157,8 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
             transition={{ type: "spring", stiffness: 280, damping: 22 }}
             className="w-10 h-10 rounded-full flex items-center justify-center text-lg relative z-10"
             style={{
-              backgroundColor: isActive ? rescue.accentColor : isCompleted ? `${rescue.accentColor}30` : "#2a2f35",
-              border: `2px solid ${isActive || isCompleted ? rescue.accentColor : "#3a4048"}`,
+              backgroundColor: isActive ? rescue.accentColor : isCompleted ? `${rescue.accentColor}30` : "var(--color-hv-surface-elevated)",
+              border: `2px solid ${isActive || isCompleted ? rescue.accentColor : "var(--color-hv-border)"}`,
             }}
           >
             {isCompleted && !isActive ? (
@@ -166,7 +166,7 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             ) : (
-              <div style={{ color: isActive ? "#D8F3DC" : rescue.accentColor }}>
+              <div style={{ color: isActive ? "var(--color-hv-text-primary)" : rescue.accentColor }}>
                 {rescue.logo}
               </div>
             )}
@@ -179,7 +179,7 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
               className="font-bold text-sm truncate"
               style={{
                 fontFamily: "'Fraunces', serif",
-                color: isActive ? rescue.accentColor : "#D8F3DC",
+                color: isActive ? rescue.accentColor : "var(--color-hv-text-primary)",
               }}
             >
               {rescue.name}
@@ -194,7 +194,7 @@ function TimelineNode({ rescue, index, isActive, isCompleted, onClick }) {
               {rescue.species}
             </span>
           </div>
-          <p className="text-[#D8F3DC]/40 text-[0.68rem] truncate" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <p className="text-[var(--color-hv-text-primary)]/40 text-[0.68rem] truncate" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             {rescue.date} · {rescue.location}
           </p>
         </div>
@@ -223,7 +223,7 @@ export default function RescueTimeline() {
   return (
     <>
       <LazyMotion features={domMax} strict>
-        <section className="w-full bg-[#212529] py-5 px-4 md:px-8 overflow-hidden" id="historias">
+        <section className="w-full bg-[var(--color-hv-base)] py-5 px-4 md:px-8 overflow-hidden" id="historias">
           <div className="max-w-300 mx-auto">
 
             <m.div
@@ -234,7 +234,7 @@ export default function RescueTimeline() {
               className="mb-16 flex flex-col items-center text-center"
             >
               <h2
-                className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+                className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
                 style={{
                   fontFamily: "'Fraunces', serif",
                   fontSize: "clamp(2rem, 5vw, 3.4rem)",
@@ -242,11 +242,11 @@ export default function RescueTimeline() {
                 }}
               >
                 Su historia en{" "}
-                <em className="not-italic text-[#FF8C42]">dos momentos</em>
+                <em className="not-italic text-[var(--color-hv-accent-coral)]">dos momentos</em>
               </h2>
 
               <p
-                className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
+                className="text-[var(--color-hv-text-primary)]/50 max-w-md leading-relaxed"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -262,10 +262,10 @@ export default function RescueTimeline() {
 
               <div className="lg:sticky lg:top-24">
                 <div className="flex items-center gap-2 mb-5 px-1">
-                  <span className="text-[#D8F3DC]/30 text-xs tracking-widest uppercase" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <span className="text-[var(--color-hv-text-primary)]/30 text-xs tracking-widest uppercase" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     {RESCUES.length} rescates
                   </span>
-                  <div className="flex-1 h-px bg-[#D8F3DC]/10" />
+                  <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/10" />
                 </div>
 
                 <div className="relative">
@@ -286,11 +286,11 @@ export default function RescueTimeline() {
                 </div>
 
                 <div className="mt-6 px-4">
-                  <div className="flex justify-between text-[0.65rem] text-[#D8F3DC]/30 mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <div className="flex justify-between text-[0.65rem] text-[var(--color-hv-text-primary)]/30 mb-2" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     <span>Progreso</span>
                     <span>{RESCUES.findIndex((r) => r.id === activeId) + 1} / {RESCUES.length}</span>
                   </div>
-                  <div className="h-1 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
+                  <div className="h-1 rounded-full bg-[var(--color-hv-text-primary)]/10 overflow-hidden">
                     <m.div
                       className="h-full rounded-full"
                       style={{ backgroundColor: active.accentColor }}
@@ -309,7 +309,7 @@ export default function RescueTimeline() {
                       if (idx > 0) setActiveId(RESCUES[idx - 1].id);
                     }}
                     disabled={RESCUES.findIndex((r) => r.id === activeId) === 0}
-                    className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl border border-[#D8F3DC]/15 bg-[#D8F3DC]/4 text-[#D8F3DC]/50 text-xs font-medium cursor-pointer transition-colors duration-200 hover:bg-[#D8F3DC]/8 hover:text-[#D8F3DC]/75 disabled:opacity-25 disabled:cursor-not-allowed"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl border border-[var(--color-hv-text-primary)]/15 bg-[var(--color-hv-text-primary)]/4 text-[var(--color-hv-text-primary)]/50 text-xs font-medium cursor-pointer transition-colors duration-200 hover:bg-[var(--color-hv-text-primary)]/8 hover:text-[var(--color-hv-text-primary)]/75 disabled:opacity-25 disabled:cursor-not-allowed"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
@@ -323,7 +323,7 @@ export default function RescueTimeline() {
                       if (idx < RESCUES.length - 1) setActiveId(RESCUES[idx + 1].id);
                     }}
                     disabled={RESCUES.findIndex((r) => r.id === activeId) === RESCUES.length - 1}
-                    className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl border border-[#D8F3DC]/15 bg-[#D8F3DC]/4 text-[#D8F3DC]/50 text-xs font-medium cursor-pointer transition-colors duration-200 hover:bg-[#D8F3DC]/8 hover:text-[#D8F3DC]/75 disabled:opacity-25 disabled:cursor-not-allowed"
+                    className="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-xl border border-[var(--color-hv-text-primary)]/15 bg-[var(--color-hv-text-primary)]/4 text-[var(--color-hv-text-primary)]/50 text-xs font-medium cursor-pointer transition-colors duration-200 hover:bg-[var(--color-hv-text-primary)]/8 hover:text-[var(--color-hv-text-primary)]/75 disabled:opacity-25 disabled:cursor-not-allowed"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Siguiente
@@ -375,11 +375,11 @@ export default function RescueTimeline() {
                           {active.name}
                         </h3>
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-[#D8F3DC]/50 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                          <span className="text-[var(--color-hv-text-primary)]/50 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                             {active.species} · {active.date}
                           </span>
-                          <span className="text-[#D8F3DC]/30 text-xs hidden sm:inline">·</span>
-                          <span className="text-[#D8F3DC]/40 text-xs hidden sm:inline" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                          <span className="text-[var(--color-hv-text-primary)]/30 text-xs hidden sm:inline">·</span>
+                          <span className="text-[var(--color-hv-text-primary)]/40 text-xs hidden sm:inline" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                             {active.location}
                           </span>
                         </div>
@@ -387,7 +387,7 @@ export default function RescueTimeline() {
                     </div>
 
                     <div className="flex flex-wrap gap-2">
-                      <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: "#D8F3DC", backgroundColor: "#D8F3DC15", border: "1px solid #D8F3DC20", fontFamily: "'DM Sans', sans-serif" }}>
+                      <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: "var(--color-hv-text-primary)", backgroundColor: "var(--color-hv-text-primary)15", border: "1px solid var(--color-hv-text-primary)20", fontFamily: "'DM Sans', sans-serif" }}>
                         <FaRegClock /> {active.duration}
                       </span>
                       <span className="text-[0.68rem] flex items-center gap-1 font-medium px-3 py-1 rounded-full" style={{ color: active.accentColor, backgroundColor: `${active.accentColor}15`, border: `1px solid ${active.accentColor}25`, fontFamily: "'DM Sans', sans-serif" }}>
@@ -397,17 +397,17 @@ export default function RescueTimeline() {
                   </div>
 
                   <div className="flex items-center gap-3">
-                    <div className="flex-1 h-px bg-[#D8F3DC]/8" />
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a1e22] border border-[#D8F3DC]/10">
-                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[#FF8C42]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antes</span>
+                    <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
+                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-hv-surface)] border border-[var(--color-hv-text-primary)]/10">
+                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[var(--color-hv-accent-coral)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Antes</span>
                       <div className="flex gap-0.75">
                         {[0, 1, 2].map((i) => (
-                          <span key={i} className="w-0.75 h-0.75 rounded-full" style={{ backgroundColor: i === 1 ? active.accentColor : "#D8F3DC30" }} />
+                          <span key={i} className="w-0.75 h-0.75 rounded-full" style={{ backgroundColor: i === 1 ? active.accentColor : "var(--color-hv-text-primary)30" }} />
                         ))}
                       </div>
-                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[#2DA14F]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Después</span>
+                      <span className="text-[0.65rem] font-semibold tracking-widest uppercase text-[var(--color-hv-primary)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>Después</span>
                     </div>
-                    <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                    <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -435,7 +435,7 @@ export default function RescueTimeline() {
                     style={{ backgroundColor: `${active.accentColor}08`, border: `1px solid ${active.accentColor}20` }}
                   >
                     <span className="text-xl shrink-0">{active.before.moodIcon}</span>
-                    <div className="flex-1 relative h-0.5 rounded-full overflow-hidden bg-[#D8F3DC]/10">
+                    <div className="flex-1 relative h-0.5 rounded-full overflow-hidden bg-[var(--color-hv-text-primary)]/10">
                       <m.div
                         className="absolute left-0 top-0 h-full rounded-full"
                         style={{ backgroundColor: active.accentColor }}
@@ -471,26 +471,26 @@ export default function RescueTimeline() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ type: "spring", stiffness: 90, damping: 20 }}
-              className="mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl border border-[#2DA14F]/20 bg-[#2DA14F]/6"
+              className="mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl border border-[var(--color-hv-primary)]/20 bg-[var(--color-hv-primary)]/6"
             >
               <div>
                 <h4
-                  className="text-[#D8F3DC] mb-1"
+                  className="text-[var(--color-hv-text-primary)] mb-1"
                   style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", fontWeight: 700 }}
                 >
                   ¿Quieres ser parte de la{" "}
-                  <em className="not-italic text-[#2DA14F]">próxima historia?</em>
+                  <em className="not-italic text-[var(--color-hv-primary)]">próxima historia?</em>
                 </h4>
-                <p className="text-[#D8F3DC]/45 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                <p className="text-[var(--color-hv-text-primary)]/45 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                   Adopta, dona o vuélvete voluntario. Cada acto cuenta.
                 </p>
               </div>
               <div className="flex gap-3 shrink-0">
                 <m.button
-                  whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(255,140,66,0.45)" }}
+                  whileHover={{ y: -2, boxShadow: "0 8px 28px rgba(255,107,91,0.45)" }}
                   whileTap={{ scale: 0.96 }}
                   className="px-5 py-2.75 rounded-xl text-sm font-semibold border-0 cursor-pointer text-white"
-                  style={{ backgroundColor: "#FF8C42", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(255,140,66,0.35)" }}
+                  style={{ backgroundColor: "var(--color-hv-accent-coral)", fontFamily: "'DM Sans', sans-serif", boxShadow: "0 2px 16px rgba(255,107,91,0.35)" }}
                 >
                   Adoptar ahora
                 </m.button>
@@ -499,9 +499,9 @@ export default function RescueTimeline() {
                   whileTap={{ scale: 0.96 }}
                   className="px-5 py-2.75 rounded-xl text-sm font-semibold cursor-pointer"
                   style={{
-                    color: "#2DA14F",
-                    backgroundColor: "rgba(45,161,79,0.12)",
-                    border: "1px solid rgba(45,161,79,0.3)",
+                    color: "var(--color-hv-primary)",
+                    backgroundColor: "rgba(0,184,204,0.12)",
+                    border: "1px solid rgba(0,184,204,0.3)",
                     fontFamily: "'DM Sans', sans-serif",
                   }}
                   onClick={() => document.location.href = "#donaciones"}

@@ -44,9 +44,9 @@ export default function LogoSlider() {
           background: linear-gradient(
             90deg,
             transparent 0%,
-            rgba(45,161,79,0.55) 40%,
-            rgba(216,243,220,0.25) 50%,
-            rgba(45,161,79,0.55) 60%,
+            rgba(0,184,204,0.55) 40%,
+            rgba(232,251,253,0.25) 50%,
+            rgba(0,184,204,0.55) 60%,
             transparent 100%
           );
           background-size: 200% auto;
@@ -60,8 +60,8 @@ export default function LogoSlider() {
         }
         .hv-logo-card:hover {
           transform: translateY(-4px) scale(1.06);
-          box-shadow: 0 12px 36px rgba(45,161,79,0.22);
-          border-color: rgba(45,161,79,0.40) !important;
+          box-shadow: 0 12px 36px rgba(0,184,204,0.22);
+          border-color: rgba(0,184,204,0.40) !important;
         }
         .hv-logo-card img {
           filter: grayscale(1) brightness(0.65);
@@ -74,7 +74,7 @@ export default function LogoSlider() {
 
       <section
         ref={ref}
-        className="relative w-full bg-[#212529] py-16 overflow-hidden"
+        className="relative w-full bg-[var(--color-hv-base)] py-16 overflow-hidden"
       >
         {/* ── Fondo decorativo ── */}
         <div
@@ -86,7 +86,7 @@ export default function LogoSlider() {
             className="absolute inset-0 opacity-[0.025]"
             style={{
               backgroundImage:
-                "radial-gradient(circle, #D8F3DC 1px, transparent 1px)",
+                "radial-gradient(circle, var(--color-hv-text-primary) 1px, transparent 1px)",
               backgroundSize: "28px 28px",
             }}
           />
@@ -113,7 +113,7 @@ export default function LogoSlider() {
               className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(90deg, #212529 0%, transparent 100%)",
+                  "linear-gradient(90deg, var(--color-hv-base) 0%, transparent 100%)",
               }}
             />
             {/* Fade derecha */}
@@ -121,7 +121,7 @@ export default function LogoSlider() {
               className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
               style={{
                 background:
-                  "linear-gradient(270deg, #212529 0%, transparent 100%)",
+                  "linear-gradient(270deg, var(--color-hv-base) 0%, transparent 100%)",
               }}
             />
 
@@ -156,8 +156,8 @@ function LogoCard({ logo }) {
       style={{
         width: 148,
         height: 72,
-        backgroundColor: "rgba(216,243,220,0.032)",
-        borderColor: "rgba(216,243,220,0.08)",
+        backgroundColor: "rgba(232,251,253,0.032)",
+        borderColor: "rgba(232,251,253,0.08)",
       }}
       title={logo.name}
     >
@@ -174,7 +174,7 @@ function LogoCard({ logo }) {
           className="text-[0.7rem] font-semibold text-center px-3 leading-tight"
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            color: "rgba(216,243,220,0.25)",
+            color: "rgba(232,251,253,0.25)",
           }}
         >
           {logo.name}

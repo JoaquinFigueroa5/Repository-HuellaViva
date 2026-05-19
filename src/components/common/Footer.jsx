@@ -61,7 +61,7 @@ const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
     >
       <p
         className="text-[0.65rem] font-bold tracking-[0.2em] uppercase"
-        style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}
+        style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.35)" }}
       >
         {col.title}
       </p>
@@ -81,13 +81,13 @@ const NavColumn = memo(function NavColumn({ col, index, onNavigate }) {
             >
               <div
                 className="w-1 h-1 rounded-full transition-all duration-300"
-                style={{ backgroundColor: "rgba(216,243,220,0.15)" }}
+                style={{ backgroundColor: "rgba(232,251,253,0.15)" }}
               />
               <span
                 className="text-[0.82rem] transition-colors duration-300"
-                style={{ color: "rgba(216,243,220,0.45)" }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#D8F3DC"; e.currentTarget.previousSibling.style.backgroundColor = "#2DA14F"; e.currentTarget.previousSibling.style.boxShadow = "0 0 8px #2DA14F"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(216,243,220,0.45)"; e.currentTarget.previousSibling.style.backgroundColor = "rgba(216,243,220,0.15)"; e.currentTarget.previousSibling.style.boxShadow = "none"; }}
+                style={{ color: "rgba(232,251,253,0.45)" }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "var(--color-hv-text-primary)"; e.currentTarget.previousSibling.style.backgroundColor = "var(--color-hv-primary)"; e.currentTarget.previousSibling.style.boxShadow = "0 0 8px var(--color-hv-primary)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(232,251,253,0.45)"; e.currentTarget.previousSibling.style.backgroundColor = "rgba(232,251,253,0.15)"; e.currentTarget.previousSibling.style.boxShadow = "none"; }}
               >
                 {link.label}
               </span>
@@ -123,11 +123,11 @@ export default function Footer() {
 
   return (
     <LazyMotion features={domMax} strict>
-      <footer className="relative w-full bg-[#111315] pt-20 pb-10 overflow-hidden border-t border-white/3">
+      <footer className="relative w-full bg-[var(--color-hv-base)] pt-20 pb-10 overflow-hidden border-t border-white/3">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
-          <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[60%] blur-[120px] rounded-full" style={{ background: "radial-gradient(circle, rgba(45,161,79,0.1) 0%, transparent 70%)" }} />
-          <div className="absolute bottom-[-10%] right-[-5%] w-[35%] h-[50%] blur-[100px] rounded-full" style={{ background: "radial-gradient(circle, rgba(255,140,66,0.05) 0%, transparent 70%)" }} />
+          <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[60%] blur-[120px] rounded-full" style={{ background: "radial-gradient(circle, rgba(0,184,204,0.1) 0%, transparent 70%)" }} />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[35%] h-[50%] blur-[100px] rounded-full" style={{ background: "radial-gradient(circle, rgba(255,107,91,0.05) 0%, transparent 70%)" }} />
         </div>
 
         <div className="max-w-300 mx-auto px-6 md:px-12 relative z-10">
@@ -147,23 +147,23 @@ export default function Footer() {
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-360 group-hover:scale-110"
                   style={{
-                    background: "linear-gradient(135deg, #2DA14F 0%, #1a7a35 100%)",
-                    color: "#D8F3DC",
-                    boxShadow: "0 8px 24px rgba(45,161,79,0.25)",
+                    background: "linear-gradient(135deg, var(--color-hv-primary) 0%, var(--color-hv-primary-dark) 100%)",
+                    color: "var(--color-hv-text-primary)",
+                    boxShadow: "0 8px 24px rgba(0,184,204,0.25)",
                   }}
                 >
                   <FaPaw size={22} />
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className="text-[#D8F3DC] text-[1.25rem] font-bold tracking-tight"
+                    className="text-[var(--color-hv-text-primary)] text-[1.25rem] font-bold tracking-tight"
                     style={{ fontFamily: "'Fraunces', serif" }}
                   >
                     ArmoniaAnimal
                   </span>
                   <span
                     className="text-[0.6rem] font-bold tracking-[0.2em] uppercase mt-0.5"
-                    style={{ fontFamily: "'DM Sans', sans-serif", color: "#2DA14F" }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--color-hv-primary)" }}
                   >
                     Por los que no tienen voz
                   </span>
@@ -172,13 +172,13 @@ export default function Footer() {
 
               <p
                 className="text-[0.85rem] leading-relaxed"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.4)", maxWidth: 280 }}
+                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.4)", maxWidth: 280 }}
               >
                 Red de esperanza para los animales vulnerables en Guatemala. Transformamos vidas a través del rescate ético y la conciencia social.
               </p>
 
               <div className="mt-2">
-                <p className="text-[0.6rem] font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(216,243,220,0.3)" }}>Conecta con nosotros</p>
+                <p className="text-[0.6rem] font-bold tracking-widest uppercase mb-4" style={{ color: "rgba(232,251,253,0.3)" }}>Conecta con nosotros</p>
                 <div className="flex gap-2.5">
                   {SOCIAL_LINKS.map((s) => <SocialBtn key={s.label} item={s} />)}
                 </div>
@@ -199,26 +199,26 @@ export default function Footer() {
 
                 <div className="flex flex-col gap-4 mt-2">
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[var(--color-hv-primary)] group-hover:bg-[var(--color-hv-primary)]/10 transition-colors">
                     <FaEnvelope size={12} />
                   </div>
-                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>
+                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(232,251,253,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(232,251,253,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(232,251,253,0.5)"}>
                     <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[var(--color-hv-primary)] group-hover:bg-[var(--color-hv-primary)]/10 transition-colors">
                     <FaPhone size={12} />
                   </div>
-                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(216,243,220,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.5)"}>
+                  <span className="text-[0.8rem] transition-opacity cursor-pointer" style={{ color: "rgba(232,251,253,0.5)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(232,251,253,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(232,251,253,0.5)"}>
                     <a href={`tel:${CONTACT_INFO.phone}`}>{CONTACT_INFO.phone}</a>
                   </span>
                 </div>
                 <div className="flex items-center gap-3 group">
-                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[#2DA14F] group-hover:bg-[#2DA14F]/10 transition-colors">
+                  <div className="w-8 h-8 rounded-lg bg-white/3 flex items-center justify-center text-[var(--color-hv-primary)] group-hover:bg-[var(--color-hv-primary)]/10 transition-colors">
                     <FaMapMarkerAlt size={12} />
                   </div>
-                  <span className="text-[0.8rem]" style={{ color: "rgba(216,243,220,0.5)" }}>{CONTACT_INFO.address}</span>
+                  <span className="text-[0.8rem]" style={{ color: "rgba(232,251,253,0.5)" }}>{CONTACT_INFO.address}</span>
                 </div>
               </div>
 
@@ -234,26 +234,26 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
                 <p
                   className="text-[0.7rem]"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.25)" }}
+                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.25)" }}
                 >
                   © {year} Armonia Animal Guatemala. Todos los derechos reservados.
                 </p>
                 <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/5" />
                 <div className="flex items-center gap-4">
-                  <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNavigation("/privacy"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Privacidad</a>
-                  <a href="/terms" onClick={(e) => { e.preventDefault(); handleNavigation("/terms"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(216,243,220,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(216,243,220,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(216,243,220,0.25)"}>Términos</a>
+                  <a href="/privacy" onClick={(e) => { e.preventDefault(); handleNavigation("/privacy"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(232,251,253,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(232,251,253,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(232,251,253,0.25)"}>Privacidad</a>
+                  <a href="/terms" onClick={(e) => { e.preventDefault(); handleNavigation("/terms"); }} className="text-[0.7rem] transition-opacity no-underline" style={{ color: "rgba(232,251,253,0.25)" }} onMouseEnter={(e) => e.currentTarget.style.color = "rgba(232,251,253,1)"} onMouseLeave={(e) => e.currentTarget.style.color = "rgba(232,251,253,0.25)"}>Términos</a>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/2 border border-white/5">
-                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>Hecho con</span>
+                <span className="text-[0.7rem]" style={{ color: "rgba(232,251,253,0.3)" }}>Hecho con</span>
                 <m.span
                   animate={{ scale: [1, 1.25, 1] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
-                  <FaHeart size={10} className="text-[#FF8C42]" />
+                  <FaHeart size={10} className="text-[var(--color-hv-accent-coral)]" />
                 </m.span>
-                <span className="text-[0.7rem]" style={{ color: "rgba(216,243,220,0.3)" }}>por los animales de Guatemala</span>
+                <span className="text-[0.7rem]" style={{ color: "rgba(232,251,253,0.3)" }}>por los animales de Guatemala</span>
               </div>
 
             </div>

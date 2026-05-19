@@ -73,7 +73,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <h3
-              className="text-[#D8F3DC] font-bold truncate"
+              className="text-[var(--color-hv-text-primary)] font-bold truncate"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(1rem, 2vw, 1.15rem)",
@@ -129,7 +129,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
                 className="text-sm leading-relaxed pt-4"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  color: "rgba(216,243,220,0.65)",
+                  color: "rgba(232,251,253,0.65)",
                 }}
               >
                 {channel.description}
@@ -169,7 +169,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
                           className="text-[0.62rem] font-semibold"
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
-                            color: "rgba(216,243,220,0.35)",
+                            color: "rgba(232,251,253,0.35)",
                           }}
                         >
                           {contact.label}
@@ -197,7 +197,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
                             className="text-sm"
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
-                              color: "rgba(216,243,220,0.55)",
+                              color: "rgba(232,251,253,0.55)",
                             }}
                           >
                             {contact.value}
@@ -219,7 +219,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
                     className="text-xs"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      color: "rgba(216,243,220,0.40)",
+                      color: "rgba(232,251,253,0.40)",
                     }}
                   >
                     {channel.schedule}
@@ -253,7 +253,7 @@ function ChannelCard({ channel, index, isOpen, onToggle }) {
                         className="text-xs leading-relaxed"
                         style={{
                           fontFamily: "'DM Sans', sans-serif",
-                          color: "rgba(216,243,220,0.55)",
+                          color: "rgba(232,251,253,0.55)",
                         }}
                       >
                         {req.text}
@@ -284,7 +284,7 @@ export default function ReportSection() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[var(--color-hv-base)] py-20 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -295,7 +295,7 @@ export default function ReportSection() {
             style={{
               width: 500,
               height: 500,
-              background: "#2DA14F",
+              background: "var(--color-hv-primary)",
               top: "-15%",
               left: "-10%",
             }}
@@ -305,7 +305,7 @@ export default function ReportSection() {
             style={{
               width: 400,
               height: 400,
-              background: "#FF8C42",
+              background: "var(--color-hv-accent-coral)",
               bottom: "-10%",
               right: "-5%",
             }}
@@ -323,16 +323,16 @@ export default function ReportSection() {
             <div
               className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border"
               style={{
-                backgroundColor: "rgba(45,161,79,0.10)",
-                borderColor: "rgba(45,161,79,0.30)",
+                backgroundColor: "rgba(0,184,204,0.10)",
+                borderColor: "rgba(0,184,204,0.30)",
               }}
             >
-              <FaShieldAlt size={10} color="#2DA14F" />
+              <FaShieldAlt size={10} color="var(--color-hv-primary)" />
               <span
                 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  color: "#2DA14F",
+                  color: "var(--color-hv-primary)",
                 }}
               >
                 Canales oficiales
@@ -340,7 +340,7 @@ export default function ReportSection() {
             </div>
 
             <h2
-              className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.2rem)",
@@ -348,11 +348,11 @@ export default function ReportSection() {
               }}
             >
               ¿Cómo reportar{" "}
-              <em className="not-italic text-[#FF8C42]">maltrato animal</em> en
+              <em className="not-italic text-[var(--color-hv-accent-coral)]">maltrato animal</em> en
               Guatemala?
             </h2>
             <p
-              className="text-[#D8F3DC]/50 max-w-lg leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-lg leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -383,26 +383,26 @@ export default function ReportSection() {
             animate={sectionInView ? "visible" : "hidden"}
             className="rounded-2xl p-6 border"
             style={{
-              backgroundColor: "rgba(255,140,66,0.05)",
-              borderColor: "rgba(255,140,66,0.18)",
+              backgroundColor: "rgba(255,107,91,0.05)",
+              borderColor: "rgba(255,107,91,0.18)",
             }}
           >
             <div className="flex items-start gap-3 mb-3">
               <div
                 className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
                 style={{
-                  backgroundColor: "rgba(255,140,66,0.15)",
-                  border: "1px solid rgba(255,140,66,0.30)",
+                  backgroundColor: "rgba(255,107,91,0.15)",
+                  border: "1px solid rgba(255,107,91,0.30)",
                 }}
               >
-                <FaExclamationTriangle size={14} color="#FF8C42" />
+                <FaExclamationTriangle size={14} color="var(--color-hv-accent-coral)" />
               </div>
               <div>
                 <h3
                   className="font-bold text-sm mb-1"
                   style={{
                     fontFamily: "'Fraunces', serif",
-                    color: "#FF8C42",
+                    color: "var(--color-hv-accent-coral)",
                   }}
                 >
                   {LEGAL_CONTEXT.title}
@@ -411,7 +411,7 @@ export default function ReportSection() {
                   className="text-xs leading-relaxed"
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    color: "rgba(216,243,220,0.55)",
+                    color: "rgba(232,251,253,0.55)",
                   }}
                 >
                   {LEGAL_CONTEXT.content}
@@ -421,12 +421,12 @@ export default function ReportSection() {
             <div
               className="mt-3 pt-3 flex items-start gap-3"
               style={{
-                borderTop: "1px solid rgba(255,140,66,0.12)",
+                borderTop: "1px solid rgba(255,107,91,0.12)",
               }}
             >
               <FaInfoCircle
                 size={14}
-                color="#D8F3DC"
+                color="var(--color-hv-text-primary)"
                 className="shrink-0 mt-0.5"
                 style={{ opacity: 0.4 }}
               />
@@ -434,7 +434,7 @@ export default function ReportSection() {
                 className="text-xs leading-relaxed"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  color: "rgba(216,243,220,0.35)",
+                  color: "rgba(232,251,253,0.35)",
                 }}
               >
                 {LEGAL_CONTEXT.note}
@@ -450,7 +450,7 @@ export default function ReportSection() {
             className="text-center mt-8 text-[0.68rem]"
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              color: "rgba(216,243,220,0.20)",
+              color: "rgba(232,251,253,0.20)",
             }}
           >
             Tu denuncia puede salvar una vida. Infórmate y actúa con

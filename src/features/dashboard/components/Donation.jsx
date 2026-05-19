@@ -93,12 +93,12 @@ const CategoryCard = memo(function CategoryCard({ category, index }) {
           <div className="flex-1 min-w-0">
             <p
               className="font-bold text-sm leading-snug mb-0.5"
-              style={{ fontFamily: "'Fraunces', serif", color: "#D8F3DC" }}
+              style={{ fontFamily: "'Fraunces', serif", color: "var(--color-hv-text-primary)" }}
             >
               {category.title}
             </p>
             <p
-              className="text-[0.65rem] text-[#D8F3DC]/50"
+              className="text-[0.65rem] text-[var(--color-hv-text-primary)]/50"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {category.description}
@@ -123,7 +123,7 @@ const CategoryCard = memo(function CategoryCard({ category, index }) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="h-px bg-[#D8F3DC]/6 my-3" />
+              <div className="h-px bg-[var(--color-hv-text-primary)]/6 my-3" />
               <div className="flex flex-col gap-2">
                 {category.items.map((item) => (
                   <div
@@ -140,21 +140,21 @@ const CategoryCard = memo(function CategoryCard({ category, index }) {
                     />
                     <div className="min-w-0">
                       <p
-                        className="text-[0.82rem] font-semibold text-[#D8F3DC] leading-snug mb-0.5"
+                        className="text-[0.82rem] font-semibold text-[var(--color-hv-text-primary)] leading-snug mb-0.5"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
                         {item.name}
                       </p>
                       {item.brand && (
                         <p
-                          className="text-[0.65rem] text-[#D8F3DC]/40 mb-0.5"
+                          className="text-[0.65rem] text-[var(--color-hv-text-primary)]/40 mb-0.5"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {item.brand}
                         </p>
                       )}
                       <p
-                        className="text-[0.6rem] text-[#D8F3DC]/30 italic"
+                        className="text-[0.6rem] text-[var(--color-hv-text-primary)]/30 italic"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
                         {item.use}
@@ -190,7 +190,7 @@ const DeliverySteps = memo(function DeliverySteps() {
           viewport={VIEWPORT_ONCE}
           className="flex items-center gap-4 px-4 py-3.5 rounded-2xl border"
           style={{
-            borderColor: "rgba(216,243,220,0.08)",
+            borderColor: "rgba(232,251,253,0.08)",
             backgroundColor: "rgba(255,255,255,0.02)",
             backdropFilter: "blur(10px)",
           }}
@@ -198,9 +198,9 @@ const DeliverySteps = memo(function DeliverySteps() {
           <div
             className="w-10 h-10 rounded-xl flex items-center justify-center font-bold text-base shrink-0"
             style={{
-              backgroundColor: "#2DA14F20",
-              border: "1px solid #2DA14F50",
-              color: "#2DA14F",
+              backgroundColor: "var(--color-hv-primary)20",
+              border: "1px solid var(--color-hv-primary)50",
+              color: "var(--color-hv-primary)",
               fontFamily: "'Fraunces', serif",
             }}
           >
@@ -208,13 +208,13 @@ const DeliverySteps = memo(function DeliverySteps() {
           </div>
           <div className="min-w-0">
             <p
-              className="font-semibold text-sm text-[#D8F3DC] leading-snug"
+              className="font-semibold text-sm text-[var(--color-hv-text-primary)] leading-snug"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {step.title}
             </p>
             <p
-              className="text-[0.7rem] text-[#D8F3DC]/50 leading-tight mt-0.5"
+              className="text-[0.7rem] text-[var(--color-hv-text-primary)]/50 leading-tight mt-0.5"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {step.desc}
@@ -253,13 +253,13 @@ const WhatsAppCard = memo(function WhatsAppCard() {
       </div>
       <div className="flex-1 min-w-0">
         <p
-          className="font-bold text-[#D8F3DC] text-base mb-1 leading-none"
+          className="font-bold text-[var(--color-hv-text-primary)] text-base mb-1 leading-none"
           style={{ fontFamily: "'Fraunces', serif" }}
         >
           Escríbenos ahora
         </p>
         <p
-          className="text-[#D8F3DC]/50 text-xs leading-relaxed"
+          className="text-[var(--color-hv-text-primary)]/50 text-xs leading-relaxed"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           Coordinamos la entrega de tus insumos y resolvemos cualquier duda.
@@ -299,7 +299,7 @@ export default function DonationSection() {
       <section
         ref={sectionRef}
         id="donaciones"
-        className="relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[var(--color-hv-base)] py-10 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -310,7 +310,7 @@ export default function DonationSection() {
             style={{
               width: 600,
               height: 600,
-              background: "#2DA14F",
+              background: "var(--color-hv-primary)",
               top: "10%",
               left: "-10%",
             }}
@@ -320,7 +320,7 @@ export default function DonationSection() {
             style={{
               width: 400,
               height: 400,
-              background: "#FF8C42",
+              background: "var(--color-hv-accent-coral)",
               bottom: "10%",
               right: "5%",
             }}
@@ -335,13 +335,13 @@ export default function DonationSection() {
             animate={sectionInView ? "visible" : "hidden"}
             className="flex flex-col items-center text-center mb-10"
           >
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#2DA14F]/12 border border-[#2DA14F]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2DA14F]" />
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[var(--color-hv-primary)]/12 border border-[var(--color-hv-primary)]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-primary)]" />
               <span>
-                <FaSyringe size={10} color="#2DA14F" />
+                <FaSyringe size={10} color="var(--color-hv-primary)" />
               </span>
               <span
-                className="text-[#2DA14F] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+                className="text-[var(--color-hv-primary)] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Ayuda con insumos
@@ -349,7 +349,7 @@ export default function DonationSection() {
             </div>
 
             <h2
-              className="leading-[1.1] tracking-[-0.03em] mb-4 text-[#D8F3DC]"
+              className="leading-[1.1] tracking-[-0.03em] mb-4 text-[var(--color-hv-text-primary)]"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.4rem)",
@@ -357,11 +357,11 @@ export default function DonationSection() {
               }}
             >
               Dona medicamentos{" "}
-              <em className="not-italic text-[#FF8C42]">e insumos</em>
+              <em className="not-italic text-[var(--color-hv-accent-coral)]">e insumos</em>
             </h2>
 
             <p
-              className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-md leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -385,16 +385,16 @@ export default function DonationSection() {
                   <div
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                     style={{
-                      backgroundColor: "#2DA14F20",
-                      border: "1px solid #2DA14F50",
-                      color: "#2DA14F",
+                      backgroundColor: "var(--color-hv-primary)20",
+                      border: "1px solid var(--color-hv-primary)50",
+                      color: "var(--color-hv-primary)",
                       fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
                     1
                   </div>
                   <h3
-                    className="text-[#D8F3DC] font-semibold text-base"
+                    className="text-[var(--color-hv-text-primary)] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Medicamentos veterinarios
@@ -409,14 +409,14 @@ export default function DonationSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
                 <span
-                  className="text-[#D8F3DC]/20 text-[0.65rem] uppercase tracking-widest"
+                  className="text-[var(--color-hv-text-primary)]/20 text-[0.65rem] uppercase tracking-widest"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   también necesitamos
                 </span>
-                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
               </div>
 
               <div>
@@ -424,16 +424,16 @@ export default function DonationSection() {
                   <div
                     className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
                     style={{
-                      backgroundColor: "#FF8C4220",
-                      border: "1px solid #FF8C4250",
-                      color: "#FF8C42",
+                      backgroundColor: "var(--color-hv-accent-coral)20",
+                      border: "1px solid var(--color-hv-accent-coral)50",
+                      color: "var(--color-hv-accent-coral)",
                       fontFamily: "'DM Sans', sans-serif",
                     }}
                   >
                     2
                   </div>
                   <h3
-                    className="text-[#D8F3DC] font-semibold text-base"
+                    className="text-[var(--color-hv-text-primary)] font-semibold text-base"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     Productos de higiene medicados
@@ -448,14 +448,14 @@ export default function DonationSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
                 <span
-                  className="text-[#D8F3DC]/20 text-[0.65rem] uppercase tracking-widest"
+                  className="text-[var(--color-hv-text-primary)]/20 text-[0.65rem] uppercase tracking-widest"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   ¿cómo entregar?
                 </span>
-                <div className="flex-1 h-px bg-[#D8F3DC]/8" />
+                <div className="flex-1 h-px bg-[var(--color-hv-text-primary)]/8" />
               </div>
 
               <DeliverySteps />
@@ -463,15 +463,15 @@ export default function DonationSection() {
               <div
                 className="rounded-2xl border p-4"
                 style={{
-                  borderColor: "rgba(255,140,66,0.2)",
-                  backgroundColor: "rgba(255,140,66,0.05)",
+                  borderColor: "rgba(255,107,91,0.2)",
+                  backgroundColor: "rgba(255,107,91,0.05)",
                 }}
               >
                 <p
-                  className="text-[0.72rem] text-[#FF8C42]/70 leading-relaxed"
+                  className="text-[0.72rem] text-[var(--color-hv-accent-coral)]/70 leading-relaxed"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
-                  <span className="font-semibold text-[#FF8C42]">
+                  <span className="font-semibold text-[var(--color-hv-accent-coral)]">
                     Requisito:
                   </span>{" "}
                   {DELIVERY_INFO.requirementNote}
@@ -491,14 +491,14 @@ export default function DonationSection() {
               <div
                 className="p-6 rounded-3xl border"
                 style={{
-                  borderColor: "#2DA14F20",
+                  borderColor: "var(--color-hv-primary)20",
                   backgroundColor: "rgba(255,255,255,0.025)",
                   backdropFilter: "blur(10px)",
-                  boxShadow: "0 4px 32px rgba(45,161,79,0.10)",
+                  boxShadow: "0 4px 32px rgba(0,184,204,0.10)",
                 }}
               >
                 <p
-                  className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
+                  className="text-[var(--color-hv-text-primary)]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Así ayudan tus donaciones
@@ -506,9 +506,9 @@ export default function DonationSection() {
 
                 <div className="flex flex-col gap-4">
                   {[
-                    { icon: <FaSyringe size={16} color="#2DA14F" />, step: "Medicamento donado", desc: "Se aplica directamente a animales rescatados" },
-                    { icon: <FaHeart size={16} color="#FF8C42" />, step: "Tratamiento completo", desc: "Cubrimos desparasitación, curación y recuperación" },
-                    { icon: <FaDog size={16} color="#2DA14F" />, step: "Animal sano y adoptable", desc: "Cada insumo ayuda a prepararlos para su adopción" },
+                    { icon: <FaSyringe size={16} color="var(--color-hv-primary)" />, step: "Medicamento donado", desc: "Se aplica directamente a animales rescatados" },
+                    { icon: <FaHeart size={16} color="var(--color-hv-accent-coral)" />, step: "Tratamiento completo", desc: "Cubrimos desparasitación, curación y recuperación" },
+                    { icon: <FaDog size={16} color="var(--color-hv-primary)" />, step: "Animal sano y adoptable", desc: "Cada insumo ayuda a prepararlos para su adopción" },
                   ].map((item, i) => (
                     <div
                       key={item.step}
@@ -517,21 +517,21 @@ export default function DonationSection() {
                       <div
                         className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
                         style={{
-                          backgroundColor: i % 2 === 0 ? "#2DA14F15" : "#FF8C4215",
-                          border: `1px solid ${i % 2 === 0 ? "#2DA14F30" : "#FF8C4230"}`,
+                          backgroundColor: i % 2 === 0 ? "var(--color-hv-primary)15" : "var(--color-hv-accent-coral)15",
+                          border: `1px solid ${i % 2 === 0 ? "var(--color-hv-primary)30" : "var(--color-hv-accent-coral)30"}`,
                         }}
                       >
                         {item.icon}
                       </div>
                       <div className="min-w-0">
                         <p
-                          className="text-[0.78rem] font-semibold text-[#D8F3DC] leading-snug"
+                          className="text-[0.78rem] font-semibold text-[var(--color-hv-text-primary)] leading-snug"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {item.step}
                         </p>
                         <p
-                          className="text-[0.65rem] text-[#D8F3DC]/40 leading-tight"
+                          className="text-[0.65rem] text-[var(--color-hv-text-primary)]/40 leading-tight"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {item.desc}
@@ -544,7 +544,7 @@ export default function DonationSection() {
 
               <m.div
                 whileHover={{ y: -2 }}
-                className="p-5 rounded-2xl border border-[#D8F3DC]/8 relative overflow-hidden cursor-default will-change-transform"
+                className="p-5 rounded-2xl border border-[var(--color-hv-text-primary)]/8 relative overflow-hidden cursor-default will-change-transform"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.02)",
                   backdropFilter: "blur(10px)",
@@ -552,10 +552,10 @@ export default function DonationSection() {
               >
                 <div
                   className="absolute top-0 left-0 w-1 h-full rounded-l-2xl"
-                  style={{ backgroundColor: "#FF8C42" }}
+                  style={{ backgroundColor: "var(--color-hv-accent-coral)" }}
                 />
                 <p
-                  className="text-[#D8F3DC]/65 text-sm leading-relaxed mb-3 pl-3"
+                  className="text-[var(--color-hv-text-primary)]/65 text-sm leading-relaxed mb-3 pl-3"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   "Gracias a la donación de medicamentos e insumos de nuestra

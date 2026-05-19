@@ -15,7 +15,7 @@ const Loader = () => {
           50% { transform: scale(0); }
         }
         @keyframes outline-keys {
-          0% { transform: scale(0); outline: solid 20px #FF8C42; opacity: 1; }
+          0% { transform: scale(0); outline: solid 20px var(--color-hv-accent-coral); opacity: 1; }
           100% { transform: scale(1); outline: solid 0 transparent; outline-offset: 20px; opacity: 0; }
         }
         .animate-circle-custom { animation: circle-keys 2s ease-in-out infinite; }
@@ -26,11 +26,11 @@ const Loader = () => {
       {circles.map((i) => (
         <div
           key={i}
-          className="relative flex items-center justify-center w-5 h-5 border-2 border-[#2DA14F] rounded-full mx-2.5 animate-circle-custom"
+          className="relative flex items-center justify-center w-5 h-5 border-2 border-[var(--color-hv-primary)] rounded-full mx-2.5 animate-circle-custom"
           style={{ animationDelay: `${i * 0.3}s` }}
         >
           <div
-            className="absolute w-4 h-4 rounded-full bg-[#D8F3DC] animate-dot-custom"
+            className="absolute w-4 h-4 rounded-full bg-[var(--color-hv-text-primary)] animate-dot-custom"
             style={{ animationDelay: `${i * 0.3}s` }}
           />
 

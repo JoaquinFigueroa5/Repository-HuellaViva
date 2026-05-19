@@ -48,7 +48,7 @@ const fmt = (n) => `Q ${n.toLocaleString("es-GT")}`;
 // ─────────────────────────────────────────────────────────────────────────────
 
 /** Selector de opción tipo chip */
-const OptionChip = memo(function OptionChip({ option, isSelected, onClick, accentColor = "#2DA14F" }) {
+const OptionChip = memo(function OptionChip({ option, isSelected, onClick, accentColor = "var(--color-hv-primary)" }) {
   return (
     <m.button
       whileHover={{ y: -2, boxShadow: isSelected ? `0 6px 20px ${accentColor}30` : "none" }}
@@ -57,19 +57,19 @@ const OptionChip = memo(function OptionChip({ option, isSelected, onClick, accen
       className="flex flex-col items-center gap-1.5 py-3.5 px-3 rounded-2xl border-0 cursor-pointer transition-all duration-200 will-change-transform"
       style={{
         backgroundColor: isSelected ? `${accentColor}18` : "rgba(255,255,255,0.03)",
-        border: `2px solid ${isSelected ? `${accentColor}55` : "rgba(216,243,220,0.10)"}`,
+        border: `2px solid ${isSelected ? `${accentColor}55` : "rgba(232,251,253,0.10)"}`,
         boxShadow: isSelected ? `0 4px 18px ${accentColor}18` : "none",
       }}
     >
       <span className="text-2xl">{option.emoji}</span>
       <span
         className="text-sm font-bold"
-        style={{ fontFamily: "'DM Sans', sans-serif", color: isSelected ? accentColor : "rgba(216,243,220,0.60)" }}
+        style={{ fontFamily: "'DM Sans', sans-serif", color: isSelected ? accentColor : "rgba(232,251,253,0.60)" }}
       >
         {option.label}
       </span>
       {option.sub && (
-        <span className="text-[0.62rem]" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.28)" }}>
+        <span className="text-[0.62rem]" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.28)" }}>
           {option.sub}
         </span>
       )}
@@ -89,13 +89,13 @@ const ExpenseSlider = memo(function ExpenseSlider({ expKey, meta, baseCosts, val
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-base">{meta.icon}</span>
-          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.80)" }}>
+          <span className="text-sm font-semibold" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.80)" }}>
             {meta.label}
           </span>
           <button
             onClick={() => setShowTip(!showTip)}
             className="border-0 bg-transparent cursor-pointer p-0 transition-colors duration-200"
-            style={{ color: showTip ? meta.color : "rgba(216,243,220,0.25)" }}
+            style={{ color: showTip ? meta.color : "rgba(232,251,253,0.25)" }}
           >
             <FaInfoCircle size={11} />
           </button>
@@ -107,7 +107,7 @@ const ExpenseSlider = memo(function ExpenseSlider({ expKey, meta, baseCosts, val
           >
             {fmt(value)}
           </span>
-          <span className="text-[0.6rem] text-[#D8F3DC]/25" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+          <span className="text-[0.6rem] text-[var(--color-hv-text-primary)]/25" style={{ fontFamily: "'DM Sans', sans-serif" }}>
             /mes
           </span>
         </div>
@@ -138,7 +138,7 @@ const ExpenseSlider = memo(function ExpenseSlider({ expKey, meta, baseCosts, val
 
       {/* Slider track */}
       <div className="relative h-8 flex items-center group">
-        <div className="relative w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(216,243,220,0.08)" }}>
+        <div className="relative w-full h-2 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(232,251,253,0.08)" }}>
           <m.div
             className="absolute left-0 top-0 h-full rounded-full"
             style={{ background: `linear-gradient(90deg, ${meta.color}90, ${meta.color})` }}
@@ -158,7 +158,7 @@ const ExpenseSlider = memo(function ExpenseSlider({ expKey, meta, baseCosts, val
         />
         {/* Thumb visible */}
         <div
-          className="absolute w-4 h-4 rounded-full border-2 border-[#212529] -translate-x-1/2 pointer-events-none transition-shadow duration-200"
+          className="absolute w-4 h-4 rounded-full border-2 border-[var(--color-hv-base)] -translate-x-1/2 pointer-events-none transition-shadow duration-200"
           style={{
             left: `${pct}%`,
             backgroundColor: meta.color,
@@ -170,8 +170,8 @@ const ExpenseSlider = memo(function ExpenseSlider({ expKey, meta, baseCosts, val
 
       {/* Range labels */}
       <div className="flex justify-between">
-        <span className="text-[0.58rem] text-[#D8F3DC]/20" style={{ fontFamily: "'DM Sans', sans-serif" }}>{fmt(min)}</span>
-        <span className="text-[0.58rem] text-[#D8F3DC]/20" style={{ fontFamily: "'DM Sans', sans-serif" }}>{fmt(max)}</span>
+        <span className="text-[0.58rem] text-[var(--color-hv-text-primary)]/20" style={{ fontFamily: "'DM Sans', sans-serif" }}>{fmt(min)}</span>
+        <span className="text-[0.58rem] text-[var(--color-hv-text-primary)]/20" style={{ fontFamily: "'DM Sans', sans-serif" }}>{fmt(max)}</span>
       </div>
     </div>
   );
@@ -190,7 +190,7 @@ const DonutChart = memo(function DonutChart({ segments }) {
   return (
     <svg width="140" height="140" viewBox="0 0 140 140" className="drop-shadow-lg">
       {/* Background circle */}
-      <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(216,243,220,0.06)" strokeWidth="18" />
+      <circle cx={CX} cy={CY} r={R} fill="none" stroke="rgba(232,251,253,0.06)" strokeWidth="18" />
       {segments.map((seg, i) => {
         if (seg.value === 0) return null;
         const pct  = seg.value / total;
@@ -228,7 +228,7 @@ const BreakdownBar = memo(function BreakdownBar({ label, icon, color, value, tot
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="text-sm">{icon}</span>
-          <span className="text-xs" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.60)" }}>
+          <span className="text-xs" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.60)" }}>
             {label}
           </span>
         </div>
@@ -236,12 +236,12 @@ const BreakdownBar = memo(function BreakdownBar({ label, icon, color, value, tot
           <span className="text-xs font-bold tabular-nums" style={{ fontFamily: "'Fraunces', serif", color }}>
             {fmt(value)}
           </span>
-          <span className="text-[0.58rem]" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.25)" }}>
+          <span className="text-[0.58rem]" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.25)" }}>
             {Math.round(pct)}%
           </span>
         </div>
       </div>
-      <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(216,243,220,0.07)" }}>
+      <div className="h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: "rgba(232,251,253,0.07)" }}>
         <m.div
           className="h-full rounded-full"
           style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}60` }}
@@ -315,7 +315,7 @@ export default function PetCostCalculator() {
   // Segmentos del donut
   const donutSegments = useMemo(() => {
     const keys   = Object.keys(expenses);
-    const colors = ["#2DA14F", "#FF8C42", "#D8F3DC", "#52c97a", "#ffaa6b"];
+    const colors = ["var(--color-hv-primary)", "var(--color-hv-accent-coral)", "var(--color-hv-text-primary)", "var(--color-hv-primary-light)", "var(--color-hv-accent-coral-light)"];
     return keys.map((k, i) => ({
       key:   k,
       value: expenses[k],
@@ -325,10 +325,10 @@ export default function PetCostCalculator() {
 
   // Nivel de accesibilidad del gasto
   const affordability = useMemo(() => {
-    if (monthlyTotal < 300) return { label: "Muy accesible",   color: "#2DA14F", emoji: "✅", desc: "Este nivel de gasto es alcanzable para la mayoría de familias guatemaltecas." };
-    if (monthlyTotal < 500) return { label: "Accesible",       color: "#2DA14F", emoji: "👍", desc: "Un gasto manejable con planificación mensual." };
-    if (monthlyTotal < 800) return { label: "Moderado",        color: "#FF8C42", emoji: "💛", desc: "Considera los consejos de ahorro para optimizar este presupuesto." };
-    return                         { label: "Presupuesto alto", color: "#FF8C42", emoji: "⚠️", desc: "Ajusta los sliders o revisa los tips para reducir costos sin sacrificar bienestar." };
+    if (monthlyTotal < 300) return { label: "Muy accesible",   color: "var(--color-hv-primary)", emoji: "✅", desc: "Este nivel de gasto es alcanzable para la mayoría de familias guatemaltecas." };
+    if (monthlyTotal < 500) return { label: "Accesible",       color: "var(--color-hv-primary)", emoji: "👍", desc: "Un gasto manejable con planificación mensual." };
+    if (monthlyTotal < 800) return { label: "Moderado",        color: "var(--color-hv-accent-coral)", emoji: "💛", desc: "Considera los consejos de ahorro para optimizar este presupuesto." };
+    return                         { label: "Presupuesto alto", color: "var(--color-hv-accent-coral)", emoji: "⚠️", desc: "Ajusta los sliders o revisa los tips para reducir costos sin sacrificar bienestar." };
   }, [monthlyTotal]);
 
   const baseCosts = BASE_COSTS[species][size];
@@ -337,18 +337,18 @@ export default function PetCostCalculator() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden mt-10"
+        className="relative w-full bg-[var(--color-hv-base)] py-20 px-4 md:px-8 overflow-hidden mt-10"
       >
         {/* Ambient glows */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
           <div className="absolute rounded-full blur-[150px] opacity-[0.06]"
-            style={{ width: 600, height: 600, background: "#2DA14F", top: "-10%", left: "-15%" }} />
+            style={{ width: 600, height: 600, background: "var(--color-hv-primary)", top: "-10%", left: "-15%" }} />
           <div className="absolute rounded-full blur-[120px] opacity-[0.05]"
-            style={{ width: 400, height: 400, background: "#FF8C42", bottom: "5%", right: "-5%" }} />
+            style={{ width: 400, height: 400, background: "var(--color-hv-accent-coral)", bottom: "5%", right: "-5%" }} />
           {/* Grid pattern */}
           <div className="absolute inset-0 opacity-[0.018]"
             style={{
-              backgroundImage: "linear-gradient(rgba(216,243,220,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(216,243,220,0.8) 1px, transparent 1px)",
+              backgroundImage: "linear-gradient(rgba(232,251,253,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(232,251,253,0.8) 1px, transparent 1px)",
               backgroundSize: "48px 48px",
             }} />
         </div>
@@ -362,23 +362,23 @@ export default function PetCostCalculator() {
             animate={sectionInView ? "visible" : "hidden"}
             className="flex flex-col items-center text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#2DA14F]/12 border border-[#2DA14F]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2DA14F] pulse-dot" />
-              <FaPaw size={10} color="#2DA14F" />
-              <span className="text-[#2DA14F] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[var(--color-hv-primary)]/12 border border-[var(--color-hv-primary)]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-primary)] pulse-dot" />
+              <FaPaw size={10} color="var(--color-hv-primary)" />
+              <span className="text-[var(--color-hv-primary)] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Herramienta de planificación
               </span>
             </div>
 
             <h2
-              className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
               style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2rem, 5vw, 3.2rem)", fontWeight: 700 }}
             >
               ¿Cuánto cuesta{" "}
-              <em className="not-italic text-[#2DA14F]">tener una mascota?</em>
+              <em className="not-italic text-[var(--color-hv-primary)]">tener una mascota?</em>
             </h2>
-            <p className="text-[#D8F3DC]/50 max-w-lg leading-relaxed"
+            <p className="text-[var(--color-hv-text-primary)]/50 max-w-lg leading-relaxed"
               style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "clamp(0.9rem, 1.5vw, 1rem)" }}>
               Calcula el presupuesto mensual real para un animal rescatado. Ajusta cada categoría según tu estilo de vida y descubre consejos de ahorro.
             </p>
@@ -394,7 +394,7 @@ export default function PetCostCalculator() {
             {/* Especie */}
             <div className="flex-1">
               <p className="text-[0.65rem] font-bold tracking-widest uppercase mb-3"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}>
+                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.35)" }}>
                 Especie
               </p>
               <div className="grid grid-cols-2 gap-3">
@@ -404,7 +404,7 @@ export default function PetCostCalculator() {
                     option={sp}
                     isSelected={species === sp.id}
                     onClick={() => handleSpecies(sp.id)}
-                    accentColor="#2DA14F"
+                    accentColor="var(--color-hv-primary)"
                   />
                 ))}
               </div>
@@ -413,7 +413,7 @@ export default function PetCostCalculator() {
             {/* Tamaño */}
             <div className="flex-1">
               <p className="text-[0.65rem] font-bold tracking-widest uppercase mb-3"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}>
+                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.35)" }}>
                 Tamaño
               </p>
               <div className="grid grid-cols-3 gap-3">
@@ -423,7 +423,7 @@ export default function PetCostCalculator() {
                     option={sz}
                     isSelected={size === sz.id}
                     onClick={() => handleSize(sz.id)}
-                    accentColor="#FF8C42"
+                    accentColor="var(--color-hv-accent-coral)"
                   />
                 ))}
               </div>
@@ -444,34 +444,34 @@ export default function PetCostCalculator() {
                 style={{
                   background: "linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
                   backdropFilter: "blur(14px)",
-                  border: "1px solid rgba(216,243,220,0.08)",
+                  border: "1px solid rgba(232,251,253,0.08)",
                   boxShadow: "0 8px 40px rgba(0,0,0,0.28)",
                 }}
               >
                 {/* Header card */}
-                <div className="flex items-center justify-between pb-4 border-b border-[#D8F3DC]/[0.07]">
+                <div className="flex items-center justify-between pb-4 border-b border-[var(--color-hv-text-primary)]/[0.07]">
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-xl flex items-center justify-center text-lg"
-                      style={{ backgroundColor: "rgba(45,161,79,0.15)", border: "1px solid rgba(45,161,79,0.30)" }}>
+                      style={{ backgroundColor: "rgba(0,184,204,0.15)", border: "1px solid rgba(0,184,204,0.30)" }}>
                       🎚️
                     </div>
                     <div>
-                      <h3 className="text-[#D8F3DC] font-bold text-base" style={{ fontFamily: "'Fraunces', serif" }}>
+                      <h3 className="text-[var(--color-hv-text-primary)] font-bold text-base" style={{ fontFamily: "'Fraunces', serif" }}>
                         Gastos mensuales
                       </h3>
-                      <p className="text-[#D8F3DC]/35 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-[var(--color-hv-text-primary)]/35 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                         Ajusta cada slider según tu realidad
                       </p>
                     </div>
                   </div>
                   <div
                     className="px-3 py-1.5 rounded-xl"
-                    style={{ backgroundColor: "rgba(45,161,79,0.12)", border: "1px solid rgba(45,161,79,0.28)" }}
+                    style={{ backgroundColor: "rgba(0,184,204,0.12)", border: "1px solid rgba(0,184,204,0.28)" }}
                   >
-                    <span className="font-bold" style={{ fontFamily: "'Fraunces', serif", fontSize: "1.1rem", color: "#2DA14F" }}>
+                    <span className="font-bold" style={{ fontFamily: "'Fraunces', serif", fontSize: "1.1rem", color: "var(--color-hv-primary)" }}>
                       {fmt(monthlyTotal)}
                     </span>
-                    <span className="text-[0.62rem] text-[#2DA14F]/60 ml-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>/mes</span>
+                    <span className="text-[0.62rem] text-[var(--color-hv-primary)]/60 ml-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>/mes</span>
                   </div>
                 </div>
 
@@ -508,7 +508,7 @@ export default function PetCostCalculator() {
                       <p className="text-xs font-bold mb-0.5" style={{ fontFamily: "'DM Sans', sans-serif", color: affordability.color }}>
                         {affordability.label}
                       </p>
-                      <p className="text-xs leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.50)" }}>
+                      <p className="text-xs leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.50)" }}>
                         {affordability.desc}
                       </p>
                     </div>
@@ -527,9 +527,9 @@ export default function PetCostCalculator() {
                 animate={sectionInView ? "visible" : "hidden"}
                 className="p-6 rounded-3xl flex flex-col gap-5"
                 style={{
-                  background: "linear-gradient(145deg, rgba(45,161,79,0.10) 0%, rgba(45,161,79,0.04) 100%)",
-                  border: "1px solid rgba(45,161,79,0.25)",
-                  boxShadow: "0 6px 32px rgba(45,161,79,0.10)",
+                  background: "linear-gradient(145deg, rgba(0,184,204,0.10) 0%, rgba(0,184,204,0.04) 100%)",
+                  border: "1px solid rgba(0,184,204,0.25)",
+                  boxShadow: "0 6px 32px rgba(0,184,204,0.10)",
                 }}
               >
                 {/* Donut + valores */}
@@ -539,7 +539,7 @@ export default function PetCostCalculator() {
                     {/* Centro del donut */}
                     <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                       <span className="text-[0.6rem] font-semibold uppercase tracking-widest"
-                        style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.35)" }}>
+                        style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.35)" }}>
                         mensual
                       </span>
                       <m.span
@@ -548,7 +548,7 @@ export default function PetCostCalculator() {
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring", stiffness: 300, damping: 22 }}
                         className="font-bold leading-none"
-                        style={{ fontFamily: "'Fraunces', serif", fontSize: "1.1rem", color: "#2DA14F" }}
+                        style={{ fontFamily: "'Fraunces', serif", fontSize: "1.1rem", color: "var(--color-hv-primary)" }}
                       >
                         {fmt(monthlyTotal)}
                       </m.span>
@@ -557,12 +557,12 @@ export default function PetCostCalculator() {
 
                   <div className="flex flex-col gap-3 flex-1">
                     {[
-                      { label: "Al día",    value: fmt(dailyCost),        accent: "#D8F3DC", sub: "" },
-                      { label: "Al mes",    value: fmt(monthlyTotal),     accent: "#2DA14F", sub: "" },
-                      { label: "Al año",    value: fmt(monthlyTotal * 12),accent: "#FF8C42", sub: "gastos recurrentes" },
+                      { label: "Al día",    value: fmt(dailyCost),        accent: "var(--color-hv-text-primary)", sub: "" },
+                      { label: "Al mes",    value: fmt(monthlyTotal),     accent: "var(--color-hv-primary)", sub: "" },
+                      { label: "Al año",    value: fmt(monthlyTotal * 12),accent: "var(--color-hv-accent-coral)", sub: "gastos recurrentes" },
                     ].map((item) => (
                       <div key={item.label} className="flex items-center justify-between">
-                        <span className="text-[0.65rem] text-[#D8F3DC]/40" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                        <span className="text-[0.65rem] text-[var(--color-hv-text-primary)]/40" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                           {item.label}
                         </span>
                         <div className="flex flex-col items-end">
@@ -577,7 +577,7 @@ export default function PetCostCalculator() {
                             {item.value}
                           </m.span>
                           {item.sub && (
-                            <span className="text-[0.55rem] text-[#D8F3DC]/25" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                            <span className="text-[0.55rem] text-[var(--color-hv-text-primary)]/25" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                               {item.sub}
                             </span>
                           )}
@@ -587,23 +587,23 @@ export default function PetCostCalculator() {
                   </div>
                 </div>
 
-                <div className="h-px bg-[#D8F3DC]/[0.07]" />
+                <div className="h-px bg-[var(--color-hv-text-primary)]/[0.07]" />
 
                 {/* Toggle gastos únicos */}
                 <div>
                   <div className="flex items-center justify-between mb-3">
                     <div>
-                      <p className="text-[#D8F3DC]/70 text-xs font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-[var(--color-hv-text-primary)]/70 text-xs font-semibold" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                         Incluir gastos únicos del primer año
                       </p>
-                      <p className="text-[#D8F3DC]/30 text-[0.62rem]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-[var(--color-hv-text-primary)]/30 text-[0.62rem]" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                         Esterilización, vacunas, microchip, etc.
                       </p>
                     </div>
                     <button
                       onClick={() => setShowOnce(!showOnce)}
                       className="w-12 h-6 rounded-full border-0 cursor-pointer relative transition-colors duration-300 shrink-0"
-                      style={{ backgroundColor: showOnce ? "#2DA14F" : "rgba(216,243,220,0.12)" }}
+                      style={{ backgroundColor: showOnce ? "var(--color-hv-primary)" : "rgba(232,251,253,0.12)" }}
                     >
                       <m.div
                         animate={{ x: showOnce ? 24 : 2 }}
@@ -616,9 +616,9 @@ export default function PetCostCalculator() {
                   {/* Total primer año */}
                   <div
                     className="flex items-center justify-between p-3 rounded-xl"
-                    style={{ backgroundColor: "rgba(255,140,66,0.08)", border: "1px solid rgba(255,140,66,0.22)" }}
+                    style={{ backgroundColor: "rgba(255,107,91,0.08)", border: "1px solid rgba(255,107,91,0.22)" }}
                   >
-                    <span className="text-xs font-semibold text-[#FF8C42]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-xs font-semibold text-[var(--color-hv-accent-coral)]/80" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       🗓️ Total primer año estimado
                     </span>
                     <m.span
@@ -627,7 +627,7 @@ export default function PetCostCalculator() {
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ type: "spring", stiffness: 300, damping: 22 }}
                       className="font-bold tabular-nums"
-                      style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", color: "#FF8C42" }}
+                      style={{ fontFamily: "'Fraunces', serif", fontSize: "1rem", color: "var(--color-hv-accent-coral)" }}
                     >
                       {fmt(annualTotal)}
                     </m.span>
@@ -643,11 +643,11 @@ export default function PetCostCalculator() {
                 className="p-5 rounded-2xl flex flex-col gap-4"
                 style={{
                   background: "rgba(255,255,255,0.025)",
-                  border: "1px solid rgba(216,243,220,0.08)",
+                  border: "1px solid rgba(232,251,253,0.08)",
                 }}
               >
                 <p className="text-[0.65rem] font-bold tracking-widest uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.30)" }}>
+                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.30)" }}>
                   Desglose mensual
                 </p>
                 <div className="flex flex-col gap-3.5">
@@ -673,11 +673,11 @@ export default function PetCostCalculator() {
                 className="p-5 rounded-2xl flex flex-col gap-3"
                 style={{
                   background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(216,243,220,0.07)",
+                  border: "1px solid rgba(232,251,253,0.07)",
                 }}
               >
                 <p className="text-[0.65rem] font-bold tracking-widest uppercase"
-                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.30)" }}>
+                  style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.30)" }}>
                   Gastos únicos — primer año
                 </p>
                 <div className="flex flex-col gap-2">
@@ -685,10 +685,10 @@ export default function PetCostCalculator() {
                     const meta = ONE_TIME_META[key];
                     if (!meta) return null;
                     return (
-                      <div key={key} className="flex items-center justify-between py-1.5 border-b border-[#D8F3DC]/5 last:border-0">
+                      <div key={key} className="flex items-center justify-between py-1.5 border-b border-[var(--color-hv-text-primary)]/5 last:border-0">
                         <div className="flex items-center gap-2">
                           <span className="text-sm">{meta.icon}</span>
-                          <span className="text-xs text-[#D8F3DC]/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                          <span className="text-xs text-[var(--color-hv-text-primary)]/55" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                             {meta.label}
                           </span>
                         </div>
@@ -699,10 +699,10 @@ export default function PetCostCalculator() {
                     );
                   })}
                   <div className="flex items-center justify-between pt-2">
-                    <span className="text-xs font-bold text-[#D8F3DC]/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                    <span className="text-xs font-bold text-[var(--color-hv-text-primary)]/60" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                       Total
                     </span>
-                    <span className="text-sm font-bold" style={{ fontFamily: "'Fraunces', serif", color: "#FF8C42" }}>
+                    <span className="text-sm font-bold" style={{ fontFamily: "'Fraunces', serif", color: "var(--color-hv-accent-coral)" }}>
                       {fmt(oneTimeTotal)}
                     </span>
                   </div>
@@ -721,12 +721,12 @@ export default function PetCostCalculator() {
             className="mt-10"
           >
             <div className="flex items-center gap-3 mb-5">
-              <div className="h-px flex-1 bg-[#D8F3DC]/8" />
+              <div className="h-px flex-1 bg-[var(--color-hv-text-primary)]/8" />
               <span className="text-[0.65rem] font-bold tracking-widest uppercase px-3"
-                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(216,243,220,0.30)" }}>
+                style={{ fontFamily: "'DM Sans', sans-serif", color: "rgba(232,251,253,0.30)" }}>
                 💡 Consejos para reducir costos
               </span>
-              <div className="h-px flex-1 bg-[#D8F3DC]/8" />
+              <div className="h-px flex-1 bg-[var(--color-hv-text-primary)]/8" />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -742,16 +742,16 @@ export default function PetCostCalculator() {
                   className="flex items-start gap-3 p-4 rounded-2xl cursor-default will-change-transform"
                   style={{
                     backgroundColor: "rgba(255,255,255,0.025)",
-                    border: "1px solid rgba(216,243,220,0.07)",
+                    border: "1px solid rgba(232,251,253,0.07)",
                   }}
                 >
                   <span
                     className="w-9 h-9 flex items-center justify-center text-lg rounded-xl shrink-0"
-                    style={{ backgroundColor: "rgba(45,161,79,0.12)", border: "1px solid rgba(45,161,79,0.22)" }}
+                    style={{ backgroundColor: "rgba(0,184,204,0.12)", border: "1px solid rgba(0,184,204,0.22)" }}
                   >
                     {tip.icon}
                   </span>
-                  <p className="text-sm text-[#D8F3DC]/60 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-sm text-[var(--color-hv-text-primary)]/60 leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                     {tip.tip}
                   </p>
                 </m.div>
@@ -765,18 +765,18 @@ export default function PetCostCalculator() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
             transition={{ type: "spring", stiffness: 90, damping: 20 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 md:p-7 rounded-2xl border border-[#2DA14F]/20"
-            style={{ backgroundColor: "rgba(45,161,79,0.06)" }}
+            className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-5 p-6 md:p-7 rounded-2xl border border-[var(--color-hv-primary)]/20"
+            style={{ backgroundColor: "rgba(0,184,204,0.06)" }}
           >
             <div>
               <h4
-                className="text-[#D8F3DC] mb-1"
+                className="text-[var(--color-hv-text-primary)] mb-1"
                 style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(1.05rem, 2.5vw, 1.3rem)", fontWeight: 700 }}
               >
                 ¿Listo para{" "}
-                <em className="not-italic text-[#2DA14F]">dar el paso?</em>
+                <em className="not-italic text-[var(--color-hv-primary)]">dar el paso?</em>
               </h4>
-              <p className="text-[#D8F3DC]/40 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <p className="text-[var(--color-hv-text-primary)]/40 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Nuestro equipo puede orientarte en el proceso de adopción y preparación del hogar.
               </p>
             </div>

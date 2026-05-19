@@ -39,6 +39,31 @@
   --color-card: var(--card);
   --color-foreground: var(--foreground);
   --color-background: var(--background);
+  --color-hv-base: #0D1F22;
+  --color-hv-section: #162C30;
+  --color-hv-surface: #1E3A3F;
+  --color-hv-surface-elevated: #264A50;
+  --color-hv-primary: #00B8CC;
+  --color-hv-primary-light: #00D4EB;
+  --color-hv-primary-dark: #007A8A;
+  --color-hv-primary-50: #E0F9FC;
+  --color-hv-primary-100: #B3EFF7;
+  --color-hv-primary-200: #7FE3F2;
+  --color-hv-primary-900: #004A52;
+  --color-hv-text-primary: #E8FBFD;
+  --color-hv-text-secondary: #B3EFF7;
+  --color-hv-text-muted: #7FD6E3;
+  --color-hv-border: #3A9FAD;
+  --color-hv-accent-coral: #FF6B5B;
+  --color-hv-accent-coral-light: #FF9287;
+  --color-hv-accent-coral-dark: #CC4033;
+  --color-hv-accent-amber: #F5A623;
+  --color-hv-accent-amber-light: #FFC96B;
+  --color-hv-accent-amber-dark: #B87A10;
+  --color-hv-accent-green: #4CD964;
+  --color-hv-accent-green-light: #8FEAA0;
+  --color-hv-accent-green-dark: #28A745;
+  --color-hv-danger: #FF4444;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -136,7 +161,7 @@ html {
 }
 
 body {
-  background-color: #212529;
+  background-color: var(--color-hv-base);
   /* cursor: url(/huella.png), auto; */
 }
 
@@ -148,8 +173,8 @@ body {
   background: linear-gradient(
     to bottom,
     transparent,
-    #2da14f55 20%,
-    #2da14f55 80%,
+    rgba(0, 184, 204, 0.33) 20%,
+    rgba(0, 184, 204, 0.33) 80%,
     transparent
   );
 }
@@ -237,8 +262,8 @@ body {
 }
 
 .poster-input:focus {
-  border-color: rgba(216, 243, 220, 0.35) !important;
-  background-color: rgba(216, 243, 220, 0.06) !important;
+  border-color: rgba(232, 251, 253, 0.35) !important;
+  background-color: rgba(232, 251, 253, 0.06) !important;
 }
 .step-active {
   background: linear-gradient(
@@ -272,17 +297,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff8a4283 0%, #ff9a5700 100%);
+  background: linear-gradient(180deg, rgba(255, 107, 91, 0.5) 0%, rgba(255, 107, 91, 0) 100%);
   border-radius: 9999px;
 }
 
 
 ::selection {
-  background-color: #2DA14F;
+  background-color: #00B8CC;
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background-color: #2DA14F;
+  background-color: #00B8CC;
   color: #ffffff;
 }

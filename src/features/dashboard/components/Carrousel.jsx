@@ -201,7 +201,7 @@ export default function HeroCarousel() {
     <>
       <LazyMotion features={domMax} strict>
         <section
-          className="relative w-full overflow-hidden bg-[#212529]"
+          className="relative w-full overflow-hidden bg-[var(--color-hv-base)]"
           style={{ height: "100svh", minHeight: 520 }}
         >
 
@@ -242,9 +242,9 @@ export default function HeroCarousel() {
               className="absolute inset-0 pointer-events-none"
               style={{ zIndex: 1 }}
             >
-              <div className="absolute inset-0 bg-[#212529]/58" />
-              <div className="absolute inset-0 bg-linear-to-r from-[#212529]/88 via-[#212529]/40 to-transparent" />
-              <div className="absolute inset-0 bg-linear-to-t from-[#212529]/72 via-transparent to-[#212529]/15" />
+              <div className="absolute inset-0 bg-[var(--color-hv-base)]/58" />
+              <div className="absolute inset-0 bg-linear-to-r from-[var(--color-hv-base)]/88 via-[var(--color-hv-base)]/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[var(--color-hv-base)]/72 via-transparent to-[var(--color-hv-base)]/15" />
             </m.div>
           </AnimatePresence>
 
@@ -279,7 +279,7 @@ export default function HeroCarousel() {
 
                   <m.h2
                     variants={safeItem}
-                    className="text-[#D8F3DC] leading-[1.08] tracking-[-0.03em] mb-5"
+                    className="text-[var(--color-hv-text-primary)] leading-[1.08] tracking-[-0.03em] mb-5"
                     style={{
                       fontFamily: "'Fraunces', serif",
                       fontSize: "clamp(2rem, 5.5vw, 4rem)",
@@ -297,7 +297,7 @@ export default function HeroCarousel() {
 
                   <m.p
                     variants={safeItem}
-                    className="text-[#D8F3DC]/70 leading-relaxed mb-8"
+                    className="text-[var(--color-hv-text-primary)]/70 leading-relaxed mb-8"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize: "clamp(0.9rem, 1.6vw, 1.05rem)",
@@ -327,7 +327,7 @@ export default function HeroCarousel() {
                         {slide.stat.value}
                       </span>
                       <span
-                        className="text-[#D8F3DC]/60 text-xs leading-tight max-w-27.5"
+                        className="text-[var(--color-hv-text-primary)]/60 text-xs leading-tight max-w-27.5"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
                         {slide.stat.label}
@@ -343,7 +343,7 @@ export default function HeroCarousel() {
                         fontFamily: "'DM Sans', sans-serif",
                         backgroundColor: slide.accent,
                         boxShadow: `0 2px 18px ${slide.accent}45`,
-                        color: slide.accent === "#D8F3DC" ? "#212529" : "#fff",
+                        color: slide.accent === "var(--color-hv-text-primary)" ? "var(--color-hv-base)" : "#fff",
                       }}
                       onClick={() => document.location.href = slide.ref}
                     >
@@ -371,13 +371,13 @@ export default function HeroCarousel() {
               <button
                 key={s.id}
                 onClick={() => goTo(i, i > current ? "next" : "prev")}
-                className="relative flex-1 h-0.75 bg-[#D8F3DC]/20 cursor-pointer border-0 p-0 overflow-hidden"
+                className="relative flex-1 h-0.75 bg-[var(--color-hv-text-primary)]/20 cursor-pointer border-0 p-0 overflow-hidden"
               >
                 <span
                   className="absolute left-0 top-0 h-full rounded-full"
                   style={{
                     backgroundColor:
-                      i === current ? slide.accent : i < current ? "#D8F3DC" : "transparent",
+                      i === current ? slide.accent : i < current ? "var(--color-hv-text-primary)" : "transparent",
                     width: i === current ? `${progress}%` : i < current ? "100%" : "0%",
                     transition: i === current ? "none" : "width 0.3s ease",
                   }}
@@ -393,10 +393,10 @@ export default function HeroCarousel() {
             className="absolute bottom-8 right-6 md:right-12 z-20 flex items-center gap-3"
           >
             <span
-              className="text-[#D8F3DC]/50 text-xs font-medium tabular-nums"
+              className="text-[var(--color-hv-text-primary)]/50 text-xs font-medium tabular-nums"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
-              <span className="text-[#D8F3DC] font-semibold">
+              <span className="text-[var(--color-hv-text-primary)] font-semibold">
                 {String(current + 1).padStart(2, "0")}
               </span>
               {" / "}
@@ -407,7 +407,7 @@ export default function HeroCarousel() {
               whileHover={{ scale: 1.12 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => setPaused((p) => !p)}
-              className="w-8 h-8 rounded-full flex items-center justify-center border-0 cursor-pointer text-[#D8F3DC]/60 bg-[#D8F3DC]/10 hover:bg-[#D8F3DC]/20 hover:text-[#D8F3DC] transition-colors duration-200"
+              className="w-8 h-8 rounded-full flex items-center justify-center border-0 cursor-pointer text-[var(--color-hv-text-primary)]/60 bg-[var(--color-hv-text-primary)]/10 hover:bg-[var(--color-hv-text-primary)]/20 hover:text-[var(--color-hv-text-primary)] transition-colors duration-200"
             >
               {paused ? <PlayIcon size={12} /> : <PauseIcon size={12} />}
             </m.button>
@@ -427,7 +427,7 @@ export default function HeroCarousel() {
                   whileHover={{ x: d * 2, backgroundColor: "rgba(216,243,220,0.15)" }}
                   whileTap={{ scale: 0.92 }}
                   transition={{ type: "spring", stiffness: 400, damping: 24 }}
-                  className="w-11 h-11 rounded-xl flex items-center justify-center border border-[#D8F3DC]/20 bg-[#D8F3DC]/[0.07] text-[#D8F3DC]/60 cursor-pointer hover:text-[#D8F3DC] hover:border-[#D8F3DC]/35 transition-colors duration-200"
+                  className="w-11 h-11 rounded-xl flex items-center justify-center border border-[var(--color-hv-text-primary)]/20 bg-[var(--color-hv-text-primary)]/[0.07] text-[var(--color-hv-text-primary)]/60 cursor-pointer hover:text-[var(--color-hv-text-primary)] hover:border-[var(--color-hv-text-primary)]/35 transition-colors duration-200"
                 >
                   {icon}
                 </m.button>
@@ -454,7 +454,7 @@ export default function HeroCarousel() {
                 whileHover={{ opacity: 0.8, scale: 1.2 }}
                 transition={{ type: "spring", stiffness: 300, damping: 24 }}
                 className="rounded-full border-0 cursor-pointer p-0"
-                style={{ backgroundColor: i === current ? slide.accent : "#D8F3DC" }}
+                style={{ backgroundColor: i === current ? slide.accent : "var(--color-hv-text-primary)" }}
               />
             ))}
           </m.div>
@@ -473,7 +473,7 @@ export default function HeroCarousel() {
                     exit="exit"
                     whileHover={{ x: -3, opacity: 0.85 }}
                     onClick={() => goTo(i, i > current ? "next" : "prev")}
-                    className="text-left max-w-32.5 px-3 py-1.5 rounded-lg bg-[#212529]/50 backdrop-blur-sm border border-[#D8F3DC]/10 text-[#D8F3DC]/45 text-[0.65rem] leading-tight cursor-pointer transition-colors duration-200"
+                    className="text-left max-w-32.5 px-3 py-1.5 rounded-lg bg-[var(--color-hv-base)]/50 backdrop-blur-sm border border-[var(--color-hv-text-primary)]/10 text-[var(--color-hv-text-primary)]/45 text-[0.65rem] leading-tight cursor-pointer transition-colors duration-200"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {s.badge}

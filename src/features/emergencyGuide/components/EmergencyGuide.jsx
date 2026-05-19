@@ -97,7 +97,7 @@ const ContactCard = memo(function ContactCard({ contact, index }) {
       </div>
       <div className="flex-1 min-w-0">
         <p
-          className="text-[#D8F3DC]/80 text-xs font-semibold truncate"
+          className="text-[var(--color-hv-text-primary)]/80 text-xs font-semibold truncate"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {contact.label}
@@ -142,7 +142,7 @@ const StepCard = memo(function StepCard({
             height: "calc(100% - 20px)",
             background: isCompleted
               ? `linear-gradient(to bottom, ${step.accentColor}, ${STEPS[step.id]?.accentColor ?? step.accentColor})`
-              : "rgba(216,243,220,0.08)",
+              : "rgba(232,251,253,0.08)",
             transition: "background 0.6s ease",
           }}
         />
@@ -164,18 +164,18 @@ const StepCard = memo(function StepCard({
                 isCompleted || isActive
                   ? `${step.accentColor}20`
                   : "rgba(255,255,255,0.04)",
-              border: `2px solid ${isCompleted || isActive ? step.accentColor : "rgba(216,243,220,0.12)"}`,
+              border: `2px solid ${isCompleted || isActive ? step.accentColor : "rgba(232,251,253,0.12)"}`,
             }}
             onClick={onToggle}
           >
             <span className="text-xl leading-none">
-              {isCompleted && !isActive ? <FaCheckCircle size={20} color="#2DA14F" /> : step.icon}
+              {isCompleted && !isActive ? <FaCheckCircle size={20} color="var(--color-hv-primary)" /> : step.icon}
             </span>
             <span
               className="text-[0.55rem] font-bold mt-0.75"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                color: isActive ? step.accentColor : "rgba(216,243,220,0.3)",
+                color: isActive ? step.accentColor : "rgba(232,251,253,0.3)",
               }}
             >
               PASO {step.id}
@@ -208,7 +208,7 @@ const StepCard = memo(function StepCard({
                   fontFamily: "'Fraunces', serif",
                   fontSize: "clamp(1rem, 2vw, 1.2rem)",
                   fontWeight: 700,
-                  color: isActive ? step.accentColor : "#D8F3DC",
+                  color: isActive ? step.accentColor : "var(--color-hv-text-primary)",
                   transition: "color 0.2s ease",
                 }}
               >
@@ -221,7 +221,7 @@ const StepCard = memo(function StepCard({
               transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="shrink-0 mt-1"
               style={{
-                color: isActive ? step.accentColor : "rgba(216,243,220,0.25)",
+                color: isActive ? step.accentColor : "rgba(232,251,253,0.25)",
               }}
             >
               <FaChevronDown size={14} />
@@ -293,7 +293,7 @@ const StepCard = memo(function StepCard({
                           {action.icon}
                         </span>
                         <p
-                          className="text-[#D8F3DC]/75 text-sm leading-relaxed"
+                          className="text-[var(--color-hv-text-primary)]/75 text-sm leading-relaxed"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {action.text}
@@ -332,13 +332,13 @@ const StepCard = memo(function StepCard({
                         {step.tipIsWarning ? "🚫 Importante" : "💡 Consejo"}
                       </p>
                       <p
-                        className="font-semibold text-sm text-[#D8F3DC]/80 mb-1"
+                        className="font-semibold text-sm text-[var(--color-hv-text-primary)]/80 mb-1"
                         style={{ fontFamily: "'Fraunces', serif" }}
                       >
                         {step.tip.title}
                       </p>
                       <p
-                        className="text-[#D8F3DC]/55 text-xs leading-relaxed"
+                        className="text-[var(--color-hv-text-primary)]/55 text-xs leading-relaxed"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
                         {step.tip.content}
@@ -406,7 +406,7 @@ export default function EmergencyGuide() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[#212529] py-20 px-4 md:px-8 overflow-hidden mt-10"
+        className="relative w-full bg-[var(--color-hv-base)] py-20 px-4 md:px-8 overflow-hidden mt-10"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -417,7 +417,7 @@ export default function EmergencyGuide() {
             style={{
               width: 500,
               height: 500,
-              background: "#FF8C42",
+              background: "var(--color-hv-accent-coral)",
               top: "5%",
               right: "-5%",
             }}
@@ -427,7 +427,7 @@ export default function EmergencyGuide() {
             style={{
               width: 450,
               height: 450,
-              background: "#2DA14F",
+              background: "var(--color-hv-primary)",
               bottom: "5%",
               left: "-5%",
             }}
@@ -460,7 +460,7 @@ export default function EmergencyGuide() {
             </div>
 
             <h2
-              className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.4rem)",
@@ -468,11 +468,11 @@ export default function EmergencyGuide() {
               }}
             >
               Encontré un animal,{" "}
-              <em className="not-italic text-[#FF8C42]">¿qué hago?</em>
+              <em className="not-italic text-[var(--color-hv-accent-coral)]">¿qué hago?</em>
             </h2>
 
             <p
-              className="text-[#D8F3DC]/50 max-w-lg leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-lg leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -494,43 +494,43 @@ export default function EmergencyGuide() {
                 className="flex items-center gap-4 mb-8 p-4 rounded-2xl"
                 style={{
                   backgroundColor: "rgba(255,255,255,0.025)",
-                  border: "1px solid rgba(216,243,220,0.07)",
+                  border: "1px solid rgba(232,251,253,0.07)",
                 }}
               >
                 <div className="flex items-center gap-2">
                   <FaCheckCircle
                     size={14}
                     color={
-                      progressPct === 100 ? "#2DA14F" : "rgba(216,243,220,0.25)"
+                      progressPct === 100 ? "var(--color-hv-primary)" : "rgba(232,251,253,0.25)"
                     }
                   />
                   <span
-                    className="text-xs text-[#D8F3DC]/50"
+                    className="text-xs text-[var(--color-hv-text-primary)]/50"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     <span
                       className="font-bold"
                       style={{
                         color:
-                          progressPct > 0 ? "#2DA14F" : "rgba(216,243,220,0.3)",
+                          progressPct > 0 ? "var(--color-hv-primary)" : "rgba(232,251,253,0.3)",
                       }}
                     >
                       {completedCount}
                     </span>
-                    <span className="text-[#D8F3DC]/30">
+                    <span className="text-[var(--color-hv-text-primary)]/30">
                       {" "}
                       / {STEPS.length} pasos completados
                     </span>
                   </span>
                 </div>
-                <div className="flex-1 h-1.5 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
+                <div className="flex-1 h-1.5 rounded-full bg-[var(--color-hv-text-primary)]/10 overflow-hidden">
                   <m.div
                     className="h-full rounded-full"
                     style={{
-                      background: "linear-gradient(90deg, #FF8C42, #2DA14F)",
+                      background: "linear-gradient(90deg, var(--color-hv-accent-coral), var(--color-hv-primary))",
                       boxShadow:
                         progressPct > 0
-                          ? "0 0 8px rgba(45,161,79,0.5)"
+                          ? "0 0 8px rgba(0,184,204,0.5)"
                           : "none",
                     }}
                     animate={{ width: `${progressPct}%` }}
@@ -542,7 +542,7 @@ export default function EmergencyGuide() {
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
                     color:
-                      progressPct > 0 ? "#2DA14F" : "rgba(216,243,220,0.2)",
+                      progressPct > 0 ? "var(--color-hv-primary)" : "rgba(232,251,253,0.2)",
                   }}
                 >
                   {progressPct}%
@@ -574,7 +574,7 @@ export default function EmergencyGuide() {
                 className="p-5 rounded-2xl relative overflow-hidden"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(255,68,68,0.15) 0%, rgba(255,140,66,0.10) 100%)",
+                    "linear-gradient(135deg, rgba(255,68,68,0.15) 0%, rgba(255,107,91,0.10) 100%)",
                   border: "1px solid rgba(255,68,68,0.30)",
                   boxShadow: "0 4px 24px rgba(255,68,68,0.12)",
                 }}
@@ -602,7 +602,7 @@ export default function EmergencyGuide() {
                   </p>
                 </div>
                 <p
-                  className="text-[#D8F3DC]/60 text-xs leading-relaxed mb-4"
+                  className="text-[var(--color-hv-text-primary)]/60 text-xs leading-relaxed mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Si el animal está inconsciente, sangra abundantemente o fue
@@ -634,11 +634,11 @@ export default function EmergencyGuide() {
                   background:
                     "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
                   backdropFilter: "blur(12px)",
-                  border: "1px solid rgba(216,243,220,0.08)",
+                  border: "1px solid rgba(232,251,253,0.08)",
                 }}
               >
                 <p
-                  className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
+                  className="text-[var(--color-hv-text-primary)]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Contactos de rescate
@@ -654,11 +654,11 @@ export default function EmergencyGuide() {
                 className="p-5 rounded-2xl"
                 style={{
                   background: "rgba(255,255,255,0.02)",
-                  border: "1px solid rgba(216,243,220,0.07)",
+                  border: "1px solid rgba(232,251,253,0.07)",
                 }}
               >
                 <p
-                  className="text-[#D8F3DC]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
+                  className="text-[var(--color-hv-text-primary)]/40 text-[0.68rem] font-semibold tracking-widest uppercase mb-4"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Reglas de oro
@@ -672,28 +672,28 @@ export default function EmergencyGuide() {
                     },
                     {
                       rule: "Nunca toques sin protección en las manos",
-                      icon: <FaHandSparkles size={12} color="#FF8C42" />,
-                      accent: "#FF8C42",
+                      icon: <FaHandSparkles size={12} color="var(--color-hv-accent-coral)" />,
+                      accent: "var(--color-hv-accent-coral)",
                     },
                     {
                       rule: "Un animal asustado puede atacar sin querer",
-                      icon: <IoIosWarning size={12} color="#FFD166" />,
-                      accent: "#FFD166",
+                      icon: <IoIosWarning size={12} color="var(--color-hv-accent-amber)" />,
+                      accent: "var(--color-hv-accent-amber)",
                     },
                     {
                       rule: "Movimientos lentos y voz calmada siempre",
-                      icon: <MdDoNotDisturbOnTotalSilence size={12} color="#2DA14F" />,
-                      accent: "#2DA14F",
+                      icon: <MdDoNotDisturbOnTotalSilence size={12} color="var(--color-hv-primary)" />,
+                      accent: "var(--color-hv-primary)",
                     },
                     {
                       rule: "Llama antes de llevar al veterinario",
-                      icon: <FaPhoneAlt size={12} color="#2DA14F" />,
-                      accent: "#2DA14F",
+                      icon: <FaPhoneAlt size={12} color="var(--color-hv-primary)" />,
+                      accent: "var(--color-hv-primary)",
                     },
                     {
                       rule: "No tienes que hacerlo solo — pide ayuda",
-                      icon: <FaHandsHelping size={12} color="#D8F3DC" />,
-                      accent: "#D8F3DC",
+                      icon: <FaHandsHelping size={12} color="var(--color-hv-text-primary)" />,
+                      accent: "var(--color-hv-text-primary)",
                     },
                   ].map((item, i) => (
                     <m.div
@@ -722,7 +722,7 @@ export default function EmergencyGuide() {
                         className="text-[0.72rem] leading-tight"
                         style={{
                           fontFamily: "'DM Sans', sans-serif",
-                          color: "rgba(216,243,220,0.60)",
+                          color: "rgba(232,251,253,0.60)",
                         }}
                       >
                         {item.rule}
@@ -735,15 +735,15 @@ export default function EmergencyGuide() {
               <m.button
                 whileHover={{
                   y: -2,
-                  boxShadow: "0 8px 28px rgba(45,161,79,0.35)",
+                  boxShadow: "0 8px 28px rgba(0,184,204,0.35)",
                 }}
                 whileTap={{ scale: 0.97 }}
                 className="flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-semibold border-0 cursor-pointer"
                 style={{
-                  backgroundColor: "#2DA14F",
-                  color: "#212529",
+                  backgroundColor: "var(--color-hv-primary)",
+                  color: "var(--color-hv-base)",
                   fontFamily: "'DM Sans', sans-serif",
-                  boxShadow: "0 2px 16px rgba(45,161,79,0.30)",
+                  boxShadow: "0 2px 16px rgba(0,184,204,0.30)",
                 }}
                 onClick={() => handleShare()}
               >
@@ -758,27 +758,27 @@ export default function EmergencyGuide() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_ONCE}
             transition={{ type: "spring", stiffness: 90, damping: 20 }}
-            className="mt-14 flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl border border-[#D8F3DC]/[0.07]"
-            style={{ backgroundColor: "rgba(216,243,220,0.03)" }}
+            className="mt-14 flex flex-col sm:flex-row items-center gap-4 p-6 rounded-2xl border border-[var(--color-hv-text-primary)]/[0.07]"
+            style={{ backgroundColor: "rgba(232,251,253,0.03)" }}
           >
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0"
               style={{
-                backgroundColor: "rgba(45,161,79,0.12)",
-                border: "1px solid rgba(45,161,79,0.25)",
+                backgroundColor: "rgba(0,184,204,0.12)",
+                border: "1px solid rgba(0,184,204,0.25)",
               }}
             >
-              <FaRegPaperPlane size={20} color="#2DA14F" />
+              <FaRegPaperPlane size={20} color="var(--color-hv-primary)" />
             </div>
             <div className="text-center sm:text-left">
               <p
-                className="text-[#D8F3DC]/70 text-sm font-semibold mb-0.5"
+                className="text-[var(--color-hv-text-primary)]/70 text-sm font-semibold mb-0.5"
                 style={{ fontFamily: "'Fraunces', serif" }}
               >
                 ¿Quieres tener esta guía siempre contigo?
               </p>
               <p
-                className="text-[#D8F3DC]/35 text-xs"
+                className="text-[var(--color-hv-text-primary)]/35 text-xs"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Guarda este sitio en tu pantalla de inicio o compártelo con
@@ -786,18 +786,18 @@ export default function EmergencyGuide() {
               </p>
             </div>
             <m.button
-              whileHover={{ y: -1, backgroundColor: "rgba(216,243,220,0.15)", boxShadow: "0 8px 28px rgba(216,243,220,0.35)" }}
+              whileHover={{ y: -1, backgroundColor: "rgba(232,251,253,0.15)", boxShadow: "0 8px 28px rgba(232,251,253,0.35)" }}
               whileTap={{ scale: 0.97 }}
               className="shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold cursor-pointer"
               style={{
-                color: "#D8F3DC",
-                backgroundColor: "rgba(216,243,220,0.08)",
-                border: "1px solid rgba(216,243,220,0.15)",
+                color: "var(--color-hv-text-primary)",
+                backgroundColor: "rgba(232,251,253,0.08)",
+                border: "1px solid rgba(232,251,253,0.15)",
                 fontFamily: "'DM Sans', sans-serif",
               }}
               onClick={() => handleShare()}
             >
-              <FaShareAlt size={20} color="#D8F3DC" /> Compartir
+              <FaShareAlt size={20} color="var(--color-hv-text-primary)" /> Compartir
             </m.button>
           </m.div>
         </div>

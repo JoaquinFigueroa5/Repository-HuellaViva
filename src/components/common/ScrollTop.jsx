@@ -78,12 +78,12 @@ const ScrollToTop = memo(function ScrollToTop() {
             aria-label="Volver al inicio"
             className="fixed bottom-8 right-6 md:right-10 z-50 w-14 h-14 flex items-center justify-center rounded-full border-0 cursor-pointer will-change-transform"
             style={{
-              background: "rgba(33, 37, 41, 0.85)",
+              background: "rgba(13, 31, 34, 0.85)",
               backdropFilter: "blur(14px)",
               WebkitBackdropFilter: "blur(14px)",
               boxShadow: hovered
-                ? "0 8px 32px rgba(45,161,79,0.50), 0 0 0 1px rgba(45,161,79,0.35)"
-                : "0 4px 20px rgba(0,0,0,0.45), 0 0 0 1px rgba(216,243,220,0.08)",
+                ? "0 8px 32px rgba(0,184,204,0.50), 0 0 0 1px rgba(0,184,204,0.35)"
+                : "0 4px 20px rgba(0,0,0,0.45), 0 0 0 1px rgba(232,251,253,0.08)",
               transition: "box-shadow 0.3s ease",
             }}
           >
@@ -98,7 +98,7 @@ const ScrollToTop = memo(function ScrollToTop() {
                 cy="28"
                 r={RADIUS}
                 fill="none"
-                stroke="rgba(216,243,220,0.08)"
+                stroke="rgba(232,251,253,0.08)"
                 strokeWidth="2.5"
               />
               <m.circle
@@ -106,7 +106,7 @@ const ScrollToTop = memo(function ScrollToTop() {
                 cy="28"
                 r={RADIUS}
                 fill="none"
-                stroke="#2DA14F"
+                stroke="var(--color-hv-primary)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 initial={{ strokeDashoffset: CIRCUMFERENCE }}
@@ -125,7 +125,7 @@ const ScrollToTop = memo(function ScrollToTop() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -5 }}
                   >
-                    <FaArrowUp size={18} color="#D8F3DC" />
+                    <FaArrowUp size={18} color="var(--color-hv-text-primary)" />
                   </m.div>
                 ) : (
                   <m.div
@@ -134,7 +134,7 @@ const ScrollToTop = memo(function ScrollToTop() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                   >
-                    <FaPaw size={18} color="#D8F3DC" />
+                    <FaPaw size={18} color="var(--color-hv-text-primary)" />
                   </m.div>
                 )}
               </AnimatePresence>
@@ -147,7 +147,7 @@ const ScrollToTop = memo(function ScrollToTop() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.5 }}
                   className="absolute -top-2 -right-1 w-5.5 h-5.5 rounded-full flex items-center justify-center text-[0.5rem] font-bold"
-                  style={{ background: "#2DA14F", color: "#212529" }}
+                  style={{ background: "var(--color-hv-primary)", color: "var(--color-hv-base)" }}
                 >
                   {progress}
                 </m.span>

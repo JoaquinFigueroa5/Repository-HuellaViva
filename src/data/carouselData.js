@@ -7,7 +7,7 @@ export const SLIDES = [
     description:
       "Cada año, miles de perros y gatos son abandonados en las calles de Guatemala. Solos, hambrientos y sin esperanza. Tú puedes ser su voz.",
     // stat: { value: "3M+", label: "animales en situación de calle" },
-    accent: "#2DA14F",
+    accent: "#00B8CC",
     cta: "Guia para ayudar",
     ref: "/emergency"
   },
@@ -19,7 +19,7 @@ export const SLIDES = [
     description:
       "Adoptar a un animal rescatado no solo le da un hogar: transforma tu vida y la de toda una familia. El amor de un animal rescatado no tiene comparación.",
     // stat: { value: "68%", label: "de adoptantes reportan mayor bienestar" },
-    accent: "#FF8C42",
+    accent: "#FF6B5B",
     cta: "Reportar animal callejero",
     ref: "/report"
   },
@@ -31,7 +31,7 @@ export const SLIDES = [
     description:
       "Con donaciones, voluntariado o simplemente compartiendo nuestra causa, contribuyes a rescatar, curar y encontrar hogar a los animales más vulnerables.",
     // stat: { value: "1,200+", label: "animales rescatados este año" },
-    accent: "#D8F3DC",
+    accent: "#E8FBFD",
     cta: "Quiero ayudar",
     ref: "#donaciones"
   },
@@ -43,7 +43,7 @@ export const SLIDES = [
     description:
       "Detrás de cada animal hay una historia de sufrimiento convertida en esperanza. Conoce a quienes encontraron su segunda oportunidad gracias a personas como tú.",
     // stat: { value: "94%", label: "de rescates terminan en adopción exitosa" },
-    accent: "#FF8C42",
+    accent: "#FF6B5B",
     cta: "Leer historias",
     ref: "#historias"
   },

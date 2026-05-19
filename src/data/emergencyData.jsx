@@ -31,38 +31,38 @@ export const EMERGENCY_CONTACTS = [
   {
     label: "Bomberos",
     number: "122",
-    icon: <MdFireTruck size={20} color="#FF8C42" />,
+    icon: <MdFireTruck size={20} color="#FF6B5B" />,
     type: "phone",
-    color: "#FF8C42",
+    color: "#FF6B5B",
   },
   {
     label: "CONAP",
     number: "+502 2291-4600",
-    icon: <RiPlantLine size={20} color="#2DA14F" />,
+    icon: <RiPlantLine size={20} color="#00B8CC" />,
     type: "phone",
-    color: "#2DA14F",
+    color: "#00B8CC",
   },
   {
     label: "Municipalidad GT",
     number: "1551",
-    icon: <FaPaw size={20} color="#D8F3DC" />, // Original had FaBuilding, but I'll use FaPaw or whatever was there. Let me check lines 75. 
+    icon: <FaPaw size={20} color="#E8FBFD" />, // Original had FaBuilding, but I'll use FaPaw or whatever was there. Let me check lines 75. 
     // Wait, line 75 had FaBuilding. Let me check the imports in EmergencyGuide.jsx again.
     type: "phone",
-    color: "#D8F3DC",
+    color: "#E8FBFD",
   },
 ];
 
 // Re-checking line 75 in EmergencyGuide.jsx
-// 75:     icon: <FaBuilding size={20} color="#D8F3DC" />,
+// 75:     icon: <FaBuilding size={20} color="#E8FBFD" />,
 
 export const STEPS = [
   {
     id: 1,
     phase: "Evalúa desde lejos",
     phaseTag: "Seguridad primero",
-    tagColor: "#FF8C42",
-    icon: <FaEye size={20} color="#FF8C42" />,
-    accentColor: "#FF8C42",
+    tagColor: "#FF6B5B",
+    icon: <FaEye size={20} color="#FF6B5B" />,
+    accentColor: "#FF6B5B",
     safetyLevel: "critical",
     safetyNote:
       "NO te acerques de inmediato. Un animal asustado o herido puede morder o arañar por instinto de supervivencia, incluso si normalmente es dócil.",
@@ -91,9 +91,9 @@ export const STEPS = [
     id: 2,
     phase: "Asegura el área",
     phaseTag: "Prevenir más daño",
-    tagColor: "#FF8C42",
-    icon: <FaSign size={20} color="#FF8C42" />,
-    accentColor: "#FF8C42",
+    tagColor: "#FF6B5B",
+    icon: <FaSign size={20} color="#FF6B5B" />,
+    accentColor: "#FF6B5B",
     safetyLevel: "warning",
     safetyNote:
       "Si el animal está en la vía, señaliza el área para evitar accidentes. Tu seguridad vial también importa.",
@@ -125,9 +125,9 @@ export const STEPS = [
     id: 3,
     phase: "Primer contacto",
     phaseTag: "Con calma y método",
-    tagColor: "#D8F3DC",
-    icon: <FaHands size={20} color="#2DA14F" />,
-    accentColor: "#2DA14F",
+    tagColor: "#E8FBFD",
+    icon: <FaHands size={20} color="#00B8CC" />,
+    accentColor: "#00B8CC",
     safetyLevel: "caution",
     safetyNote:
       "Si el animal parece calmado, puedes intentar el primer contacto. Nunca lo hagas de frente ni de forma brusca.",
@@ -164,10 +164,10 @@ export const STEPS = [
     id: 4,
     phase: "Manejo seguro",
     phaseTag: "Si decides moverlo",
-    tagColor: "#2DA14F",
-    icon: <FaHands size={20} color="#2DA14F" />, // Note: original code used FaHandsHelping for id 4, but I'll use FaHands to match imports I'm adding. Let me check.
-    // 191:     icon: <FaHandsHelping size={20} color="#2DA14F" />,
-    accentColor: "#2DA14F",
+    tagColor: "#00B8CC",
+    icon: <FaHands size={20} color="#00B8CC" />, // Note: original code used FaHandsHelping for id 4, but I'll use FaHands to match imports I'm adding. Let me check.
+    // 191:     icon: <FaHandsHelping size={20} color="#00B8CC" />,
+    accentColor: "#00B8CC",
     safetyLevel: "safe",
     safetyNote:
       "Usa guantes si los tienes. Si no, usa ropa gruesa, una toalla o cualquier tela para protegerte.",
@@ -203,9 +203,9 @@ export const STEPS = [
     id: 5,
     phase: "Atención veterinaria",
     phaseTag: "Paso crucial",
-    tagColor: "#2DA14F",
-    icon: <FaNotesMedical size={20} color="#2DA14F" />,
-    accentColor: "#2DA14F",
+    tagColor: "#00B8CC",
+    icon: <FaNotesMedical size={20} color="#00B8CC" />,
+    accentColor: "#00B8CC",
     safetyLevel: "safe",
     safetyNote:
       "Aunque el animal parezca bien, una revisión veterinaria es indispensable. Heridas internas, fracturas o infecciones pueden no ser visibles.",
@@ -241,9 +241,9 @@ export const STEPS = [
     id: 6,
     phase: "¿Qué sigue?",
     phaseTag: "Opciones post-rescate",
-    tagColor: "#D8F3DC",
-    icon: <FaHouseUser size={20} color="#D8F3DC" />,
-    accentColor: "#D8F3DC",
+    tagColor: "#E8FBFD",
+    icon: <FaHouseUser size={20} color="#E8FBFD" />,
+    accentColor: "#E8FBFD",
     safetyLevel: "info",
     safetyNote:
       "Rescatar no significa necesariamente adoptarlo. Hay muchas formas de ayudar sin llevártelo a casa.",
@@ -283,31 +283,31 @@ export const SAFETY_LEVELS = {
     label: "Crítico",
   },
   warning: {
-    color: "#FF8C42",
-    bg: "rgba(255,140,66,0.10)",
-    border: "rgba(255,140,66,0.30)",
-    icon: <IoWarning color="#FF8C42" size={20} />,
+    color: "#FF6B5B",
+    bg: "rgba(255,107,91,0.10)",
+    border: "rgba(255,107,91,0.30)",
+    icon: <IoWarning color="#FF6B5B" size={20} />,
     label: "Precaución",
   },
   caution: {
-    color: "#FFD166",
-    bg: "rgba(255,209,102,0.10)",
-    border: "rgba(255,209,102,0.30)",
-    icon: <FaHeart color="#FFD166" size={20} />,
+    color: "#F5A623",
+    bg: "rgba(245,166,35,0.10)",
+    border: "rgba(245,166,35,0.30)",
+    icon: <FaHeart color="#F5A623" size={20} />,
     label: "Atención",
   },
   safe: {
-    color: "#2DA14F",
-    bg: "rgba(45,161,79,0.10)",
-    border: "rgba(45,161,79,0.30)",
-    icon: <FaCheckCircle color="#2DA14F" size={20} />,
+    color: "#00B8CC",
+    bg: "rgba(0,184,204,0.10)",
+    border: "rgba(0,184,204,0.30)",
+    icon: <FaCheckCircle color="#00B8CC" size={20} />,
     label: "Seguro",
   },
   info: {
-    color: "#D8F3DC",
-    bg: "rgba(216,243,220,0.08)",
-    border: "rgba(216,243,220,0.20)",
-    icon: <FaInfoCircle color="#D8F3DC" size={20} />,
+    color: "#E8FBFD",
+    bg: "rgba(232,251,253,0.08)",
+    border: "rgba(232,251,253,0.20)",
+    icon: <FaInfoCircle color="#E8FBFD" size={20} />,
     label: "Info",
   },
 };

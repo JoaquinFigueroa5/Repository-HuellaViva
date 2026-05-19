@@ -30,10 +30,10 @@ function FieldLabel({ children, required }) {
   return (
     <label
       className="block text-[0.7rem] font-semibold tracking-widest uppercase mb-1.5"
-      style={{ fontFamily: "'DM Sans', sans-serif", color: "#D8F3DC60" }}
+      style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--color-hv-text-primary)60" }}
     >
       {children}
-      {required && <span className="text-[#FF8C42] ml-1">*</span>}
+      {required && <span className="text-[var(--color-hv-accent-coral)] ml-1">*</span>}
     </label>
   );
 }
@@ -49,18 +49,18 @@ function Input({ value, onChange, placeholder, type = "text", maxLength }) {
       className="w-full px-3.5 py-2.5 rounded-xl text-sm border outline-none transition-all duration-200"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: "rgba(216,243,220,0.04)",
-        borderColor: "rgba(216,243,220,0.12)",
-        color: "#D8F3DC",
-        "::placeholder": { color: "#D8F3DC30" },
+        backgroundColor: "rgba(232,251,253,0.04)",
+        borderColor: "rgba(232,251,253,0.12)",
+        color: "var(--color-hv-text-primary)",
+        "::placeholder": { color: "var(--color-hv-text-primary)30" },
       }}
       onFocus={(e) => {
-        e.target.style.borderColor = "rgba(216,243,220,0.35)";
-        e.target.style.backgroundColor = "rgba(216,243,220,0.06)";
+        e.target.style.borderColor = "rgba(232,251,253,0.35)";
+        e.target.style.backgroundColor = "rgba(232,251,253,0.06)";
       }}
       onBlur={(e) => {
-        e.target.style.borderColor = "rgba(216,243,220,0.12)";
-        e.target.style.backgroundColor = "rgba(216,243,220,0.04)";
+        e.target.style.borderColor = "rgba(232,251,253,0.12)";
+        e.target.style.backgroundColor = "rgba(232,251,253,0.04)";
       }}
     />
   );
@@ -77,17 +77,17 @@ function Textarea({ value, onChange, placeholder, rows = 3, maxLength }) {
       className="w-full px-3.5 py-2.5 rounded-xl text-sm border outline-none transition-all duration-200 resize-none"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: "rgba(216,243,220,0.04)",
-        borderColor: "rgba(216,243,220,0.12)",
-        color: "#D8F3DC",
+        backgroundColor: "rgba(232,251,253,0.04)",
+        borderColor: "rgba(232,251,253,0.12)",
+        color: "var(--color-hv-text-primary)",
       }}
       onFocus={(e) => {
-        e.target.style.borderColor = "rgba(216,243,220,0.35)";
-        e.target.style.backgroundColor = "rgba(216,243,220,0.06)";
+        e.target.style.borderColor = "rgba(232,251,253,0.35)";
+        e.target.style.backgroundColor = "rgba(232,251,253,0.06)";
       }}
       onBlur={(e) => {
-        e.target.style.borderColor = "rgba(216,243,220,0.12)";
-        e.target.style.backgroundColor = "rgba(216,243,220,0.04)";
+        e.target.style.borderColor = "rgba(232,251,253,0.12)";
+        e.target.style.backgroundColor = "rgba(232,251,253,0.04)";
       }}
     />
   );
@@ -110,9 +110,9 @@ function ChipGroup({ options, value, onChange, accent }) {
               fontFamily: "'DM Sans', sans-serif",
               backgroundColor: isActive
                 ? `${accent}20`
-                : "rgba(216,243,220,0.04)",
-              borderColor: isActive ? `${accent}50` : "rgba(216,243,220,0.12)",
-              color: isActive ? accent : "#D8F3DC50",
+                : "rgba(232,251,253,0.04)",
+              borderColor: isActive ? `${accent}50` : "rgba(232,251,253,0.12)",
+              color: isActive ? accent : "var(--color-hv-text-primary)50",
               transform: isActive ? "scale(1.03)" : "scale(1)",
             }}
           >
@@ -139,7 +139,7 @@ function PosterPreview({ data, posterType }) {
     <div
       className="relative w-full rounded-2xl overflow-hidden select-none"
       style={{
-        background: "#1a1e22",
+        background: "var(--color-hv-surface)",
         border: `2px solid ${accent}40`,
         boxShadow: `0 0 60px ${accent}20, 0 20px 60px rgba(0,0,0,0.5)`,
         fontFamily: "'DM Sans', sans-serif",
@@ -167,7 +167,7 @@ function PosterPreview({ data, posterType }) {
             </div>
             <span
               className="font-bold text-sm tracking-tight"
-              style={{ fontFamily: "'Fraunces', serif", color: "#D8F3DC" }}
+              style={{ fontFamily: "'Fraunces', serif", color: "var(--color-hv-text-primary)" }}
             >
               Armonia<span style={{ color: accent }}>Animal</span>
             </span>
@@ -197,7 +197,7 @@ function PosterPreview({ data, posterType }) {
           {data.name || (isAdopt ? "Nombre" : "¿Me viste?")}
         </h2>
         <p
-          className="text-[#D8F3DC]/50 text-xs mb-3"
+          className="text-[var(--color-hv-text-primary)]/50 text-xs mb-3"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {[
@@ -216,9 +216,9 @@ function PosterPreview({ data, posterType }) {
             <span
               className="text-[0.6rem] font-semibold tracking-wider uppercase px-2 py-0.75 rounded-full"
               style={{
-                color: "#D8F3DC80",
-                backgroundColor: "#D8F3DC10",
-                border: "1px solid #D8F3DC15",
+                color: "var(--color-hv-text-primary)80",
+                backgroundColor: "var(--color-hv-text-primary)10",
+                border: "1px solid var(--color-hv-text-primary)15",
               }}
             >
               {data.gender}
@@ -228,9 +228,9 @@ function PosterPreview({ data, posterType }) {
             <span
               className="text-[0.6rem] font-semibold tracking-wider uppercase px-2 py-0.75 rounded-full"
               style={{
-                color: "#D8F3DC80",
-                backgroundColor: "#D8F3DC10",
-                border: "1px solid #D8F3DC15",
+                color: "var(--color-hv-text-primary)80",
+                backgroundColor: "var(--color-hv-text-primary)10",
+                border: "1px solid var(--color-hv-text-primary)15",
               }}
             >
               Tamaño {data.size}
@@ -245,7 +245,7 @@ function PosterPreview({ data, posterType }) {
         style={{
           height: 220,
           border: `2px solid ${accent}30`,
-          backgroundColor: "#212529",
+          backgroundColor: "var(--color-hv-base)",
           boxShadow: `0 4px 24px rgba(0,0,0,0.4), 0 0 0 4px ${accent}10`,
         }}
       >
@@ -254,7 +254,7 @@ function PosterPreview({ data, posterType }) {
             <FaCamera size={36} color={accent} />
             <span
               className="text-xs tracking-widest uppercase"
-              style={{ fontFamily: "'DM Sans', sans-serif", color: "#D8F3DC" }}
+              style={{ fontFamily: "'DM Sans', sans-serif", color: "var(--color-hv-text-primary)" }}
             >
               Foto del animal
             </span>
@@ -279,7 +279,7 @@ function PosterPreview({ data, posterType }) {
       {data.description && (
         <div className="px-5 mb-4">
           <p
-            className="text-[#D8F3DC]/70 text-[0.72rem] leading-relaxed px-4 py-3 rounded-xl"
+            className="text-[var(--color-hv-text-primary)]/70 text-[0.72rem] leading-relaxed px-4 py-3 rounded-xl"
             style={{
               backgroundColor: `${accent}08`,
               border: `1px solid ${accent}18`,
@@ -321,7 +321,7 @@ function PosterPreview({ data, posterType }) {
       {/* Divider */}
       <div
         className="mx-5 h-px mb-4"
-        style={{ backgroundColor: "rgba(216,243,220,0.07)" }}
+        style={{ backgroundColor: "rgba(232,251,253,0.07)" }}
       />
 
       {/* Contacto */}
@@ -335,7 +335,7 @@ function PosterPreview({ data, posterType }) {
               <FaMapMarkerAlt size={10} color={accent} />
             </div>
             <span
-              className="text-[0.7rem] text-[#D8F3DC]/60 truncate"
+              className="text-[0.7rem] text-[var(--color-hv-text-primary)]/60 truncate"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {data.location}
@@ -352,7 +352,7 @@ function PosterPreview({ data, posterType }) {
               <FaWhatsapp size={10} color="#25D366" />
             </div>
             <span
-              className="text-[0.7rem] text-[#D8F3DC]/60"
+              className="text-[0.7rem] text-[var(--color-hv-text-primary)]/60"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {data.phone}
@@ -364,12 +364,12 @@ function PosterPreview({ data, posterType }) {
           <div className="flex items-center gap-2.5">
             <div
               className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0"
-              style={{ backgroundColor: "rgba(216,243,220,0.08)" }}
+              style={{ backgroundColor: "rgba(232,251,253,0.08)" }}
             >
-              <FaUser size={10} color="#D8F3DC50" />
+              <FaUser size={10} color="var(--color-hv-text-primary)50" />
             </div>
             <span
-              className="text-[0.7rem] text-[#D8F3DC]/60"
+              className="text-[0.7rem] text-[var(--color-hv-text-primary)]/60"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {data.contactName}
@@ -396,7 +396,7 @@ function PosterPreview({ data, posterType }) {
           ))}
         </div>
         <span
-          className="text-[0.55rem] text-[#D8F3DC]/25 tracking-wider uppercase"
+          className="text-[0.55rem] text-[var(--color-hv-text-primary)]/25 tracking-wider uppercase"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
            armoniaanimal.gt
@@ -463,10 +463,10 @@ export default function PosterGenerator() {
   return (
     <LazyMotion features={domMax} strict>
       <section
-        className="w-full min-h-screen bg-[#212529] py-16 px-4 md:px-8"
+        className="w-full min-h-screen bg-[var(--color-hv-base)] py-16 px-4 md:px-8"
         style={{
           "--accent": accent,
-          "--accent-dark": isAdopt ? "#1a7a3a" : "#cc6b28",
+          "--accent-dark": isAdopt ? "var(--color-hv-primary-dark)" : "var(--color-hv-accent-coral-dark)",
         }}
       >
         <div className="max-w-6xl mx-auto">
@@ -498,7 +498,7 @@ export default function PosterGenerator() {
             </div>
 
             <h2
-              className="leading-[1.1] tracking-[-0.03em] mb-4 text-[#D8F3DC]"
+              className="leading-[1.1] tracking-[-0.03em] mb-4 text-[var(--color-hv-text-primary)]"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.2rem)",
@@ -512,7 +512,7 @@ export default function PosterGenerator() {
             </h2>
 
             <p
-              className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-md leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -552,7 +552,7 @@ export default function PosterGenerator() {
                         ? `${accent}50`
                         : step > s.id
                           ? `${accent}25`
-                          : "rgba(216,243,220,0.08)",
+                          : "rgba(232,251,253,0.08)",
                   }}
                 >
                   <div
@@ -563,13 +563,13 @@ export default function PosterGenerator() {
                           ? accent
                           : step > s.id
                             ? `${accent}30`
-                            : "rgba(216,243,220,0.08)",
+                            : "rgba(232,251,253,0.08)",
                       color:
                         step === s.id
-                          ? "#212529"
+                          ? "var(--color-hv-base)"
                           : step > s.id
                             ? accent
-                            : "#D8F3DC40",
+                            : "var(--color-hv-text-primary)40",
                     }}
                   >
                     {step > s.id ? "✓" : s.id}
@@ -583,7 +583,7 @@ export default function PosterGenerator() {
                           ? accent
                           : step > s.id
                             ? `${accent}80`
-                            : "#D8F3DC30",
+                            : "var(--color-hv-text-primary)30",
                     }}
                   >
                     {s.label}
@@ -594,7 +594,7 @@ export default function PosterGenerator() {
                     className="w-6 h-px mx-1"
                     style={{
                       backgroundColor:
-                        step > s.id ? `${accent}40` : "rgba(216,243,220,0.08)",
+                        step > s.id ? `${accent}40` : "rgba(232,251,253,0.08)",
                     }}
                   />
                 )}
@@ -636,11 +636,11 @@ export default function PosterGenerator() {
                               backgroundColor:
                                 posterType === pt.id
                                   ? `${pt.accentColor}15`
-                                  : "rgba(216,243,220,0.03)",
+                                  : "rgba(232,251,253,0.03)",
                               borderColor:
                                 posterType === pt.id
                                   ? `${pt.accentColor}50`
-                                  : "rgba(216,243,220,0.10)",
+                                  : "rgba(232,251,253,0.10)",
                               boxShadow:
                                 posterType === pt.id
                                   ? `0 4px 32px ${pt.accentColor}20, 0 0 0 1px ${pt.accentColor}25`
@@ -652,7 +652,7 @@ export default function PosterGenerator() {
                                 className="absolute top-3 right-3 w-5 h-5 rounded-full flex items-center justify-center"
                                 style={{ backgroundColor: pt.accentColor }}
                               >
-                                <FaCheckCircle size={12} color="#212529" />
+                                <FaCheckCircle size={12} color="var(--color-hv-base)" />
                               </div>
                             )}
                             <div
@@ -680,13 +680,13 @@ export default function PosterGenerator() {
                                   color:
                                     posterType === pt.id
                                       ? pt.accentColor
-                                      : "#D8F3DC",
+                                      : "var(--color-hv-text-primary)",
                                 }}
                               >
                                 {pt.label}
                               </p>
                               <p
-                                className="text-xs text-[#D8F3DC]/40 leading-snug"
+                                className="text-xs text-[var(--color-hv-text-primary)]/40 leading-snug"
                                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                               >
                                 {pt.id === "adoptame"
@@ -790,10 +790,10 @@ export default function PosterGenerator() {
                         style={{
                           borderColor: data.photo
                             ? `${accent}50`
-                            : "rgba(216,243,220,0.15)",
+                            : "rgba(232,251,253,0.15)",
                           backgroundColor: data.photo
                             ? `${accent}08`
-                            : "rgba(216,243,220,0.02)",
+                            : "rgba(232,251,253,0.02)",
                         }}
                       >
                         {data.photo ? (
@@ -827,13 +827,13 @@ export default function PosterGenerator() {
                             </div>
                             <div className="text-center">
                               <p
-                                className="text-sm font-semibold text-[#D8F3DC]/70 mb-1"
+                                className="text-sm font-semibold text-[var(--color-hv-text-primary)]/70 mb-1"
                                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                               >
                                 Subir foto
                               </p>
                               <p
-                                className="text-[0.65rem] text-[#D8F3DC]/30"
+                                className="text-[0.65rem] text-[var(--color-hv-text-primary)]/30"
                                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                               >
                                 JPG, PNG · Máx 10MB
@@ -876,7 +876,7 @@ export default function PosterGenerator() {
                       <p
                         className="text-right text-[0.6rem] mt-1"
                         style={{
-                          color: "#D8F3DC30",
+                          color: "var(--color-hv-text-primary)30",
                           fontFamily: "'DM Sans', sans-serif",
                         }}
                       >
@@ -998,7 +998,7 @@ export default function PosterGenerator() {
                       <p
                         className="text-[0.72rem] leading-relaxed"
                         style={{
-                          color: "#D8F3DC60",
+                          color: "var(--color-hv-text-primary)60",
                           fontFamily: "'DM Sans', sans-serif",
                         }}
                       >
@@ -1022,9 +1022,9 @@ export default function PosterGenerator() {
                     className="flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-sm font-semibold border cursor-pointer transition-all duration-200"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      color: "#D8F3DC50",
-                      borderColor: "rgba(216,243,220,0.12)",
-                      backgroundColor: "rgba(216,243,220,0.03)",
+                      color: "var(--color-hv-text-primary)50",
+                      borderColor: "rgba(232,251,253,0.12)",
+                      backgroundColor: "rgba(232,251,253,0.03)",
                     }}
                   >
                     <svg
@@ -1050,7 +1050,7 @@ export default function PosterGenerator() {
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       backgroundColor: accent,
-                      color: "#212529",
+                      color: "var(--color-hv-base)",
                       boxShadow: `0 2px 16px ${accent}35`,
                     }}
                   >
@@ -1075,7 +1075,7 @@ export default function PosterGenerator() {
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       backgroundColor: accent,
-                      color: "#212529",
+                      color: "var(--color-hv-base)",
                       boxShadow: `0 2px 16px ${accent}35`,
                     }}
                   >
@@ -1090,7 +1090,7 @@ export default function PosterGenerator() {
             <div className="hidden lg:block lg:sticky lg:top-24">
               <div className="mb-4 flex items-center justify-between px-1">
                 <span
-                  className="text-[0.68rem] text-[#D8F3DC]/30 font-semibold tracking-widest uppercase"
+                  className="text-[0.68rem] text-[var(--color-hv-text-primary)]/30 font-semibold tracking-widest uppercase"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   Vista previa
@@ -1154,14 +1154,14 @@ export default function PosterGenerator() {
               onClick={(e) => e.stopPropagation()}
               className="w-full rounded-t-3xl overflow-y-auto"
               style={{
-                backgroundColor: "#212529",
+                backgroundColor: "var(--color-hv-base)",
                 maxHeight: "90vh",
                 padding: "24px 16px 40px",
               }}
             >
               <div
                 className="w-12 h-1 rounded-full mx-auto mb-6"
-                style={{ backgroundColor: "rgba(216,243,220,0.15)" }}
+                style={{ backgroundColor: "rgba(232,251,253,0.15)" }}
               />
               <PosterPreview data={data} posterType={posterType} />
               <button
@@ -1169,9 +1169,9 @@ export default function PosterGenerator() {
                 className="w-full mt-5 py-3 rounded-xl text-sm font-semibold cursor-pointer border-0"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  backgroundColor: "rgba(216,243,220,0.06)",
-                  color: "#D8F3DC60",
-                  border: "1px solid rgba(216,243,220,0.10)",
+                  backgroundColor: "rgba(232,251,253,0.06)",
+                  color: "var(--color-hv-text-primary)60",
+                  border: "1px solid rgba(232,251,253,0.10)",
                 }}
               >
                 Cerrar
@@ -1191,7 +1191,7 @@ function SectionCard({ title, accent, children }) {
       className="rounded-2xl border p-5 flex flex-col gap-4"
       style={{
         backgroundColor: "rgba(255,255,255,0.018)",
-        borderColor: "rgba(216,243,220,0.08)",
+        borderColor: "rgba(232,251,253,0.08)",
         backdropFilter: "blur(10px)",
       }}
     >
@@ -1201,7 +1201,7 @@ function SectionCard({ title, accent, children }) {
           style={{ backgroundColor: accent }}
         />
         <h3
-          className="font-semibold text-sm text-[#D8F3DC]"
+          className="font-semibold text-sm text-[var(--color-hv-text-primary)]"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           {title}

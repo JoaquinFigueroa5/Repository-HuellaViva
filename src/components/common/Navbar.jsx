@@ -68,11 +68,11 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8
           transition-all duration-500
-          bg-[#212529]/90 backdrop-blur-xl border-b border-[#D8F3DC]/8 shadow-[0_4px_32px_rgba(0,0,0,0.45)]
+          bg-[var(--color-hv-base)]/90 backdrop-blur-xl border-b border-[var(--color-hv-text-primary)]/8 shadow-[0_4px_32px_rgba(0,0,0,0.45)]
           lg:bg-transparent lg:backdrop-blur-none lg:border-transparent lg:shadow-none
           ${
             scrolled
-              ? "lg:bg-[#212529]/90 lg:backdrop-blur-xl lg:border-[#D8F3DC]/8 lg:shadow-[0_4px_32px_rgba(0,0,0,0.45)]"
+              ? "lg:bg-[var(--color-hv-base)]/90 lg:backdrop-blur-xl lg:border-[var(--color-hv-text-primary)]/8 lg:shadow-[0_4px_32px_rgba(0,0,0,0.45)]"
               : ""
           }`}
       >
@@ -84,13 +84,13 @@ export default function Navbar() {
             <div
               className="
               w-10 h-10 rounded-xl flex items-center justify-center shrink-0
-              bg-[#2DA14F] text-[#D8F3DC]
-              shadow-[0_2px_16px_rgba(45,161,79,0.4)]
+              bg-[var(--color-hv-primary)] text-[var(--color-hv-text-primary)]
+              shadow-[0_2px_16px_rgba(0,184,204,0.4)]
               transition-all duration-300
-              group-hover:bg-[#FF8C42]
+              group-hover:bg-[var(--color-hv-accent-coral)]
               group-hover:-rotate-6
               group-hover:scale-110
-              group-hover:shadow-[0_4px_24px_rgba(255,140,66,0.5)]
+              group-hover:shadow-[0_4px_24px_rgba(255,107,91,0.5)]
             "
             >
               <PawIcon />
@@ -98,13 +98,13 @@ export default function Navbar() {
 
             <div className="flex flex-col leading-none">
               <span
-                className="text-[#D8F3DC] text-[1.15rem] font-bold tracking-tight"
+                className="text-[var(--color-hv-text-primary)] text-[1.15rem] font-bold tracking-tight"
                 style={{ fontFamily: "'Fraunces', serif" }}
               >
                 ArmoniaAnimal
               </span>
               <span
-                className="text-[#2DA14F] text-[0.6rem] font-semibold tracking-[0.13em] uppercase mt-0.75"
+                className="text-[var(--color-hv-primary)] text-[0.6rem] font-semibold tracking-[0.13em] uppercase mt-0.75"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Por los que no tienen voz
@@ -128,8 +128,8 @@ export default function Navbar() {
                     transition-all duration-200
                     ${
                       active
-                        ? "text-[#D8F3DC]"
-                        : "text-[#D8F3DC]/55 hover:text-[#D8F3DC] hover:bg-[#D8F3DC]/6"
+                        ? "text-[var(--color-hv-text-primary)]"
+                        : "text-[var(--color-hv-text-primary)]/55 hover:text-[var(--color-hv-text-primary)] hover:bg-[var(--color-hv-text-primary)]/6"
                     }
                   `}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -138,7 +138,7 @@ export default function Navbar() {
                   <span
                     className={`
                     absolute bottom-1.25 left-1/2 -translate-x-1/2
-                    h-0.5 rounded-full bg-[#FF8C42]
+                    h-0.5 rounded-full bg-[var(--color-hv-accent-coral)]
                     transition-all duration-300
                     ${active ? "w-[58%]" : "w-0 group-hover:w-[58%]"}
                   `}
@@ -153,8 +153,8 @@ export default function Navbar() {
               onClick={scrollToBottom}
               className="
                 flex items-center justify-center w-10 h-10 rounded-xl cursor-pointer
-                bg-[#D8F3DC]/6 border border-[#D8F3DC]/12
-                text-[#D8F3DC]/60 hover:text-[#D8F3DC] hover:bg-[#D8F3DC]/10
+                bg-[var(--color-hv-text-primary)]/6 border border-[var(--color-hv-text-primary)]/12
+                text-[var(--color-hv-text-primary)]/60 hover:text-[var(--color-hv-text-primary)] hover:bg-[var(--color-hv-text-primary)]/10
                 transition-all duration-200 hover:-translate-y-0.5
               "
               title="Ir al final"
@@ -164,13 +164,13 @@ export default function Navbar() {
             <button
               className="
                 flex items-center gap-2 shrink-0
-                bg-[#FF8C42] text-white text-sm font-semibold
+                bg-[var(--color-hv-accent-coral)] text-white text-sm font-semibold
                 px-5 py-2.25 rounded-xl border-0 cursor-pointer
-                shadow-[0_2px_18px_rgba(255,140,66,0.42)]
+                shadow-[0_2px_18px_rgba(255,107,91,0.42)]
                 transition-all duration-200
                 hover:-translate-y-0.5
-                hover:shadow-[0_6px_28px_rgba(255,140,66,0.55)]
-                hover:bg-[#ff9a57]
+                hover:shadow-[0_6px_28px_rgba(255,107,91,0.55)]
+                hover:bg-[var(--color-hv-accent-coral-light)]
                 active:translate-y-0
               "
               style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -189,10 +189,10 @@ export default function Navbar() {
             className="
               lg:hidden flex items-center justify-center
               w-9 h-9 rounded-lg cursor-pointer
-              bg-[#D8F3DC]/6 border border-[#D8F3DC]/12
-              text-[#D8F3DC]
+              bg-[var(--color-hv-text-primary)]/6 border border-[var(--color-hv-text-primary)]/12
+              text-[var(--color-hv-text-primary)]
               transition-all duration-200
-              hover:bg-[#D8F3DC]/10
+              hover:bg-[var(--color-hv-text-primary)]/10
             "
           >
             {isOpen ? <CloseIcon /> : <MenuIcon />}
@@ -206,7 +206,7 @@ export default function Navbar() {
           ${isOpen ? "max-h-120 opacity-100" : "max-h-0 opacity-0"}
         `}
         >
-          <div className="h-px bg-[#D8F3DC]/8 mx-2" />
+          <div className="h-px bg-[var(--color-hv-text-primary)]/8 mx-2" />
 
           <div className="flex flex-col gap-0.5 pt-2 pb-4 px-1">
             {NAV_LINKS.map(({ label, href }) => {
@@ -224,15 +224,15 @@ export default function Navbar() {
                     transition-all duration-200
                     ${
                       active
-                        ? "text-[#D8F3DC] bg-[#2DA14F]/12"
-                        : "text-[#D8F3DC]/60 hover:text-[#D8F3DC] hover:bg-[#2DA14F]/[0.07]"
+                        ? "text-[var(--color-hv-text-primary)] bg-[var(--color-hv-primary)]/12"
+                        : "text-[var(--color-hv-text-primary)]/60 hover:text-[var(--color-hv-text-primary)] hover:bg-[var(--color-hv-primary)]/[0.07]"
                     }
                   `}
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   <span
                     className={`
-                    w-1.5 h-1.5 rounded-full shrink-0 bg-[#2DA14F]
+                    w-1.5 h-1.5 rounded-full shrink-0 bg-[var(--color-hv-primary)]
                     transition-all duration-200
                     ${active ? "opacity-100 scale-100" : "opacity-0 scale-0"}
                   `}
@@ -241,7 +241,7 @@ export default function Navbar() {
                   <span className="flex-1">{label}</span>
 
                   {active && (
-                    <span className="text-[#2DA14F]/50 ml-auto">
+                    <span className="text-[var(--color-hv-primary)]/50 ml-auto">
                       <ArrowIcon />
                     </span>
                   )}
@@ -249,15 +249,15 @@ export default function Navbar() {
               );
             })}
 
-            <div className="mt-2 pt-3 border-t border-[#D8F3DC]/8 px-1 flex flex-col gap-2.5">
+            <div className="mt-2 pt-3 border-t border-[var(--color-hv-text-primary)]/8 px-1 flex flex-col gap-2.5">
               <button
                 className="
                   w-full flex items-center justify-center gap-2
-                  bg-[#FF8C42] text-white text-[0.95rem] font-semibold
+                  bg-[var(--color-hv-accent-coral)] text-white text-[0.95rem] font-semibold
                   py-3.25 rounded-xl border-0 cursor-pointer
-                  shadow-[0_2px_18px_rgba(255,140,66,0.35)]
+                  shadow-[0_2px_18px_rgba(255,107,91,0.35)]
                   transition-all duration-200
-                  hover:bg-[#ff9a57] hover:-translate-y-px
+                  hover:bg-[var(--color-hv-accent-coral-light)] hover:-translate-y-px
                   active:translate-y-0
                 "
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
@@ -269,10 +269,10 @@ export default function Navbar() {
               <button
                 className="
                   w-full flex items-center justify-center gap-2
-                  bg-[#D8F3DC]/6 text-[#D8F3DC]/70 text-[0.9rem] font-medium
-                  py-3 rounded-xl border border-[#D8F3DC]/12 cursor-pointer
+                  bg-[var(--color-hv-text-primary)]/6 text-[var(--color-hv-text-primary)]/70 text-[0.9rem] font-medium
+                  py-3 rounded-xl border border-[var(--color-hv-text-primary)]/12 cursor-pointer
                   transition-all duration-200
-                  hover:bg-[#D8F3DC]/10 hover:text-[#D8F3DC]
+                  hover:bg-[var(--color-hv-text-primary)]/10 hover:text-[var(--color-hv-text-primary)]
                 "
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
                 onClick={scrollToBottom}

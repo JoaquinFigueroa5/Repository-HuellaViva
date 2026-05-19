@@ -85,7 +85,7 @@ const MythCardFront = memo(function MythCardFront({ myth, theme }) {
       </div>
 
       <p
-        className="text-[#D8F3DC]/85 leading-relaxed flex-1 relative z-10"
+        className="text-[var(--color-hv-text-primary)]/85 leading-relaxed flex-1 relative z-10"
         style={{
           fontFamily: "'Fraunces', serif",
           fontSize: "clamp(0.9rem, 1.8vw, 1rem)",
@@ -123,7 +123,7 @@ const MythCardFront = memo(function MythCardFront({ myth, theme }) {
           </svg>
         </span>
         <span
-          className="text-[#D8F3DC]/25 text-[0.58rem] tracking-[0.05em] uppercase text-center leading-none"
+          className="text-[var(--color-hv-text-primary)]/25 text-[0.58rem] tracking-[0.05em] uppercase text-center leading-none"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           Toca para ver la realidad
@@ -164,7 +164,7 @@ const MythCardBack = memo(function MythCardBack({ myth, theme }) {
       </div>
 
       <p
-        className="text-[#D8F3DC]/80 leading-relaxed flex-1 text-sm"
+        className="text-[var(--color-hv-text-primary)]/80 leading-relaxed flex-1 text-sm"
         style={{ fontFamily: "'DM Sans', sans-serif", lineHeight: 1.65 }}
       >
         {myth.reality}
@@ -182,7 +182,7 @@ const MythCardBack = memo(function MythCardBack({ myth, theme }) {
 
       <div className="flex items-center justify-center gap-1.5">
         <span
-          className="text-[#D8F3DC]/20 text-[0.6rem] tracking-widest uppercase"
+          className="text-[var(--color-hv-text-primary)]/20 text-[0.6rem] tracking-widest uppercase"
           style={{ fontFamily: "'DM Sans', sans-serif" }}
         >
           Toca para volver
@@ -239,14 +239,14 @@ const StatsBar = memo(function StatsBar({ totalRevealed, totalMyths, progressPct
         <div
           className="flex items-center gap-2 px-4 py-2 rounded-xl"
           style={{
-            backgroundColor: "rgba(45,161,79,0.10)",
-            border: "1px solid rgba(45,161,79,0.25)",
+            backgroundColor: "rgba(0,184,204,0.10)",
+            border: "1px solid rgba(0,184,204,0.25)",
           }}
         >
-          <FaPaw size={12} color="#2DA14F" />
-          <span className="text-[#D8F3DC]/70 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-            <span className="text-[#2DA14F] font-bold text-sm">{totalRevealed}</span>
-            <span className="text-[#D8F3DC]/40"> / {totalMyths} mitos revelados</span>
+          <FaPaw size={12} color="var(--color-hv-primary)" />
+          <span className="text-[var(--color-hv-text-primary)]/70 text-xs" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+            <span className="text-[var(--color-hv-primary)] font-bold text-sm">{totalRevealed}</span>
+            <span className="text-[var(--color-hv-text-primary)]/40"> / {totalMyths} mitos revelados</span>
           </span>
         </div>
 
@@ -256,9 +256,9 @@ const StatsBar = memo(function StatsBar({ totalRevealed, totalMyths, progressPct
             animate={{ opacity: 1, scale: 1 }}
             className="text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-2"
             style={{
-              backgroundColor: "#2DA14F20",
-              color: "#2DA14F",
-              border: "1px solid #2DA14F40",
+              backgroundColor: "var(--color-hv-primary)20",
+              color: "var(--color-hv-primary)",
+              border: "1px solid var(--color-hv-primary)40",
               fontFamily: "'DM Sans', sans-serif",
             }}
           >
@@ -268,18 +268,18 @@ const StatsBar = memo(function StatsBar({ totalRevealed, totalMyths, progressPct
       </div>
 
       <div className="flex items-center gap-3 flex-1 max-w-xs">
-        <div className="flex-1 h-1.5 rounded-full bg-[#D8F3DC]/10 overflow-hidden">
+        <div className="flex-1 h-1.5 rounded-full bg-[var(--color-hv-text-primary)]/10 overflow-hidden">
           <m.div
             className="h-full rounded-full"
             style={{
-              background: "linear-gradient(90deg, #2DA14F, #52c97a)",
-              boxShadow: "0 0 8px rgba(45,161,79,0.5)",
+              background: "linear-gradient(90deg, var(--color-hv-primary), var(--color-hv-primary-light))",
+              boxShadow: "0 0 8px rgba(0,184,204,0.5)",
             }}
             animate={{ width: `${progressPct}%` }}
             transition={{ type: "spring", stiffness: 80, damping: 20 }}
           />
         </div>
-        <span className="text-[#2DA14F] text-xs font-semibold tabular-nums w-8 text-right" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <span className="text-[var(--color-hv-primary)] text-xs font-semibold tabular-nums w-8 text-right" style={{ fontFamily: "'DM Sans', sans-serif" }}>
           {progressPct}%
         </span>
       </div>
@@ -296,16 +296,16 @@ const FilterButton = memo(function FilterButton({ cat, isActive, onClick }) {
       className="relative flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border-0 cursor-pointer transition-colors duration-200 whitespace-nowrap"
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        backgroundColor: isActive ? "#2DA14F" : "rgba(216,243,220,0.06)",
-        color: isActive ? "#212529" : "rgba(216,243,220,0.55)",
-        boxShadow: isActive ? "0 3px 14px rgba(45,161,79,0.40)" : "none",
+        backgroundColor: isActive ? "var(--color-hv-primary)" : "rgba(232,251,253,0.06)",
+        color: isActive ? "var(--color-hv-base)" : "rgba(232,251,253,0.55)",
+        boxShadow: isActive ? "0 3px 14px rgba(0,184,204,0.40)" : "none",
       }}
     >
       {isActive && (
         <m.div
           layoutId="filter-active"
           className="absolute inset-0 rounded-xl"
-          style={{ backgroundColor: "#2DA14F", zIndex: 0 }}
+          style={{ backgroundColor: "var(--color-hv-primary)", zIndex: 0 }}
           transition={{ type: "spring", stiffness: 280, damping: 28 }}
         />
       )}
@@ -389,7 +389,7 @@ export default function MythsVsReality() {
       <section
         ref={sectionRef}
         id="mitos"
-        className="relative w-full bg-[#212529] py-10 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[var(--color-hv-base)] py-10 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -400,7 +400,7 @@ export default function MythsVsReality() {
             style={{
               width: 500,
               height: 500,
-              background: "radial-gradient(circle, #FF8C42 0%, transparent 70%)",
+              background: "radial-gradient(circle, var(--color-hv-accent-coral) 0%, transparent 70%)",
               top: "10%",
               right: "10%",
             }}
@@ -410,7 +410,7 @@ export default function MythsVsReality() {
             style={{
               width: 400,
               height: 400,
-              background: "radial-gradient(circle, #2DA14F 0%, transparent 70%)",
+              background: "radial-gradient(circle, var(--color-hv-primary) 0%, transparent 70%)",
               bottom: "10%",
               left: "5%",
             }}
@@ -425,10 +425,10 @@ export default function MythsVsReality() {
             animate={sectionInView ? "visible" : "hidden"}
             className="flex flex-col items-center text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#FF8C42]/12 border border-[#FF8C42]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF8C42] pulse-dot" />
+            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[var(--color-hv-accent-coral)]/12 border border-[var(--color-hv-accent-coral)]/30">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-coral)] pulse-dot" />
               <span
-                className="text-[#FF8C42] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
+                className="text-[var(--color-hv-accent-coral)] text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Derribando barreras
@@ -436,7 +436,7 @@ export default function MythsVsReality() {
             </div>
 
             <h2
-              className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.4rem)",
@@ -444,11 +444,11 @@ export default function MythsVsReality() {
               }}
             >
               Mitos que{" "}
-              <em className="not-italic text-[#FF8C42]">cuestan vidas</em>
+              <em className="not-italic text-[var(--color-hv-accent-coral)]">cuestan vidas</em>
             </h2>
 
             <p
-              className="text-[#D8F3DC]/50 max-w-lg leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-lg leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -492,12 +492,12 @@ export default function MythsVsReality() {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 borderColor: allCurrentShown
-                  ? "rgba(255,140,66,0.35)"
-                  : "rgba(216,243,220,0.15)",
+                  ? "rgba(255,107,91,0.35)"
+                  : "rgba(232,251,253,0.15)",
                 backgroundColor: allCurrentShown
-                  ? "rgba(255,140,66,0.08)"
-                  : "rgba(216,243,220,0.04)",
-                color: allCurrentShown ? "#FF8C42" : "rgba(216,243,220,0.45)",
+                  ? "rgba(255,107,91,0.08)"
+                  : "rgba(232,251,253,0.04)",
+                color: allCurrentShown ? "var(--color-hv-accent-coral)" : "rgba(232,251,253,0.45)",
               }}
             >
               {allCurrentShown ? (
@@ -540,12 +540,12 @@ export default function MythsVsReality() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT_ONCE}
             transition={{ type: "spring", stiffness: 90, damping: 20 }}
-            className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl border border-[#2DA14F]/20"
-            style={{ backgroundColor: "rgba(45,161,79,0.06)" }}
+            className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 p-6 md:p-8 rounded-2xl border border-[var(--color-hv-primary)]/20"
+            style={{ backgroundColor: "rgba(0,184,204,0.06)" }}
           >
             <div className="text-center sm:text-left">
               <h4
-                className="text-[#D8F3DC] mb-1"
+                className="text-[var(--color-hv-text-primary)] mb-1"
                 style={{
                   fontFamily: "'Fraunces', serif",
                   fontSize: "clamp(1.1rem, 2.5vw, 1.35rem)",
@@ -553,10 +553,10 @@ export default function MythsVsReality() {
                 }}
               >
                 ¿Quieres compartir la{" "}
-                <em className="not-italic text-[#2DA14F]">verdad</em>?
+                <em className="not-italic text-[var(--color-hv-primary)]">verdad</em>?
               </h4>
               <p
-                className="text-[#D8F3DC]/45 text-sm"
+                className="text-[var(--color-hv-text-primary)]/45 text-sm"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
               >
                 Comparte estos datos con quienes conoces. La educación es el
@@ -567,15 +567,15 @@ export default function MythsVsReality() {
               <m.button
                 whileHover={{
                   y: -2,
-                  boxShadow: "0 8px 28px rgba(45,161,79,0.40)",
+                  boxShadow: "0 8px 28px rgba(0,184,204,0.40)",
                 }}
                 whileTap={{ scale: 0.96 }}
                 className="flex items-center gap-2 px-5 py-2.75 rounded-xl text-sm font-semibold border-0 cursor-pointer"
                 style={{
-                  backgroundColor: "#2DA14F",
-                  color: "#212529",
+                  backgroundColor: "var(--color-hv-primary)",
+                  color: "var(--color-hv-base)",
                   fontFamily: "'DM Sans', sans-serif",
-                  boxShadow: "0 2px 14px rgba(45,161,79,0.35)",
+                  boxShadow: "0 2px 14px rgba(0,184,204,0.35)",
                 }}
                 onClick={() =>
                   handleShare({
@@ -594,12 +594,12 @@ export default function MythsVsReality() {
                 onMouseLeave={() => setInfoTooltip(false)}
               >
                 <m.button
-                  whileHover={{ y: -2, borderColor: "rgba(255,140,66,0.28)" }}
+                  whileHover={{ y: -2, borderColor: "rgba(255,107,91,0.28)" }}
                   className="flex items-center gap-2 px-5 py-2.75 rounded-xl text-sm font-semibold cursor-not-allowed"
                   style={{
-                    color: "rgba(255,140,66,0.45)",
-                    backgroundColor: "rgba(255,140,66,0.05)",
-                    border: "1px solid rgba(255,140,66,0.14)",
+                    color: "rgba(255,107,91,0.45)",
+                    backgroundColor: "rgba(255,107,91,0.05)",
+                    border: "1px solid rgba(255,107,91,0.14)",
                     fontFamily: "'DM Sans', sans-serif",
                   }}
                 >
@@ -635,11 +635,11 @@ export default function MythsVsReality() {
                           transformOrigin: "bottom center",
                           background:
                             "linear-gradient(135deg, rgba(30,32,36,0.97) 0%, rgba(22,24,28,0.99) 100%)",
-                          border: "1px solid rgba(255,140,66,0.22)",
+                          border: "1px solid rgba(255,107,91,0.22)",
                           borderRadius: "14px",
                           padding: "12px 16px",
                           boxShadow:
-                            "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,140,66,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
+                            "0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,107,91,0.08), inset 0 1px 0 rgba(255,255,255,0.04)",
                           minWidth: 200,
                           backdropFilter: "blur(16px)",
                           WebkitBackdropFilter: "blur(16px)",
@@ -662,9 +662,9 @@ export default function MythsVsReality() {
                               width: 26,
                               height: 26,
                               borderRadius: "8px",
-                              background: "rgba(255,140,66,0.14)",
-                              border: "1px solid rgba(255,140,66,0.28)",
-                              color: "#FF8C42",
+                              background: "rgba(255,107,91,0.14)",
+                              border: "1px solid rgba(255,107,91,0.28)",
+                              color: "var(--color-hv-accent-coral)",
                               flexShrink: 0,
                             }}
                           >
@@ -686,7 +686,7 @@ export default function MythsVsReality() {
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize: "0.7rem",
-                            color: "rgba(216,243,220,0.45)",
+                            color: "rgba(232,251,253,0.45)",
                             lineHeight: 1.5,
                             margin: 0,
                             paddingLeft: "2px",

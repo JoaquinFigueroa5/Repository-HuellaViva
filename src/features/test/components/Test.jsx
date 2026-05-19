@@ -97,7 +97,7 @@ const AnswerOption = memo(function AnswerOption({
       className="w-full flex items-center gap-4 px-5 py-4 rounded-2xl border-0 cursor-pointer text-left transition-colors duration-200 will-change-transform"
       style={{
         backgroundColor: isSelected ? `${accent}16` : "rgba(255,255,255,0.025)",
-        border: `2px solid ${isSelected ? `${accent}55` : "rgba(216,243,220,0.10)"}`,
+        border: `2px solid ${isSelected ? `${accent}55` : "rgba(232,251,253,0.10)"}`,
         boxShadow: isSelected ? `0 4px 20px ${accent}20` : "none",
       }}
     >
@@ -105,9 +105,9 @@ const AnswerOption = memo(function AnswerOption({
         className="w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 transition-all duration-200"
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          backgroundColor: isSelected ? accent : "rgba(216,243,220,0.07)",
-          color: isSelected ? "#212529" : "rgba(216,243,220,0.40)",
-          border: `1px solid ${isSelected ? accent : "rgba(216,243,220,0.12)"}`,
+          backgroundColor: isSelected ? accent : "rgba(232,251,253,0.07)",
+          color: isSelected ? "var(--color-hv-base)" : "rgba(232,251,253,0.40)",
+          border: `1px solid ${isSelected ? accent : "rgba(232,251,253,0.12)"}`,
         }}
       >
         {["A", "B", "C", "D"][index]}
@@ -117,7 +117,7 @@ const AnswerOption = memo(function AnswerOption({
         className="text-sm leading-relaxed flex-1"
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          color: isSelected ? "#D8F3DC" : "rgba(216,243,220,0.60)",
+          color: isSelected ? "var(--color-hv-text-primary)" : "rgba(232,251,253,0.60)",
           fontWeight: isSelected ? 600 : 400,
         }}
       >
@@ -137,7 +137,7 @@ const AnswerOption = memo(function AnswerOption({
             <svg width="10" height="10" viewBox="0 0 12 12" fill="none">
               <polyline
                 points="2 6 5 9 10 3"
-                stroke="#212529"
+                stroke="var(--color-hv-base)"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -211,7 +211,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             Tu perfil
           </div>
           <h3
-            className="text-[#D8F3DC] leading-tight mb-1"
+            className="text-[var(--color-hv-text-primary)] leading-tight mb-1"
             style={{
               fontFamily: "'Fraunces', serif",
               fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
@@ -232,7 +232,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             Te recomendamos: {profile.pet}
           </p>
           <p
-            className="text-[#D8F3DC]/65 text-sm leading-relaxed"
+            className="text-[var(--color-hv-text-primary)]/65 text-sm leading-relaxed"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
           >
             {profile.tagline}
@@ -262,7 +262,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           className="p-6 rounded-2xl flex flex-col gap-5"
           style={{
             background: "rgba(255,255,255,0.025)",
-            border: "1px solid rgba(216,243,220,0.08)",
+            border: "1px solid rgba(232,251,253,0.08)",
           }}
         >
           <div>
@@ -270,13 +270,13 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
               className="text-[0.65rem] font-bold tracking-widest uppercase mb-3"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                color: "rgba(216,243,220,0.30)",
+                color: "rgba(232,251,253,0.30)",
               }}
             >
               ¿Por qué este perfil?
             </p>
             <p
-              className="text-[#D8F3DC]/70 text-sm leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/70 text-sm leading-relaxed"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {profile.description}
@@ -300,7 +300,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
               🐾 ¿Por qué un animal rescatado?
             </p>
             <p
-              className="text-[#D8F3DC]/60 text-xs leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/60 text-xs leading-relaxed"
               style={{ fontFamily: "'DM Sans', sans-serif" }}
             >
               {profile.whyRescued}
@@ -317,7 +317,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                   →
                 </span>
                 <p
-                  className="text-[#D8F3DC]/55 text-xs leading-relaxed"
+                  className="text-[var(--color-hv-text-primary)]/55 text-xs leading-relaxed"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {tip}
@@ -332,14 +332,14 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             className="p-5 rounded-2xl flex flex-col gap-3"
             style={{
               background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(216,243,220,0.07)",
+              border: "1px solid rgba(232,251,253,0.07)",
             }}
           >
             <p
               className="text-[0.65rem] font-bold tracking-widest uppercase"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                color: "rgba(216,243,220,0.28)",
+                color: "rgba(232,251,253,0.28)",
               }}
             >
               Lo que implica
@@ -355,19 +355,19 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             ].map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col gap-0.5 py-2 border-b border-[#D8F3DC]/6 last:border-0"
+                className="flex flex-col gap-0.5 py-2 border-b border-[var(--color-hv-text-primary)]/6 last:border-0"
               >
                 <div className="flex items-center gap-1.5">
                   <span className="text-sm">{item.icon}</span>
                   <span
-                    className="text-[0.62rem] text-[#D8F3DC]/35"
+                    className="text-[0.62rem] text-[var(--color-hv-text-primary)]/35"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
                   >
                     {item.label}
                   </span>
                 </div>
                 <span
-                  className="text-xs font-semibold text-[#D8F3DC]/75 pl-5"
+                  className="text-xs font-semibold text-[var(--color-hv-text-primary)]/75 pl-5"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {item.value}
@@ -380,14 +380,14 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
             className="p-5 rounded-2xl flex flex-col gap-3"
             style={{
               background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(216,243,220,0.07)",
+              border: "1px solid rgba(232,251,253,0.07)",
             }}
           >
             <p
               className="text-[0.65rem] font-bold tracking-widest uppercase"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                color: "rgba(216,243,220,0.28)",
+                color: "rgba(232,251,253,0.28)",
               }}
             >
               Tu puntuación por perfil
@@ -401,7 +401,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                       className="text-[0.65rem]"
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
-                        color: "rgba(216,243,220,0.50)",
+                        color: "rgba(232,251,253,0.50)",
                       }}
                     >
                       {p.title.split(" ").slice(0, 2).join(" ")}
@@ -419,7 +419,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
                 </div>
                 <div
                   className="h-1.5 rounded-full overflow-hidden"
-                  style={{ backgroundColor: "rgba(216,243,220,0.07)" }}
+                  style={{ backgroundColor: "rgba(232,251,253,0.07)" }}
                 >
                   <m.div
                     className="h-full rounded-full"
@@ -450,7 +450,7 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           className="flex-1 flex items-center justify-center gap-2 py-4 rounded-2xl no-underline font-bold text-sm will-change-transform"
           style={{
             backgroundColor: profile.accent,
-            color: profile.accent === "#D8F3DC" ? "#212529" : "#fff",
+            color: profile.accent === "var(--color-hv-text-primary)" ? "var(--color-hv-base)" : "#fff",
             fontFamily: "'DM Sans', sans-serif",
             boxShadow: `0 4px 20px ${profile.accent}35`,
           }}
@@ -484,9 +484,9 @@ const ResultCard = memo(function ResultCard({ profile, scores, onRetry }) {
           onClick={onRetry}
           className="flex items-center justify-center gap-2 px-5 py-4 rounded-2xl border-0 cursor-pointer font-semibold text-sm"
           style={{
-            backgroundColor: "rgba(216,243,220,0.06)",
-            border: "1px solid rgba(216,243,220,0.12)",
-            color: "rgba(216,243,220,0.45)",
+            backgroundColor: "rgba(232,251,253,0.06)",
+            border: "1px solid rgba(232,251,253,0.12)",
+            color: "rgba(232,251,253,0.45)",
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
@@ -566,7 +566,7 @@ export default function PersonalityTest() {
     <LazyMotion features={domMax} strict>
       <section
         ref={sectionRef}
-        className="relative w-full bg-[#212529] py-30 px-4 md:px-8 overflow-hidden"
+        className="relative w-full bg-[var(--color-hv-base)] py-30 px-4 md:px-8 overflow-hidden"
       >
         <div
           className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -577,7 +577,7 @@ export default function PersonalityTest() {
             style={{
               width: 550,
               height: 550,
-              background: "#FF8C42",
+              background: "var(--color-hv-accent-coral)",
               top: "-10%",
               right: "-10%",
             }}
@@ -587,7 +587,7 @@ export default function PersonalityTest() {
             style={{
               width: 400,
               height: 400,
-              background: "#2DA14F",
+              background: "var(--color-hv-primary)",
               bottom: "5%",
               left: "-5%",
             }}
@@ -605,16 +605,16 @@ export default function PersonalityTest() {
             <div
               className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full border"
               style={{
-                backgroundColor: "rgba(255,140,66,0.10)",
-                borderColor: "rgba(255,140,66,0.28)",
+                backgroundColor: "rgba(255,107,91,0.10)",
+                borderColor: "rgba(255,107,91,0.28)",
               }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF8C42] pulse-dot" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-hv-accent-coral)] pulse-dot" />
               <span
                 className="text-[0.68rem] font-semibold tracking-[0.14em] uppercase"
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  color: "#FF8C42",
+                  color: "var(--color-hv-accent-coral)",
                 }}
               >
                 Descubre tu compañero ideal
@@ -622,7 +622,7 @@ export default function PersonalityTest() {
             </div>
 
             <h2
-              className="text-[#D8F3DC] leading-[1.1] tracking-[-0.03em] mb-4"
+              className="text-[var(--color-hv-text-primary)] leading-[1.1] tracking-[-0.03em] mb-4"
               style={{
                 fontFamily: "'Fraunces', serif",
                 fontSize: "clamp(2rem, 5vw, 3.2rem)",
@@ -630,10 +630,10 @@ export default function PersonalityTest() {
               }}
             >
               ¿Qué mascota va{" "}
-              <em className="not-italic text-[#FF8C42]">contigo?</em>
+              <em className="not-italic text-[var(--color-hv-accent-coral)]">contigo?</em>
             </h2>
             <p
-              className="text-[#D8F3DC]/50 max-w-md leading-relaxed"
+              className="text-[var(--color-hv-text-primary)]/50 max-w-md leading-relaxed"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
@@ -656,13 +656,13 @@ export default function PersonalityTest() {
                 <div className="flex items-center gap-4 mb-6">
                   <div
                     className="flex-1 h-1.5 rounded-full overflow-hidden"
-                    style={{ backgroundColor: "rgba(216,243,220,0.08)" }}
+                    style={{ backgroundColor: "rgba(232,251,253,0.08)" }}
                   >
                     <m.div
                       className="h-full rounded-full"
                       style={{
-                        background: "linear-gradient(90deg, #FF8C42, #ffaa6b)",
-                        boxShadow: "0 0 8px rgba(255,140,66,0.5)",
+                        background: "linear-gradient(90deg, var(--color-hv-accent-coral), var(--color-hv-accent-coral-light))",
+                        boxShadow: "0 0 8px rgba(255,107,91,0.5)",
                       }}
                       animate={{ width: `${progressPct}%` }}
                       transition={{
@@ -676,7 +676,7 @@ export default function PersonalityTest() {
                     className="shrink-0 text-xs font-semibold tabular-nums"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      color: "rgba(216,243,220,0.40)",
+                      color: "rgba(232,251,253,0.40)",
                     }}
                   >
                     {currentQ + 1} / {totalQ}
@@ -691,10 +691,10 @@ export default function PersonalityTest() {
                         width: i === currentQ ? 20 : 6,
                         backgroundColor:
                           i < currentQ
-                            ? "#2DA14F"
+                            ? "var(--color-hv-primary)"
                             : i === currentQ
-                              ? "#FF8C42"
-                              : "rgba(216,243,220,0.15)",
+                              ? "var(--color-hv-accent-coral)"
+                              : "rgba(232,251,253,0.15)",
                       }}
                       transition={{
                         type: "spring",
@@ -712,11 +712,11 @@ export default function PersonalityTest() {
                     background:
                       "linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
                     backdropFilter: "blur(14px)",
-                    border: "1px solid rgba(216,243,220,0.08)",
+                    border: "1px solid rgba(232,251,253,0.08)",
                     boxShadow: "0 8px 40px rgba(0,0,0,0.28)",
                   }}
                 >
-                  <div className="px-6 md:px-8 pt-8 pb-6 border-b border-[#D8F3DC]/6">
+                  <div className="px-6 md:px-8 pt-8 pb-6 border-b border-[var(--color-hv-text-primary)]/6">
                     <AnimatePresence custom={direction} mode="wait">
                       <m.div
                         key={question.id}
@@ -730,8 +730,8 @@ export default function PersonalityTest() {
                           <span
                             className="text-2xl w-12 h-12 flex items-center justify-center rounded-2xl shrink-0"
                             style={{
-                              backgroundColor: "rgba(255,140,66,0.12)",
-                              border: "1px solid rgba(255,140,66,0.25)",
+                              backgroundColor: "rgba(255,107,91,0.12)",
+                              border: "1px solid rgba(255,107,91,0.25)",
                             }}
                           >
                             {question.icon}
@@ -741,13 +741,13 @@ export default function PersonalityTest() {
                               className="text-[0.62rem] font-bold tracking-widest uppercase"
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
-                                color: "rgba(216,243,220,0.28)",
+                                color: "rgba(232,251,253,0.28)",
                               }}
                             >
                               Pregunta {currentQ + 1}
                             </p>
                             <h3
-                              className="text-[#D8F3DC] leading-snug"
+                              className="text-[var(--color-hv-text-primary)] leading-snug"
                               style={{
                                 fontFamily: "'Fraunces', serif",
                                 fontSize: "clamp(1rem, 2.5vw, 1.25rem)",
@@ -779,7 +779,7 @@ export default function PersonalityTest() {
                             index={i}
                             isSelected={selected === i}
                             onSelect={() => handleAnswer(i)}
-                            accent="#FF8C42"
+                            accent="var(--color-hv-accent-coral)"
                           />
                         ))}
                       </m.div>
@@ -795,12 +795,12 @@ export default function PersonalityTest() {
                       className="flex items-center gap-2 px-5 py-3 rounded-xl border-0 cursor-pointer text-sm font-semibold transition-all duration-200"
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
-                        backgroundColor: "rgba(216,243,220,0.05)",
-                        border: "1px solid rgba(216,243,220,0.10)",
+                        backgroundColor: "rgba(232,251,253,0.05)",
+                        border: "1px solid rgba(232,251,253,0.10)",
                         color:
                           currentQ > 0
-                            ? "rgba(216,243,220,0.55)"
-                            : "rgba(216,243,220,0.18)",
+                            ? "rgba(232,251,253,0.55)"
+                            : "rgba(232,251,253,0.18)",
                         cursor: currentQ === 0 ? "not-allowed" : "pointer",
                       }}
                     >
@@ -812,7 +812,7 @@ export default function PersonalityTest() {
                         canAdvance
                           ? {
                               x: 2,
-                              boxShadow: "0 6px 24px rgba(255,140,66,0.40)",
+                              boxShadow: "0 6px 24px rgba(255,107,91,0.40)",
                             }
                           : {}
                       }
@@ -823,12 +823,12 @@ export default function PersonalityTest() {
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
                         backgroundColor: canAdvance
-                          ? "#FF8C42"
-                          : "rgba(255,140,66,0.15)",
-                        color: canAdvance ? "#fff" : "rgba(255,140,66,0.35)",
+                          ? "var(--color-hv-accent-coral)"
+                          : "rgba(255,107,91,0.15)",
+                        color: canAdvance ? "#fff" : "rgba(255,107,91,0.35)",
                         cursor: canAdvance ? "pointer" : "not-allowed",
                         boxShadow: canAdvance
-                          ? "0 2px 16px rgba(255,140,66,0.35)"
+                          ? "0 2px 16px rgba(255,107,91,0.35)"
                           : "none",
                       }}
                     >

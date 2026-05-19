@@ -31,22 +31,22 @@ export const ONE_TIME_COSTS = {
 };
 
 export const EXPENSE_META = {
-  food:         { label: "Alimentación",       icon: "🍖", color: "#2DA14F",  desc: "Alimento balanceado de calidad",     tip: "Comprar al por mayor y marcas nacionales puede reducir este costo hasta 30%." },
-  health:       { label: "Salud mensual",       icon: "💊", color: "#FF8C42",  desc: "Desparasitación, antipulgas, vitaminas", tip: "La prevención mensual es más económica que tratar enfermedades." },
-  grooming:     { label: "Higiene y estética",  icon: "🏠", color: "#D8F3DC",  desc: "Baño, corte de uñas, oídos",       tip: "Aprender a bañar a tu mascota en casa reduce este gasto a casi cero." },
-  accessories:  { label: "Accesorios",          icon: "🎀", color: "#FF8C42",  desc: "Ropa, juguetes, correa, collar",   tip: "Los juguetes caseros y ropa básica pueden cubrir esta necesidad." },
-  treats:       { label: "Premios y snacks",    icon: "🦴", color: "#2DA14F",  desc: "Premios para entrenamiento y amor",tip: "Vegetales como zanahoria o manzana son snacks económicos y saludables." },
+  food:         { label: "Alimentación",       icon: "🍖", color: "#00B8CC",  desc: "Alimento balanceado de calidad",     tip: "Comprar al por mayor y marcas nacionales puede reducir este costo hasta 30%." },
+  health:       { label: "Salud mensual",       icon: "💊", color: "#FF6B5B",  desc: "Desparasitación, antipulgas, vitaminas", tip: "La prevención mensual es más económica que tratar enfermedades." },
+  grooming:     { label: "Higiene y estética",  icon: "🏠", color: "#E8FBFD",  desc: "Baño, corte de uñas, oídos",       tip: "Aprender a bañar a tu mascota en casa reduce este gasto a casi cero." },
+  accessories:  { label: "Accesorios",          icon: "🎀", color: "#FF6B5B",  desc: "Ropa, juguetes, correa, collar",   tip: "Los juguetes caseros y ropa básica pueden cubrir esta necesidad." },
+  treats:       { label: "Premios y snacks",    icon: "🦴", color: "#00B8CC",  desc: "Premios para entrenamiento y amor",tip: "Vegetales como zanahoria o manzana son snacks económicos y saludables." },
 };
 
 export const ONE_TIME_META = {
-  sterilization: { label: "Esterilización",    icon: "🩺", color: "#2DA14F" },
-  vaccines:      { label: "Vacunas (primer año)",icon: "💉", color: "#FF8C42" },
-  microchip:     { label: "Microchip",          icon: "📡", color: "#D8F3DC" },
-  initialVet:    { label: "Consulta inicial",   icon: "🏥", color: "#2DA14F" },
-  bed:           { label: "Cama/refugio",       icon: "🛏️", color: "#FF8C42" },
-  leash:         { label: "Correa y collar",    icon: "🔗", color: "#2DA14F" },
-  litter_box:    { label: "Caja de arena",      icon: "📦", color: "#FF8C42" },
-  bowls:         { label: "Platos y bebedero",  icon: "🥣", color: "#D8F3DC" },
+  sterilization: { label: "Esterilización",    icon: "🩺", color: "#00B8CC" },
+  vaccines:      { label: "Vacunas (primer año)",icon: "💉", color: "#FF6B5B" },
+  microchip:     { label: "Microchip",          icon: "📡", color: "#E8FBFD" },
+  initialVet:    { label: "Consulta inicial",   icon: "🏥", color: "#00B8CC" },
+  bed:           { label: "Cama/refugio",       icon: "🛏️", color: "#FF6B5B" },
+  leash:         { label: "Correa y collar",    icon: "🔗", color: "#00B8CC" },
+  litter_box:    { label: "Caja de arena",      icon: "📦", color: "#FF6B5B" },
+  bowls:         { label: "Platos y bebedero",  icon: "🥣", color: "#E8FBFD" },
 };
 
 export const SAVINGS_TIPS = [
