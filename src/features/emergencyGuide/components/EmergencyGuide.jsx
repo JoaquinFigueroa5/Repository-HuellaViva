@@ -570,7 +570,7 @@ export default function EmergencyGuide() {
               animate={sectionInView ? "visible" : "hidden"}
               className="flex flex-col gap-5 lg:sticky lg:top-24"
             >
-              <div
+              {/* <div
                 className="p-5 rounded-2xl relative overflow-hidden"
                 style={{
                   background:
@@ -626,7 +626,7 @@ export default function EmergencyGuide() {
                   <FaPhoneAlt size={13} />
                   Llamar Bomberos · 122
                 </m.a>
-              </div>
+              </div> */}
 
               <div
                 className="p-5 rounded-2xl"

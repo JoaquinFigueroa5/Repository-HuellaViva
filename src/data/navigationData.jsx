@@ -6,7 +6,7 @@ import {
 
 export const NAV_LINKS = [
   { label: "Inicio", href: "/" },
-  { label: "Guia emergencia", href: "/emergency" },
+  // { label: "Guia emergencia", href: "/emergency" },
   { label: "Formas de reportar", href: "/report" },
   { label: "Test de mascota", href: "/test" },
   { label: "Carteles", href: "/poster" },
